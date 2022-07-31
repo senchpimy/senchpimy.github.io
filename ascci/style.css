@@ -1,0 +1,334 @@
+
+.kaomoji{
+    color: seashell;
+    font-size: 15px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap; 
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+.grid{
+    --gap: 10px;
+    --num-cols: 4;
+
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 5;
+}
+
+#david{
+    color: seashell;
+    font-size: 5px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+  float: inline-start;
+  margin: 10px;
+}
+
+#dred{
+    color: seashell;
+    font-size: 20px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#hitman{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#shiva{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#wormhole{
+    color: seashell;
+    font-size: 12px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#computer{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#troll{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap; 
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#joker{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;   
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#breakingbad{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;   
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#son{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;   
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}  
+
+#oil{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;  
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    float: inline-end;
+
+}
+
+#handsome{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;   
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#xina{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;   
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#chad{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-end;
+    margin: 10px;
+}
+#wojack{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#today{
+    color: seashell;
+    font-size: 16px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#nagatoro{
+    color: seashell;
+    font-size: 9px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-end;
+    margin: 10px;
+}
+#shroomjack{
+    color: seashell;
+    font-size: 16px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#morfeo{
+    color: seashell;
+    font-size: 14px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#crowley{
+    color: seashell;
+    font-size: 19px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-end;
+    margin: 10px;
+}
+#bog{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#nerv{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+#woman{
+    color: seashell;
+    font-size: 5px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-end;
+    margin: 10px;
+}
+#lain{
+    color: seashell;
+    font-size: 5px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#rei{
+    color: seashell;
+    font-size: 5px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;  
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+#lain2{
+    color: rgb(255, 255, 255);
+    font-size: 3px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;  
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}
+
+
+#rosa{
+    color: seashell;
+    font-size: 2px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;  
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+    margin: 10px;
+}

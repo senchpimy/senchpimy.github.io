@@ -1,0 +1,37 @@
+.codigo{
+  height: fit-content;
+  background-color: rgb(74, 80, 80);
+  color: blanchedalmond;
+  white-space: pre-wrap;
+  font-size: 11px;
+  padding: 10px;
+  border-radius: 25px;
+  margin: 40px;
+}
+.video{
+  margin: 20px;
+  margin-left: 30%;
+  margin-right: auto;
+}
+#imagenes {
+  --gap: 10px;
+  --num-cols: 2;
+  --row-height: 400px;
+
+  box-sizing: border-box;
+  padding:20px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+  gap: var(--gap);
+}
+
+#imagenes > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+
+}

@@ -1,0 +1,155 @@
+@keyframes glitch {
+	0% {text-shadow: 0px -3px 0px white;}
+	10% {text-shadow: 3px 1px 0px white;}
+	20% {text-shadow: -2px 2px 0px white;}
+	30% {text-shadow: 1px -1px 0px white;}
+	40% {text-shadow: -3px 3px 0px white;}
+	50% {text-shadow: 2px -2px 0px white;}
+	60% {text-shadow: -1px 0px 0px white;}
+	70% {text-shadow: 3px 3px 0px white;}
+	80% {text-shadow: 0px -2px 0px white;}
+	90% {text-shadow: -1px 2px 0px white;}
+	100% {text-shadow: 2px 0px 0px white;}
+
+}
+
+.title{
+    color: rgb(90, 26, 87); 
+    font-size: 10%;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    font-size: 110%;
+    white-space: pre-wrap;
+}
+
+body{
+    background-color:rgb(15, 13, 13);
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(90, 26, 87);
+    margin: 5%;
+}
+.contenidos{
+    --gap: 5px;
+    --num-cols: 4;
+    --row-height: 40%;
+    height: 50px;
+    background-color: rgb(109, 117, 190);
+    font-size: 150%;
+    font-weight: 1000;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    border:5px solid rgb(22, 88, 51);
+    margin: 50px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    gap: var(--gap);
+    padding: 4px;
+}
+.contenidos>a{
+    color:rgb(90, 26, 87);
+}
+.contenidos>a:hover{
+    animation-name: glitch;animation-duration: 1s;animation-iteration-count: infinite;
+}
+.texto{
+    color: seashell;
+    font-size: 15px;
+    margin: 2px;
+    text-align: justify;
+}
+
+.image-grid {
+    --gap: 10px;
+    --num-cols: 4;
+    --row-height: 300px;
+  
+    box-sizing: border-box;
+    padding:20px;
+  
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+    border-radius: 5px;
+    border:10px solid rgb(46, 139, 87) ;
+  }
+  
+  .image-grid > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+
+
+  }
+  
+  .image-grid-col-2 {
+    grid-column: span 2;
+  }
+  
+  .image-grid-row-2 {
+    grid-row: span 2;
+  }
+  .full {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  .contenidos>a:hover{
+    animation-name: glitch;animation-duration: 1s;animation-iteration-count: infinite;
+}
+
+.texto{
+    color: seashell;
+    font-size: 20px;
+    margin: 2px;
+    text-align: justify;
+}
+.documentos {
+    --gap: 10px;
+    --num-cols: 4;
+    --row-height: 200px;
+  
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+    margin: auto;
+    position: relative;
+  }
+  
+  .enlace  {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .enlace  > img{
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+.desc{
+  position:relative;
+  bottom: 28px;
+  color: aqua;
+  background-color: black;
+  width: 250px;
+  height: 30px;
+  text-align: center;
+}
+
+
+
+  /* Anything udner 1024px */
+  @media screen and (max-width: 1024px) {
+    .image-grid {
+      --num-cols: 2;
+      --row-height: 200px;
+    }
+  }
+  
