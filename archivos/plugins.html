@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<head>
+    <h1>>Configuracion de Neovim</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+    <div class="texto">
+En esta entrada explicare todos los plugins que tengo en neovim y que funcion cumplen, asi sobre como estan configurados en mi init.vim y por que esos y no otros
+    </div>
+    <h1>
+Indentline
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/Yggdroot/indentLine">Vim Indentline</a> es un plugin simple que solo agrega una barra como "|" cuando se detecta un indentLine, mis configuraciones son las siguientes
+    </div>
+    <div class="codigo">
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_enabled = 0
+nmap &ltspace&gtl &ltcmd&gtIndentLinesToggle&ltCR&gt
+    </div>
+    <div class="text">
+	    Lo que hacen es que conforme existan mas indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
+	    y la segunda configuracion hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
+	    La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive
+    </div>
+    <h1>
+    	Rnvimr
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/kevinhwang91/rnvimr">Rnvimr</a> es un plugin que hace que se pueda ejecutar el administrador de archivos ranger desde neovim, esto lo incluye con todos los comandos que tengas configurados en ranger 
+    </div>
+    <div class="codigo">
+nmap &ltspace&gtr &ltcmd&gtRnvimrToggle&ltCR&gt
+    </div>
+    <div class="text">
+	    Esa unica linea de configuracion hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver mas opciones de su uso, se sale de la aplicacion con "q", si se ejecuta en la aplicacion de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso tambien cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuracion era la siguiente
+    </div>
+    <div class="codigo">
+nmap &ltspace&gtq &ltcmd&gtq &ltbar&gt&ltcmd&gtq
+    </div>
+    <h1>
+Markdown-previous.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/iamcco/markdown-preview.nvim">Markdown-previous.nvim</a> es un plugin que como su nombre lo dice da una preview de un archivo Markdown (.md, .MD), para que este plugin funcione se debe tener instalado <b>yarn</b> y <b>node</b>, este plugin funciona con muchos tipos de archivos que crean archivos de texto, ademas que cualquier cambio se ve reflejado en tiempo real en la previsualizacion en el navegador que especifiques, en mi caso <b>qutebrowser</b> y para hacerlo solo use la linea de a continuacion
+    </div>
+    <div class="codigo">
+let g:mkdp_browser = 'qutebrowser'
+    </div>
+    <h1>
+	    Pywal
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/AlphaTechnolog/pywal.nvim">Pywal</a> es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de <a href="https://github.com/dylanaraps/wal.vim">wal.vim</a> aunque ambos cumplen la misma funcion pywal lo hace con la configuracion de neovim <b>"set termguicolors" </b> que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuracion, para este plugin no existe cconfiguracion extra 
+    </div>
+    <h1>
+	    Telescope.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/nvim-telescope/telescope.nvim">Telescope.nvim</a> es un buscador multiusos de neovim, tiene varias funciones y muchas no las utilizo, solo lo ocupo para estas tres funciones
+    </div>
+    <div class="codigo">
+nmap &ltspace&gto &ltcmd&gtTelescope oldfiles&ltCR&gt
+nmap &ltspace&gtf &ltcmd&gtTelescope find_files&ltCR&gt
+nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR&gt
+    </div>
+    <div class="text">
+	    Lo que hacen es abrir los archivos recientemente editados en neovim, busca archivos y me permite moverme entre differentes buffers, esto con las siguientes teclas "Espacio+o"=Archivos recientemente editados
+	    "Espacio+f"=Buscar archivos
+	    "Espacio+b"=Mostrar los diferentes buffers abiertos
+
+    </div>
+    <div class="text">
+	    Este plugin tiene muchas otras funciones, yo lo ocupo para moverme mas rapido entre mis archivos, este plugins requiere de otro plugin llamado plenary.nvim
+    </div>
+    <h1>
+	    coc.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/neoclide/coc.nvim">Coc.nvim</a> Es un plugin que funciona para atuocompletar codigo en diferentes lenguajes de programacion, se requiere mucha configuracion pero, existe una configuracion por defecto que esta disponible en la pagina de github del el programa, esa misma configuracion es la que uso y la que me funciona bien
+    </div>
+    <div class="codigo">
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap &lttab&gt' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap &ltsilent&gt&ltexpr&gt &ltTA&&gt
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\&ltTab&gt" :
+      \ coc#refresh()
+inoremap &ltexpr&gt&ltS-TAB&gt coc#pum#visible() ? coc#pum#prev(1) : "\&ltC-h&gt"
+
+" Make &ltCR&gt to accept selected completion item or notify coc.nvim to format
+" &ltC-g&gtu breaks current undo, please make your own choice.
+inoremap &ltsilent&gt&ltexpr&gt &ltCR&gt coc#pum#visible() ? coc#pum#confirm()
+                              \: "\&ltC-g&gtu\&ltCR&gt\&ltc-r&gt=coc#on_enter()\&ltCR&gt"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use &ltc-space&gt to trigger completion.
+if has('nvim')
+  inoremap &ltsilent&gt&ltexpr&gt &ltc-space&gt coc#refresh()
+else
+  inoremap &ltsilent&gt&ltexpr&gt &ltc-@&gt coc#refresh()
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap &ltsilent&gt [g &ltPlug&gt(coc-diagnostic-prev)
+nmap &ltsilent&gt ]g &ltPlug&gt(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap &ltsilent&gt gd &ltPlug&gt(coc-definition)
+nmap &ltsilent&gt gy &ltPlug&gt(coc-type-definition)
+nmap &ltsilent&gt gi &ltPlug&gt(coc-implementation)
+nmap &ltsilent&gt gr &ltPlug&gt(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap &ltsilent&gt K :call ShowDocumentation()&ltCR&gt
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap &ltleader&gtrn &ltPlug&gt(coc-rename)
+
+" Formatting selected code.
+xmap &ltleader&gtf  &ltPlug&gt(coc-format-selected)
+nmap &ltleader&gtf  &ltPlug&gt(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `&ltleader&gtaap` for current paragraph
+xmap &ltleader&gta  &ltPlug&gt(coc-codeaction-selected)
+nmap &ltleader&gta  &ltPlug&gt(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap &ltleader&gtac  &ltPlug&gt(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap &ltleader&gtqf  &ltPlug&gt(coc-fix-current)
+
+" Run the Code Lens action on the current line.
+nmap &ltleader&gtcl  &ltPlug&gt(coc-codelens-action)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if &ltPlug&gt(coc-funcobj-i)
+omap if &ltPlug&gt(coc-funcobj-i)
+xmap af &ltPlug&gt(coc-funcobj-a)
+omap af &ltPlug&gt(coc-funcobj-a)
+xmap ic &ltPlug&gt(coc-classobj-i)
+omap ic &ltPlug&gt(coc-classobj-i)
+xmap ac &ltPlug&gt(coc-classobj-a)
+omap ac &ltPlug&gt(coc-classobj-a)
+
+" Remap &ltC-f&gt and &ltC-b&gt for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap &ltsilent&gt&ltnowait&gt&ltexpr&gt &ltC-f&gt coc#float#has_scroll() ? coc#float#scroll(1) : "\&ltC-f&gt"
+  nnoremap &ltsilent&gt&ltnowait&gt&ltexpr&gt &ltC-b&gt coc#float#has_scroll() ? coc#float#scroll(0) : "\&ltC-b&gt"
+  inoremap &ltsilent&gt&ltnowait&gt&ltexpr&gt &ltC-f&gt coc#float#has_scroll() ? "\&ltc-r&gt=coc#float#scroll(1)\&ltcr&gt" : "\&ltRight&gt"
+  inoremap &ltsilent&gt&ltnowait&gt&ltexpr&gt &ltC-b&gt coc#float#has_scroll() ? "\&ltc-r&gt=coc#float#scroll(0)\&ltcr&gt" : "\&ltLeft&gt"
+  vnoremap &ltsilent&gt&ltnowait&gt&ltexpr&gt &ltC-f&gt coc#float#has_scroll() ? coc#float#scroll(1) : "\&ltC-f&gt"
+  vnoremap &ltsilent&gt&ltnowait&gt&ltexpr&gt &ltC-b&gt coc#float#has_scroll() ? coc#float#scroll(0) : "\&ltC-b&gt"
+endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap &ltsilent&gt &ltC-s&gt &ltPlug&gt(coc-range-select)
+xmap &ltsilent&gt &ltC-s&gt &ltPlug&gt(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', &ltf-args&gt)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gta  :&ltC-u&gtCocList diagnostics&ltcr&gt
+" Manage extensions.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gte  :&ltC-u&gtCocList extensions&ltcr&gt
+" Show commands.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gtc  :&ltC-u&gtCocList commands&ltcr&gt
+" Find symbol of current document.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gto  :&ltC-u&gtCocList outline&ltcr&gt
+" Search workspace symbols.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gts  :&ltC-u&gtCocList -I symbols&ltcr&gt
+" Do default action for next item.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gtj  :&ltC-u&gtCocNext&ltCR&gt
+" Do default action for previous item.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gtk  :&ltC-u&gtCocPrev&ltCR&gt
+" Resume latest coc list.
+nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gtp  :&ltC-u&gtCocListResume&ltCR&gt
+    </div>
+    <h1>
+	    nvim-web-devicons
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/kyazdani42/nvim-web-devicons">Nvim-web-devicons</a> son solo iconos para otros programas como es <b>CHADtree</b>
+    </div>
+<div id="imagenes" >
+    <img src="./nvimicons.png" alt="">
+    </div>
+    <h1>
+gitsigns.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/lewis6991/gitsigns.nvim">Gitsigns.nvim</a> es un plugin que nos deja usar y ver muchas funciones relacionadas el programa git (control y manejo de versiones de software) para poder ver en un archivo que lineas fueron eliminadas, en que commits y cuando se agreagron otras lineas, entre mucas otras funciones, esta escrito en lua y para poder ocuparlo es necesario que neovim lo llame, en un archivo de configuracion de vimscript para neovim (init.vim) se necesitan las siguietes tres lineas
+    </div>
+    <div class="codigo">
+lua &gt&gt END
+require('gitsigns').setup()
+END
+    </div>
+    <div class="text">
+	    El plugin tiene muchas otras configuraciones, pero por el momento no ocupo ninguna
+    </div>
+    <h1>
+	    vim-sorround
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/tpope/vim-surround">Vim-sorround</a> es un plugin que por medio de comando cambia, elimina o añade elementos a una palabra, palabras o linea especificada, este no requiere de configuracion  
+    </div>
+    <h1>
+	    suda.vim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/lambdalisue/suda.vim">Suda.vim</a> es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, est eplugin tiene 2 configuraciones, una es para que automaticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
+    </div>
+    <h1>
+	    Vim-Lastplace
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/farmergreg/vim-lastplace">Vim-Lastplace</a> es un plugin que al momento de editar un archivo, cerrarlo y abrirlo de nuevo, el curso aparecera justo en la posicion anterior, justo antes de cerrarlo, tiene unas configuracions pero yo ocupo ninguna
+    </div>
+    <h1>
+	    CHADtree
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/ms-jpq/chadtree">CHADtree</a> es un plugin que habre un arbol de archivos en la parte derecha de la pantalla, es un poco redundante tener <b>Rnvimr</b>, <b>Telescope</b> y Chadtree pues cumplen casi la misma funcion pero las pocas diferencias que tienen, hace que me sirvan para cosas distintas.
+	    CHADtree tiene varias configuraciones pero yo no ocupo ninguna
+    </div>
+    <h1>
+	    Lualine.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/nvim-lualine/lualine.nvim">Lualine.nvim</a> es un plugin que modifica la linea de estado de neovim logrando mostar mas informacion que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rapida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin <b>gitsigns</b> solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
+    </div>
+    <div class="codigo">
+require('lualine').setup()
+    </div>
+    <div class="text">
+	    Si no tienes gitsigns hay que agregar todo lo siguiente
+    </div>    <div class="codigo">
+lua &gt&gt END
+require('lualine').setup()
+END
+    </div>
+    <h1>
+	    Dashboard.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/glepnir/dashboard-nvim">Dashboard.nvim</a> es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia version y meti los cambio en el codigo fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuracion se hace al igual que <b>gitsigns</b> y <b>lualine</b> 
+    </div>
+    <div class="codigo">
+	    local db = require('dashboard')
+	    db. <i><b>valor-a-configurar</b></i>= <i>valor</i>
+    </div>
+    <div class="imagenes">
+    <img src="./dashboard1.png" alt="">
+    <img src="./dashboard2.png" alt="">
+    </div>
+    <h1>
+	    Vim-cool
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/romainl/vim-cool">Vim-cool</a> desactiva el destacado en las palabras que hace vim despues de que terminas de buscar algo, y lo vuele a activar cuando buscas algo de nuevo, tiene solo una configuracion pero no la uso
+    </div>
+    <h1>
+	    Vim-hexokinase
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/RRethy/vim-hexokinase">Vim-hexokinase</a> vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que esta escribiendo, en mi caso esta configurado para colorear las letras de el color que representan, la unica configuracion que tengo es para poder lograr este efecto
+    </div>
+    <div class="codigo">
+let g:Hexokinase_highlighters = ['backgroundfull']
+    </div>
+    <h1>
+	    Hop.nvim
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/phaazon/hop.nvim">Hop.nvim</a> es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar esta letra el programa nos llevara al inicio de la letra que seleccionamos
+	    Este programa tiene una configuracion similar a <b>gitsigns y lualine</b>
+    </div>
+    <div class="codigo">
+require'hop'.setup()
+    </div>
