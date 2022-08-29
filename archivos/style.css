@@ -35,3 +35,9 @@
 
 
 }
+
+.Despreciado:after{
+	content:"Este plugin ya no lo ocupo";
+	font-size:0.5em;
+	color: rgb(240,0,100);
+}

@@ -30,7 +30,7 @@ nmap &ltspace&gtl &ltcmd&gtIndentLinesToggle&ltCR&gt
 	    y la segunda configuracion hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
 	    La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive
     </div>
-    <h1>
+    <h1 class="Despreciado">
     	Rnvimr
     </h1>
     <div class="text">
@@ -334,6 +334,19 @@ let g:Hexokinase_highlighters = ['backgroundfull']
     </h1>
     <div class="text">
 	    <a href="https://github.com/phaazon/hop.nvim">Hop.nvim</a> es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar esta letra el programa nos llevara al inicio de la letra que seleccionamos
+	    Este programa tiene una configuracion similar a <b>gitsigns y lualine</b>
+    </div>
+    <div class="codigo">
+require'hop'.setup()
+    </div>
+    <h1>
+	   Lf.nvim 
+    </h1>
+    <div class="text">
+	    <a href="https://github.com/lmburns/lf.nvim">lf.nvim</a> lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
+
+	    Entonce por que cambiar?
+	    Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rapido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf
 	    Este programa tiene una configuracion similar a <b>gitsigns y lualine</b>
     </div>
     <div class="codigo">
