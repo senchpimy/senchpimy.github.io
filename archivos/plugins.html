@@ -17,7 +17,7 @@ En esta entrada explicare todos los plugins que tengo en neovim y que funcion cu
     <h1>
 Indentline
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/Yggdroot/indentLine">Vim Indentline</a> es un plugin simple que solo agrega una barra como "|" cuando se detecta un indentLine, mis configuraciones son las siguientes
     </div>
     <div class="codigo">
@@ -26,7 +26,7 @@ let g:indentLine_enabled = 0
 nmap &ltspace&gtl &ltcmd&gtIndentLinesToggle&ltCR&gt
 autocmd FileType python IndentLinesToggle
     </div>
-    <div class="text">
+    <div class="texto">
 	    Lo que hacen es que conforme existan mas indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
 	    y la segunda configuracion hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
 	    La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive y la cuarta hace que cuando detecte un archivo de python se active automaticamente
@@ -34,13 +34,13 @@ autocmd FileType python IndentLinesToggle
     <h1 class="Despreciado">
     	Rnvimr
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/kevinhwang91/rnvimr">Rnvimr</a> es un plugin que hace que se pueda ejecutar el administrador de archivos ranger desde neovim, esto lo incluye con todos los comandos que tengas configurados en ranger 
     </div>
     <div class="codigo">
 nmap &ltspace&gtr &ltcmd&gtRnvimrToggle&ltCR&gt
     </div>
-    <div class="text">
+    <div class="texto">
 	    Esa unica linea de configuracion hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver mas opciones de su uso, se sale de la aplicacion con "q", si se ejecuta en la aplicacion de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso tambien cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuracion era la siguiente
     </div>
     <div class="codigo">
@@ -49,7 +49,7 @@ nmap &ltspace&gtq &ltcmd&gtq &ltbar&gt&ltcmd&gtq
     <h1>
 Markdown-previous.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/iamcco/markdown-preview.nvim">Markdown-previous.nvim</a> es un plugin que como su nombre lo dice da una preview de un archivo Markdown (.md, .MD), para que este plugin funcione se debe tener instalado <b>yarn</b> y <b>node</b>, este plugin funciona con muchos tipos de archivos que crean archivos de texto, ademas que cualquier cambio se ve reflejado en tiempo real en la previsualizacion en el navegador que especifiques, en mi caso <b>qutebrowser</b> y para hacerlo solo use la linea de a continuacion
     </div>
     <div class="codigo">
@@ -58,13 +58,13 @@ let g:mkdp_browser = 'qutebrowser'
     <h1>
 	    Pywal
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/AlphaTechnolog/pywal.nvim">Pywal</a> es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de <a href="https://github.com/dylanaraps/wal.vim">wal.vim</a> aunque ambos cumplen la misma funcion pywal lo hace con la configuracion de neovim <b>"set termguicolors" </b> que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuracion, para este plugin no existe cconfiguracion extra 
     </div>
     <h1>
 	    Telescope.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/nvim-telescope/telescope.nvim">Telescope.nvim</a> es un buscador multiusos de neovim, tiene varias funciones y muchas no las utilizo, solo lo ocupo para estas tres funciones
     </div>
     <div class="codigo">
@@ -72,19 +72,19 @@ nmap &ltspace&gto &ltcmd&gtTelescope oldfiles&ltCR&gt
 nmap &ltspace&gtf &ltcmd&gtTelescope find_files&ltCR&gt
 nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR&gt
     </div>
-    <div class="text">
+    <div class="texto">
 	    Lo que hacen es abrir los archivos recientemente editados en neovim, busca archivos y me permite moverme entre differentes buffers, esto con las siguientes teclas "Espacio+o"=Archivos recientemente editados
 	    "Espacio+f"=Buscar archivos
 	    "Espacio+b"=Mostrar los diferentes buffers abiertos
 
     </div>
-    <div class="text">
+    <div class="texto">
 	    Este plugin tiene muchas otras funciones, yo lo ocupo para moverme mas rapido entre mis archivos, este plugins requiere de otro plugin llamado plenary.nvim
     </div>
     <h1>
 	    coc.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/neoclide/coc.nvim">Coc.nvim</a> Es un plugin que funciona para atuocompletar codigo en diferentes lenguajes de programacion, se requiere mucha configuracion pero, existe una configuracion por defecto que esta disponible en la pagina de github del el programa, esa misma configuracion es la que uso y la que me funciona bien
     </div>
     <div class="codigo">
@@ -240,7 +240,7 @@ nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gtp  :&ltC-u&gtCocListResume&ltCR&gt
     <h1>
 	    nvim-web-devicons
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/kyazdani42/nvim-web-devicons">Nvim-web-devicons</a> son solo iconos para otros programas como es <b>CHADtree</b>
     </div>
 <div id="imagenes" >
@@ -249,7 +249,7 @@ nnoremap &ltsilent&gt&ltnowait&gt &ltspace&gtp  :&ltC-u&gtCocListResume&ltCR&gt
     <h1>
 gitsigns.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/lewis6991/gitsigns.nvim">Gitsigns.nvim</a> es un plugin que nos deja usar y ver muchas funciones relacionadas el programa git (control y manejo de versiones de software) para poder ver en un archivo que lineas fueron eliminadas, en que commits y cuando se agreagron otras lineas, entre mucas otras funciones, esta escrito en lua y para poder ocuparlo es necesario que neovim lo llame, en un archivo de configuracion de vimscript para neovim (init.vim) se necesitan las siguietes tres lineas
     </div>
     <div class="codigo">
@@ -257,44 +257,44 @@ lua &gt&gt END
 require('gitsigns').setup()
 END
     </div>
-    <div class="text">
+    <div class="texto">
 	    El plugin tiene muchas otras configuraciones, pero por el momento no ocupo ninguna
     </div>
     <h1>
 	    vim-sorround
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/tpope/vim-surround">Vim-sorround</a> es un plugin que por medio de comando cambia, elimina o añade elementos a una palabra, palabras o linea especificada, este no requiere de configuracion  
     </div>
     <h1>
 	    suda.vim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/lambdalisue/suda.vim">Suda.vim</a> es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, est eplugin tiene 2 configuraciones, una es para que automaticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
     </div>
     <h1>
 	    Vim-Lastplace
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/farmergreg/vim-lastplace">Vim-Lastplace</a> es un plugin que al momento de editar un archivo, cerrarlo y abrirlo de nuevo, el curso aparecera justo en la posicion anterior, justo antes de cerrarlo, tiene unas configuracions pero yo ocupo ninguna
     </div>
     <h1>
 	    CHADtree
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/ms-jpq/chadtree">CHADtree</a> es un plugin que habre un arbol de archivos en la parte derecha de la pantalla, es un poco redundante tener <b>Rnvimr</b>, <b>Telescope</b> y Chadtree pues cumplen casi la misma funcion pero las pocas diferencias que tienen, hace que me sirvan para cosas distintas.
 	    CHADtree tiene varias configuraciones pero yo no ocupo ninguna
     </div>
     <h1>
 	    Lualine.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/nvim-lualine/lualine.nvim">Lualine.nvim</a> es un plugin que modifica la linea de estado de neovim logrando mostar mas informacion que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rapida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin <b>gitsigns</b> solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
     </div>
     <div class="codigo">
 require('lualine').setup()
     </div>
-    <div class="text">
+    <div class="texto">
 	    Si no tienes gitsigns hay que agregar todo lo siguiente
     </div>    <div class="codigo">
 lua &gt&gt END
@@ -304,7 +304,7 @@ END
     <h1>
 	    Dashboard.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/glepnir/dashboard-nvim">Dashboard.nvim</a> es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia version y meti los cambio en el codigo fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuracion se hace al igual que <b>gitsigns</b> y <b>lualine</b> 
     </div>
     <div class="codigo">
@@ -318,13 +318,13 @@ END
     <h1>
 	    Vim-cool
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/romainl/vim-cool">Vim-cool</a> desactiva el destacado en las palabras que hace vim despues de que terminas de buscar algo, y lo vuele a activar cuando buscas algo de nuevo, tiene solo una configuracion pero no la uso
     </div>
     <h1>
 	    Vim-hexokinase
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/RRethy/vim-hexokinase">Vim-hexokinase</a> vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que esta escribiendo, en mi caso esta configurado para colorear las letras de el color que representan, la unica configuracion que tengo es para poder lograr este efecto
     </div>
     <div class="codigo">
@@ -333,7 +333,7 @@ let g:Hexokinase_highlighters = ['backgroundfull']
     <h1>
 	    Hop.nvim
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/phaazon/hop.nvim">Hop.nvim</a> es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar esta letra el programa nos llevara al inicio de la letra que seleccionamos
 	    Este programa tiene una configuracion similar a <b>gitsigns y lualine</b>
     </div>
@@ -343,7 +343,7 @@ require'hop'.setup()
     <h1>
 	   Lf.nvim 
     </h1>
-    <div class="text">
+    <div class="texto">
 	    <a href="https://github.com/lmburns/lf.nvim">lf.nvim</a> lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
 	    Entonce por que cambiar?
@@ -355,13 +355,13 @@ require'hop'.setup()
 	    default_cmd="lfrun"
 	    })
     </div>
-<div class="text">
+<div class="texto">
 	Este plugin requiere de otros dos para funcionar correctamente <a href"https://github.com/akinsho/toggleterm.nvim">toogleterm.nvim</a> y <a href="https://github.com/nvim-lua/plenary.nvim">plenary.nvim</a>
 </div>    
 <h1>
 	Emmet-vim	
 </h1>
-<div class="text">
+<div class="texto">
 <a href="https://github.com/mattn/emmet-vim">Emmet-vim</a> es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin tambien tiene un autocompletado de html basado en la seleccion y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
 Mi configuracion para tener un snippet de la descripcion de estos plugins es lo siguiente 
 </div>
@@ -387,24 +387,44 @@ Mi configuracion para tener un snippet de la descripcion de estos plugins es lo 
 <h1>
 	Bullets.vim	
 </h1>
-<div class="text">
+<div class="texto">
 	<a href="https://github.com/dkarter/bullets.vim">Bullets.vim</a> es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automaticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automaticamente agregara "2. " y me pondra un espacio despues para escribir directamente, tambien funciona con "+", "-", "*", "[]", este tiene varias configuraciones pero yo ocupo el default
 </div>
 <h1>
 	Impatient.nvim
 </h1>
-<div class="text">
+<div class="texto">
 <a href="https://github.com/lewis6991/impatient.nvim">Impatien.nvim</a> es un plugin que disminuye el tiempo de carga de Neovim, en aproximadamente un 90% en promedio, su configuracion solo cambia el directorio en el cual el archivo de cache es guardado.
 </div>
 <h1>
 Vim-table-mode	
 </h1>
-<div class="text">
+<div class="texto">
 <a href="https://github.com/dhruvasagar/vim-table-mode">Vim-table-mode</a> es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho mas sencillo, solo con activar el modo con el comando <b>:TableModeEnable</b> el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separacion de despues de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separacion de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargara de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separacion de filas, etc.
 </div>
 <h1>
 	vim-matchup	
 </h1>
-<div class="text">
+<div class="texto">
 <a href="https://github.com/andymass/vim-matchup">Vim-matchup</a> es un plugin que identifica todas las plabars que sean iguales en un mismo documento de texto y te ayuda a moverte mas rapido entre estas, yo no tengo ninga configuracion de este plugin
 </div>
+<h1>
+Vim-cursorword	
+</h1>
+<div class="texto">
+<a href="https://github.com/itchyny/vim-cursorword">Vim-cursorword</a> es un plugin simple y lo unico que hace es que cuando el cursor (sin omportar el modo) este en una palabra el plugin va a subrayar la palabra en la que esta el cursor y todas las palabras iguales. Este plugin no tiene configuracion
+</div>
+<h1>
+Vim-choosewin	
+</h1>
+<div class="texto">
+<a href="https://github.com/t9md/vim-choosewin">Vim-choosewin</a> es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen esta funcion incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma mas visual, tal ves en el futuro lo deje de usar, las configuraciones requeridas son las siguientes
+</div>
+<div class="codigo">
+nmap  -  <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
+</div>
+<div class="texto">
+La primera linea hace que cuando se apriete "-" el plugin se active y la segunda es para poner numeros en cada tab/division al momento de cambiar
+</div>
+
