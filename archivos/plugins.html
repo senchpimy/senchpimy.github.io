@@ -24,11 +24,12 @@ Indentline
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_enabled = 0
 nmap &ltspace&gtl &ltcmd&gtIndentLinesToggle&ltCR&gt
+autocmd FileType python IndentLinesToggle
     </div>
     <div class="text">
 	    Lo que hacen es que conforme existan mas indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
 	    y la segunda configuracion hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
-	    La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive
+	    La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive y la cuarta hace que cuando detecte un archivo de python se active automaticamente
     </div>
     <h1 class="Despreciado">
     	Rnvimr
@@ -346,9 +347,48 @@ require'hop'.setup()
 	    <a href="https://github.com/lmburns/lf.nvim">lf.nvim</a> lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
 	    Entonce por que cambiar?
-	    Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rapido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf
+	    Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rapido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, ademas que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar <b>lfrun</b> como dice la wiki de lf, despues en la configuracion del plugin debemos cambiar el comando por defecto a <b>lfrun</b>, esto sse hace la siguiente manera
 	    Este programa tiene una configuracion similar a <b>gitsigns y lualine</b>
     </div>
     <div class="codigo">
-require'hop'.setup()
+	    require("lf).setup({
+	    default_cmd="lfrun"
+	    })
     </div>
+<div class="text">
+	Este plugin requiere de otros dos para funcionar correctamente <a href"https://github.com/akinsho/toggleterm.nvim">toogleterm.nvim</a> y <a href="https://github.com/nvim-lua/plenary.nvim">plenary.nvim</a>
+</div>    
+<h1>
+	Emmet-vim	
+</h1>
+<div class="text">
+<a href="https://github.com/mattn/emmet-vim">Emmet-vim</a> es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin tambien tiene un autocompletado de html basado en la seleccion y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
+Mi configuracion para tener un snippet de la descripcion de estos plugins es lo siguiente 
+</div>
+<div class="codigo">
+ let g:user_emmet_install_global = 0
+ let g:user_emmet_mode='a'    "enable all function in all mode.
+ autocmd FileType html,css EmmetInstall
+ let g:user_emmet_settings = {
+ \  'html': {
+ \    'default_attributes': {
+ \      'option': {'value': v:null},
+ \      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
+ \    },
+ \    'snippets': {
+ \      'descplug':"<h1>\n\t${child}|\n</h1>\n<div class=\"text\">\n<a href=\"https://github.com/\"></a>\n</div>\n<div class=\"codigo\">\n</div>"
+ \    },
+ \  },
+ \}
+</div>
+<div class="texto">
+	Y para hacerlo funcionar solo tengo que escribir <b>descplug</b> en un documento html o css y luego en modo de comando escribir <C-y> <b>(control+y)</b>y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una funcion que todavia no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con <b>&lg C-y &gt ,</b>, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el ultimo o el primero y apretamos <b>&lg C-y &gt u</b> temenos la opcion de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
+</div>
+<h1>
+	Bullets.vim	
+</h1>
+<div class="text">
+<a href="https://github.com/dkarter/bullets.vim">Bullets.vim</a> es un plugin que ocupo principalmente para 
+</div>
+<div class="codigo">
+</div>
