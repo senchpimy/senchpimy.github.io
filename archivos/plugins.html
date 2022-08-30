@@ -427,4 +427,32 @@ let g:choosewin_overlay_enable = 1
 <div class="texto">
 La primera linea hace que cuando se apriete "-" el plugin se active y la segunda es para poner numeros en cada tab/division al momento de cambiar
 </div>
+<h1 class="Test">
+Targets.vim	
+</h1>
+<div class="texto">
+	<a href="https://github.com/wellle/targets.vim">Targets.vim</a> es un plugin que expande la cantidad de objetos de vim, asi como los objetos pueden ser palabras, caracteres, parrafos. Pero este plugin agrega a esta lista de objetos todos lo que se encuentre dentro de los siguientes caracteres <b>(),[],{},"",'',`` , . ; : + - = ~ _ * # / | \ & $
+ </b> permitiendonos borrar (da$Caracter), eliminar e insertar (cin$caracter)
+ Este plugin necesita de configuracion ya que por defecto las teclas necesarias para hacerlos funcionar son <b>"aiAI"</b> que son las teclas de insetar y agregar en vim y neovim, por lo que la configuracion que agregue para evitar esto es la siguiente
+ TEST NO TERMINADO
+</div>
+<div class="codigo">
+let g:targets_aiAI = ['&ltSpace&gta', '&ltSpace&gti', '&ltSpace&gtA', '&ltSpace&gtI']
 
+</div>
+<h1 class="Test">
+Bufferline.nvim	
+</h1>
+<div class="texto">
+<a href="https://github.com/akinsho/bufferline.nvim">Bufferline.nvim</a> es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es mas legible que la linea por defecto, ademas de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que esoty acotumbrado <b>gt</b> es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene tambien muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
+</div>
+<div>
+lua &lt&lt END
+require("bufferline").setup{}
+END
+</div>
+<div class="texto">Para poder moverme entre tabs use la siguiente configuracion, en modo normal Tab me mueve una tab hacia delante y Shift+Tab una tab hacia atras</div>
+<div class="codigo">
+noremap &ltsilent&gt&ltTAB&gt :BufferLineCycleNext&ltCR&gt
+noremap &ltsilent&gt&ltS-TAB&gt :BufferLineCyclePrev&ltCR&gt
+</div>
