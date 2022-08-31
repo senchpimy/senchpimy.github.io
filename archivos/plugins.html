@@ -258,7 +258,7 @@ require('gitsigns').setup()
 END
     </div>
     <div class="texto">
-	    El plugin tiene muchas otras configuraciones, pero por el momento no ocupo ninguna
+	    El plugin tiene muchas otras configuraciones, pero por el momento no ocupo ninguna, el plugin necesita que neovim tenga un tema, de lo contrario lo que este plugin agrega tendra el color por defecto de la terminal
     </div>
     <h1>
 	    vim-sorround
@@ -456,3 +456,4 @@ END
 noremap &ltsilent&gt&ltTAB&gt :BufferLineCycleNext&ltCR&gt
 noremap &ltsilent&gt&ltS-TAB&gt :BufferLineCyclePrev&ltCR&gt
 </div>
+<div class="texto">Algo que no me gusto de este plugin es que si quieres cerrar un buffer en vim/neovim vanilla bastaba con <b>:q</b> en la ventana de el buffer, para poder hacerlo con este plugin se necesita de el comando <b>:BufferlineXXXClose</b> donde XXXX es una de las funciones que trae para cerrar el buffer</div>
