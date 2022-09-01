@@ -457,3 +457,69 @@ noremap &ltsilent&gt&ltTAB&gt :BufferLineCycleNext&ltCR&gt
 noremap &ltsilent&gt&ltS-TAB&gt :BufferLineCyclePrev&ltCR&gt
 </div>
 <div class="texto">Algo que no me gusto de este plugin es que si quieres cerrar un buffer en vim/neovim vanilla bastaba con <b>:q</b> en la ventana de el buffer, para poder hacerlo con este plugin se necesita de el comando <b>:BufferlineXXXClose</b> donde XXXX es una de las funciones que trae para cerrar el buffer</div>
+<h1>
+Which-key.nvim	
+</h1>
+<div class="texto">
+<a href="https://github.com/folke/which-key.nvim">Which-key</a> es un plugin que nos muestra todas las funciones de neovim asociadas con un caracter, para llamarlo demebos de hacerlo como gitsigns.
+</div>
+<div class="codigo">
+	lua &lt&lt EOF
+  require("which-key").setup {}
+EOF
+</div>
+<h1>
+	Hydra.nvim
+</h1>
+<div class="texto">
+<a href="https://github.com/anuvyklack/hydra.nvim">Hydra.nvim</a> es un plugin muy util y me gusto mucho su explicacion en la pagina de github
+<blockquote>Una vez que invocas a la hydra a traves de la tecla prefijada (el cuerpo + cualquier cabeza), todas las cabezas pueden ser llamadas en sucession solo con una pequeña extension.
+La hydra es vencida una vez que hercules o cualquier otra tecla que no sea una cabeza de la Hydra intervenga
+</blockquote>
+Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en comun, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de <C-w> + <b>X</b> donde <b>X</b> puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un aventana etc, pero si queremos repetir un comando tendriamos que repetir <C-w> + <b>X</b> que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos <C-w> <i>(El Cuerpo de la hydra)</i> nos saldra una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con <C-w> <i>(Cabezas)</i>, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de esta interfaz
+				Mi configuracion para la manipulacion de ventanas es la siguiente:
+</div>
+<div class="codigo">
+local Hydra = require('hydra')
+local window_hint = [[
+^ ^^ Move     ^^Size   ^^   ^^Split   ^^   ^^Buffers
+^ ^-------^^  ^^------^^   ^^----------^^ ^^---------
+^^   ^^ _k_ ^^      ^^ _+_   ^ ^^  ^^_s_: horiz^^  ^^_r_: Inter
+^ _h_ ^^ _w_^ ^ _l_ ^^  ^^_&lt_^^   ^^_&gt_  ^^  ^^_v_: vert^^   ^^_H_: Hor2Vert
+^^   ^^ _j_ ^^      ^^ _-_   ^^   ^^_Q_: cerrar^^ ^^_J_:Vert2Hor
+	            ^^_=_: igual^   
+]]
+Hydra({
+   name = "Windows",
+   hint=window_hint,
+--   config = {},
+    mode = 'n',
+    body = '&ltC-w&gt',
+    heads = {
+    {'+','&ltCmd&gtres +3&ltCR&gt',{desc='Aumentar horizontal'}},
+    {'-','&ltCmd&gtres -3&ltCR&gt',{desc='Disminuir horizontal'}},
+    {'=','&ltCmd&gtwincmd =&ltCR&gt',{desc='Igualar horizontal'}},
+    {'&lt','&ltCmd&gtvertical resize -3&ltCR&gt',{desc='Disminuir vertical'}},
+    {'&gt','&ltCmd&gtvertical resize +3&ltCR&gt',{desc='Aumentar vertical'}},
+    {'s','&ltCmd&gtwincmd s&ltCR&gt',{desc='Dividir Horizontal'}},
+    {'l','&ltCmd&gtwincmd l&ltCR&gt',{desc='Navegar Izquierda'}},
+    {'h','&ltCmd&gtwincmd h&ltCR&gt',{desc='Navegar Derecha'}},
+    {'v','&ltCmd&gtwincmd v&ltCR&gt',{desc='Dividr Vertical'}},
+    {'w','&ltCmd&gtwincmd w&ltCR&gt',{desc='Intercambiar cursor'}},
+    {'j','&ltCmd&gtwincmd j&ltCR&gt',{desc='Navegar Abajo'}},
+    {'r','&ltCmd&gtwincmd r&ltCR&gt',{desc='Intercambiar los buffers'}},
+    {'k','&ltCmd&gtwincmd k&ltCR&gt',{desc='Navegar Arriba'}},
+    { 'Q', '&ltCmd&gttry | close | catch | endtry&ltCR&gt' ,{desc='Cerrar buffer'}},
+    {'H','&ltCmd&gtwincmd H&ltCR&gt',{desc='Pasar de horizontal a vertical '}},
+    {'J','&ltCmd&gtwincmd J&ltCR&gt',{desc='Pasar de vertical a horizontal'}}},
+})
+</div>
+<div class="texto">Donde <b>window_hint</b> es una pequeña venta que mostrara que funcion tiene cada tecla y <b>Hydra</b> es la configuracion de los comandos de cada una de las opciones</div>
+<h1>
+	
+</h1>
+<div class="texto">
+<a href="https://github.com/"></a>
+</div>
+<div class="codigo">
+</div>
