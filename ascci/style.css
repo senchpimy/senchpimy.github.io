@@ -332,3 +332,13 @@
     float: inline-start;
     margin: 10px;
 }
+#girl{
+    color: seashell;
+    font-size: 10px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;  
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+}
