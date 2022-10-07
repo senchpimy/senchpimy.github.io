@@ -627,7 +627,7 @@ delimitMate
 <div class="texto">
 	<a href="https://github.com/Raimondi/delimitMate">delimitMate</a> es un plugin que añade autocompletado para caracteres como <b>(),{},[],"",''</b>, estos caracteres pueden ser activados o desactivados e incluso agregar mas
 </div>
-<h1>
+<h1 class="Despreciado">
 Fidget.nvim	
 </h1>
 <div class="texto">
@@ -663,14 +663,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 </div>
-<h1>
-Colorizer	
-</h1>
-<div class="texto">
-<a href="https://github.com/"></a>
-</div>
-<div class="codigo">
-</div>
+
 <h1>
 treesitter-ts-rainbow	
 </h1>
@@ -679,20 +672,98 @@ treesitter-ts-rainbow
 </div>
 <div class="codigo">
 </div>
+
 <h1>
-WInshift	
+Winshift
 </h1>
 <div class="texto">
-<a href="https://github.com/"></a>
+<a href="https://github.com/sindrets/winshift.nvim">Winshift</a> es un plugin que agreag mas funcionalidad y hace mas simpl eel manejo de diferentes ventanas 
 </div>
 <div class="codigo">
+	require("winshift")
 </div>
+
 <h1>
-Vim-Latex-Live-Previw	
+	VimTex
 </h1>
 <div class="texto">
-<a href="https://github.com/"></a>
+<a href="https://github.com/lervag/vimtex">VimTex</a> sirve para llevar a cabo entre otras cosas iluminado, y previsualizacion de documentos de latex, no requiere configuracion
+</div>
+
+<h1>
+	Winbar
+</h1>
+<div class="texto">
+	En la version +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo <a href="https://github.com/senchpimy/winbar.nvim">Winbar</a> hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con <a href="https://github.com/SmiteshP/nvim-navic">Nvim-Navic</a> hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos codigo es un objeto, funcion, etc.
 </div>
 <div class="codigo">
+	require('winbar').setup()
 </div>
-descplug
+<div>
+	Y no es necesario configuracion extra para combinarlo con Navic, solo hay que configurar Navic para que este pueda fucnionar.
+</div>
+
+<div class="codigo">
+	local navic = require("nvim-navic")
+</div>
+
+<div>
+	Y este navic agregarlo a la configuracion <b>on_attach</b> o configurarlo como esta misma en cada configuracion de cada lsp
+</div>
+<div>
+	require("lspconfig").clangd.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
+-----------------------------O agregarlo a una configuracion ya existente-------------------
+        local on_attach = function(client, bufnr)
+        	if client.server_capabilities.documentSymbolProvider then
+               		navic.attach(client, bufnr)
+           	end
+		.....
+		.....
+		.....
+		.....
+	end
+-----------------------------Y agrrgarlo a la configuracion de el LSP-------------------
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+</div>
+
+<h1>
+	Trouble.nvim	
+</h1>
+<div class="texto">
+<a href="https://github.com/folke/trouble.nvim">Trouble.nvim</a> es un plugin que agrega una revision de codigo en modo Normal, marca los posibles errores, las advertencias y hasta faltas de ortografia
+</div>
+<div class="codigo">
+	require("trouble").setup()
+</div>
+
+<h1>
+	cmp
+</h1>
+<div class="texto">
+	<b>Cmp</b>, abreviacion de completion son varios plugins que se combinan con el lsp de neovim y proveen diferente tipos de autocopletado segun el plugin que que sea instalado, los que yo tengo son los siguientes
+</div>
+
+<div>
+	 'hrsh7th/cmp-buffer'
+	 'hrsh7th/cmp-path'
+	 'hrsh7th/cmp-cmdline'
+	 'hrsh7th/nvim-cmp'
+	 'hrsh7th/cmp-nvim-lsp'
+</div>
+<div>
+	EL plugin que se encarga de configurarlo con lsp se llama <a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a> el cual tiene intrucciones sobre su configuracion en su pagina, para agregar cualquier otro plugin como puede ser <a href="https://github.com/hrsh7th/cmp-buffer">cmp-buffer</a> para agregar al autocompletado todas las palabras que se encuentren en el mismo buffer la configuracion seria la siguiente:
+</div>
+<div class="codigo">
+	require('cmp').setup({
+  sources = {
+    { name = 'buffer' },
+  },
+})
+</div>
