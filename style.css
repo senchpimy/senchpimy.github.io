@@ -17,16 +17,17 @@
     color: rgb(90, 26, 87); 
     font-size: 10%;
     font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    font-size: 110%;
+    text-align: center;
+    font-size: 1.5vw;
     white-space: pre-wrap;
+    width:100vw;
 }
 
 body{
     background-color:rgb(15, 13, 13);
     font-family: 'Courier New', Courier, monospace;
     color: rgb(90, 26, 87);
-    margin: 5%;
+    margin:0em
 }
 .contenidos{
     --gap: 5px;
@@ -39,12 +40,14 @@ body{
     font-family: 'Courier New', Courier, monospace;
     border-radius: 5px;
     border:5px solid rgb(22, 88, 51);
-    margin: 50px;
+    margin: auto;
+    margin-bottom:5vw;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
     gap: var(--gap);
     padding: 4px;
+    width: 80vw;
 }
 .contenidos>a{
     color:rgb(90, 26, 87);
@@ -110,13 +113,14 @@ body{
     --num-cols: 4;
     --row-height: 200px;
   
-    box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-auto-rows: var(--row-height);
     gap: var(--gap);
     margin: auto;
     position: relative;
+    margin-bottom:6em;
+    width: 100vw;
   }
   
   .enlace  {
@@ -127,7 +131,7 @@ body{
     border-radius: 5px;
   }
   .enlace  > img{
-    width: 250px;
+    width: 20vw;
     height: 250px;
     margin: auto;
     object-fit: cover;
@@ -138,7 +142,7 @@ body{
   bottom: 28px;
   color: aqua;
   background-color: black;
-  width: 250px;
+  width: 20vw;
   height: 30px;
   text-align: center;
 }
@@ -152,4 +156,6 @@ body{
       --row-height: 200px;
     }
   }
-  
+ .todo{
+margin:2vw;
+ } 
