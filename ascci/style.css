@@ -342,3 +342,14 @@
     height: fit-content;
     float: inline-start;
 }
+
+#oldlogo{
+    color: seashell;
+    font-size: 5px;
+    margin: 2px;
+    text-align:left;
+    white-space: pre-wrap;  
+    width: fit-content;
+    height: fit-content;
+    float: inline-start;
+}

@@ -12,7 +12,9 @@
 	100% {text-shadow: 2px 0px 0px white;}
 
 }
-
+h1{
+font-size:4vw;
+}
 .title{
     color: rgb(90, 26, 87); 
     font-size: 10%;
