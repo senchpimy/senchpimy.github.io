@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<head>
+    <h1>Marlin Para la Ender3</h1>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+    <div class="todo">
+    	
+	<div class="texto">
+		Para poder usar y modificar el marlin para la ender 3 primero debemos de descargar el marlin desde la pgina como archivo zip y luego descomprimirlo o clonandolo de github con <b>git clone https://github.com/MarlinFirmware/Marlin.git</b>
+	</div>
+
+	<div class="texto">
+		Despues de tener los archivos tenemos que abrir la carpeta que dice Marlin y ahi boraamos los archivos <b>Configuration.h</b> y <b>Configuration_adv.h</b>
+	</div>
+
+	<div class="texto">
+		Estos archivos los tenemos que reemplazar por los archivos que encontraremos en <a href="https://github.com/MarlinFirmware/Configurations">https://github.com/MarlinFirmware/Configurations</a>, en el cual en la parte de <a href="https://github.com/MarlinFirmware/Configurations">Readme/Branches</a> seleccionaremos en <b>Browse</b> de la version de Marlin que tengamos, en el repositorio nos iremos a <b>config&gtexamples</b> en esta seccion estan todos los ejemplos de Marlin para diferentes impresoras y marcas, como yo tengo una ender 3 me ire a <b>Creality&gtEnder3</b>, aqui hay varias carpetas y cada una es el nombre de una placa para la ender 3 como yo estoy usasndo la placa CrealityV1, hare click en esa.
+	</div>
+
+	<div class="texto">
+		Todos los archivos que hay en esta carpeta los tenemos que pasar a la carpeta de Marlin en donde borramos los archivos de configuracion, luego desde el IDE de arduino abrimos el archivo Marlin.ino asengurandonos de tener el puerto correcto y la placa correcta y lo cargamos la placa en mi caso la Creality
+	</div>
+
+    </div>
+</body>
