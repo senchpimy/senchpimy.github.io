@@ -3,6 +3,7 @@
 <head>
     <h1>Configuracion de Marlin Para la Ender3</h1>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="contenidos">
@@ -29,7 +30,7 @@
 	    	<img src="./copland.jpg" alt="">
 	    </div>
 
-	    <div>
+	    <div class="texto">
 	    	Para hacerlo solo subi la imagen <a href="https://marlinfw.org/tools/u8glib/converter.html">https://marlinfw.org/tools/u8glib/converter.html</a> Asegurandome que la imagen cumpliera con las dimensiones y seleccione que la queria para status, copie la salida y la pegue en _Statusscreen.h
 	    </div>
 
@@ -125,6 +126,21 @@
 #endif
 	    </div>
 
+
+   <h2>Temperatura</h2>
+
+   <div class="texto">
+	Cuando cambie de hotend este traia un termistor aparte y como era diferente tenia una resistencia diferente que necesita
+	ser especificada en el firmware de Marlin, lo que hice fue que en la descripcion de el hotend que compre, este tenia una
+	descripcion de el termistor que este decia <b><i>"Incluye 100K NTC B 3950 termistor."</i></b> y solo busque ese modelo y agregue a la busqueda "Marlin" y encotre que para ese modelo el valor que se tiene que colocar es de <b>11</b>, cuando este valo es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
    </div>
+
+   <h2>Extrusor</h2>
+   <div class="texto">
+	   Como cambie el extrusor por defecto a el extrusor BondtechBMG el cual es de extrucion directa, este extrusor necesita una cantidad diferente de pasos para poder extruir la misma cantidad de material, existe una formula para poder tener la cantidad de pasos exactos que especificar, pero al buscar en internet me econtre que para este extrusor la cantidad de pasos son <b>415</b> en comparacion a los <b>93</b> que tiene por defecto, en este caso no se necesita editar el marlin (aunque se puede) para modificar este valor, en la pantalla de mi ender 3, en <b>Configuration&gt AdvancedConfiguration&gt Steps&gt Extruder</b> e ingresamos el valor y lo guardamos, para finalizar solo hay que guardar los cambios para que estos permanezcan despues de que se apague la impresora
+   </div>
+
+   </div>
+
 
 </body>

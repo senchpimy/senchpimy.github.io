@@ -82,6 +82,7 @@ body{
   
   .image-grid > img {
     width: 100%;
+    margin-bottom:30px;
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
@@ -112,21 +113,20 @@ body{
     text-align: justify;
 }
 .documentos {
-    --gap: 10px;
     --num-cols: 4;
     --row-height: 200px;
   
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-auto-rows: var(--row-height);
-    gap: var(--gap);
-    margin: auto;
+    column-gap: 1vw;
+    row-gap: 6em;
     position: relative;
-    margin-bottom:6em;
+    margin-bottom:16em;
     width: 100vw;
   }
   
-  .enlace  {
+.enlace  {
     width: fit-content;
     height: fit-content;
     margin: auto;
@@ -146,7 +146,7 @@ body{
   color: aqua;
   background-color: black;
   width: 20vw;
-  height: 30px;
+  height: fit-content;
   text-align: center;
 }
 
