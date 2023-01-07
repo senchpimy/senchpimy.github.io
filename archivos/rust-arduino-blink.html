@@ -23,7 +23,7 @@
 	Luego hay que crear un nuevo proyecto de rust usando cargo.
 	<br>
 	<br>
-	En este proyecto hay que modificar al archivo Cargo.toml con los siguientes campos:
+	En este proyecto hay que usar una version diferente de el compilador por lo que en la carpeta hay que ejecutar <b>rustup override set nightly</b>, luego ya podemos modificar al archivo Cargo.toml con los siguientes campos:
 	<div class="codigo">
 [dependencies]
 panic-halt = "0.2.0"
@@ -117,7 +117,7 @@ opt-level = "s"
 	build-std = ["core"]
 	</div>
 	Y para la configuracion esto seria todo, luego el codigo para probar si funciona es el siguente:
-	<div>
+	<div class="codigo">
 	#![no_std]
 	#![no_main]
 	
@@ -148,7 +148,7 @@ opt-level = "s"
 	}
 	</div>
 	Y al ejecutar <b>cargo build</b> deberiamos tener una compilación exxitosa que dos dara como resultado un archivo <b>.elf</b> en la carpeta <b>target/avr-atmega328p/debug/</b>, de ser asi Entonces ejecutamos <b>cargo build --release</b>, que tardara un poco más en compilar pero el compilador hace mas optimizaciones al codigo, y el resultado de este estara en la carpeta <b>target/avr-atmega328p/relase/</b>, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
-	<div>
+	<div class="codigo">
 		#! /usr/bin/zsh
 		echo $1
 		cargo build
