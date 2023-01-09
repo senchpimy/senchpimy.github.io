@@ -1,0 +1,28 @@
+div.links-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+ul.container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li.links {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+a.directorio {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+a.directorio:hover {
+  color: #999;
+}
+
