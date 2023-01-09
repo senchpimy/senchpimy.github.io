@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <h1>Subdominios</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+    <div class="texto">
+    	Cuando tienes un servidor pero muchas ideas que hacer con el, tener un solo dominio no basta para todo, para esto sirven los subdominios y la forma de hacerlos es muy sencillo, para esto hay que tener ya un servidor, un dominio y <b>nginx</b>.
+	Para esto necesitamos un servicio que se ejecute en algun puerto que este libre, <a href="https://github.com/senchpimy/simple_firmas">aqui</a> hice una simple programa en go que se ejeuta en el puerto <b>3001</b>, por lo que si se ejecutara de forma local con escribir en el navegador <b>localhost:3001</b> podriamos ver esta pagina, este programa es bastante simple, genera una pagina web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma pagina web al comienzo.
+
+	Ahora como podemos hacer que en nuestro dominio <b>example.com</b> el cual ya esta ocupado pueda mostrar algo diferente en <b>ejemplo.example.com</b>, esto se logra con <b>nginx</b>.
+	Primero necesitamos actualizar los registros de <b>DNS</b> de nuestro dominio, por lo que si ya tenemos el dominio <b>example.com</b> apuntando a nuestro servidor, en la misma pagina que hicimos esto podremos agregar el subdominio <b>ejemplo</b>, yo lo compre desde la pagina de <b>epik</b> y no se si asi funcione en otras pero en esta solo es agregar el nombre de el subdominio y apuntar el servidor, que en este segundo paso no hay que hacer nada diferente a como es el dominio normal, es decir apuntamos el subdomino al mismo servidor sin especificar el puerto, pues es en realidad <b>nginx</b> el que se encargara de redirigir las peticiones al puerto especificado. Al final nuestro dominio con subdominio quedaria asi:
+	<div id="imagenes">
+		<img src="./subdominios.png" alt="">
+	</div>
+	En la foto podemos ver el dominio principal apuntando a un servidor y el subdomnio apunta a el mismo servidor / direccion IP, asi que en la parte de los registros de DNS ya es todo.
+	Asi que ahora con nuestro servicio ejecutando en el puerto 3001 y un subdominio apuntando a el servidor, ya podemos configurar <b>nginx</b>.
+	<br>
+	<br>
+	Pra hacer esto nos dirijiremos a la carpeta <b>/etc/nginx/sites-avaible</b> y crearemos un archivo con cualquier nombre, y dentro de ese archivo pondermos lo siguiente:
+	<div class="codigo">
+server {
+        listen 80 ;
+        listen [::]:80 ;
+	server_name <b>ejemplo.example.com ;</b>
+        root /path/to/html/files ;
+        index files.html ;
+        location /{
+		proxy_pass <b>http://127.0.0.1:3001;</b>
+        }
+}
+	</div>
+	En este archivo estamos especificando que el nombre de el servidor sea el del subdominio que tenemos, y que este va a escuchar en el puerto 80, pero en realidad se refiere a que la comunicacion va a ser <b>http</b>, los valores <b>root</b> e <b>index</b>, no son importantes en este caso, pues en una pagina estatica estos son los archivo sque se serviran en el servidor, pero como lo estamos sobreescribiendo en la parte de <b>location</b>, estos no tienen ningun efecto y finalmente la parte de <b>location</b> vamos a escribir <b>proxy_pass</b> y luego la direccion local de nuestra maquina, que en todos los casos sera <b>127.0.0.1</b>, acompañado con el protocolo que en este caso es http y finalmente ahora si apuntando hacia el puerto en el que esta nuestro servicio, siendo este el <b>3001</b> ponemos el <b>:</b> y luego el puerto que en este caso seria el 3001.
+
+	Anque si ahora intentas acceder desde cualquier navegador te saldra una advertencia diciendo que la pagina no es segura, y para que pase esto hay que tener una coneccion de tipo <b>https</b> que para obtener hay que conseguir un certificado SSL para poder tener una coneccion de tipo <b>https</b>, en lugar de la <b>http</b>, para poder hacer esto simplemente hay que tener instalado <b>python3-certbot-nginx</b> que en un servido tipo debian seria <b>apt install python3-certbot-nginx</b> y luego ejecutar <b>certbot --nginx</b>, despues solo hay que seguir las instrucciones.
+
+	Y recordar que si por algun motivo no la pagina que intentas visitar se queda cargando por mucho tiempo, y finalmente cuando carga recives un error hay que verificar que este puerto no este bloqueado por el firewall, usando <b>ufw</b> para permitir el acceso por este puerto hay que ejecutar el siguiente comando
+	<div class="codigo">
+		ufw allow 3001
+	</div>
+    </div>
