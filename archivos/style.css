@@ -38,4 +38,41 @@
 	content:"Este plugin todavia lo estoy probando";
 	font-size:0.5em;
 				color: rgb(90,100,200);
-			}
+	}
+
+.desc_pend{
+  position:relative;
+  bottom: 28px;
+  color: aqua;
+  background-color:  rgb(240,0,100);
+  width: 20vw;
+  height: fit-content;
+  text-align: center;
+}
+
+.desc_pend:after{
+	content:"""(work in progress)""";
+}
+
+
+
+  /* Anything udner 1024px */
+  @media screen and (max-width: 1024px) {
+    .image-grid {
+      --num-cols: 2;
+      --row-height: 200px;
+    }
+  }
+ .todo{
+margin:2vw;
+ } 
+
+.desc{
+  position:relative;
+  bottom: 28px;
+  color: aqua;
+  background-color: black;
+  width: 20vw;
+  height: fit-content;
+  text-align: center;
+}
