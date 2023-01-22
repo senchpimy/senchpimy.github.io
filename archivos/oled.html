@@ -11,6 +11,7 @@
         <a href="../wallpapers/index.html">Wallpapers</a>
         <a href="../ascci/index.html">ASSCI</a>
     </div>
+    <div class="todo">
 <div class="texto">
     Inspirado en este video decidi comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribi el siguiente script de bash que atomatiza la instalacion de las librerias y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando
 </div>
@@ -217,7 +218,6 @@ while True:
         draw.text((80, 16), str(temp,'utf-8') , font=font, fill=255)                                                                                                                                                              
         draw.text((0, 32), str(MemUsage,'utf-8'), font=font, fill=255)                                                                                                                                                            
         draw.text((0, 48), str(Disk,'utf-8'), font=font, fill=255)                                                                                                                                                                
-                                                                                                                                                                                                                                  
         # Display image                                                                                                                                                                                                           
         oled.image(image)                                                                                                                                                                                                         
         oled.show()                                                                                                                                                                                                               
@@ -229,4 +229,5 @@ while True:
             break                                                                                                                                                                                                                 
     #oled.fill(0)                                
 </div>
+    </div>
 </body>
