@@ -250,7 +250,7 @@ endif
     </div>
     <div class="codigo">
 	    :PlugStatus
-       <div>
+    </div>
     <div class="texto">
 	    Si no encuentra el comando no fue instalado correctamente, cuando si se logro instalar habrira un buffer donde mostrara que todo esta en orden
     </div>
@@ -260,7 +260,7 @@ endif
 
     <div class="codigo">
 	    Plug '<b>link</b>'
-       <div>
+       </div>
     <div class="texto">
 	    Donde link es el enlace ha donde se encuentra el plugin, en el caso de plugins que se encuentren en github.com solo es necesario colocar el usuario y el repositorio, tal como se indica en la pagina de vim-plug (Para pasar el argumento hay que usar comillas simples '', pues el lenguaje vimscript toma las comillas dobles "" como indicacion de un comentario)
     </div>
@@ -271,7 +271,7 @@ Plug 'junegunn/vim-easy-align'
 
 " Toda URL git es valida 
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-	<div>
+	</div>
 	
     <div class="texto">
     Entonces el archivo en donde estan los plugins que ocupo quedaria como:
@@ -313,7 +313,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
-       <div>
+       </div>
     <div class="texto">
 	    Algunos plugins necesitan especificaciones extras para funcionar correctamente, generalmente los creadores de los plugins lo especifican en sus <b>README.md </b> por eso, lo que hay despues de la coma son esas especificaciones de los plugins, tambien por lo general los creadores dan instrucciones de como instalar el plugin con vim-plug, y por lo general si no dan mas especificaciones es por que no hay que hacer nada.
     </div>
