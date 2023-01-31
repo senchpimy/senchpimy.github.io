@@ -1,4 +1,9 @@
-
+.face{
+    color: seashell;
+    font-size: 15px;
+	font-family:monospace;
+    white-space: pre-wrap; 
+}
 .kaomoji{
     color: seashell;
     font-size: 15px;
