@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <h1>Paginas Estaticas</h1>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+    <div class="todo">
+	<div class="texto">
+		Una forma de mostrar paginas estaticas es usando <b>nginx</b>, para lograr esto hay que tener una pagina estatica la cual mostrar, por ejemplo yo hice <a href="https://github.com/senchpimy/simple">esta pagina</a>, como se puede ver, esta pagina solo tiene el index y una pagina, ademas de otros archivos que irian en esta pagina.
+		<br>
+		<br>
+		Hay que guardar estos archivos en una carpeta, en la cual no debe tener nada mas que lo que queremos mostrar en la pagina web, pues de lo contrario cualquier otro archivo extra que este en este directorio sera servido como los otros archivos.
+		<br>
+		<br>
+		Despues simplemente hay que poner el siguiente archivo en la carpeta <b>/etc/nginx/sites-avaible</b> bajo cualquier nombre que uno desee
+		<div class="codigo">
+			server {
+			        listen 80 ;
+			        listen [::]:80 ;
+			        server_name <b>XXXXXXX</b> ;
+				root <b>path a loas archivos</b> ;
+			        index index.html index.htm index.nginx-debian.html ;
+			        location / {
+			                try_files $uri $uri/ =404 ;
+			        }
+			}
+		</div>
+		El programa de <b>nginx</b> se encargara de administrar las solicitudes a el servidor y de evitar que se intente acceder a otros archivos de el sistema que no sean los especificados
+	</div>
+    </div>
