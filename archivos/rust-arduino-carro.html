@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <h1>Rust en Arduino y carro</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+	<div class="todo">
+		<div class="texto">
+			Despues de hacer el arduino blink, pense en hacer algo más complicado usando rust y arduino, plo que pense en hacer en un robot con un sensor ultrasonico de distancia que pueda detectar cualquier objeto y que se mueva si es que la distancia hacia el objeto es inferior a una variable. Use un arduino uno, un sensor ultrasonico HC-SR04, una placa personal usando el chip l298n-d que funciona como puente H, dos motores y dos pilas de 9v
+			<br>
+			<br>
+			Las conecciones fueron las siguientes:
+			<ul>
+				<li><b>TRIGGER:</b> Pin D9</li>
+				<li><b>ECCHO:</b> Pin D10</li>
+				<li><b>MOTOR1A:</b>Pin D4</li>
+				<li><b>MOTOR1B:</b> Pin D5</li>
+				<li><b>MOTOR2A:</b> Pin D6</li>
+				<li><b>MOTOR2B:</b> Pin D7</li>
+			</ul>
+			Para probar las conecciones y que el concepto funcionaba use el siguiente codigo:
+			<div class="codigo">
+		int triggerPin = 9;
+		int echoPin = 10;
+		unsigned long duration;
+		int distance;
+		
+		int motorA1=4;
+		int motorA2=5;
+		int motorB1=6;
+		int motorB2=7;
+		
+		void setup()
+		{
+		  pinMode(triggerPin, OUTPUT);
+		  pinMode (echoPin, INPUT);
+		
+		  pinMode (motorA1, OUTPUT);
+		  pinMode (motorA2, OUTPUT);
+		  pinMode (motorB1, OUTPUT);
+		  pinMode (motorB2, OUTPUT);
+		  Serial.begin(9600);
+		}
+		
+		void loop()
+		{
+		  go();  
+		  digitalWrite(triggerPin, LOW);
+		  delayMicroseconds(2);
+		  //clearing the trigger
+		  digitalWrite(triggerPin, HIGH);
+		  delayMicroseconds(10);
+		  digitalWrite(triggerPin, LOW);
+		  
+		  // capturing the time duration for sound wave to travel in microseconds
+		  duration = pulseIn(echoPin, HIGH);
+		  distance = 0.01723 * duration;
+		  Serial.print(distance);
+		  Serial.println("cm");
+		  if (distance&lt10) {turn();};
+		
+		}
+		
+		void go(){
+		  digitalWrite(motorA1, HIGH);
+		  digitalWrite(motorB1, HIGH);
+		}
+		
+		void turn(){
+		digitalWrite(motorA1, LOW);
+		digitalWrite(motorB1, HIGH);
+		delay(500);
+		}
+			</div>
+		</div>
+	</div>
+</body>
