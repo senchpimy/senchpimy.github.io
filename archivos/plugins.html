@@ -11,6 +11,7 @@
         <a href="../wallpapers/index.html">Wallpapers</a>
         <a href="../ascci/index.html">ASSCI</a>
     </div>
+    <div class="todo">
     <div class="texto">
 En esta entrada explicare todos los plugins que tengo en neovim y que funcion cumplen, asi sobre como estan configurados en mi init.vim y por que esos y no otros
     </div>
@@ -376,7 +377,7 @@ Mi configuracion para tener un snippet de la descripcion de estos plugins es lo 
  \      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
  \    },
  \    'snippets': {
- \      'descplug':"<h1>\n\t${child}|\n</h1>\n<div class=\"text\">\n<a href=\"https://github.com/\"></a>\n</div>\n<div class=\"codigo\">\n</div>"
+ \      'descplug':"&lth1&gt\n\t${child}|\n&lt/h1&gt\n&ltdiv class=\"text\"&gt\n&lta href=\"https://github.com/\"&gt&lt/a&gt\n&lt/div&gt\n&ltdiv class=\"codigo\"&gt\n&lt/div&gt"
  \    },
  \  },
  \}
@@ -699,18 +700,18 @@ Winshift
 <div class="codigo">
 	require('winbar').setup()
 </div>
-<div>
 	Y no es necesario configuracion extra para combinarlo con Navic, solo hay que configurar Navic para que este pueda fucnionar.
+<div>
 </div>
 
 <div class="codigo">
 	local navic = require("nvim-navic")
 </div>
 
-<div>
+<div class="texto">
 	Y este navic agregarlo a la configuracion <b>on_attach</b> o configurarlo como esta misma en cada configuracion de cada lsp
 </div>
-<div>
+<div class="codigo">
 	require("lspconfig").clangd.setup {
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
@@ -750,14 +751,14 @@ require('lspconfig')['tsserver'].setup{
 	<b>Cmp</b>, abreviacion de completion son varios plugins que se combinan con el lsp de neovim y proveen diferente tipos de autocopletado segun el plugin que que sea instalado, los que yo tengo son los siguientes
 </div>
 
-<div>
+<div class="codigo">
 	 'hrsh7th/cmp-buffer'
 	 'hrsh7th/cmp-path'
 	 'hrsh7th/cmp-cmdline'
 	 'hrsh7th/nvim-cmp'
 	 'hrsh7th/cmp-nvim-lsp'
 </div>
-<div>
+<div class="texto">
 	EL plugin que se encarga de configurarlo con lsp se llama <a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a> el cual tiene intrucciones sobre su configuracion en su pagina, para agregar cualquier otro plugin como puede ser <a href="https://github.com/hrsh7th/cmp-buffer">cmp-buffer</a> para agregar al autocompletado todas las palabras que se encuentren en el mismo buffer la configuracion seria la siguiente:
 </div>
 <div class="codigo">
@@ -767,3 +768,5 @@ require('lspconfig')['tsserver'].setup{
   },
 })
 </div>
+    </div>
+</body>

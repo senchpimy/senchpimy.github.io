@@ -11,6 +11,7 @@
         <a href="../wallpapers/index.html">Wallpapers</a>
         <a href="../ascci/index.html">ASSCI</a>
     </div>
+    <div class="todo">
     <div class="texto">
     	Cuando tienes un servidor pero muchas ideas que hacer con el, tener un solo dominio no basta para todo, para esto sirven los subdominios y la forma de hacerlos es muy sencillo, para esto hay que tener ya un servidor, un dominio y <b>nginx</b>.
 	Para esto necesitamos un servicio que se ejecute en algun puerto que este libre, <a href="https://github.com/senchpimy/simple_firmas">aqui</a> hice una simple programa en go que se ejeuta en el puerto <b>3001</b>, por lo que si se ejecutara de forma local con escribir en el navegador <b>localhost:3001</b> podriamos ver esta pagina, este programa es bastante simple, genera una pagina web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma pagina web al comienzo.
@@ -46,3 +47,5 @@ server {
 		ufw allow 3001
 	</div>
     </div>
+    </div>
+</body>

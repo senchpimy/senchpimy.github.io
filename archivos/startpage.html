@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<head>
+    <h1>Startpage</h1>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+    <div class="todo">
+	<div class="texto">
+		Una startpage es una pagina que sale al principio de tu navegador cada que abres un nuevo tab o al abrirlo por primera vez, yo lo hice en dos navegadores, en <b>Qutebrowser</b> y en <b>Firefox</b>, en en primero es bastante simple pues tan solo basta con modificar el archivo de configuración de este programa, para esto hay que entrar en la carpeta de <b>~/.config/qutebrowser</b>, y en esta carpeta hay que modificar (o crear el archivo y agregar lo siguiente) el archivo <b>config.py</b>, por comodidad creamos la variable que contenga el archivo html principal, es decir el que se va a cargar (en el caso de Qutebrowser carga cualquier cosa que contenga esta variable, sea un archivo local, o una url, incluso un puerto local), en este caso le llame <b>StartPage</b> y esta variable sera ocupada en las dos siguientes propiedades/funciones, por lo que el codigo necesario para tener una startpage en Qutebrowser seria el siguiente.
+		<div class="codigo">
+			StartPage='<b><i>Path/port/url</i></b>'
+			c.tabs.background = True
+			c.url.default_page = StartPage
+			config.set('url.start_pages',StartPage)
+			config.load_autoconfig(False)
+		</div>
+		En donde "c", es un valor de configuración propio de Qutebrowser, asi que no hay que definirlo y las demas configuraciones permiten que al abrir el programa este abra por defecto en startpage y tambien cuando se abre una nueva tab.
+		<br><br><br>
+		En Firefox es un poco más dificil de usar archivos locales, pues por cuestiones de seguridad esto se implemento, para poder tener la startpage con cada nueva tab abierta para poder lograr esto hay que instalar una extensión llamada <b>New Tab Override</b>, y en esta hay que ir a la configuración de la extensión y seleccionar archivo local, esta extensión solo puede usar un archivo por lo que hay que tener los estilos y el html en un mismo archivo, por cuestiones de seguridad parece que extenciones no pueden ejecutar codigo, asi que en este caso lo mejor seria usar una url y un puerto.
+	</div>
+    </div>
+</body>
