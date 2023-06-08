@@ -33,7 +33,7 @@ body{
 }
 .contenidos{
     --gap: 5px;
-    --num-cols: 4;
+    --num-cols: 5;
     --row-height: 40%;
     height: 50px;
     background-color: rgb(109, 117, 190);
