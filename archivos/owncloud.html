@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<head>
+	<h1>>Owncloud</h1>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+    </div>
+    <div class="todo">
+	    <div class="texto">
+	    	Owncloud es un servicio que te permite tener tu propia nube
+		Primero instale docker, que es un poco complejo pues el paquete en el repositorio no es el docker completo, es decir lo suqiente no funciona
+		<div class="codigo">
+			sudo apt install docker
+		</div>
+		Por lo que tuve que seguir las instrucciones de <a href="https://docs.docker.com/engine/install/debian/">aqui</a>
+		<br>
+		Luego cree el grupo docker y añadi mi usuario
+		<div class="codigo">
+			gropadd docker
+			sudo usermod -aG docker pi
+		</div>
+		Luego lo active desde docker
+		<div class="codigo">
+			newgrp docker
+		</div>
+		Y finalmente lo probe con el siguiente paquete.
+		<div class="codigo">
+			docker run hello-world
+		</div>
+		Luego hice una evaluacion de Owncloud con el siguiente comando
+		<div class="codigo">
+			docker run --rm --name oc-eval -d -p8080:8080 owncloud/server
+		</div>
+
+	    </div>
+    </div>
+
+</body>
