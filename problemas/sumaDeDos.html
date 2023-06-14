@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <h1>Problemas</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../archivos/style.css">
+</head>
+<body>
+    <div class="contenidos">
+            <a href="../index.html" class="link">Inicio</a>
+            <a href="../archivos/index.html">Archivos</a>
+            <a href="../wallpapers/index.html">Wallpapers</a>
+            <a href="../ascci/idenx.html">ASSCI</a>
+            <a href="../entradas/index.html">Entradas</a>
+    </div>
+
+    <div class="todo">
+    <h2>Suma de Dos</h2>
+	<div class="texto">
+		Este problema consiste en encontrar la ubicacion de dos numeros en un vectos ordenado de forma ascendente que sumados den como resultado un valor deseado.
+	</div>
+	<h3>Solucion</h3>
+	<div class="codigo">
+		class Solution {
+		public:
+		    int binarySearch(vector&ltint>& arr, int l, int r, int x)
+		    {
+		        while (l &lt= r) {
+		            int m = l + (r - l) / 2;
+		            if (arr[m] == x)
+		                    return m;
+		            if (arr[m] &lt x)
+		                l = m + 1;
+		            else
+		                r = m - 1;
+		    }
+		    return -1;
+		}
+		    vector&ltint> twoSum(vector&ltint>& numbers, int target) {
+		        int lon = numbers.size();
+		        int buscar;
+		        vector&ltint> vec;
+		        for (int i = 0; i&ltlon;i++){
+		            buscar = target-numbers[i];
+		            int resultado = binarySearch(numbers,i+1,lon-1,buscar);
+		            if (resultado!=-1){
+		                vec.push_back(i+1);
+		                vec.push_back(resultado+1);
+		                return vec;
+		            }
+		        }
+		        return vec;
+		        
+		    }
+		};
+	</div>
+	<div class="texto">
+		Mi solucion fue restarle a el numero objetivo el valor del primer elemento de la lista, asi ya sabriamos que numero debemos encontrar, despues como la lista esta ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el  primer numero, por lo tanto repetimos el proceso con el segundo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.
+
+		Este metodo fue el mas tardado pues termino al ultimo, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pense que esta era la respuesta correcta asi que busque otra soluciones y me encontre con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
+	</div>
+	<div class="codigo">
+	class Solution {
+	public:
+	    vector&ltint> twoSum(vector&ltint>& numbers, int target) {
+	        int n = numbers.size();
+	        int i = 0, j = n - 1;
+	        while (i &lt j) {
+	            int sum = numbers[i] + numbers[j];
+	            if (sum == target) {
+	                return {i + 1, j + 1};
+	            } else if (sum &lt target) {
+	                ++i;
+	            } else {
+	                --j;
+	            }
+	        }
+	    return {-1, -1};
+	    }
+	};
+	</div>
+	<div class="texto">
+		Este metodo usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dara un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del ultimo valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.
+	</div>
+    </div>
+
+</body>
+
+	
