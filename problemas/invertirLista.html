@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <h1>Problemas</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../archivos/style.css">
+</head>
+<body>
+    <div class="contenidos">
+            <a href="../index.html" class="link">Inicio</a>
+            <a href="../archivos/index.html">Archivos</a>
+            <a href="../wallpapers/index.html">Wallpapers</a>
+            <a href="../ascci/idenx.html">ASSCI</a>
+            <a href="../entradas/index.html">Entradas</a>
+    </div>
+
+    <h2>Invertir lista ligada</h2>
+	<div class="texto">
+		Este problema consisten en invertir una lista ligada
+	</div>
+	<h3>Solucion</h3>
+	<div class="codigo">
+		class Solution {
+		public:
+		    ListNode* reverseList(ListNode* head) {
+		        ListNode* final = head;
+		        ListNode* inicio = NULL;
+
+		        while (final) {
+		            ListNode* sig = final->next;
+		            final->next = inicio;
+		            inicio = final;
+		            final = sig;
+		        }
+
+		        return inicio;
+		    }
+		};
+	</div>
+	<div class="texto">
+		En este problema creamos un nodo que apunte al ultimo nodo agregado, este se va a llamar final y otro que sea el nodo al cual final esta apuntando, mientras que el final no sea un valor nulo, creamos un nuevo nodo que sea el que sigue en la lista en su orden original, este se llama inicio pues sera el inicio de la nueva lista, entonces al final lo apuntamos al incio, y luego volvemos al inicio el primer nodo en la nueva lista y final sigue siendo el ultimo nodo en la lista original.
+	</div>
+</body>
+
+	
