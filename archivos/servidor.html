@@ -43,7 +43,7 @@
 			gpg --full-gen-key 
 			ssh-copy-id root@<b>IP</b>
 		</div>
-		Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo <b>/etc/ssh/sshd_config</b> y modificar la linea que dice <b>PasswordAuthentication</b> y <b>USEPam</b> a <b>no</b>. Tambien estaria bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto ultimo puede ser considerado inutil.
+		Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo <b>/etc/ssh/sshd_config</b> y modificar la linea que dice <b>PasswordAuthentication</b> y <b>USEPam</b> a <b>no</b>, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. Tambien estaria bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto ultimo puede ser considerado inutil.
 		<br>
 		<br>
 		<br>

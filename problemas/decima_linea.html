@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <h1>Problemas</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../archivos/style.css">
+</head>
+<body>
+    <div class="contenidos">
+            <a href="../index.html" class="link">Inicio</a>
+            <a href="../archivos/index.html">Archivos</a>
+            <a href="../wallpapers/index.html">Wallpapers</a>
+            <a href="../ascci/idenx.html">ASSCI</a>
+            <a href="../entradas/index.html">Entradas</a>
+    </div>
+<div class="todo">
+  
+    <h2>Decima Linea</h2>
+	<div class="texto">
+		Este problema consisten en imprimir la demcima linea de un archivo usando comando de shell, mi primera solucion fue la siguiente:
+	</div>
+	<h3>Solucion</h3>
+	<div class="codigo">
+      head file.txt --line 10 | tail --line 1
+	</div>
+	<div class="texto">
+      Pero fallaba cuando el documento no tenia mas de 10 lineas, entonces con <b>awk</b> tienen la varibale <b>NR</b> que practicamente un contador de lineas,etonces
+      se puede usar de la siguiente manera
+	</div>
+    <div class="codigo">
+      awk 'NR == 10' file.txt
+    </div>
+    <div class="texto">
+      Pero esta solucion tardaba mucho entonces con <b>sed</b> tambien se puede con
+    </div>
+    <div class="codigo">
+      sed -n '10p' file.txt
+    </div>
+    <div class="texto">
+      En donde se le indica imprimir el decimo parrafo
+    </div>
+
+</div>
+</body>
