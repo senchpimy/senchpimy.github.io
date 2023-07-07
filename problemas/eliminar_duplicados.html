@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <h1>Problemas</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../archivos/style.css">
+</head>
+<body>
+    <div class="contenidos">
+            <a href="../index.html" class="link">Inicio</a>
+            <a href="../archivos/index.html">Archivos</a>
+            <a href="../wallpapers/index.html">Wallpapers</a>
+            <a href="../ascci/idenx.html">ASSCI</a>
+            <a href="../entradas/index.html">Entradas</a>
+    </div>
+<div class="todo">
+  
+    <h2>Eliminar Duplicados</h2>
+	<div class="texto">
+      Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuanto elementos unicos este tenia
+	</div>
+	<h3>Solucion</h3>
+	<div class="codigo">
+class Solution {
+public:
+    int removeDuplicates(vector&ltint>& nums) {
+        int j = 1;
+        int size = nums.size();
+        for(int i = 1; i &lt size; i++)
+            if(nums[i] != nums[i - 1]){
+                nums[j] = nums[i];
+                j++;
+            }
+        
+        return j;
+    }
+};
+	</div>
+	<div class="texto">
+      Este programa itera por todo el vector y como este esta ordenado es cuando el numero anterior al numero de la iteracion actual son diferentes que se puede decir que es otro elemento del array, por lo que se aumenta el valor, al mismo tiempo como tenemos el indice de que elementos unicos lo podemos intercambiar
+      para asi poder reducir su tamaño a solo elementos unicos
+  </div>
+
+</div>
+</body>
