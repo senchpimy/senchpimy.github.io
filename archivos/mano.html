@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<head>
+    <h1>>Mano</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+        <a href="../problemas/index.html">Problemas</a>
+    </div>
+    <div class="todo">
+    <div class="texto">
+      Construi una mano que hasta cierto nivel sigue los movientos de otra mano en base a una camara, para esto escribi el siguiente programa:
+      <div class="codigo">
+import cv2
+import os
+import numpy as np
+import mediapipe as mp
+
+webcam=cv2.VideoCapture(0)
+mp_hand= mp.solutions.hands
+hands = mp_hand.Hands()
+
+mp_drawing_utils = mp.solutions.drawing_utils
+
+def distancia(
+        punto1,#:mp.framework.formats.landmark_pb2.NormalizedLandmark
+        punto2#:mp.framework.formats.landmark_pb2.NormalizedLandmark
+        )->float:
+    x=(punto1.x-punto2.x)
+    y=(punto1.y-punto2.y)
+    return np.sqrt(x**2+y**2)*1000
+
+def regla_de_tres(referencia:float, mapear:float)->int:
+    #if mapear>referencia:return 180
+    v = referencia/350
+    p = v*mapear
+    if int(p)>180:return 180
+    return int(p) 
+
+while webcam.isOpened():
+    succes, img = webcam.read()
+    if not succes:break
+    result = hands.process(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    if result.multi_hand_landmarks:
+        for hand in result.multi_hand_landmarks:
+            mitad = distancia(hand.landmark[mp_hand.HandLandmark.WRIST],hand.landmark[mp_hand.HandLandmark.MIDDLE_FINGER_MCP])
+            medio = distancia(hand.landmark[mp_hand.HandLandmark.MIDDLE_FINGER_TIP],hand.landmark[mp_hand.HandLandmark.MIDDLE_FINGER_MCP])
+            pulgar = distancia(hand.landmark[mp_hand.HandLandmark.THUMB_TIP],hand.landmark[mp_hand.HandLandmark.THUMB_MCP])
+            indice = distancia(hand.landmark[mp_hand.HandLandmark.INDEX_FINGER_MCP],hand.landmark[mp_hand.HandLandmark.INDEX_FINGER_TIP])
+            ring = distancia(hand.landmark[mp_hand.HandLandmark.RING_FINGER_MCP],hand.landmark[mp_hand.HandLandmark.RING_FINGER_TIP])
+            pinky = distancia(hand.landmark[mp_hand.HandLandmark.PINKY_MCP],hand.landmark[mp_hand.HandLandmark.PINKY_TIP])
+            print(regla_de_tres(mitad,medio))
+            print(regla_de_tres(mitad,indice*1.12)) # Relacion 0.9:1 con el medio
+            print(regla_de_tres(mitad,ring*1.26)) # Relacion 0.8:1 con el medio
+            print(regla_de_tres(mitad,pinky*1.58)) # Relacion 0.6:1 con el medio
+            #print(regla_de_tres(mitad,pulgar*1.25)) # Relacion 0.8:1 con el medio
+            mp_drawing_utils.draw_landmarks(img,hand, mp_hand.HAND_CONNECTIONS)
+
+    cv2.imshow("image",img)
+    cv2.waitKey(1)
+webcam.release()
+cv2.destroyAllWindows()
+      </div>
+      Este programa usa <b>mediapipe</b> para poder obtener las imagenes de una camara y <b>opencv</b> para detectar ciertos puntos de la mano
+      <div id="imagenes">
+        <img src="manos_ejemplos.png" alt="">
+        <img src="puntos_mano.png" alt="">
+      </div>
+      <br>
+      Para poder explicar el por que de las distancias que tome y como lo hice primero hay que ver la mano.
+      <br>
+      <br>
+      Este es un <a href="https://www.thingiverse.com/thing:17773">modelo</a> ya diseñado, este enlace contiene lo necesario para armar la mano hasta cierto nivel, pero yo encontre más conveniente solo imprimir la mano de ese modelo y luego imprimir el antebrazo desde <a href="https://www.thingiverse.com/thing:1927150">este modelo de aqui</a>
+      tambien hay que imprimir los modelos que soportan a los servo motores y guian los hilos de los dedos de las mano y estos se encuentran en <a href="https://www.thingiverse.com/thing:65274">este modelo</a> asi como las poleas de los servos
+      <br>
+      <br>
+        Como se puede ver, no hay mucho control en el modelo mas que hacia delante y hacia atras, por lo que el programa solo toma en cuenta la distancia desde la punta del dedo hasta la base de este, luego toma como referencia la distancia de la base del dedo medio hasta la muñeca para saber que tanto
+        se movio cada dedo, esto para tener una aproximacion y siempre se mueva lo mismo sin importar que tan lejos este la mano de la calamara y el tamaño de la mano.
+
+        Con estos datos saca una regla de tres para poder mapear el punto maximo a 180 y el minimo a 0 que son que tanto se puede mover un servomotor
+    </div>
+    </div>
+</body>
+
