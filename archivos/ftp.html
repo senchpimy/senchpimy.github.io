@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<head>
+    <h1>VSFTPD</h1>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="contenidos">
+        <a href="../index.html">Inicio</a>
+        <a href="../entradas/index.html" >Entradas</a>
+        <a href="../wallpapers/index.html">Wallpapers</a>
+        <a href="../ascci/index.html">ASSCI</a>
+        <a href="../problemas/index.html">Problemas</a>
+    </div>
+    <div class="todo">
+    	<div class="texto">
+        FTP es un protocolo para transmitir archivos, desde hace tiempo he intentado tener un servidor dentro de mi red local el cual funcione con unos discos que tengo, e intentado usar <b>OpenMediaVault</b>, pero tiene algunos bugs y no me gusto, tambien intente usar <b>Owncloud</b>, pero parece que no
+      que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalacion debian desde apt no funciona pues la version de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuracion del servidor, entonces mejor decidi usar
+      un simple servidor ftp
+      <br><br>
+        Para instalarlo en debian solo se tiene que ejecutar:
+        <div class="codigo">
+          apt install vsftpd
+        </div>
+        Y luego lo habilitamos desde systemd con
+      <div class="codigo">
+        systemctl enable vsftpd
+        systemctl start vsftpd
+      </div>
+      Y ya, el servidor estaria funcionando, y a diferencia de los otros dos programas que intentan ser más simples y faciles de administrar con sus interfaces graficas, este fue mucho más facil para mi.
+      <br><br>
+        Para poderlo utilizar en mi explorador de archivos de preferencia <i>Nautilus</i> tuve solo que hacer click en mas ubicaciones y en la parte inferior hay un espacio en donde se pueden agregar servidores con diferentes protocolos, y 
+      para agregar el mio solo tuve que poner:
+      <div class="codigo">
+        ftp://192.168.XXX.XXX
+      </div>
+      Y se conecto automaticamente, me pidio contraseña y usuario pero fue todo lo que necesite.
+      <br><br>
+        Para poder usar mis discos los tuve que montar, lo cual es bastante sencillo pero cada vez que se apague y se vuelva a prender necesitaria volver a hacer lo mismo, entonce para evitar esto cambie el archivo de <b>fstab</b> con los siguientes comandos:
+      <div class="codigo">
+        uuid=$(ls -al /dev/disk/by-uuid/ | grep <b>sdb1 </b>| awk '{print $9}')
+        str=$(echo "UUID=$uuid   <b>/home/plof/disco</b>  ext4  defaults  0  0")
+        echo $str &gt&gt /etc/fstab
+      </div>
+      Solo hay que cambiar en estos pequeños comandos el nombre del disco y la direccion en la cual se van a montar, y verificar que la configuracion fue correcta con el siguiente comando
+      <div class="codigo">
+        findmnt --verify
+      </div>
+      Y solo para confirmar que todo este funcionando correctamente estaria bien reiniciar la computadora y verificar que tanto el servidor ftp como el disco este funcionando correctamente
+
+      <a href="./owncloud.html">Mi intento de hacer un reporte de owncloud</a>
+    	</div>
+    </div>
+</body>
+
