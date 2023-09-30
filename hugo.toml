@@ -1,0 +1,28 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Senchpimy'
+
+[menu]
+[[menu.main]]
+    name = 'Entradas'
+    pageRef = '/entradas'
+    weight = 10
+[[menu.main]]
+    name = 'Archivos'
+    pageRef = '/archivos'
+    weight = 20
+[[menu.main]]
+    name = 'Wallpaper'
+    pageRef = '/wallpapers'
+    weight = 30
+[[menu.main]]
+    name = 'ASCCI'
+    pageRef = '/ascci/main'
+    weight = 40
+[[menu.main]]
+    name = 'Problemas'
+    url = '/problemas'
+    weight = 50
+
+[markup.goldmark.renderer]
+unsafe = true

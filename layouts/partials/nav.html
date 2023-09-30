@@ -1,0 +1,13 @@
+<div class="contenidos">
+  
+{{ range site.Menus.main }}
+  <a href="{{ .URL }}">
+    {{ .Name }}
+    {{- with .Page }}
+      {{- with .Params.version -}}
+        ({{ . }})
+      {{- end }}
+    {{- end }}
+  </a>
+{{ end }}
+</div>

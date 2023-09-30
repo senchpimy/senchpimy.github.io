@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<div class="todo">
+  <div class="documentos">
+  {{ range.Data.Pages }}
+    <h2>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h3>
+  	<time datetime="{{ .Date.Format "2006-01-02" }}">
+  		{{ .Date.Format "Jan 2, 2006" }}
+  	</time>
+  {{ end }}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}
