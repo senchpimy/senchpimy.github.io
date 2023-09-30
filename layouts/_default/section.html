@@ -1,0 +1,27 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+{{ partial "nav.html" . }}
+
+{{ .Content }}
+{{ $index := 0}}
+{{ $array:= readDir "/static/wallpapers/" }}
+
+<div class="todo">
+  <div class="documentos">
+    {{ range.Data.Pages }}
+      {{ $info := index $array $index }}
+      <div class="post-snippet">
+          <a class="enlace" href="{{ .RelPermalink }}">
+            <img src="/wallpapers/{{ $info.Name }}" alt="">
+        </a>
+        <div class="desc">
+          {{ .Title }}
+        </div>
+      </div>
+      {{ $index = add $index 1}}
+    {{ end }}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}
