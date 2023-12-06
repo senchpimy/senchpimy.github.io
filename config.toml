@@ -1,0 +1,7 @@
+baseURL = "https://mynewhugosite.com"
+title = "My New Hugo Site"
+theme = "hugo-starter"
+
+
+[markup.goldmark.renderer]
+unsafe= true
