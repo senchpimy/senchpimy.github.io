@@ -1,8 +1,7 @@
-***
-
+---
 title: "Anagrama"
 date: "08 Jun 2023"
--------------------
+---
 
 ## Anagrama
 
