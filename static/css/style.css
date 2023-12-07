@@ -8,6 +8,29 @@
     width:100vw;
 }
 
+main>p{ /*edit*/
+  padding-left: 10vw;
+  padding-right: 10vw;
+  font-size: 1.5vw;
+}
+
+main>h2{ /*edit*/
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+main>div.highlight{ /*edit*/
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+main>blockquote{
+  background-color:rgb(0, 30, 30);
+  white-space: pre-wrap;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
 h1{
 font-size:4vw;
 }
@@ -165,9 +188,9 @@ body{
       --row-height: 200px;
     }
   }
- .todo{
-margin:2vw;
- } 
+
+ /*.todo{
+ } */
 
 .desc{
   position:relative;

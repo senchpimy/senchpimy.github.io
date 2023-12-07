@@ -4,8 +4,6 @@ date: "07 Jun 2023"
 ---
 ## FizzBuzz
 
-
-
  Este problema consisten en imprimir (en el caso de la pagina de leetcode devolver un array) el cual contenga los numeros de i hasta **n**, pero si un numero es divisible entre tres en lugar de un numero seria el valor **Fizz**, si es entre 5 seria **Buzz** y si es entre ambos seria **FizzBuzz**, 
  
 ### Solucion
