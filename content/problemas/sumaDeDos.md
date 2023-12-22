@@ -4,8 +4,6 @@ date: "14 Jun 2023"
 ---
 ## Suma de Dos
 
-
-
  Este problema consiste en encontrar la ubicacion de dos numeros en un vectos ordenado de forma ascendente que sumados den como resultado un valor deseado.
  
 ### Solucion
