@@ -1,7 +1,7 @@
-+++
+---
 title: "Linux Module"
 date: "2024-01-16"
-+++
+---
 
 Estoy haciendo un servidor grafico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidi usar las lecturas analogicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intencion es hacer lo mismo, pero con un joystick
 
