@@ -1,6 +1,6 @@
 ---
 title: "hyperland"
-draft: true
+date: 2024-06-08
 ---
 Hyperland es un compositor de wayland (osea un administrador de ventanas) y este al ser mas simple y minimalista
 para poder tener un sistema completo se necesita muchos otros programas diferentes

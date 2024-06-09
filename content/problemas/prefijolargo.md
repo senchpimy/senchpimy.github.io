@@ -1,6 +1,6 @@
 ---
 title: "Prefijo más largo"
-date: "08 Jun 2023"
+date: 2024-06-08
 ---
 
 ## Prefijo
