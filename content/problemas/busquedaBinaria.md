@@ -12,17 +12,23 @@ date: "17 Jun 2023"
 ### Solucion
 
 
-```py
- class Solution(object):
-     def search(self, nums, target):
-        principio = 0
-        final = len(nums)
-        while True:
-            total=int((final-principio)/2)+principio
-            val = nums[total]
-        print(val, final, principio)
-        if val==target:
-            return total
-        elif val
+```rb
+# @param {Integer[]} nums
+# @param {Integer} target
+# @return {Integer}
+def search(nums, target)
+    izq = 0 
+    der = nums.length-1
+    until izq > der
+        mid = izq + (der - izq) / 2
+        if nums[mid]==target
+            return mid
+        elsif nums[mid]<target
+            izq=mid +1
+        else nums[mid]>target
+            der =mid -1
+        end
+    end
+    -1
+end
 ```
-
