@@ -12,33 +12,34 @@ date: "14 Jun 2023"
 ```cpp
  class Solution {
  public:
- int binarySearch(vector&ltint>& arr, int l, int r, int x)
- {
- while (l <= r) {
- int m = l + (r - l) / 2;
- if (arr[m] == x)
- return m;
- if (arr[m] < x)
- l = m + 1;
- else
- r = m - 1;
- }
- return -1;
- }
- vector&ltint> twoSum(vector&ltint>& numbers, int target) {
- int lon = numbers.size();
- int buscar;
- vector&ltint> vec;
- for (int i = 0; i&ltloni++){
- buscar = target-numbers[i];
- int resultado = binarySearch(numbers,i+1,lon-1,buscar);
- if (resultado!=-1){
- vec.push\_back(i+1);
- vec.push\_back(resultado+1);
- return vec;
- }
- }
- return vec;
+    int binarySearch(vector<int>& arr, int l, int r, int x)
+    {
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (arr[m] == x)
+                return m;
+            if (arr[m] < x)
+                l = m + 1;
+            else
+                r = m - 1;
+        }
+        return -1;
+    }
+
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int lon = numbers.size();
+        int buscar;
+        vector<tint> vec;
+        for (int i = 0; i<lon;i++){
+         buscar = target-numbers[i];
+         int resultado = binarySearch(numbers,i+1,lon-1,buscar);
+         if (resultado!=-1){
+            vec.push_back(i+1);
+            vec.push_back(resultado+1);
+            return vec;
+        }
+    }
+    return vec;
  
  }
  };
@@ -50,6 +51,7 @@ date: "14 Jun 2023"
  Este metodo fue el mas tardado pues termino al ultimo, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pense que esta era la respuesta correcta asi que busque otra soluciones y me encontre con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
  
 
+```cpp
  class Solution {
  public:
  vector&ltint> twoSum(vector&ltint>& numbers, int target) {
@@ -68,6 +70,7 @@ date: "14 Jun 2023"
  return {-1, -1};
  }
  };
+```
  
 
  Este metodo usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dara un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del ultimo valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.

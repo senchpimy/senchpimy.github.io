@@ -4,8 +4,6 @@ date: "16 Jun 2023"
 ---
 ## Producto de lista excepto mismo
 
-
-
  Este problema consisten hacer un vector el cual cada elemento debe ser el resultado de la 
  multiplicacion de todos los elementos de un vector excepto el del indice el cual va a ocupar
 
