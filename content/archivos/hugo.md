@@ -1,6 +1,6 @@
 ---
 title: "Hugo"
-date : "1 Oct 2023"
+#date : "1 October 2023"
 ---
 
 

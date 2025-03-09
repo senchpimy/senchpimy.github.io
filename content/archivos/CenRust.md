@@ -1,6 +1,6 @@
 ---
 title: "C en Rust"
-date: "05 Dic 2023"
+date: "05 Dec 2023"
 ---
 
 Este es un pequeño resumen de como usar codigo de C existente en proyectos de Rust.

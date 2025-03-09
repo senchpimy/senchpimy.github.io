@@ -1,6 +1,6 @@
 ---
 title: "Tres Impares Seguidos"
-date: "1 Jul 2024"
+#date: "1 Jul 2024"
 ---
 
 ## Anagrama

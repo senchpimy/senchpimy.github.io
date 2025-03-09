@@ -1,6 +1,6 @@
 ---
 title: "Mamba"
-date: "04 Juñ 2024"
+date: "04 Jul 2024"
 ---
 
 ## Mamba
