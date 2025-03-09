@@ -1,17 +1,73 @@
 {{ partial "header.html"}}
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
 {{ if .IsHome }}
-  {{ .Content }}
-  {{ partial "nav.html" . }}
-		<li class="links"><a class="directorio" href="https://git.senchpimy.xyz">Mi Servidor de Git donde etsan los proyectos explicados en esta pagina</a></li>
-		<li class="links"><a class="directorio" href="https://toktik.senchpimy.xyz">Un fronted/prxy para tiktok</a></li>
-		<li class="links"><a class="directorio" href="https://chudie.senchpimy.xyz">Una pagina de cosas random, con un libro de visitas par firmar</a></li>
-		<li class="links"><a class="directorio" href="https://0x0.senchpimy.xyz">Una instancia de <a href="https://0x0.st">0x0.st</a> en la cual se pueden hostear archivos</a></li>
-		<li class="links">Un servidor de git a traves de ssh </li>
-		<li class="links"><a class="directorio" href="https://estilo.senchpimy.xyz">Como hubiera hecho una pagina si estuviera en el 2005</a></li>
+{{ .Content }}
+{{ partial "nav.html" . }}
+<div id="model-container"></div>
+<style>
+  #model-container {
+    width: 90%;
+    height: 1000px;
+    margin: 0 auto;
+  }
+</style>
+
+<script type="module"> <!-- ¡Clave: type="module"! -->
+  import * as THREE from 'three';
+  import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+  // Configuración de Three.js
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({antialias: true});
+
+  const container = document.getElementById("model-container");
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  // Añade luces
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+  scene.add(ambientLight);
+  camera.position.z = 5;
+
+  // Carga el modelo
+  const loader = new GLTFLoader(); // ¡Ahora GLTFLoader es un constructor válido!
+  loader.load(
+    '{{ .Site.BaseURL }}modelos/mandibula1.glb',  // Verifica que la ruta sea correcta
+    (gltf) => {
+      scene.add(gltf.scene);
+      animate();
+    },
+    undefined,
+    (error) => console.error("Error cargando el modelo:", error)
+  );
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
+
+  // Animación
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
+</script>
+
 {{else}}
-  {{ partial "nav.html" . }}
-  {{ .Content }}
+{{ partial "nav.html" . }}
+{{ .Content }}
 {{end}}
 
 {{ partial "footer.html" . }}
