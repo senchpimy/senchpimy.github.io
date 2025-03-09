@@ -25,9 +25,14 @@
   }
 </style>
 
-<script type="module"> <!-- ¡Clave: type="module"! -->
+<script type="module">
   import * as THREE from 'three';
   import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+  // Variables de control
+  let model;
+  let isDragging = false;
+  let previousMousePosition = {x: 0, y: 0};
 
   // Configuración de Three.js
   const scene = new THREE.Scene();
@@ -38,27 +43,66 @@
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
-  // Añade luces
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+  // Luces
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2);
   scene.add(ambientLight);
-  camera.position.z = 5;
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+  directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
 
   // Carga el modelo
-  const loader = new GLTFLoader(); // ¡Ahora GLTFLoader es un constructor válido!
+  const loader = new GLTFLoader();
   loader.load(
-    '{{ .Site.BaseURL }}modelos/mandibula1.glb',  // Verifica que la ruta sea correcta
+    '{{ .Site.BaseURL }}modelos/mandibula1.glb',
     (gltf) => {
-      scene.add(gltf.scene);
+      model = gltf.scene;
+      model.scale.set(0.1, 0.1, 0.1); // Ajusta según necesidad
+      scene.add(model);
       animate();
     },
     undefined,
     (error) => console.error("Error cargando el modelo:", error)
   );
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-  directionalLight.position.set(5, 5, 5);
-  scene.add(directionalLight);
 
-  // Animación
+  // Posición inicial de la cámara
+  camera.position.z = 10;
+
+  // Eventos del mouse
+  container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    previousMousePosition = {
+      x: e.clientX,
+      y: e.clientY
+    };
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDragging || !model) return;
+
+    const deltaMove = {
+      x: e.clientX - previousMousePosition.x,
+      y: e.clientY - previousMousePosition.y
+    };
+
+    // Rotación
+    model.rotation.y += deltaMove.x * 0.01;
+    model.rotation.x += deltaMove.y * 0.01;
+
+    // Desplazamiento (opcional)
+    // model.position.x += deltaMove.x * 0.02;
+    // model.position.y -= deltaMove.y * 0.02;
+
+    previousMousePosition = {
+      x: e.clientX,
+      y: e.clientY
+    };
+  });
+
+  container.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  // Animación continua
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
