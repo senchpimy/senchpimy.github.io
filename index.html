@@ -1,0 +1,101 @@
+<!doctype html><html lang=en><head><meta name=generator content="Hugo 0.119.0"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title></title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><script type=importmap>
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+      }
+    }
+  </script></head><h1 id=home_title>▄████████ ▄████████ ███▄▄▄▄ ▄████████ ▄█ █▄ ▄███████▄ ▄█ ▄▄▄▄███▄▄▄▄ ▄██ ▄
+███ ███ ███ ███ ███▀▀▀██▄ ███ ███ ███ ███ ███ ███ ███ ▄██▀▀▀███▀▀▀██▄ ███ ██▄
+███ █▀ ███ █▀ ███ ███ ███ █▀ ███ ███ ███ ███ ███▌ ███ ███ ███ ███▄▄▄███
+███ ▄███▄▄▄ ███ ███ ███ ▄███▄▄▄▄███▄▄ ███ ███ ███▌ ███ ███ ███ ▀▀▀▀▀▀███
+▀███████████ ▀▀███▀▀▀ ███ ███ ███ ▀▀███▀▀▀▀███▀ ▀█████████▀ ███▌ ███ ███ ███ ▄██ ███
+███ ███ █▄ ███ ███ ███ █▄ ███ ███ ███ ███ ███ ███ ███ ███ ███
+▄█ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███ ███
+▄████████▀ ██████████ ▀█ █▀ ████████▀ ███ █▀ ▄████▀ █▀ ▀█ ███ █▀ ▀█████▀</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><div id=model-container></div><style>#model-container{width:90%;height:1000px;margin:0 auto}</style><script type=module>
+  import * as THREE from 'three';
+  import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+  
+  let model;
+  let isDragging = false;
+  let previousMousePosition = {x: 0, y: 0};
+
+  
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({antialias: true});
+
+  const container = document.getElementById("model-container");
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+  scene.add(ambientLight);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+  directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
+
+  
+  const loader = new GLTFLoader();
+  loader.load(
+    'https:\/\/example.org\/modelos/mandibula1.glb',
+    (gltf) => {
+      model = gltf.scene;
+      model.scale.set(0.1, 0.1, 0.1); 
+      scene.add(model);
+      animate();
+    },
+    undefined,
+    (error) => console.error("Error cargando el modelo:", error)
+  );
+
+  
+  camera.position.z = 10;
+
+  
+  container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    previousMousePosition = {
+      x: e.clientX,
+      y: e.clientY
+    };
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDragging || !model) return;
+
+    const deltaMove = {
+      x: e.clientX - previousMousePosition.x,
+      y: e.clientY - previousMousePosition.y
+    };
+
+    
+    model.rotation.y += deltaMove.x * 0.01;
+    model.rotation.x += deltaMove.y * 0.01;
+
+    
+    
+    
+
+    previousMousePosition = {
+      x: e.clientX,
+      y: e.clientY
+    };
+  });
+
+  container.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
+</script></main></body></html>

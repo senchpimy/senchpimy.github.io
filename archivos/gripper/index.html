@@ -1,0 +1,7 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Gripper</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Gripper</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Este es un proyecto que realice con piezas que me sobraban.</p><p>Es un coche con llantas omnidireccionales que se mueve con un joystick y un brazo mecanico controlado con 5 servos mg90 que se controla desde una pagina web, esta pagina web se conecta con comunicacion serial con otro ESP32 el cual se conecta con el esp32 que esta en el coche,
+se comunican mediante el protocolo esp32Now.</p><p>La pagina web tiene un singleton que muestra el brazo y renderiza su poscicion actual en la misma pagina web, actualmente solo funciona en navegadores basados en chromium pues es este el unico que tiene una API serial. La pagina manda al esp32 un json con cada poscicion de los
+servos, luego este lo guarda en una estructura que lo puede mandar mediante esp32Now a el esp32 que controla el coche, el que lo recibe en uno de sus cpus, en el otro esta leyendo un joystick que controla unas llantas</p></main></body></html>

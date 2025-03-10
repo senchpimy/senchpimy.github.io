@@ -1,0 +1,22 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Parentesis Valido</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Parentesis Valido</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=parentesis-valido>Parentesis Valido</h2><p>Este problema consisten en regresar cierto si un string contiene una serire de parentesis que sean validos</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isValid</span>(s: str) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>         fifo <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>         <span style=color:#66d9ef>for</span> char <span style=color:#f92672>in</span> s:
+</span></span><span style=display:flex><span>             <span style=color:#66d9ef>if</span> char <span style=color:#f92672>in</span> <span style=color:#e6db74>&#39;({[&#39;</span>:
+</span></span><span style=display:flex><span>                 fifo<span style=color:#f92672>.</span>append(char)
+</span></span><span style=display:flex><span>             <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                 <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> fifo:
+</span></span><span style=display:flex><span>                     <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                 curr<span style=color:#f92672>=</span> fifo<span style=color:#f92672>.</span>pop()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                 <span style=color:#66d9ef>if</span> (char <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#f92672>and</span> curr<span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;(&#39;</span>) <span style=color:#f92672>or</span> (char <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;}&#39;</span> <span style=color:#f92672>and</span> curr<span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;{&#39;</span>) <span style=color:#f92672>or</span> (char <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;]&#39;</span> <span style=color:#f92672>and</span> curr<span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;[&#39;</span>):
+</span></span><span style=display:flex><span>                     <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>         <span style=color:#66d9ef>return</span> <span style=color:#f92672>not</span> fifo
+</span></span></code></pre></div><p>Esta funcion primero añade a una lista los parentesis que abren y conforme la lista avanza el orden en en el que salen debe
+ser el mismo con el que entran por lo que si esto no es asi entonces el parentesis no es valido y si al final la lista esta vacia se regresa <em>True</em></p></main></body></html>

@@ -1,0 +1,8 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Safetensors To GGUF</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Safetensors To GGUF</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=ggmlgguf>GGML/GGUF</h2><p>Ollama es un proyecto de codigo abierto que se utiliza para administrar, ejecutar y configurar LLMs. Especificamente se utiliza
+para ejecutar modelos de forma local.</p><p>Ollama puede usar es solo un administrador, como backend utiliza <strong>llama.cpp</strong>, llama.cpp es un backend completo, flexible y portatil de el cual leia los modelos con el formato <strong>GGML</strong>, pero conforme los modelos crecian y
+agregaban nuevas caracteristicas fue necesario crear un nuevo formato para mantener la conveniencia de tener un modelo en un solo archivo pues se requeria almacenar nueva informacion sobre el modelo.</p><p>El formato GGUF fue introducido como sucesor de GGML en agosto de 2023</p><h2 id=safetensors>Safetensors</h2><p>Los Safetensors son un formato creado por <em>HuggingFace</em>, los safetensors son más flexibles pues no solo estan limitados a modelos de lenguaje, se pueden guardar cualquier tipo de tensores, pero en especifico se guardan
+tensores de pytorch</p><h2 id=safetensors-a-gguf>Safetensors A GGUF</h2><p>Una forma de convertir un repositorio que contenga modelos <em>safetensors</em> a un solo archivo <em>GGUF</em> es mediante esta <a href=https://huggingface.co/spaces/ggml-org/gguf-my-repo>pagina</a></p></main></body></html>

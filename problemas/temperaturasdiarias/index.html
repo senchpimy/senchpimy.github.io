@@ -1,0 +1,40 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Anagrama</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Anagrama</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=anagrama>Anagrama</h2><p>Este problema consisten en dado un array en donde cada elemento representa la temperatura en un dia, regresar otro array que contenga cuantos dias faltan para que se tenga una temperatura mayor</p><h3 id=solucion>Solucion</h3><p>My primera solucion O(n^2) fue la siguiente</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {Integer[]} temperatures</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer[]}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>daily_temperatures</span>(temp)
+</span></span><span style=display:flex><span>    tot <span style=color:#f92672>=</span> <span style=color:#f92672>[]</span>
+</span></span><span style=display:flex><span>    len <span style=color:#f92672>=</span> temp<span style=color:#f92672>.</span>length<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    temp<span style=color:#f92672>.</span>each_with_index <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>val,index<span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>        n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        l <span style=color:#f92672>=</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>        index<span style=color:#f92672>.</span>upto(len) <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>i<span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span> <span style=color:#66d9ef>if</span> temp<span style=color:#f92672>[</span>i<span style=color:#f92672>]&gt;</span>val
+</span></span><span style=display:flex><span>            n<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            l <span style=color:#f92672>=</span> i
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>        n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>if</span> l <span style=color:#f92672>==</span> len
+</span></span><span style=display:flex><span>        tot<span style=color:#f92672>&lt;&lt;</span>n
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    tot 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Pero era muy tardada, entonces la solucion es la siguiente</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {Integer[]} temperatures</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer[]}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>daily_temperatures</span>(temp)
+</span></span><span style=display:flex><span>    len <span style=color:#f92672>=</span> temp<span style=color:#f92672>.</span>length<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#tot = Array.new(len+1, 0)</span>
+</span></span><span style=display:flex><span>    index_s <span style=color:#f92672>=</span> <span style=color:#f92672>[]</span>
+</span></span><span style=display:flex><span>    temp<span style=color:#f92672>.</span>each_with_index <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>val, i <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> <span style=color:#f92672>!</span>index_s<span style=color:#f92672>.</span>empty? <span style=color:#f92672>&amp;&amp;</span> val<span style=color:#f92672>&gt;</span>temp<span style=color:#f92672>[</span>index_s<span style=color:#f92672>.</span>last<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>            index <span style=color:#f92672>=</span> index_s<span style=color:#f92672>.</span>pop
+</span></span><span style=display:flex><span>            temp<span style=color:#f92672>[</span>index<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> (i<span style=color:#f92672>-</span>index)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>        index_s<span style=color:#f92672>&lt;&lt;</span>i
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    index_s<span style=color:#f92672>.</span>each { <span style=color:#f92672>|</span>index<span style=color:#f92672>|</span> temp<span style=color:#f92672>[</span>index<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> }
+</span></span><span style=display:flex><span>    temp
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Esta solucion solo crea nueva memoria para un stack el cual guarda la información de el indice el cual todavia no se encuentra un dia con una temperatura mayor, automaticamente
+el array se va a ordenar de forma descendiente y cuando se encuentra un valor que es mayor se hace la resta de los indices y se agrega al array de temperaturas para evitar crear un nuevo array</p></main></body></html>

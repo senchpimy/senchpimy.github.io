@@ -1,0 +1,26 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Ordenar Colores</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Ordenar Colores</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=ordenar-colores>Ordenar colores</h2><p>Este problema consisten en dado un array con los numeros: 0, 1, 2. Ordenar el array sin crear uno nuevo tal que todos los ceros queden al principio, los unos enmedio y los 2 al final</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {Integer[]} nums</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Void} Do not return anything, modify nums in-place instead.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sort_colors</span>(nums)
+</span></span><span style=display:flex><span>l <span style=color:#f92672>=</span> nums<span style=color:#f92672>.</span>length <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>f <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> i<span style=color:#f92672>&lt;=</span> l
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]==</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        nums<span style=color:#f92672>[</span>l<span style=color:#f92672>]</span>, nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>, nums<span style=color:#f92672>[</span>l<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        l<span style=color:#f92672>-=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>elsif</span> nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]==</span><span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        nums<span style=color:#f92672>[</span>f<span style=color:#f92672>]</span>, nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>, nums<span style=color:#f92672>[</span>f<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        f<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        i<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>     i<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span> 
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Este programa funciona con tres apuntadores, uno que iterara por todo el array, uno para indicar el principio de el array, el cual avanzara cada que se el primero encuentre un cero, pues intercambiaran lugares y significara que desde 0 hasta su poscicion -1
+todos los valores son 0, y el ultimo, el cual cumple la misma funcion que el segundo pero de manera inversa, para el final de el array.</p></main></body></html>

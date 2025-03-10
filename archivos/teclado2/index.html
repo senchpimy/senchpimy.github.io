@@ -1,0 +1,597 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Teclado V2</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Teclado V2</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
+bonotes y no se pueden mover tan facil, etc.</p><p>Entonces mejor decidi hacer una nueva version de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo tambien consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar <a href=https://github.com/tshort/dactyl-keyboard>este fork</a>
+de el modelo original del teclado <strong>dactyl manuform</strong>, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los <strong>forks</strong> de este <strong>fork</strong> me encontre con <a href=https://github.com/joshreve/dactyl-keyboard>este otro fork</a>
+que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opcion de generar los modelos con un espacio para una pantalla oled de 128x32 con
+varios metodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opcion de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se
+puede usar.</p><p>Lo unico malo que le encontre a este modelo es que los enlaces para los modelos de los posibles <strong>montadores del controlador</strong> estan caidos, por lo que hay que buscar un poco, pero los pude encontrar en la <strong>Wayback machine</strong> <a href=https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl>aqui</a> gracias a
+<a href=https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/>este post</a>, aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si estan usando el mismo microprocesador</p><p><img src=/pro_img/teclado2_1.png alt>
+<img src=/pro_img/teclado2_2.png alt></p><p>Para generar los teclados hay que editar el archivo ubicado en <em>dactyl-keyboard/src/generate_configuration.py</em>, cada valor tiene una pequeña descripcion de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generara un
+archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenia, mantuve la corvatura por defecto pues pense que seria la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
+y finalmete seleccione el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedo asi:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#f92672>import</span> sys
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> getopt
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>pi <span style=color:#f92672>=</span> <span style=color:#ae81ff>3.14159</span>
+</span></span><span style=display:flex><span>d2r <span style=color:#f92672>=</span> pi <span style=color:#f92672>/</span> <span style=color:#ae81ff>180</span>
+</span></span><span style=display:flex><span>r2d <span style=color:#f92672>=</span> <span style=color:#ae81ff>180</span> <span style=color:#f92672>/</span> pi
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>shape_config <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ENGINE&#39;</span>: <span style=color:#e6db74>&#39;solid&#39;</span>, <span style=color:#75715e># &#39;solid&#39; = solid python / OpenSCAD, &#39;cadquery&#39; = cadquery / OpenCascade</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;ENGINE&#39;: &#39;cadquery&#39;, # &#39;solid&#39; = solid python / OpenSCAD, &#39;cadquery&#39; = cadquery / OpenCascade</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>######################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Shape parameters ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>######################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;save_dir&#39;</span>: <span style=color:#e6db74>&#39;.&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;config_name&#39;</span>: <span style=color:#e6db74>&#34;DM&#34;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#&#39;show_caps&#39;: &#39;MX&#39;,</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;show_caps&#39;</span>: <span style=color:#66d9ef>False</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;show_pcbs&#39;</span>: <span style=color:#66d9ef>False</span>, <span style=color:#75715e>#only runs if caps are shown, easist place to initially inject geometry</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;nrows&#39;</span>: <span style=color:#ae81ff>5</span>, <span style=color:#75715e>#5, # key rows</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ncols&#39;</span>: <span style=color:#ae81ff>6</span>, <span style=color:#75715e>#6, # key columns</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;alpha&#39;</span>: pi <span style=color:#f92672>/</span> <span style=color:#ae81ff>12.0</span>, <span style=color:#75715e># curvature of the columns</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;beta&#39;</span>: pi <span style=color:#f92672>/</span> <span style=color:#ae81ff>36.0</span>, <span style=color:#75715e># curvature of the rows</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;centercol&#39;</span>: <span style=color:#ae81ff>3</span>, <span style=color:#75715e># controls left_right tilt / tenting (higher number is more tenting)</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;centerrow_offset&#39;</span>: <span style=color:#ae81ff>3</span>, <span style=color:#75715e># rows from max, controls front_back tilt</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tenting_angle&#39;</span>: pi <span style=color:#f92672>/</span> <span style=color:#ae81ff>12.0</span>, <span style=color:#75715e># or, change this for more precise tenting control</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># symmetry states if it is a symmetric or asymmetric bui. If asymmetric it doubles the generation time.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;symmetry&#39;</span>: <span style=color:#e6db74>&#34;symmetric&#34;</span>, <span style=color:#75715e># &#34;asymmetric&#34; or &#34;symmetric&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;column_style_gt5&#39;</span>: <span style=color:#e6db74>&#34;orthographic&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;column_style&#39;</span>: <span style=color:#e6db74>&#34;standard&#34;</span>, <span style=color:#75715e># options include :standard, :orthographic, and :fixed</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;reduced_inner_cols&#39;</span>: <span style=color:#ae81ff>2</span>, <span style=color:#75715e>#currently supports 0 or 2 due to thumb cluster attachment</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;reduced_outer_cols&#39;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_offsets&#39;</span>: [<span style=color:#ae81ff>6</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>7</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;keyboard_z_offset&#39;</span>: (
+</span></span><span style=display:flex><span> <span style=color:#ae81ff>11</span> <span style=color:#75715e># controls overall height# original=9 with centercol=3# use 16 for centercol=2</span>
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;extra_width&#39;</span>: <span style=color:#ae81ff>2.0</span>, <span style=color:#75715e># extra space between the base of keys# original= 2</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;extra_height&#39;</span>: <span style=color:#ae81ff>0.5</span>, <span style=color:#75715e># original= 0.5</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;web_thickness&#39;</span>: <span style=color:#ae81ff>4.0</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1.1</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;post_size&#39;</span>: <span style=color:#ae81ff>0.1</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e># post_adj&#39;: post_size / 2</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;post_adj&#39;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># THUMB PARAMETERS</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;DEFAULT&#39; 6-key, &#39;MINI&#39; 5-key, &#39;CARBONFET&#39; 6-key, &#39;MINIDOX&#39; 3-key, &#39;TRACKBALL_ORBYL&#39;, &#39;TRACKBALL_CJ&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_style&#39;</span>: <span style=color:#e6db74>&#39;CARBONFET&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;default_1U_cluster&#39;</span>: <span style=color:#66d9ef>True</span>, <span style=color:#75715e># only used with default, makes top right thumb cluster key 1U</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Thumb key size. May need slight oversizing, check w/ caps. Additional spacing will be automatically added for larger keys.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;minidox_Usize&#39;</span>: <span style=color:#ae81ff>1.6</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e># Thumb plate rotations, anything other than 90 degree increments WILL NOT WORK.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;mini_index_key&#39;</span>: <span style=color:#66d9ef>True</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Screw locations and extra screw locations for separable thumb, all from thumb origin</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Pulled out of hardcoding as drastic changes to the geometry may require fixes to the screw mounts.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># First screw in separable should be similar to the standard location as it will receive the same modifiers.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;default_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>21</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>58</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;default_separable_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>21</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>58</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;mini_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>29</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>52</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;mini_separable_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>29</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>52</span>], [<span style=color:#f92672>-</span><span style=color:#ae81ff>62</span>, <span style=color:#ae81ff>10</span>], [<span style=color:#ae81ff>12</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>25</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;minidox_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>37</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>34</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;minidox_separable_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>37</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>34</span>], [<span style=color:#f92672>-</span><span style=color:#ae81ff>62</span>, <span style=color:#ae81ff>12</span>], [<span style=color:#ae81ff>10</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>25</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;carbonfet_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>48</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>37</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;carbonfet_separable_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>48</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>37</span>], [<span style=color:#f92672>-</span><span style=color:#ae81ff>52</span>, <span style=color:#ae81ff>10</span>], [<span style=color:#ae81ff>12</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>35</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;orbyl_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>53</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>68</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;orbyl_separable_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>53</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>68</span>], [<span style=color:#f92672>-</span><span style=color:#ae81ff>66</span>, <span style=color:#ae81ff>8</span>], [<span style=color:#ae81ff>10</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>40</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbcj_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>40</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>75</span>]],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbcj_separable_thumb_screw_xy_locations&#39;</span>: [[<span style=color:#f92672>-</span><span style=color:#ae81ff>40</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>75</span>], [<span style=color:#f92672>-</span><span style=color:#ae81ff>63</span>, <span style=color:#ae81ff>10</span>], [<span style=color:#ae81ff>15</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>40</span>]],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_plate_tr_rotation&#39;</span>: <span style=color:#ae81ff>0.0</span>, <span style=color:#75715e># Top right plate rotation tweaks as thumb cluster is crowded for hot swap, etc.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_plate_tl_rotation&#39;</span>: <span style=color:#ae81ff>0.0</span>, <span style=color:#75715e># Top left plate rotation tweaks as thumb cluster is crowded for hot swap, etc.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_plate_mr_rotation&#39;</span>: <span style=color:#ae81ff>0.0</span>, <span style=color:#75715e># Mid right plate rotation tweaks as thumb cluster is crowded for hot swap, etc.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_plate_ml_rotation&#39;</span>: <span style=color:#ae81ff>0.0</span>, <span style=color:#75715e># Mid left plate rotation tweaks as thumb cluster is crowded for hot swap, etc.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_plate_br_rotation&#39;</span>: <span style=color:#ae81ff>0.0</span>, <span style=color:#75715e># Bottom right plate rotation tweaks as thumb cluster is crowded for hot swap, etc.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;thumb_plate_bl_rotation&#39;</span>: <span style=color:#ae81ff>0.0</span>, <span style=color:#75715e># Bottom right plate rotation tweaks as thumb cluster is crowded for hot swap, etc.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># EXPERIMENTAL</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;separable_thumb&#39;</span>: <span style=color:#66d9ef>False</span>, <span style=color:#75715e>#creates a separable thumb section with additional screws to hold it down. Only attached at base.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Trackball in Wall ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_in_wall&#39;</span>: <span style=color:#66d9ef>False</span>, <span style=color:#75715e># Separate trackball option, placing it in the OLED area</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_ball_center_row&#39;</span>: <span style=color:#ae81ff>0.2</span>, <span style=color:#75715e># up from cornerrow instead of down from top</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_translational_offset&#39;</span>: (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_left_wall_x_offset_override&#39;</span>: <span style=color:#ae81ff>50.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_left_wall_z_offset_override&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_left_wall_lower_x_offset&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_left_wall_lower_y_offset&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_left_wall_lower_z_offset&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_oled_center_row&#39;</span>: <span style=color:#ae81ff>.75</span>, <span style=color:#75715e># not none, offsets are from this position</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_oled_translation_offset&#39;</span>: (<span style=color:#f92672>-</span><span style=color:#ae81ff>3.5</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1.5</span>), <span style=color:#75715e># Z offset tweaks are expected depending on curvature and OLED mount choice.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_oled_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##########################################################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Finger Trackball in Wall EXPERIMENTAL WIP!!!! ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##########################################################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;finger_trackball_in_wall&#39;</span>: <span style=color:#66d9ef>False</span>, <span style=color:#75715e># Separate trackball option, placing it in the OLED area</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_ball_center_column&#39;</span>: <span style=color:#ae81ff>0.2</span>, <span style=color:#75715e># up from cornerrow instead of down from top</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_translational_offset&#39;</span>: (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_top_wall_y_offset_override&#39;</span>: <span style=color:#ae81ff>50.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_top_wall_z_offset_override&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbiw_top_wall_extension_cols&#39;</span>: <span style=color:#ae81ff>4</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###########################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Trackball JS / ORBYL Thumb Cluster ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##########################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;other_thumb&#39;</span>: <span style=color:#e6db74>&#39;DEFAULT&#39;</span>, <span style=color:#75715e># cluster used for second thumb except if ball_side == &#39;both&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_key_diameter&#39;</span>: <span style=color:#ae81ff>70</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_Uwidth&#39;</span>: <span style=color:#ae81ff>1.2</span>, <span style=color:#75715e># size for inner key near trackball</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_Uheight&#39;</span>: <span style=color:#ae81ff>1.2</span>, <span style=color:#75715e># size for inner key near trackball</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Offsets are per key and are applied before rotating into place around the ball</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># X and Y act like Tangential and Radial around the ball</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;tbjs_translation_offset&#39;: (0, 0, 10), # applied to the whole assy</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;tbjs_rotation_offset&#39;: (0, 10, 0), # applied to the whole assy</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_translation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>2</span>), <span style=color:#75715e># applied to the whole assy</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>0</span>), <span style=color:#75715e># applied to the whole assy</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_key_translation_offsets&#39;</span>: [
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>3.0</span><span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>),
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>3.0</span><span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>),
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>3.0</span><span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>),
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>3.0</span><span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>),
+</span></span><span style=display:flex><span> ],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbjs_key_rotation_offsets&#39;</span>: [
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> ],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Trackball CJ Thumb Cluster ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbcj_inner_diameter&#39;</span>: <span style=color:#ae81ff>42</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbcj_thickness&#39;</span>: <span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tbcj_outer_diameter&#39;</span>: <span style=color:#ae81ff>53</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Trackball General ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_modular&#39;</span>: <span style=color:#66d9ef>False</span>, <span style=color:#75715e># Added, creates a hole with space for the lip size listed below.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_modular_lip_width&#39;</span>: <span style=color:#ae81ff>3.0</span>, <span style=color:#75715e># width of lip cleared out in ring location</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_modular_ball_height&#39;</span>: <span style=color:#ae81ff>3.0</span>, <span style=color:#75715e># height of ball from ring , used to create identical position to fixed.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_modular_ring_height&#39;</span>: <span style=color:#ae81ff>10.0</span>, <span style=color:#75715e># height mount ring down from ball height. Covers gaps on elevated ball.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_modular_clearance&#39;</span>: <span style=color:#ae81ff>0.5</span>, <span style=color:#75715e># height of ball from ring, used to create identical position to fixed.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ball_side&#39;</span>: <span style=color:#e6db74>&#39;both&#39;</span>, <span style=color:#75715e>#&#39;left&#39;, &#39;right&#39;, or &#39;both&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ball_diameter&#39;</span>: <span style=color:#ae81ff>34.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ball_wall_thickness&#39;</span>: <span style=color:#ae81ff>3</span>, <span style=color:#75715e># should not be changed unless the import models are changed.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ball_gap&#39;</span>: <span style=color:#ae81ff>1.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_hole_diameter&#39;</span>: <span style=color:#ae81ff>36.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_hole_height&#39;</span>: <span style=color:#ae81ff>40</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_plate_thickness&#39;</span>: <span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;trackball_plate_width&#39;</span>: <span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e># Removed trackball_rotation, ball_z_offset. and trackball_sensor_rotation and added more flexibility.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tb_socket_translation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>2.0</span>), <span style=color:#75715e># applied to the socket and sensor, large values will cause web/wall issues.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tb_socket_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>), <span style=color:#75715e># applied to the socket and sensor, large values will cause web/wall issues.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tb_sensor_translation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>), <span style=color:#75715e>#deviation from socket offsets, for fixing generated geometry issues</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;tb_sensor_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>), <span style=color:#75715e>#deviation from socket offsets, for changing the sensor roll orientation</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># EXPERIMENTAL PARAMETERS</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pinky_1_5U&#39;</span>: <span style=color:#66d9ef>False</span>, <span style=color:#75715e># LEAVE AS FALSE, CURRENTLY BROKEN</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;first_1_5U_row&#39;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;last_1_5U_row&#39;</span>: <span style=color:#ae81ff>5</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;skeletal&#39;</span>: <span style=color:#66d9ef>False</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e>##############################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_z_offset&#39;</span>: <span style=color:#ae81ff>15</span>, <span style=color:#75715e># length of the first downward_sloping part of the wall</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_x_offset&#39;</span>: <span style=color:#ae81ff>5</span>, <span style=color:#75715e># offset in the x and/or y direction for the first downward_sloping part of the wall (negative)</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_y_offset&#39;</span>: <span style=color:#ae81ff>6</span>, <span style=color:#75715e># offset in the x and/or y direction for the first downward_sloping part of the wall (negative)</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;left_wall_x_offset&#39;</span>: <span style=color:#ae81ff>12</span>, <span style=color:#75715e># specific values for the left side due to the minimal wall.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;left_wall_z_offset&#39;</span>: <span style=color:#ae81ff>3</span>, <span style=color:#75715e># specific values for the left side due to the minimal wall.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;left_wall_lower_x_offset&#39;</span>: <span style=color:#ae81ff>0</span>, <span style=color:#75715e># specific values for the lower left corner.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;left_wall_lower_y_offset&#39;</span>: <span style=color:#ae81ff>0</span>, <span style=color:#75715e># specific values for the lower left corner.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;left_wall_lower_z_offset&#39;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_thickness&#39;</span>: <span style=color:#ae81ff>4.5</span>, <span style=color:#75715e># wall thickness parameter used on upper/mid stage of the wall</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_base_y_thickness&#39;</span>: <span style=color:#ae81ff>4.5</span>, <span style=color:#75715e># wall thickness at the lower stage</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_base_x_thickness&#39;</span>: <span style=color:#ae81ff>4.5</span>, <span style=color:#75715e># wall thickness at the lower stage</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wall_base_back_thickness&#39;</span>: <span style=color:#ae81ff>4.5</span>, <span style=color:#75715e># wall thickness at the lower stage in the specifically in back for interface.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Settings for column_style == :fixed</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## The defaults roughly match Maltron settings</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## http://patentimages.storage.googleapis.com/EP0219944A2/imgf0002.png</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## fixed_z overrides the z portion of the column ofsets above.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## NOTE: THIS DOESN&#39;T WORK QUITE LIKE I&#39;D HOPED.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;fixed_angles&#39;</span>: [d2r \<span style=color:#f92672>*</span> <span style=color:#ae81ff>10</span>, d2r \<span style=color:#f92672>*</span> <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, d2r \<span style=color:#f92672>*</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>15</span>, d2r \<span style=color:#f92672>*</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>15</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;fixed_x&#39;</span>: [<span style=color:#f92672>-</span><span style=color:#ae81ff>41.5</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>22.5</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>20.3</span>, <span style=color:#ae81ff>41.4</span>, <span style=color:#ae81ff>65.5</span>, <span style=color:#ae81ff>89.6</span>], <span style=color:#75715e># relative to the middle finger</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;fixed_z&#39;</span>: [<span style=color:#ae81ff>12.1</span>, <span style=color:#ae81ff>8.3</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>10.7</span>, <span style=color:#ae81ff>14.5</span>, <span style=color:#ae81ff>17.5</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;fixed_tenting&#39;</span>: d2r \<span style=color:#f92672>*</span> <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Switch Hole ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># plate options are</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;HOLE&#39; = a square hole. Also useful for applying custom plate files.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;NUB&#39; = original side nubs.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;UNDERCUT&#39; = snap fit undercut. May require CLIP_THICKNESS and possibly CLIP_UNDERCUT tweaking</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># and/or filing to get proper snap.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;NOTCH&#39; = snap fit undercut only near switch clip. May require CLIP_THICKNESS and possibly CLIP_UNDERCUT</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># tweaking and/or filing to get proper snap.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;HS_NUB&#39; = hot swap underside with nubs.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;HS_UNDERCUT&#39; = hot swap underside with undercut. Does not generate properly. Hot swap step needs to be modified.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;HS_NOTCH&#39; = hot swap underside with notch. Does not generate properly. Hot swap step needs to be modified.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;plate_style&#39;: &#39;NUB&#39;,</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_style&#39;</span>: <span style=color:#e6db74>&#39;NOTCH&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;hole_keyswitch_height&#39;</span>: <span style=color:#ae81ff>14.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;hole_keyswitch_width&#39;</span>: <span style=color:#ae81ff>14.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;nub_keyswitch_height&#39;</span>: <span style=color:#ae81ff>14.4</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;nub_keyswitch_width&#39;</span>: <span style=color:#ae81ff>14.4</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;undercut_keyswitch_height&#39;</span>: <span style=color:#ae81ff>14.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;undercut_keyswitch_width&#39;</span>: <span style=color:#ae81ff>14.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;notch_width&#39;</span>: <span style=color:#ae81ff>6.0</span>, <span style=color:#75715e># If using notch, it is identical to undecut, but only locally by the switch clip</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;sa_profile_key_height&#39;</span>: <span style=color:#ae81ff>12.7</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;sa_length&#39;</span>: <span style=color:#ae81ff>18.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;sa_double_length&#39;</span>: <span style=color:#ae81ff>37.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_thickness&#39;</span>: <span style=color:#ae81ff>4</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1.1</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_rim&#39;</span>: <span style=color:#ae81ff>1.5</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e># Undercut style dimensions</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;clip_thickness&#39;</span>: <span style=color:#ae81ff>1.1</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;clip_undercut&#39;</span>: <span style=color:#ae81ff>1.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;undercut_transition&#39;</span>: <span style=color:#ae81ff>.2</span>, <span style=color:#75715e># NOT FUNCTIONAL WITH OPENSCAD, ONLY WORKS WITH CADQUERY</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Custom plate step file</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_file&#39;</span>: <span style=color:#66d9ef>None</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_offset&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##########################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## OLED Mount Location</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>##########################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Initial pass will be manual placement. Can be used to create other mounts as well.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Mount type options:</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># None or &#39;NONE&#39; = No OLED mount</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;UNDERCUT&#39; = Simple rectangle with undercut for clip in item</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;SLIDING&#39; = Features to slide the OLED in place and use a pin or block to secure from underneath.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;CLIP&#39; = Features to set the OLED in a frame a snap a bezel down to hold it in place.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_type&#39;</span>: <span style=color:#e6db74>&#39;SLIDING&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e>#&#39;oled_mount_type&#39;: None,</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_center_row&#39;</span>: <span style=color:#ae81ff>1.25</span>, <span style=color:#75715e># if not None, this will override the oled_mount_location_xyz and oled_mount_rotation_xyz settings</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#&#39;oled_center_row&#39;: None, # if not None, this will override the oled_mount_location_xyz and oled_mount_rotation_xyz settings</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_translation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>3</span>), <span style=color:#75715e># Z offset tweaks are expected depending on curvature and OLED mount choice.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_rotation_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_configurations&#39;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;UNDERCUT&#39;</span>:{
+</span></span><span style=display:flex><span> <span style=color:#75715e># Common parameters</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_width&#39;</span>: <span style=color:#ae81ff>10.0</span>, <span style=color:#75715e># 15</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_height&#39;</span>: <span style=color:#ae81ff>32.0</span>, <span style=color:#75715e># 35</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_rim&#39;</span>: <span style=color:#ae81ff>3.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_depth&#39;</span>: <span style=color:#ae81ff>4.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_cut_depth&#39;</span>: <span style=color:#ae81ff>20.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_location_xyz&#39;</span>: (<span style=color:#f92672>-</span><span style=color:#ae81ff>80.0</span>, <span style=color:#ae81ff>20.0</span>, <span style=color:#ae81ff>45.0</span>), <span style=color:#75715e># will be overwritten if oled_center_row is not None</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_rotation_xyz&#39;</span>: (<span style=color:#ae81ff>13.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>6.0</span>), <span style=color:#75715e># will be overwritten if oled_center_row is not None</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_x_offset_override&#39;</span>: <span style=color:#ae81ff>28.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_z_offset_override&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_lower_y_offset&#39;</span>: <span style=color:#ae81ff>12.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_lower_z_offset&#39;</span>: <span style=color:#ae81ff>5.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;UNDERCUT&#39; Parameters</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_undercut&#39;</span>: <span style=color:#ae81ff>1.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_undercut_thickness&#39;</span>: <span style=color:#ae81ff>2.0</span>,
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;SLIDING&#39;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#75715e># Common parameters</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_width&#39;</span>: <span style=color:#ae81ff>12.1</span>, <span style=color:#75715e># width of OLED, plus clearance 12.5</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_height&#39;</span>: <span style=color:#ae81ff>27</span>, <span style=color:#75715e># length of screen 25</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_rim&#39;</span>: <span style=color:#ae81ff>2.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_depth&#39;</span>: <span style=color:#ae81ff>7.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_cut_depth&#39;</span>: <span style=color:#ae81ff>20.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_location_xyz&#39;</span>: (<span style=color:#f92672>-</span><span style=color:#ae81ff>78.0</span>, <span style=color:#ae81ff>10.0</span>, <span style=color:#ae81ff>41.0</span>), <span style=color:#75715e># will be overwritten if oled_center_row is not None</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_rotation_xyz&#39;</span>: (<span style=color:#ae81ff>6.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>3.0</span>), <span style=color:#75715e># will be overwritten if oled_center_row is not None</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_x_offset_override&#39;</span>: <span style=color:#ae81ff>24.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_z_offset_override&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_lower_y_offset&#39;</span>: <span style=color:#ae81ff>12.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_lower_z_offset&#39;</span>: <span style=color:#ae81ff>5.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;SLIDING&#39; Parameters</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_thickness&#39;</span>: <span style=color:#ae81ff>4.2</span>, <span style=color:#75715e># thickness of OLED, plus clearance. Must include components</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_edge_overlap_end&#39;</span>: <span style=color:#ae81ff>6.5</span>, <span style=color:#75715e># length from end of viewable screen to end of PCB</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_edge_overlap_connector&#39;</span>: <span style=color:#ae81ff>5.5</span>, <span style=color:#75715e># length from end of viewable screen to end of PCB on connection side.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_edge_overlap_thickness&#39;</span>: <span style=color:#ae81ff>2.5</span>, <span style=color:#75715e># thickness of material over edge of PCB</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_edge_overlap_clearance&#39;</span>: <span style=color:#ae81ff>2.5</span>, <span style=color:#75715e># Clearance to insert PCB before laying down and sliding.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_edge_chamfer&#39;</span>: <span style=color:#ae81ff>2.0</span>,
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;CLIP&#39;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#75715e># Common parameters</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_width&#39;</span>: <span style=color:#ae81ff>12.5</span>, <span style=color:#75715e># whole OLED width</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_height&#39;</span>: <span style=color:#ae81ff>39.0</span>, <span style=color:#75715e># whole OLED length</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_rim&#39;</span>: <span style=color:#ae81ff>2.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_depth&#39;</span>: <span style=color:#ae81ff>7.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_cut_depth&#39;</span>: <span style=color:#ae81ff>20.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_location_xyz&#39;</span>: (<span style=color:#f92672>-</span><span style=color:#ae81ff>78.0</span>, <span style=color:#ae81ff>20.0</span>, <span style=color:#ae81ff>42.0</span>), <span style=color:#75715e># will be overwritten if oled_center_row is not None</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_rotation_xyz&#39;</span>: (<span style=color:#ae81ff>12.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>6.0</span>), <span style=color:#75715e># will be overwritten if oled_center_row is not None</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_x_offset_override&#39;</span>: <span style=color:#ae81ff>24.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_z_offset_override&#39;</span>: <span style=color:#ae81ff>0.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_lower_y_offset&#39;</span>: <span style=color:#ae81ff>12.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_left_wall_lower_z_offset&#39;</span>: <span style=color:#ae81ff>5.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;CLIP&#39; Parameters</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_thickness&#39;</span>: <span style=color:#ae81ff>4.2</span>, <span style=color:#75715e># thickness of OLED, plus clearance. Must include components</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_bezel_thickness&#39;</span>: <span style=color:#ae81ff>3.5</span>, <span style=color:#75715e># z thickness of clip bezel</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_bezel_chamfer&#39;</span>: <span style=color:#ae81ff>2.0</span>, <span style=color:#75715e># depth of the 45 degree chamfer</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_mount_connector_hole&#39;</span>: <span style=color:#ae81ff>6.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_screen_start_from_conn_end&#39;</span>: <span style=color:#ae81ff>6.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_screen_length&#39;</span>: <span style=color:#ae81ff>24.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_screen_width&#39;</span>: <span style=color:#ae81ff>10.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_thickness&#39;</span>: <span style=color:#ae81ff>1.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_width&#39;</span>: <span style=color:#ae81ff>6.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_overhang&#39;</span>: <span style=color:#ae81ff>1.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_extension&#39;</span>: <span style=color:#ae81ff>5.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_width_clearance&#39;</span>: <span style=color:#ae81ff>0.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_undercut&#39;</span>: <span style=color:#ae81ff>0.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_undercut_thickness&#39;</span>: <span style=color:#ae81ff>2.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_y_gap&#39;</span>: <span style=color:#ae81ff>.2</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;oled_clip_z_gap&#39;</span>: <span style=color:#ae81ff>.2</span>,
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screws_offset&#39;</span>: <span style=color:#e6db74>&#39;INSIDE&#39;</span>, <span style=color:#75715e># &#39;OUTSIDE&#39;, &#39;INSIDE&#39;, &#39;ORIGINAL&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_insert_height&#39;</span>: <span style=color:#ae81ff>3.8</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;screw_insert_bottom_radius&#39;: 5.31 / 2, #Designed for inserts</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;screw_insert_top_radius&#39;: 5.1 / 2, #Designed for inserts</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_insert_bottom_radius&#39;</span>: <span style=color:#ae81ff>2.5</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>, <span style=color:#75715e># Designed for self tapping</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_insert_top_radius&#39;</span>: <span style=color:#ae81ff>2.5</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>, <span style=color:#75715e># Designed for self tapping</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_insert_outer_radius&#39;</span>: <span style=color:#ae81ff>4.25</span>, <span style=color:#75715e># Common to keep interface to base</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Does anyone even use these? I think they just get in the way.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wire_post_height&#39;</span>: <span style=color:#ae81ff>7</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wire_post_overhang&#39;</span>: <span style=color:#ae81ff>3.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;wire_post_diameter&#39;</span>: <span style=color:#ae81ff>2.6</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Controller Mount / Connectors ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># connector options are</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;RJ9_USB_WALL&#39; = Standard internal plate with RJ9 opening and square cutout for connection.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;USB_WALL&#39; = Standard internal plate with a square cutout for connection, no RJ9.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;RJ9_USB_TEENSY&#39; = Teensy holder</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;USB_TEENSY&#39; = Teensy holder, no RJ9</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;EXTERNAL&#39; = square cutout for a holder such as the one from lolligagger.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># &#39;NONE&#39; = No openings in the back.</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;controller_mount_type&#39;</span>: <span style=color:#e6db74>&#39;EXTERNAL&#39;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;external_holder_height&#39;</span>: <span style=color:#ae81ff>12.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;external_holder_width&#39;</span>: <span style=color:#ae81ff>28.75</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;external_holder_xoffset&#39;</span>: <span style=color:#f92672>-</span><span style=color:#ae81ff>5.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;external_holder_yoffset&#39;</span>: <span style=color:#f92672>-</span><span style=color:#ae81ff>4.5</span>, <span style=color:#75715e>#Tweak this value to get the right undercut for the tray engagement.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Offset is from the top inner corner of the top inner key.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## PCB Screw Mount ##</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_mount_ref_offset&#34;</span>: [<span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_holder_size&#34;</span>: [<span style=color:#ae81ff>34.6</span>, <span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_holder_offset&#34;</span>: [<span style=color:#ae81ff>8.9</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_usb_hole_size&#34;</span>: [<span style=color:#ae81ff>7.5</span>, <span style=color:#ae81ff>10.0</span>, <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_usb_hole_offset&#34;</span>: [<span style=color:#ae81ff>15</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>4.5</span>],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;wall_thinner_size&#34;</span>: [<span style=color:#ae81ff>34</span>, <span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>10</span>],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;trrs_hole_size&#34;</span>: [<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>20</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;trrs_offset&#34;</span>: [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1.5</span>],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_screw_hole_size&#34;</span>: [<span style=color:#ae81ff>.5</span>, <span style=color:#ae81ff>10</span>],
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_screw_x_offsets&#34;</span>: [<span style=color:#f92672>-</span> <span style=color:#ae81ff>5.5</span>, <span style=color:#ae81ff>7.75</span>, <span style=color:#ae81ff>22</span>], <span style=color:#75715e># for the screw positions off of reference</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;pcb_screw_y_offset&#34;</span>: <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## Bottom Plate Dimensions</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># COMMON DIMENSION</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_hole_diameter&#39;</span>: <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span> <span style=color:#75715e># USED FOR CADQUERY ONLY</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;base_thickness&#39;</span>: <span style=color:#ae81ff>3.0</span>, <span style=color:#75715e># thickness in the middle of the plate</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;base_offset&#39;</span>: <span style=color:#ae81ff>3.0</span>, <span style=color:#75715e># Both start flat/flush on the bottom. This offsets the base up (if positive)</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;base_rim_thickness&#39;</span>: <span style=color:#ae81ff>5.0</span>, <span style=color:#75715e># thickness on the outer frame with screws</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_cbore_diameter&#39;</span>: <span style=color:#ae81ff>6.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;screw_cbore_depth&#39;</span>: <span style=color:#ae81ff>2.5</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Offset is from the top inner corner of the top inner key.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## HOLES ON PLATE FOR PCB MOUNT</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#&#39;plate_holes&#39;: False,</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_holes&#39;</span>: <span style=color:#66d9ef>True</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_holes_xy_offset&#39;</span>: (<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_holes_width&#39;</span>: <span style=color:#ae81ff>14.3</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_holes_height&#39;</span>: <span style=color:#ae81ff>14.3</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_holes_diameter&#39;</span>: <span style=color:#ae81ff>1.6</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_holes_depth&#39;</span>: <span style=color:#ae81ff>20.0</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## EXPERIMENTAL</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_pcb_clear&#39;</span>: <span style=color:#66d9ef>False</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_pcb_size&#39;</span>: (<span style=color:#ae81ff>18.5</span>, <span style=color:#ae81ff>18.5</span>, <span style=color:#ae81ff>5</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;plate_pcb_offset&#39;</span>: (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>),<span style=color:#75715e># this is off of the back of the plate size.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## SHOW PCB FOR FIT CHECK</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pcb_width&#39;</span>: <span style=color:#ae81ff>18.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pcb_height&#39;</span>: <span style=color:#ae81ff>18.0</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pcb_thickness&#39;</span>: <span style=color:#ae81ff>1.5</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pcb_hole_diameter&#39;</span>: <span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pcb_hole_pattern_width&#39;</span>: <span style=color:#ae81ff>14.3</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;pcb_hole_pattern_height&#39;</span>: <span style=color:#ae81ff>14.3</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>###################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## COLUMN OFFSETS</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>####################################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;column_offsets&#39;</span>: [
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>2.82</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>4.5</span>],
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>5</span>],<span style=color:#75715e># REDUCED STAGGER</span>
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>5</span>],<span style=color:#75715e># REDUCED STAGGER</span>
+</span></span><span style=display:flex><span> [<span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>5</span>],<span style=color:#75715e># NOT USED IN MOST FORMATS (7th column)</span>
+</span></span><span style=display:flex><span> ],
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>####################################</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## END CONFIGURATION SECTION</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>####################################</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>save_config</span>():
+</span></span><span style=display:flex><span> <span style=color:#75715e># Check to see if the user has specified an alternate config</span>
+</span></span><span style=display:flex><span> opts, args <span style=color:#f92672>=</span> getopt<span style=color:#f92672>.</span>getopt(sys<span style=color:#f92672>.</span>argv[<span style=color:#ae81ff>1</span>:], <span style=color:#e6db74>&#34;&#34;</span>, [<span style=color:#e6db74>&#34;config=&#34;</span>, <span style=color:#e6db74>&#34;update=&#34;</span>])
+</span></span><span style=display:flex><span> got_opts <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span> opt, arg <span style=color:#f92672>in</span> opts:
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> opt <span style=color:#f92672>in</span> (<span style=color:#e6db74>&#39;--update&#39;</span>):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> open(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;..&#34;</span>, <span style=color:#e6db74>&#34;configs&#34;</span>, arg <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;.json&#39;</span>), mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;r&#39;</span>) <span style=color:#66d9ef>as</span> fid:
+</span></span><span style=display:flex><span>        data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>load(fid)
+</span></span><span style=display:flex><span>        shape_config<span style=color:#f92672>.</span>update(data)
+</span></span><span style=display:flex><span>        got_opts <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span> opt, arg <span style=color:#f92672>in</span> opts:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> opt <span style=color:#f92672>in</span> (<span style=color:#e6db74>&#39;--config&#39;</span>):
+</span></span><span style=display:flex><span>        <span style=color:#75715e># If a config file was specified, set the config_name and save_dir</span>
+</span></span><span style=display:flex><span>        shape_config[<span style=color:#e6db74>&#39;save_dir&#39;</span>] <span style=color:#f92672>=</span> arg
+</span></span><span style=display:flex><span>        shape_config[<span style=color:#e6db74>&#39;config_name&#39;</span>] <span style=color:#f92672>=</span> arg
+</span></span><span style=display:flex><span>        got_opts <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Write the config to ./configs/.json</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> got_opts:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>with</span> open(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;..&#34;</span>, <span style=color:#e6db74>&#34;configs&#34;</span>, shape_config[<span style=color:#e6db74>&#39;config_name&#39;</span>] <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;.json&#39;</span>), mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;w&#39;</span>) <span style=color:#66d9ef>as</span> fid:
+</span></span><span style=display:flex><span>        json<span style=color:#f92672>.</span>dump(shape_config, fid, indent<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>with</span> open(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;.&#34;</span>, <span style=color:#e6db74>&#39;run_config.json&#39;</span>), mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;w&#39;</span>) <span style=color:#66d9ef>as</span> fid:
+</span></span><span style=display:flex><span>            json<span style=color:#f92672>.</span>dump(shape_config, fid, indent<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+</span></span><span style=display:flex><span> save_config()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>## HERE FOR QUICK TESTING, SHOULD BE COMMENTED ON COMMIT</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># from dactyl_manuform import \*</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># run()</span>
+</span></span></code></pre></div><p>Resultando en los siguientes modelos:</p><p><img src=/pro_img/teclado2_3.png alt>
+<img src=/pro_img/teclado2_4.png alt></p><p>Y para convertir los archivos <strong>.scad</strong> a <strong>.stl</strong> hay que abrirlos con el programa <strong>OpenSCAD</strong> y ahi nos da la opcion de exportarlos a stl.</p><p>Despues de imprimirlos coloque los botones en sus respectivos lugares y los conecte segun el firmware que iba a ocupar,.</p><h1 id=firmware>Firmware</h1><p>El programa que se encarga de programar al microcontrolador para que funcione como teclado en conjunto con otro microcontrolador se llama <strong>QMK</strong> en el cual hay una gran cantidad de firmwares para diferentes teclados, al descarga la utilidad para terminal tambien se va a clonar el repositorio con
+todos los teclados. En la carpeta <em>keyboards/handwired/dactyl_manuform</em> encontraremos la carpeta de <em>5x6_68</em> que hace referencia al teclado que tengo, pues de 5x6 y con las 6 teclas para los pulgares hacen un total de 68 teclas entre los dos teclados.</p><p>Hay que modificar estos archivos directamente para poder cambiar el funcionamiento del teclado, el primero cambio que hice fue cambiar el pin de comunicacion y la orientacion de los diodos, esto se hace en archivo <strong>info.json</strong>, el cambio del pin de la comunicacion fue por que para las pantallas se
+utiliza el protocolo <strong>I2C</strong> y para este protocolo se necesitan dos pines, que serian el <strong>2 y 3</strong> en digital pero los pines <strong>D1 Y D0</strong> si se utiliza el nombre de los pines por como los detecta el microcontrolador y el segundo por como conecte hice la matriz de conecciones</p><p><img src=/pro_img/teclado2_5.png alt>
+<img src=/pro_img/teclado2_6.jpg alt></p><p>En el archivo de <strong>rules.mk</strong> solo active el uso de las pantallas oled con la linea</p><p>OLED_ENABLE = yes</p><p>Finalmente el codigo que utilice fue una version modificada del firmware para el teclado <strong>lily58</strong> del keymap de <strong>druotoni</strong>, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veia y como funcionaban las pantallas, ademas que este es <strong>tematico</strong>
+de <strong>Serial Experiments Lain</strong> por lo que todavia me gusto más.</p><p><img src=/pro_img/teclado2_7.gif alt>
+<img src=/pro_img/teclado2_8.gif alt>
+<img src=/pro_img/teclado2_9.gif alt></p><p>El codigo fuente del keymap original <a href=https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni>se encuentra aqui</a>, las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado <strong>5x6_68</strong>, despues en el archivo <strong>keymap.c</strong>
+hay que agregar estas lineas:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>uint16_t</span> PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    [_QWERTY] <span style=color:#f92672>=</span> <span style=color:#a6e22e>LAYOUT</span>(
+</span></span><span style=display:flex><span>        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,           KC_6,    KC_7,  KC_8,    KC_9,   KC_0,    KC_BSPC,
+</span></span><span style=display:flex><span>        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,           KC_Y,    KC_U,  KC_I,    KC_O,   KC_P,    KC_ENT,
+</span></span><span style=display:flex><span>        KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,           KC_H,    KC_J,  KC_K,    KC_L,   KC_SCLN, KC_RBRC,
+</span></span><span style=display:flex><span>        KC_QUOT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,           KC_N,    KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_NUHS,
+</span></span><span style=display:flex><span>        KC_LCTL, KC_LGUI, KC_NUBS, KC_A,                                             KC_MINS,  KC_RALT, KC_RCTL, KC_RSFT,
+</span></span><span style=display:flex><span>                                            KC_A,   KC_LEFT,         KC_RIGHT,  KC_A,
+</span></span><span style=display:flex><span>                                            KC_SPC, KC_UP,           KC_DEL,  KC_END,
+</span></span><span style=display:flex><span>                                            RAISE, LOWER,            KC_A, KC_DOWN
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    [_LOWER] <span style=color:#f92672>=</span> <span style=color:#a6e22e>LAYOUT</span>(
+</span></span><span style=display:flex><span>        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+</span></span><span style=display:flex><span>        _______, _______, _______, _______, _______, KC_LBRC,        KC_RBRC, KC_P7,   KC_P8,   KC_P9,   _______, _______,
+</span></span><span style=display:flex><span>        _______, KC_SCRL, KC_INS,  KC_PAUS, KC_PSCR, KC_LPRN,        KC_RPRN, KC_P4,   KC_P5,   KC_P6,   _______, _______,
+</span></span><span style=display:flex><span>        _______, _______, _______, _______, _______, _______,        _______, KC_P1,   KC_P2,   KC_P3,   _______, _______,
+</span></span><span style=display:flex><span>        _______, _______, _______, _______,                                            KC_P0,   KC_PDOT, _______, _______,
+</span></span><span style=display:flex><span>                                            _______, _______,        _______, _______,
+</span></span><span style=display:flex><span>                                            _______, _______,        _______, _______,
+</span></span><span style=display:flex><span>                                            _______, _______,        _______, _______
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ),
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    [_RAISE] <span style=color:#f92672>=</span> <span style=color:#a6e22e>LAYOUT</span>(
+</span></span><span style=display:flex><span>        KC_F12,  KC_F1,   KC_F2,   KC_F3 ,  KC_F4,   KC_F5,          KC_F6,   KC_F7 ,  KC_F8,   KC_F9,   KC_F10 , KC_F11,
+</span></span><span style=display:flex><span>        _______, _______, _______, _______, _______, KC_TRNS,        KC_TRNS, _______, KC_NUM,  _______, _______, KC_MUTE,
+</span></span><span style=display:flex><span>        _______, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT, KC_TRNS,        KC_TRNS, KC_MPRV, KC_MPLY, KC_MNXT, _______, KC_VOLU,
+</span></span><span style=display:flex><span>        _______, _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______, KC_VOLD,
+</span></span><span style=display:flex><span>        _______, _______, _______, _______,                                            _______, _______, _______, _______,
+</span></span><span style=display:flex><span>                                            _______, _______,        _______, _______,
+</span></span><span style=display:flex><span>                                            _______, _______,        _______, _______,
+</span></span><span style=display:flex><span>                                            _______, _______,        _______, _______
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>Que es el keymap del teclado el cual queremos ocupar, pero tambien hay que eliminar o comentar estas otras lineas, las cuales son el keymap del teclado anterior.</p><p>Y finalmente en el archivo <strong>rules.mk</strong> <em><strong>(PERO SOLO EL QUE ESTA DENTRO DE LA CARPETA DE DRUOTONI)</strong></em> hay que eliminar dos lineas, pero yo lo borraria todo y lo remplazaria por esto</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span> <span style=color:#75715e># Build Options
+</span></span></span><span style=display:flex><span><span style=color:#75715e># change to &#34;no&#34; to disable the options, or define them in the Makefile in
+</span></span></span><span style=display:flex><span><span style=color:#75715e># the appropriate keymap folder that will get included automatically
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Bootloader selection
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#BOOTLOADER = atmel-dfu
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>SLEEP_LED_ENABLE <span style=color:#f92672>=</span> no <span style=color:#960050;background-color:#1e0010>#</span> Breathing sleep LED during USB suspend
+</span></span><span style=display:flex><span>LTO_ENABLE <span style=color:#f92672>=</span> yes
+</span></span><span style=display:flex><span>SPACE_CADET_ENABLE <span style=color:#f92672>=</span> no
+</span></span><span style=display:flex><span>GRAVE_ESC_ENABLE <span style=color:#f92672>=</span> no
+</span></span><span style=display:flex><span>MAGIC_ENABLE <span style=color:#f92672>=</span> no
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># If you want to change the display of OLED, you need to change here
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>SRC <span style=color:#f92672>+=</span> .<span style=color:#f92672>/</span>burst.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>navi_logo.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>gui_state.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>fast_random.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>layer_frame.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>ring.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>boot.c \
+</span></span><span style=display:flex><span> .<span style=color:#f92672>/</span>draw_helper.c \
+</span></span></code></pre></div><p>Y finalmente hay que flasehar cada microcontrolador con el siguiente comando, el cual se ejecuta en la raiz de la carpeta de qmk_firmware:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>make handwired/dactyl_manuform/5x6_68:druotoni:flash 
+</span></span></code></pre></div><p>Hay que tomar en cuenta que cada microcontrolador se flaseha de forma diferente, como dicen las intrucciones originales del keymap de droutoni hay que cambiar estas lineas en el archivo <strong>config.h</strong> segun de que lado se este flasheando el programa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-make data-lang=make><span style=display:flex><span> //#define IS_LEFT <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span> //#define IS_RIGHT <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><h1 id=conecciones>Conecciones</h1><p>Cuando estaba buscando instrucciones de como armar este teclado no encontre ninguna que hablara sobre las conecciones, asi que las tuve que redescubrir, finalmente estas fueron las conecciones:</p><p><img src=/pro_img/teclado2_10.png alt></p><p>Teniendo un total de 6 columans con 6 filas, los diodos los coloque con el anodo saliendo del switch y el catodo conectado a su columna correspondiente, osea de la siguiente forma:</p><p><img src=/pro_img/teclado2_11.png alt></p></main></body></html>

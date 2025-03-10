@@ -1,0 +1,174 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>rust-arduino-carro</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>rust-arduino-carro</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Despues de hacer el arduino blink, pense en hacer algo más complicado usando rust y arduino, plo que pense en hacer en un robot con un sensor ultrasonico de distancia que pueda detectar cualquier objeto y que se mueva si es que la distancia hacia el objeto es inferior a una variable. Use un arduino uno, un sensor ultrasonico HC-SR04, una placa personal usando el chip l298n-d que funciona como puente H, dos motores y dos pilas de 9v</p><p>Las conecciones fueron las siguientes:</p><ul><li><strong>TRIGGER:</strong> Pin D9</li><li><strong>ECCHO:</strong> Pin D10</li><li>**MOTOR1A:**Pin D4</li><li><strong>MOTOR1B:</strong> Pin D5</li><li><strong>MOTOR2A:</strong> Pin D6</li><li><strong>MOTOR2B:</strong> Pin D7</li></ul><p>Para probar las conecciones y que el concepto funcionaba use el siguiente codigo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ino data-lang=ino><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> triggerPin <span style=color:#f92672>=</span> <span style=color:#ae81ff>9</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> echoPin <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> duration;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> distance;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> motorA1<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> motorA2<span style=color:#f92672>=</span><span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> motorB1<span style=color:#f92672>=</span><span style=color:#ae81ff>6</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> motorB2<span style=color:#f92672>=</span><span style=color:#ae81ff>7</span>;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>()
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>pinMode</span>(triggerPin, <span style=color:#66d9ef>OUTPUT</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>pinMode</span> (echoPin, <span style=color:#66d9ef>INPUT</span>);
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>pinMode</span> (motorA1, <span style=color:#66d9ef>OUTPUT</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>pinMode</span> (motorA2, <span style=color:#66d9ef>OUTPUT</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>pinMode</span> (motorB1, <span style=color:#66d9ef>OUTPUT</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>pinMode</span> (motorB2, <span style=color:#66d9ef>OUTPUT</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>begin</span>(<span style=color:#ae81ff>9600</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>()
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> go(); 
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>digitalWrite</span>(triggerPin, <span style=color:#66d9ef>LOW</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>delayMicroseconds</span>(<span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span> <span style=color:#75715e>//clearing the trigger
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>digitalWrite</span>(triggerPin, <span style=color:#66d9ef>HIGH</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>delayMicroseconds</span>(<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>digitalWrite</span>(triggerPin, <span style=color:#66d9ef>LOW</span>);
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e>// capturing the time duration for sound wave to travel in microseconds
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> duration <span style=color:#f92672>=</span> <span style=color:#a6e22e>pulseIn</span>(echoPin, <span style=color:#66d9ef>HIGH</span>);
+</span></span><span style=display:flex><span> distance <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.01723</span> <span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>*</span> duration;
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>print</span>(distance);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;cm&#34;</span>);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> (distance<span style=color:#f92672>&amp;</span>lt10) {<span style=color:#a6e22e>turn</span>();};
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>go</span>(){
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>digitalWrite</span>(motorA1, <span style=color:#66d9ef>HIGH</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>digitalWrite</span>(motorB1, <span style=color:#66d9ef>HIGH</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>turn</span>(){
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>digitalWrite</span>(motorA1, <span style=color:#66d9ef>LOW</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>digitalWrite</span>(motorB1, <span style=color:#66d9ef>HIGH</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>delay</span>(<span style=color:#ae81ff>500</span>);
+</span></span><span style=display:flex><span> }
+</span></span></code></pre></div><p>Y al ver que este programa si funcionaba, lo pase a rust.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#![no_std]</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#![no_main]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> panic_halt <span style=color:#66d9ef>as</span> _;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>WAIT_BETWEEN_ACTIONS</span>: <span style=color:#66d9ef>u16</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span><span style=color:#66d9ef>u16</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>MINIMAL_DISTANCE</span>: <span style=color:#66d9ef>u16</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span><span style=color:#66d9ef>u16</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>TRIGGER_UP_TIME</span>: <span style=color:#66d9ef>u16</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span><span style=color:#66d9ef>u16</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#[arduino_hal::entry]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() -&gt; <span style=color:#f92672>!</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> dp <span style=color:#f92672>=</span> arduino_hal::Peripherals::take().unwrap();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> pins <span style=color:#f92672>=</span> arduino_hal::pins!(dp);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> timer <span style=color:#f92672>=</span> dp.<span style=color:#66d9ef>TC1</span>;
+</span></span><span style=display:flex><span> timer.tccr1b.write(<span style=color:#f92672>|</span>w<span style=color:#f92672>|</span> w.cs1().prescale_64());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> left_forw <span style=color:#f92672>=</span> pins.d4.into_output().downgrade();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> left_back <span style=color:#f92672>=</span> pins.d5.into_output().downgrade();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> right_forw <span style=color:#f92672>=</span> pins.d6.into_output().downgrade();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> right_back <span style=color:#f92672>=</span> pins.d7.into_output().downgrade();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> echo <span style=color:#f92672>=</span> pins.d13;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> trig <span style=color:#f92672>=</span> pins.d12.into_output();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> wheels <span style=color:#f92672>=</span> [left_forw, left_back, right_forw, right_back];
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> distancia;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>loop</span>{
+</span></span><span style=display:flex><span> go_forward(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> wheels);
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> delay <span style=color:#f92672>=</span> arduino_hal::Delay::new();
+</span></span><span style=display:flex><span> <span style=color:#75715e>//timer.tcnt1.write(|w| w.bits(0) );
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> trig.set_high();
+</span></span><span style=display:flex><span> delay.delay_us(<span style=color:#66d9ef>TRIGGER_UP_TIME</span>);
+</span></span><span style=display:flex><span> trig.set_low();
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>while</span> echo.is_low() {
+</span></span><span style=display:flex><span> go_forward(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> wheels);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> timer.tcnt1.read().bits() <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>65000</span> {
+</span></span><span style=display:flex><span> go_forward(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> wheels);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e>//timer.tcnt1.write(|w| w.bits(0) );
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> echo.is_high() {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> value <span style=color:#f92672>=</span> (timer.tcnt1.read().bits() <span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>*</span> <span style=color:#ae81ff>4</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>58</span>;
+</span></span><span style=display:flex><span> distancia <span style=color:#f92672>=</span> <span style=color:#66d9ef>u16</span>::from(value);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> distancia <span style=color:#f92672>&lt;</span> <span style=color:#66d9ef>MINIMAL_DISTANCE</span> {
+</span></span><span style=display:flex><span> stop(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> wheels);
+</span></span><span style=display:flex><span> turn_left(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> wheels);
+</span></span><span style=display:flex><span> arduino_hal::delay_ms(<span style=color:#66d9ef>WAIT_BETWEEN_ACTIONS</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>use</span> arduino_hal::prelude::<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>*</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>TURNING_TIME</span>: <span style=color:#66d9ef>u16</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>700</span><span style=color:#66d9ef>u16</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/// The mutable wheels array is destructured for easier manipulation.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74></span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>go_forward</span>(
+</span></span><span style=display:flex><span> wheels: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> [arduino_hal::port::Pin; <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span>) {
+</span></span><span style=display:flex><span> <span style=color:#75715e>// Be careful here with the order of unpacking. In my case, pin 4 is connected to left forward, 5 to left backwards, etc
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#66d9ef>let</span> [left_forw, left_back, right_forw, right_back] <span style=color:#f92672>=</span> wheels;
+</span></span><span style=display:flex><span> left_forw.set_high();
+</span></span><span style=display:flex><span> right_forw.set_high();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> left_back.set_low();
+</span></span><span style=display:flex><span> right_back.set_low();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>go_backward</span>(
+</span></span><span style=display:flex><span> wheels: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> [arduino_hal::hal::port::Pin; <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span>) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> [left_forw, left_back, right_forw, right_back] <span style=color:#f92672>=</span> wheels;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> left_forw.set_low();
+</span></span><span style=display:flex><span> right_forw.set_low();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> left_back.set_high();
+</span></span><span style=display:flex><span> right_back.set_high();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>turn_right</span>(
+</span></span><span style=display:flex><span> wheels: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> [arduino_hal::hal::port::Pin; <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span>) {
+</span></span><span style=display:flex><span> stop(wheels);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> [left_forw, _, _, _] <span style=color:#f92672>=</span> wheels;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> delay <span style=color:#f92672>=</span> arduino_hal::Delay::new();
+</span></span><span style=display:flex><span> left_forw.set_high();
+</span></span><span style=display:flex><span> delay.delay_ms(<span style=color:#66d9ef>TURNING_TIME</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>turn_left</span>(
+</span></span><span style=display:flex><span> wheels: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> [arduino_hal::hal::port::Pin; <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span>) {
+</span></span><span style=display:flex><span> stop(wheels);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> [_, _, right_forw, _] <span style=color:#f92672>=</span> wheels;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> delay <span style=color:#f92672>=</span> arduino_hal::Delay::new();
+</span></span><span style=display:flex><span> right_forw.set_high();
+</span></span><span style=display:flex><span> delay.delay_ms(<span style=color:#66d9ef>TURNING_TIME</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>stop</span>(wheels: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> [arduino_hal::hal::port::Pin; <span style=color:#ae81ff>4</span>]) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> [left_forw, left_back, right_forw, right_back] <span style=color:#f92672>=</span> wheels;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> left_forw.set_low();
+</span></span><span style=display:flex><span> left_back.set_low();
+</span></span><span style=display:flex><span> right_forw.set_low();
+</span></span><span style=display:flex><span> right_back.set_low();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div></main></body></html>

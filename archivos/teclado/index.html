@@ -1,0 +1,16 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Teclado</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Teclado</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Diseñe y programe un teclado, ademas que lo imprimi. El teclado del el cual me base fue el lily58, pues ya que este se me hizo interesante y habia archivos
+disponibles para poder imprimirlo.</p><p><img src=/pro_img/iris_keyboard.webp alt>
+<img src=/pro_img/lily58.webp alt></p><p>Para poder hacerlo necesite comprar unos botones mecanicos, pues estos son los que dan la flexibilidad de poder usarlos en cualquier poscicion y de cualquier manera,
+tambien necesite unos arduino pro-micro, estos en especificos pues su microprocesador a diferencia de otros arduino a excepcion del <strong>Leonardo</strong> ya tiene incluida
+la capacidad de ser leido como un periferico por las computadoras solo con el uso de unas librerias, pero el <strong>Leonardo</strong> es demasiado grande y costoso, pues se
+van a necesitar dos de estos elementos, uno para cada mitad del teclado</p><p>Y finalmente use unas pantallas Oled que se pueden comunicar con arduino por el protocolo i2c, usar estas fue un error, pues aunque ya hay diseños con otras pantallas,
+usar las que yo tenia hizo que rediseñara el modelo 3d y la programacion para poder usarlas correctamente, especificamente el modelo que yo ya tenia era el
+<strong>SSD1306</strong> de <strong>128x64</strong> y el requerido era el de <strong>128x32</strong></p><p><img src=/pro_img/teclado_con_pantalla.jpg alt></p><p>Primero el modelo fue una modificacion de <a href=https://www.thingiverse.com/thing:4380457>este archivo:</a></p><p><img src=/pro_img/lily58Modelo.jpg alt></p><p>Ademas de que este contenia espacio para los rotadores que era algo que me interesaba usar en un teclado, finalmente el resultado fue el siguiente:</p><p><img src=/pro_img/tecladoFinal.png alt></p><p>Ya no poseo el archivo stl original pero logre encontrar el archivo Gcode, luego diseñe la tapa de este teclado pero igualmente perdi el archivo, pero este tenia
+la diferencia de la pantalla.</p><p>Luego las conecciones que hice entre las teclas fueron las siguientes:</p><p><img src=/pro_img/conecciones.png alt></p><p>en donde cada columna y fila tiene un diodo, esto es para evitar el efecto de ghosting, el cual consiste en que cuando varias teclas en el teclado son presionadas al
+mismo tiempo el teclado detecta tambien que otras teclas estan siendo presionadas, cuales teclas producen este efecto depende de las conecciones de cada teclado.</p><p>Y finalmente en la programacion del arduino use una libreria que rescate de uno de los ejemplos, parece ser que el creador la uso para su propio diseño, el cual incorppraba
+animaciones y efectos muy interesantes, yo la use para mostrar una barra mostrando el porcentaje del brillo y del volumen el cual habia enviado el teclado, en ese momento
+no sabia si era posible recibir esta informacion desde la computadora, asi que solo tomaba en cuanta la del teclado.</p></main></body></html>

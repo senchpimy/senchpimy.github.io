@@ -1,0 +1,66 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Maquina De Estados Determinista Finita</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Maquina De Estados Determinista Finita</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Una Mquina de estados finita consiste en un sistema el cual posee una serie de estados determinados y finitos, los cuales segun la entrada que
+entre al sistema, este tomara una desciocion y cambiara de estado. EL cambio de estado se llama transcicion de estado.</p><h2 id=ejemplo>Ejemplo</h2><p>Para este ejemplo maquina tendra 3 estados, cerrado, abierto y bloqueado,</p><pre class=mermaid style=display:flex;justify-content:center;align-items:center>
+  %%{
+  init: {
+  'theme': 'base',
+  'themeVariables': {
+  'primaryColor': '#BB2528',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#7C0000',
+  'lineColor': '#F8B229',
+  'secondaryColor': '#006100',
+  'tertiaryColor': '#fff'
+  }
+  }
+  }%%stateDiagram-v2
+    cerrado: Estado Cerrado
+    abierto: Estado Abierto
+    bloqueado: Estado Bloqueado
+
+    cerrado --> abierto: Contraseña Correcta
+    cerrado --> bloqueado: 3 Contraseñas Incorrectas
+</pre><p>En rust podriamos represnetar cada Estado como un Enum</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>State</span>{
+</span></span><span style=display:flex><span>    Cerrado,
+</span></span><span style=display:flex><span>    Abierto,
+</span></span><span style=display:flex><span>    Bloqueado
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y la maquina como una estructura:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Maquina</span>{
+</span></span><span style=display:flex><span>    estado:<span style=color:#a6e22e>State</span>,
+</span></span><span style=display:flex><span>    pin:String,
+</span></span><span style=display:flex><span>    intentos:<span style=color:#66d9ef>u8</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y las fucniones asociadas con esta estructura serian:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>impl</span> Maquina{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>new</span>()-&gt;<span style=color:#a6e22e>Self</span>{
+</span></span><span style=display:flex><span>        Self{
+</span></span><span style=display:flex><span>            estado:<span style=color:#a6e22e>State</span>::Cerrado,
+</span></span><span style=display:flex><span>            pin:<span style=color:#e6db74>&#34;123&#34;</span>.to_string(),
+</span></span><span style=display:flex><span>            intentos:<span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>ingresar_pin</span>(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> self, pin:String){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>match</span> self.estado{
+</span></span><span style=display:flex><span>            State::Cerrado<span style=color:#f92672>=&gt;</span>{
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> pin <span style=color:#f92672>==</span> self.pin <span style=color:#f92672>&amp;&amp;</span> self.intentos<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>3</span>{
+</span></span><span style=display:flex><span>                    self.estado<span style=color:#f92672>=</span>abierto;
+</span></span><span style=display:flex><span>                }<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>                    self.intentos<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> self.intentos<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>3</span>{
+</span></span><span style=display:flex><span>                        self.state<span style=color:#f92672>=</span>State::Bloqueado;
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            State::Abierto<span style=color:#f92672>=&gt;</span>{
+</span></span><span style=display:flex><span>                self.estado<span style=color:#f92672>=</span>State::Cerrado;
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            State::Bloqueado<span style=color:#f92672>=&gt;</span>{}
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></main></body></html><script type=module>
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({startOnLoad: true});
+</script>

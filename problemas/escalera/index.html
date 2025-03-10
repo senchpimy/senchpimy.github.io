@@ -1,0 +1,25 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Escalera</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Escalera</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=escalera>Escalera</h2><p>Este problema consisten en regresar un entero que indique todas las formas posibles en las cuales se puede subir una escalera de n escalones
+si en cada paso se puede escoger subir 1 o 2 escalones</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {Integer} n</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>climb_stairs</span>(n)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>3</span> 
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> n
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    total <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    restantes <span style=color:#f92672>=</span> n <span style=color:#f92672>-</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>    prev2 <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    prev1 <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span><span style=color:#f92672>.</span>upto(restantes)<span style=color:#f92672>.</span>each <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>        total <span style=color:#f92672>=</span> prev1<span style=color:#f92672>+</span>prev2
+</span></span><span style=display:flex><span>        prev2 <span style=color:#f92672>=</span> prev1
+</span></span><span style=display:flex><span>        prev1 <span style=color:#f92672>=</span> total
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    total    
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Este programa toma en consideracion que para n siendo menor o igual a 3, el resultado sera igual que n, luego considera que la
+ecuacion para resolver este problema es la siguiente:</p><p>f(n) = f(n-1) + f(n-2)</p><p>Entonces iteramos desde 1 (pues la primera iteracion ya se resolvio) hasta n, luego obtenemos el resultado de la iteracion i que seria
+el resultado si n = i, y lo repetimos hasta que i = n; En donde ya tendriamos el resultado final</p></main></body></html>

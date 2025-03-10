@@ -1,0 +1,41 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Indice de la primera Ocurrencia</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Indice de la primera Ocurrencia</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=indice-de-la-primera-ocurrencia>Indice de la Primera Ocurrencia</h2><p>Este problema consisten en dados dos strings regresar el indice de la primera ocurrencia de un string dentro de otro</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {String} haystack</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @param {String} needle</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>str_str</span>(haystack, needle)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> needle<span style=color:#f92672>==</span><span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    limit <span style=color:#f92672>=</span> haystack<span style=color:#f92672>.</span>length <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>-</span> needle<span style=color:#f92672>.</span>length 
+</span></span><span style=display:flex><span>    (<span style=color:#ae81ff>0</span><span style=color:#f92672>..</span>limit)<span style=color:#f92672>.</span>each <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>i<span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>        (<span style=color:#ae81ff>0</span><span style=color:#f92672>..</span>needle<span style=color:#f92672>.</span>length)<span style=color:#f92672>.</span>each <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>j<span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> haystack<span style=color:#f92672>[</span>i<span style=color:#f92672>+</span>j<span style=color:#f92672>]</span> <span style=color:#f92672>!=</span> needle<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> j <span style=color:#f92672>==</span> (needle<span style=color:#f92672>.</span>length <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> i
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Este programa primero calcula hasta dode seria posible encontrar el string encontrar por su longitud dentro de el string en cual buscar, luego lo recorre e intenta comparar cada uno de los caracteres, si se han logrado comparar todos los caracteres de el
+segundo string entonces se ha encontrado el segundo string y se regresa el indice</p><p>Esta solucion funciona pero en comparacion a las demas respuestas enviadas es muy lenta y ocupa mucha memoria asi que usando la funcion ya integrada en el lenguaje para hacer esto se obtiene el siguiente codigo</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {String} haystack</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @param {String} needle</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>str_str</span>(haystack, needle)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> haystack<span style=color:#f92672>.</span>index(needle) <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> ? haystack<span style=color:#f92672>.</span>index(needle)<span style=color:#e6db74>:-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Que usa la funcion indice para encontrar el indice y si no se encuentra el indice entonces se regresa -1, pero aun asi no cambio mucho el uso de memoria ni de velociada entonces pense que tal vez no se optimizaba el llamado a la funciion y esta terminaba llamandose 2 veces, asi que solo guarde el resultado
+y lo intente de nuevo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {String} haystack</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @param {String} needle</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>str_str</span>(haystack, needle)
+</span></span><span style=display:flex><span>result <span style=color:#f92672>=</span> haystack<span style=color:#f92672>.</span>index(needle)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>return</span> result <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> ? <span style=color:#e6db74>result</span>:<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Solo con hacer este cambio la velocidad y uso de memoria pasaron de estar en el top ~60% con los dos ejemplos anteriores hasta estar en el top ~20% en velocidad y ~5% en memoria</p></main></body></html>

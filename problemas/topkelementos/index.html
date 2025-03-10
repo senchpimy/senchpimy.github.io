@@ -1,0 +1,78 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Top K Elementos</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Top K Elementos</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=top-k-elementos>Top K Elementos</h2><p>Este problema consisten contar cuantas veces aparece un elemento en un vector y regresar una lista con <strong>K</strong> elementos, los cuales sean los de mayor repeticion en el primer vector, este fue mi primer intento:</p><h3 id=primer-intento>Primer Intento</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;map&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>void</span> insertar(<span style=color:#66d9ef>int</span> num,<span style=color:#66d9ef>int</span> k,<span style=color:#66d9ef>int</span><span style=color:#f92672>*</span> vals){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>k;i<span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>     <span style=color:#66d9ef>if</span> (num<span style=color:#f92672>&lt;</span>vals[i]){
+</span></span><span style=display:flex><span>         i<span style=color:#f92672>=</span>i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>         <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>i;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>             vals[j]<span style=color:#f92672>=</span>vals[j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>             vals[i]<span style=color:#f92672>=</span>num;
+</span></span><span style=display:flex><span>             <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> topKFrequent(vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&amp;</span> nums, <span style=color:#66d9ef>int</span> k) {
+</span></span><span style=display:flex><span>    map<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> mapa;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> element : nums) {
+</span></span><span style=display:flex><span>       mapa[element]<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> vals[k];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> l<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> i: mapa){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (l<span style=color:#f92672>==</span>k)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        vals[l]<span style=color:#f92672>=</span>i.first;
+</span></span><span style=display:flex><span>        l<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> minimo<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> pos <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> i:mapa){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (i.second<span style=color:#f92672>&gt;=</span>minimo){
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (pos<span style=color:#f92672>&lt;</span>k){
+</span></span><span style=display:flex><span>               vals[pos]<span style=color:#f92672>=</span>i.first;
+</span></span><span style=display:flex><span>                pos<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>            }<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>                insertar(i.first,k,vals);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            minimo<span style=color:#f92672>=</span>mapa[vals[<span style=color:#ae81ff>0</span>]];
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    std<span style=color:#f92672>::</span>vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> dest(vals, vals <span style=color:#f92672>+</span> k);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> dest;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div><p>Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algun elemento supera este minimo este se debe de insertar en su poscicion correcta, con esto lograba insertar todos loe elementos de una sola pasada,
+pero este codigo no funciono, solo logro pasar la mitad de los casos.</p><p>Pero me encontre esta solucion que me parecio interesante.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span> vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> topKFrequent(vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&amp;</span> arr, <span style=color:#66d9ef>int</span> k) {
+</span></span><span style=display:flex><span> <span style=color:#75715e>#pragma GCC optimize(&#34;Ofast&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#75715e>#pragma GCC target(&#34;sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#75715e>#pragma GCC optimize(&#34;unroll-loops&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span> ios_base<span style=color:#f92672>::</span>sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> unordered_map<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> mp;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>auto</span> i: arr) mp[i]<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> vector<span style=color:#f92672>&lt;</span>pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&gt;</span> vp;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>auto</span> i: mp) vp.push_back({i.second, i.first});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> sort(vp.rbegin(), vp.rend());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> ans;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>k i<span style=color:#f92672>++</span>) ans.push_back(vp[i].second);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> ans;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div><p>Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilacion dentro del codigo, al buscarlo me encontre que &ldquo;pragma&rdquo; le permite al compilador cambiar las caracteristicas de la compilacion por archivo.</p><p>Luego esta linea nucna la habia visto antes:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span> ios_base<span style=color:#f92672>::</span>sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+</span></span></code></pre></div><p>Lo que hace esta parte es primero es evitar la sincronizacion entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del codigo.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span> cin.tie(NULL); cout.tie(NULL);
+</span></span></code></pre></div><p>Y estas dos instrucciones hacen que cada vez que una es escrita, la otra es limpiada y esta parte hace que este comportamiento ya no suceda.</p><p>Luego usa un <strong>unordered_map</strong> en lugar de un <strong>map</strong>, no se bien el por que de esta descicion, luego guarda la informacion de cuantas veces se repite un valor de la misma forma en que yo la hice.</p><p>Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino tambien se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porcion, por lo que es muy tardado.</p><p>Finalmente crea un vector en el que agrega los primeros <strong>K</strong> elementos.</p></main></body></html>

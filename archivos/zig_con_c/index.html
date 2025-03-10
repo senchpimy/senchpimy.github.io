@@ -1,0 +1,138 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>owncloud</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>owncloud</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h1 id=zig>Zig</h1><p>Zig es un &ldquo;nuevo&rdquo; lenguaje de programacion que se enfoca en ser lo más compatible con C como sea posible, pero teniendo una sintaxis y ecosistema
+moderno, para probarlo cree este programa que crea una ventana usando la libreria &ldquo;Xlib&rdquo; que esta totalmente escrita en C.</p><p>Este es el codigo en C:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;X11/Xlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>void</span>) {
+</span></span><span style=display:flex><span>  Display <span style=color:#f92672>*</span>d;
+</span></span><span style=display:flex><span>  Window w;
+</span></span><span style=display:flex><span>  XEvent e;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>msg <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;EXAMPLE&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> s;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  d <span style=color:#f92672>=</span> <span style=color:#a6e22e>XOpenDisplay</span>(NULL);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (d <span style=color:#f92672>==</span> NULL) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fprintf</span>(stderr, <span style=color:#e6db74>&#34;Cannot open display</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>exit</span>(<span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  s <span style=color:#f92672>=</span> <span style=color:#a6e22e>DefaultScreen</span>(d);
+</span></span><span style=display:flex><span>  w <span style=color:#f92672>=</span> <span style=color:#a6e22e>XCreateSimpleWindow</span>(d, <span style=color:#a6e22e>RootWindow</span>(d, s), <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                          <span style=color:#a6e22e>BlackPixel</span>(d, s), <span style=color:#a6e22e>WhitePixel</span>(d, s));
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>XSelectInput</span>(d, w,
+</span></span><span style=display:flex><span>               ExposureMask <span style=color:#f92672>|</span> KeyPressMask <span style=color:#f92672>|</span> ButtonPressMask <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>                   ButtonReleaseMask <span style=color:#f92672>|</span> PointerMotionMask);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>XMapWindow</span>(d, w);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>while</span> (<span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>XNextEvent</span>(d, <span style=color:#f92672>&amp;</span>e);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (e.type <span style=color:#f92672>==</span> Expose) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>XFillRectangle</span>(d, w, <span style=color:#a6e22e>DefaultGC</span>(d, s), <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>20</span>, i, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>XDrawString</span>(d, w, <span style=color:#a6e22e>DefaultGC</span>(d, s), <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>50</span>, msg, <span style=color:#a6e22e>strlen</span>(msg));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>switch</span> (e.type) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> ButtonPress:
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Button press: button %u, x = %d, y = %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, e.xbutton.button,
+</span></span><span style=display:flex><span>             e.xbutton.x, e.xbutton.y);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> ButtonRelease:
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Button release: button %u, x = %d, y = %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, e.xbutton.button,
+</span></span><span style=display:flex><span>             e.xbutton.x, e.xbutton.y);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> MotionNotify:
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Motion: x = %d, y = %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, e.xmotion.x, e.xmotion.y);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>XCloseDisplay</span>(d);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y este seria el equivalente en Zig</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>const</span> std <span style=color:#f92672>=</span> @import(<span style=color:#e6db74>&#34;std&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> c <span style=color:#f92672>=</span> @cImport({
+</span></span><span style=display:flex><span>    @cInclude(<span style=color:#e6db74>&#34;X11/Xlib.h&#34;</span>);
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> XError <span style=color:#f92672>=</span> <span style=color:#66d9ef>error</span>{
+</span></span><span style=display:flex><span>    NullDisplay,
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> main() <span style=color:#f92672>!</span><span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> display <span style=color:#f92672>=</span> c.XOpenDisplay(<span style=color:#e6db74>&#34;&#34;</span>) <span style=color:#66d9ef>orelse</span> <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>error</span>.NullDisplay;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> _ <span style=color:#f92672>=</span> c.XCloseDisplay(display);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> screen <span style=color:#f92672>=</span> c.XDefaultScreen(display);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> rwindow <span style=color:#f92672>=</span> c.XRootWindow(display, screen);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> black <span style=color:#f92672>=</span> c.BlackPixel(display, screen);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> white <span style=color:#f92672>=</span> c.WhitePixel(display, screen);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> window <span style=color:#f92672>=</span> c.XCreateSimpleWindow(display, rwindow, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>1</span>, black, white);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    _ <span style=color:#f92672>=</span> c.XSelectInput(display, window, c.ExposureMask <span style=color:#f92672>|</span> c.KeyPressMask <span style=color:#f92672>|</span> c.ButtonPressMask <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>        c.ButtonReleaseMask <span style=color:#f92672>|</span> c.PointerMotionMask);
+</span></span><span style=display:flex><span>    _ <span style=color:#f92672>=</span> c.XMapWindow(display, window);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> i<span style=color:#f92672>:</span> <span style=color:#66d9ef>u32</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> close <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> event<span style=color:#f92672>:</span> c.XEvent <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> msg<span style=color:#f92672>:</span> []<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>u8</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;EXAMPLE&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> (<span style=color:#f92672>!</span>close) {
+</span></span><span style=display:flex><span>        _ <span style=color:#f92672>=</span> c.XNextEvent(display, <span style=color:#f92672>&amp;</span>event);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> (event.<span style=color:#66d9ef>type</span>) {
+</span></span><span style=display:flex><span>            c.Expose <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>const</span> gc <span style=color:#f92672>=</span> c.DefaultGC(display, screen);
+</span></span><span style=display:flex><span>                _ <span style=color:#f92672>=</span> c.XFillRectangle(display, window, gc, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>20</span>, i, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>                _ <span style=color:#f92672>=</span> c.XDrawString(display, window, gc, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>50</span>, msg.ptr, msg.len);
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            c.ButtonPress <span style=color:#f92672>=&gt;</span> std.log.info(
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;Press {} x {} y {}&#34;</span>,
+</span></span><span style=display:flex><span>                .{ event.xbutton.button, event.xbutton.x, event.xbutton.y },
+</span></span><span style=display:flex><span>            ),
+</span></span><span style=display:flex><span>            c.ButtonRelease <span style=color:#f92672>=&gt;</span> std.log.info(
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;Release {} x {} y {}&#34;</span>,
+</span></span><span style=display:flex><span>                .{ event.xbutton.button, event.xbutton.x, event.xbutton.y },
+</span></span><span style=display:flex><span>            ),
+</span></span><span style=display:flex><span>            c.MotionNotify <span style=color:#f92672>=&gt;</span> std.log.info(
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;Motion x {} y {}&#34;</span>,
+</span></span><span style=display:flex><span>                .{ event.xmotion.x, event.xmotion.y },
+</span></span><span style=display:flex><span>            ),
+</span></span><span style=display:flex><span>            c.DestroyNotify <span style=color:#f92672>=&gt;</span> close <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> <span style=color:#f92672>=&gt;</span> {},
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Como podemos ver, en zig se incluyen ciertas cosas que son buenas que no forman parte de c, como la funcionalidad de <strong>defer</strong>, manejar los errores
+como valores y forzar a leerlos, demas de los nombres de los tipos que cuando se compila para otras arquitecturas el tamaño de las variables es más
+explicito</p><p>Y el archivo de construccion (build.zig) para linkear las librerias de C quedaria como:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>const</span> std <span style=color:#f92672>=</span> @import(<span style=color:#e6db74>&#34;std&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> build(b<span style=color:#f92672>:</span> <span style=color:#f92672>*</span>std.Build) <span style=color:#66d9ef>void</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> target <span style=color:#f92672>=</span> b.standardTargetOptions(.{});
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> optimize <span style=color:#f92672>=</span> b.standardOptimizeOption(.{});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> exe <span style=color:#f92672>=</span> b.addExecutable(.{
+</span></span><span style=display:flex><span>        .name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;zigexample&#34;</span>,
+</span></span><span style=display:flex><span>        .root_source_file <span style=color:#f92672>=</span> .{ .path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;src/main.zig&#34;</span> },
+</span></span><span style=display:flex><span>        .target <span style=color:#f92672>=</span> target,
+</span></span><span style=display:flex><span>        .optimize <span style=color:#f92672>=</span> optimize,
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    exe.linkLibC();
+</span></span><span style=display:flex><span>    exe.linkSystemLibrary(<span style=color:#e6db74>&#34;x11&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    b.installArtifact(exe);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> run_cmd <span style=color:#f92672>=</span> b.addRunArtifact(exe);
+</span></span><span style=display:flex><span>    run_cmd.step.dependOn(b.getInstallStep());
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (b.args) <span style=color:#f92672>|</span>args<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        run_cmd.addArgs(args);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> run_step <span style=color:#f92672>=</span> b.step(<span style=color:#e6db74>&#34;run&#34;</span>, <span style=color:#e6db74>&#34;Run the app&#34;</span>);
+</span></span><span style=display:flex><span>    run_step.dependOn(<span style=color:#f92672>&amp;</span>run_cmd.step);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></main></body></html>

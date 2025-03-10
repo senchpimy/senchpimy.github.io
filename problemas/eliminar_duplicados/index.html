@@ -1,0 +1,21 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Eliminar Duplicados</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Eliminar Duplicados</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=eliminar-duplicados>Eliminar Duplicados</h2><p>Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuanto elementos unicos este tenia</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span> {
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> removeDuplicates(vector<span style=color:#f92672>&amp;</span>ltint<span style=color:#f92672>&gt;&amp;</span> nums) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> nums.size();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; i <span style=color:#f92672>&lt;</span> size; i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span>(nums[i] <span style=color:#f92672>!=</span> nums[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>]){
+</span></span><span style=display:flex><span> nums[j] <span style=color:#f92672>=</span> nums[i];
+</span></span><span style=display:flex><span> j<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> j;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div><p>Este programa itera por todo el vector y como este esta ordenado es cuando el numero anterior al numero de la iteracion actual son diferentes que se puede decir que es otro elemento del array, por lo que se aumenta el valor, al mismo tiempo como tenemos el indice de que elementos unicos lo podemos intercambiar
+para asi poder reducir su tamaño a solo elementos unicos</p></main></body></html>

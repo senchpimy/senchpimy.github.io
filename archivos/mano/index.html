@@ -1,0 +1,198 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Mano Robot</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Mano Robot</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Construi una mano que hasta cierto nivel sigue los movientos de otra mano en base a una camara, para esto escribi el siguiente programa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#f92672>import</span> cv2
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> mediapipe <span style=color:#66d9ef>as</span> mp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>webcam<span style=color:#f92672>=</span>cv2<span style=color:#f92672>.</span>VideoCapture(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>mp_hand<span style=color:#f92672>=</span> mp<span style=color:#f92672>.</span>solutions<span style=color:#f92672>.</span>hands
+</span></span><span style=display:flex><span>hands <span style=color:#f92672>=</span> mp_hand<span style=color:#f92672>.</span>Hands()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mp_drawing_utils <span style=color:#f92672>=</span> mp<span style=color:#f92672>.</span>solutions<span style=color:#f92672>.</span>drawing_utils
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>distancia</span>(
+</span></span><span style=display:flex><span> punto1,<span style=color:#75715e>#:mp.framework.formats.landmark_pb2.NormalizedLandmark</span>
+</span></span><span style=display:flex><span> punto2<span style=color:#75715e>#:mp.framework.formats.landmark_pb2.NormalizedLandmark</span>
+</span></span><span style=display:flex><span> )<span style=color:#f92672>-&gt;</span>float:
+</span></span><span style=display:flex><span> x<span style=color:#f92672>=</span>(punto1<span style=color:#f92672>.</span>x<span style=color:#f92672>-</span>punto2<span style=color:#f92672>.</span>x)
+</span></span><span style=display:flex><span> y<span style=color:#f92672>=</span>(punto1<span style=color:#f92672>.</span>y<span style=color:#f92672>-</span>punto2<span style=color:#f92672>.</span>y)
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>sqrt(x\<span style=color:#f92672>*</span>\<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span><span style=color:#f92672>+</span>y\<span style=color:#f92672>*</span>\<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span>)\<span style=color:#f92672>*</span><span style=color:#ae81ff>1000</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>regla_de_tres</span>(referencia:float, mapear:float)<span style=color:#f92672>-&gt;</span>int:
+</span></span><span style=display:flex><span> <span style=color:#75715e>#if mapear&gt;referencia:return 180</span>
+</span></span><span style=display:flex><span> v <span style=color:#f92672>=</span> referencia<span style=color:#f92672>/</span><span style=color:#ae81ff>350</span>
+</span></span><span style=display:flex><span> p <span style=color:#f92672>=</span> v\<span style=color:#f92672>*</span>mapear
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> int(p)<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>180</span>:<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>180</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> int(p) 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> webcam<span style=color:#f92672>.</span>isOpened():
+</span></span><span style=display:flex><span> succes, img <span style=color:#f92672>=</span> webcam<span style=color:#f92672>.</span>read()
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> succes:<span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span> result <span style=color:#f92672>=</span> hands<span style=color:#f92672>.</span>process(cv2<span style=color:#f92672>.</span>cvtColor(img, cv2<span style=color:#f92672>.</span>COLOR_BGR2RGB))
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> result<span style=color:#f92672>.</span>multi_hand_landmarks:
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span> hand <span style=color:#f92672>in</span> result<span style=color:#f92672>.</span>multi_hand_landmarks:
+</span></span><span style=display:flex><span> mitad <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>WRIST],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>MIDDLE_FINGER_MCP])
+</span></span><span style=display:flex><span> medio <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>MIDDLE_FINGER_TIP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>MIDDLE_FINGER_MCP])
+</span></span><span style=display:flex><span> pulgar <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>THUMB_TIP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>THUMB_MCP])
+</span></span><span style=display:flex><span> indice <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>INDEX_FINGER_MCP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>INDEX_FINGER_TIP])
+</span></span><span style=display:flex><span> ring <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>RING_FINGER_MCP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>RING_FINGER_TIP])
+</span></span><span style=display:flex><span> pinky <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>PINKY_MCP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>PINKY_TIP])
+</span></span><span style=display:flex><span> print(regla_de_tres(mitad,medio))
+</span></span><span style=display:flex><span> print(regla_de_tres(mitad,indice\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.12</span>)) <span style=color:#75715e># Relacion 0.9:1 con el medio</span>
+</span></span><span style=display:flex><span> print(regla_de_tres(mitad,ring\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.26</span>)) <span style=color:#75715e># Relacion 0.8:1 con el medio</span>
+</span></span><span style=display:flex><span> print(regla_de_tres(mitad,pinky\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.58</span>)) <span style=color:#75715e># Relacion 0.6:1 con el medio</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#print(regla_de_tres(mitad,pulgar\*1.25)) # Relacion 0.8:1 con el medio</span>
+</span></span><span style=display:flex><span> mp_drawing_utils<span style=color:#f92672>.</span>draw_landmarks(img,hand, mp_hand<span style=color:#f92672>.</span>HAND_CONNECTIONS)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> cv2<span style=color:#f92672>.</span>imshow(<span style=color:#e6db74>&#34;image&#34;</span>,img)
+</span></span><span style=display:flex><span> cv2<span style=color:#f92672>.</span>waitKey(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>webcam<span style=color:#f92672>.</span>release()
+</span></span><span style=display:flex><span>cv2<span style=color:#f92672>.</span>destroyAllWindows()
+</span></span></code></pre></div><p>Este programa usa <strong>mediapipe</strong> para poder obtener las imagenes de una camara y <strong>opencv</strong> para detectar ciertos puntos de la mano</p><p><img src=/pro_img/manos_ejemplos.png alt>
+<img src=/pro_img/puntos_mano.png alt></p><p>Para poder explicar el por que de las distancias que tome y como lo hice primero hay que ver la mano.</p><p>Este es un <a href=https://www.thingiverse.com/thing:17773>modelo</a> ya diseñado, este enlace contiene lo necesario para armar la mano hasta cierto nivel, pero yo encontre más conveniente solo imprimir la mano de ese modelo y luego imprimir el antebrazo desde <a href=https://www.thingiverse.com/thing:1927150>este modelo de aqui</a>
+tambien hay que imprimir los modelos que soportan a los servo motores y guian los hilos de los dedos de las mano y estos se encuentran en <a href=https://www.thingiverse.com/thing:65274>este modelo</a> asi como las poleas de los servos</p><p>Como se puede ver, no hay mucho control en el modelo mas que hacia delante y hacia atras, por lo que el programa solo toma en cuenta la distancia desde la punta del dedo hasta la base de este, luego toma como referencia la distancia de la base del dedo medio hasta la muñeca para saber que tanto
+se movio cada dedo, esto para tener una aproximacion y siempre se mueva lo mismo sin importar que tan lejos este la mano de la calamara y el tamaño de la mano.</p><p>Con estos datos saca una regla de tres para poder mapear el punto maximo a 180 y el minimo a 0 que son que tanto se puede mover un servomotor.</p><p>El programa del arduino es igual de simple, este lee los primeros 4 caracteres, siendo el primero el dedo que se va a mover y los otros 3 la cantidad, ejemplo: <strong>T180</strong> (mover el pulgar <em>Thumb</em> a la poscicion 180)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ino data-lang=ino><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span> 
+</span></span><span style=display:flex><span><span style=color:#75715e>Servo thumb;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>Servo</span> index;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Servo</span> middle;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Servo</span> ring;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Servo</span> pinky;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>byte</span> test[<span style=color:#ae81ff>5</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> c;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> d;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> u;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> result;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>begin</span>(<span style=color:#ae81ff>9600</span>);
+</span></span><span style=display:flex><span>thumb.<span style=color:#a6e22e>attach</span>(<span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>index.<span style=color:#a6e22e>attach</span>(<span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>middle.<span style=color:#a6e22e>attach</span>(<span style=color:#ae81ff>6</span>);
+</span></span><span style=display:flex><span>ring.<span style=color:#a6e22e>attach</span>(<span style=color:#ae81ff>7</span>);
+</span></span><span style=display:flex><span>pinky.<span style=color:#a6e22e>attach</span>(<span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>available</span>()){
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>readBytes</span>(test,<span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>c <span style=color:#f92672>=</span> test[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> <span style=color:#ae81ff>48</span>;
+</span></span><span style=display:flex><span>d <span style=color:#f92672>=</span> test[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>-</span> <span style=color:#ae81ff>48</span>;
+</span></span><span style=display:flex><span>u <span style=color:#f92672>=</span> test[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>-</span> <span style=color:#ae81ff>48</span>;
+</span></span><span style=display:flex><span>result <span style=color:#f92672>=</span> (c<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>*</span><span style=color:#ae81ff>100</span>)<span style=color:#f92672>+</span>(d<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>*</span><span style=color:#ae81ff>10</span>)<span style=color:#f92672>+</span>u;
+</span></span><span style=display:flex><span><span style=color:#75715e>//Serial.println(result);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> dedo <span style=color:#f92672>=</span> test[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>switch</span> (dedo){
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;T&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// Thumb
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>thumb.<span style=color:#a6e22e>write</span>(result);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;I&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// Index
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>index.<span style=color:#a6e22e>write</span>(result);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;M&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// Middle
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>middle.<span style=color:#a6e22e>write</span>(result);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;R&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// ring
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>ring.<span style=color:#a6e22e>write</span>(result);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;P&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// Pinky
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>pinky.<span style=color:#a6e22e>write</span>(result);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>default</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Not found&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se uraria python y la libreria <strong>Pyserial</strong>, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#f92672>import</span> serial
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>hand</span>():
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard <span style=color:#f92672>=</span> serial<span style=color:#f92672>.</span>Serial(<span style=color:#e6db74>&#39;/dev/ttyACM0&#39;</span>,<span style=color:#ae81ff>9600</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>#ard = serial.Serial(&#39;COM3&#39;, 9600)</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>thumb</span>(self, num:int):
+</span></span><span style=display:flex><span>nu <span style=color:#f92672>=</span> str(num)
+</span></span><span style=display:flex><span>st <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;T</span><span style=color:#e6db74>{</span>nu<span style=color:#f92672>.</span>zfill(<span style=color:#ae81ff>3</span>)<span style=color:#e6db74>}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard<span style=color:#f92672>.</span>write(st<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;UTF-8&#39;</span>))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>index</span>(self, num:int):
+</span></span><span style=display:flex><span>nu <span style=color:#f92672>=</span> str(num)
+</span></span><span style=display:flex><span>st <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;I</span><span style=color:#e6db74>{</span>nu<span style=color:#f92672>.</span>zfill(<span style=color:#ae81ff>3</span>)<span style=color:#e6db74>}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard<span style=color:#f92672>.</span>write(st<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;UTF-8&#39;</span>))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>middle</span>(self, num:int):
+</span></span><span style=display:flex><span>nu <span style=color:#f92672>=</span> str(num)
+</span></span><span style=display:flex><span>st <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;M</span><span style=color:#e6db74>{</span>nu<span style=color:#f92672>.</span>zfill(<span style=color:#ae81ff>3</span>)<span style=color:#e6db74>}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard<span style=color:#f92672>.</span>write(st<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;UTF-8&#39;</span>))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>ring</span>(self, num:int):
+</span></span><span style=display:flex><span>nu <span style=color:#f92672>=</span> str(num)
+</span></span><span style=display:flex><span>st <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;R</span><span style=color:#e6db74>{</span>nu<span style=color:#f92672>.</span>zfill(<span style=color:#ae81ff>3</span>)<span style=color:#e6db74>}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard<span style=color:#f92672>.</span>write(st<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;UTF-8&#39;</span>))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>pinky</span>(self, num:int):
+</span></span><span style=display:flex><span>nu <span style=color:#f92672>=</span> str(num)
+</span></span><span style=display:flex><span>st <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;P</span><span style=color:#e6db74>{</span>nu<span style=color:#f92672>.</span>zfill(<span style=color:#ae81ff>3</span>)<span style=color:#e6db74>}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard<span style=color:#f92672>.</span>write(st<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;UTF-8&#39;</span>))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>close</span>(self):
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ard<span style=color:#f92672>.</span>close()
+</span></span></code></pre></div><p>Que segun el dedo que se quiere mover, este enviara el comando necesario al arduino.</p><p>y finalmente con el esto el codigo de python quedaria como:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span> <span style=color:#f92672>import</span> cv2
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> mediapipe <span style=color:#66d9ef>as</span> mp
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> hand
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>webcam<span style=color:#f92672>=</span>cv2<span style=color:#f92672>.</span>VideoCapture(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>mp_hand<span style=color:#f92672>=</span> mp<span style=color:#f92672>.</span>solutions<span style=color:#f92672>.</span>hands
+</span></span><span style=display:flex><span>hands <span style=color:#f92672>=</span> mp_hand<span style=color:#f92672>.</span>Hands()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mp_drawing_utils <span style=color:#f92672>=</span> mp<span style=color:#f92672>.</span>solutions<span style=color:#f92672>.</span>drawing_utils
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>distancia</span>(
+</span></span><span style=display:flex><span> punto1,<span style=color:#75715e>#:mp.framework.formats.landmark_pb2.NormalizedLandmark</span>
+</span></span><span style=display:flex><span> punto2<span style=color:#75715e>#:mp.framework.formats.landmark_pb2.NormalizedLandmark</span>
+</span></span><span style=display:flex><span> )<span style=color:#f92672>-&gt;</span>float:
+</span></span><span style=display:flex><span> x<span style=color:#f92672>=</span>(punto1<span style=color:#f92672>.</span>x<span style=color:#f92672>-</span>punto2<span style=color:#f92672>.</span>x)
+</span></span><span style=display:flex><span> y<span style=color:#f92672>=</span>(punto1<span style=color:#f92672>.</span>y<span style=color:#f92672>-</span>punto2<span style=color:#f92672>.</span>y)
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>sqrt(x\<span style=color:#f92672>*</span>\<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span><span style=color:#f92672>+</span>y\<span style=color:#f92672>*</span>\<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span>)\<span style=color:#f92672>*</span><span style=color:#ae81ff>1000</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>regla_de_tres</span>(referencia:float, mapear:float)<span style=color:#f92672>-&gt;</span>int:
+</span></span><span style=display:flex><span> <span style=color:#75715e>#if mapear&gt;referencia:return 180</span>
+</span></span><span style=display:flex><span> v <span style=color:#f92672>=</span> referencia<span style=color:#f92672>/</span><span style=color:#ae81ff>350</span>
+</span></span><span style=display:flex><span> p <span style=color:#f92672>=</span> v\<span style=color:#f92672>*</span>mapear
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> int(p)<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>180</span>:<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>180</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> int(p) 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mano <span style=color:#f92672>=</span> hand<span style=color:#f92672>.</span>hand()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> webcam<span style=color:#f92672>.</span>isOpened():
+</span></span><span style=display:flex><span> succes, img <span style=color:#f92672>=</span> webcam<span style=color:#f92672>.</span>read()
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> succes:<span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span> result <span style=color:#f92672>=</span> hands<span style=color:#f92672>.</span>process(cv2<span style=color:#f92672>.</span>cvtColor(img, cv2<span style=color:#f92672>.</span>COLOR_BGR2RGB))
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> result<span style=color:#f92672>.</span>multi_hand_landmarks:
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>for</span> hand <span style=color:#f92672>in</span> result<span style=color:#f92672>.</span>multi_hand_landmarks:
+</span></span><span style=display:flex><span> mitad <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>WRIST],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>MIDDLE_FINGER_MCP])
+</span></span><span style=display:flex><span> medio <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>MIDDLE_FINGER_TIP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>MIDDLE_FINGER_MCP])
+</span></span><span style=display:flex><span> pulgar <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>THUMB_TIP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>THUMB_MCP])
+</span></span><span style=display:flex><span> indice <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>INDEX_FINGER_MCP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>INDEX_FINGER_TIP])
+</span></span><span style=display:flex><span> ring <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>RING_FINGER_MCP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>RING_FINGER_TIP])
+</span></span><span style=display:flex><span> pinky <span style=color:#f92672>=</span> distancia(hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>PINKY_MCP],hand<span style=color:#f92672>.</span>landmark[mp_hand<span style=color:#f92672>.</span>HandLandmark<span style=color:#f92672>.</span>PINKY_TIP])
+</span></span><span style=display:flex><span> mano<span style=color:#f92672>.</span>pinky(regla_de_tres(mitad,pinky\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.58</span>))
+</span></span><span style=display:flex><span> mano<span style=color:#f92672>.</span>ring(regla_de_tres(mitad,ring\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.26</span>))
+</span></span><span style=display:flex><span> mano<span style=color:#f92672>.</span>index(regla_de_tres(mitad,indice\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.12</span>))
+</span></span><span style=display:flex><span> mano<span style=color:#f92672>.</span>thumb(regla_de_tres(mitad,pulgar\<span style=color:#f92672>*</span><span style=color:#ae81ff>1.25</span>))
+</span></span><span style=display:flex><span> mano<span style=color:#f92672>.</span>middle(regla_de_tres(mitad,medio))
+</span></span><span style=display:flex><span> <span style=color:#75715e>#print(regla_de_tres(mitad,medio))</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#print(regla_de_tres(mitad,indice\*1.12)) # Relacion 0.9:1 con el medio</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#print(regla_de_tres(mitad,ring\*1.26)) # Relacion 0.8:1 con el medio</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#print(regla_de_tres(mitad,pinky\*1.58)) # Relacion 0.6:1 con el medio</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#print(regla_de_tres(mitad,pulgar\*1.25)) # Relacion 0.8:1 con el medio</span>
+</span></span><span style=display:flex><span> mp_drawing_utils<span style=color:#f92672>.</span>draw_landmarks(img,hand, mp_hand<span style=color:#f92672>.</span>HAND_CONNECTIONS)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> cv2<span style=color:#f92672>.</span>imshow(<span style=color:#e6db74>&#34;image&#34;</span>,img)
+</span></span><span style=display:flex><span> cv2<span style=color:#f92672>.</span>waitKey(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>webcam<span style=color:#f92672>.</span>release()
+</span></span><span style=display:flex><span>cv2<span style=color:#f92672>.</span>destroyAllWindows()
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div></main></body></html>

@@ -1,0 +1,244 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Configuracion de Neovim</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Configuracion de Neovim</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Neovim es un programa de edicion de texto basado en vim, este se diferencia de vim en que Neovim tiene integracion con el lenguaje de programacion lua, lo que lo hace mas extensible en el momento de usar plugins</p><p>Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad de el programa y aqui explicare los que uso actualmente, que hacen y como los configure</p><h2 id=initvim>init.vim</h2><p>Init.vim es el archivo que lee por defecto neovim/vim este archivo esta escrito en vimscript ejecuta comandos de vim cada vez que vim se ejecuta</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span><span style=color:#a6e22e>source</span> $<span style=color:#a6e22e>HOME</span><span style=color:#e6db74>/.config/</span><span style=color:#a6e22e>nvim</span><span style=color:#e6db74>/vim-plug/</span><span style=color:#a6e22e>plugins</span>.<span style=color:#a6e22e>vim</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>number</span> <span style=color:#a6e22e>relativenumber</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>nu</span> <span style=color:#a6e22e>ru</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>Hexokinase</span>\<span style=color:#a6e22e>_highlighters</span> = [<span style=color:#e6db74>&#39;backgroundfull&#39;</span>]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>Hexokinase</span>\<span style=color:#a6e22e>_ftEnabled</span> = [<span style=color:#e6db74>&#39;css&#39;</span>, <span style=color:#e6db74>&#39;html&#39;</span>, <span style=color:#e6db74>&#39;javascript&#39;</span>,<span style=color:#e6db74>&#39;lua&#39;</span>,<span style=color:#e6db74>&#39;py&#39;</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>r</span> <span style=color:#a6e22e>RnvimrToggle</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>q</span> <span style=color:#a6e22e>q</span> <span style=color:#a6e22e>q</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>p</span> <span style=color:#a6e22e>CocCommand</span> <span style=color:#a6e22e>markdown</span>-<span style=color:#a6e22e>preview</span>-<span style=color:#a6e22e>enhanced</span>.<span style=color:#a6e22e>openPreview</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span> <span style=color:#a6e22e>v</span> <span style=color:#a6e22e>CHADopen</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>airline</span>\<span style=color:#a6e22e>_left</span>\<span style=color:#a6e22e>_sep</span> = <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>airline</span>\<span style=color:#a6e22e>_right</span>\<span style=color:#a6e22e>_sep</span> = <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>colorscheme</span> <span style=color:#a6e22e>pywal</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34;///////////////////////////////////////////////////////////////////////////////</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Set internal encoding of vim, not needed on neovim, since coc.nvim using some</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; unicode characters in the file autoload/float.vim</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>encoding</span>=<span style=color:#a6e22e>utf</span><span style=color:#ae81ff>-8</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; TextEdit might fail if hidden is not set.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>hidden</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Some servers have issues with backup files, see #649.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>nobackup</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>nowritebackup</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Give more space for displaying messages.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>cmdheight</span>=<span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; delays and poor user experience.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>updatetime</span>=<span style=color:#ae81ff>300</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Don&#39;t pass messages to |ins-completion-menu|.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>shortmess</span>+=<span style=color:#a6e22e>c</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Always show the signcolumn, otherwise it would shift the text each time</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; diagnostics appear/become resolved.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#34;nvim-0.5.0&#34;</span>) || <span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#34;patch-8.1.1564&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34; Recently vim can merge signcolumn and number column into one</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>set</span> <span style=color:#a6e22e>signcolumn</span>=<span style=color:#a6e22e>number</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>set</span> <span style=color:#a6e22e>signcolumn</span>=<span style=color:#a6e22e>yes</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endif</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Use tab for trigger completion with characters ahead and navigate.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; NOTE: Use command &#39;:verbose imap &#39; to make sure tab is not mapped by</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; other plugin before putting this into your config.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>inoremap</span>  
+</span></span><span style=display:flex><span> \ <span style=color:#a6e22e>pumvisible</span>() ? <span style=color:#e6db74>&#34;\&#34;</span> :
+</span></span><span style=display:flex><span> \ <span style=color:#a6e22e>CheckBackspace</span>() ? <span style=color:#e6db74>&#34;\&#34;</span> :
+</span></span><span style=display:flex><span> \ <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>refresh</span>()
+</span></span><span style=display:flex><span><span style=color:#a6e22e>inoremap</span>  <span style=color:#a6e22e>pumvisible</span>() ? <span style=color:#e6db74>&#34;\&#34; : &#34;</span>\&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span>! <span style=color:#a6e22e>CheckBackspace</span>() <span style=color:#a6e22e>abort</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>col</span> = <span style=color:#a6e22e>col</span>(<span style=color:#e6db74>&#39;.&#39;</span>) - <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>return</span> !<span style=color:#a6e22e>col</span> || <span style=color:#a6e22e>getline</span>(<span style=color:#e6db74>&#39;.&#39;</span>)[<span style=color:#a6e22e>col</span> - <span style=color:#ae81ff>1</span>] =~# <span style=color:#e6db74>&#39;\s&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endfunction</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Use  to trigger completion.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#39;nvim&#39;</span>)
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>inoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>refresh</span>()
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>inoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>refresh</span>()
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endif</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Make  auto-select the first completion item and notify coc.nvim to</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; format on enter,  could be remapped by other vim plugin</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>inoremap</span>   <span style=color:#a6e22e>pumvisible</span>() ? <span style=color:#a6e22e>coc</span>#\<span style=color:#a6e22e>_select</span>\<span style=color:#a6e22e>_confirm</span>()
+</span></span><span style=display:flex><span> \: <span style=color:#e6db74>&#34;\u\\=coc#on\_enter()\&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Use `[g` and `]g` to navigate diagnostics</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>  [<span style=color:#a6e22e>g</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>diagnostic</span>-<span style=color:#a6e22e>prev</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>  ]<span style=color:#a6e22e>g</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>diagnostic</span>-<span style=color:#a6e22e>next</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; GoTo code navigation.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>  <span style=color:#a6e22e>gd</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>definition</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>  <span style=color:#a6e22e>gy</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>type</span>-<span style=color:#a6e22e>definition</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>  <span style=color:#a6e22e>gi</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>implementation</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>  <span style=color:#a6e22e>gr</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>references</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Use K to show documentation in preview window.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>K</span> :<span style=color:#a6e22e>call</span> <span style=color:#a6e22e>ShowDocumentation</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span>! <span style=color:#a6e22e>ShowDocumentation</span>()
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>CocAction</span>(<span style=color:#e6db74>&#39;hasProvider&#39;</span>, <span style=color:#e6db74>&#39;hover&#39;</span>)
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>call</span> <span style=color:#a6e22e>CocActionAsync</span>(<span style=color:#e6db74>&#39;doHover&#39;</span>)
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>call</span> <span style=color:#a6e22e>feedkeys</span>(<span style=color:#e6db74>&#39;K&#39;</span>, <span style=color:#e6db74>&#39;in&#39;</span>)
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>endif</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endfunction</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Highlight the symbol and its references when holding the cursor.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>autocmd</span> <span style=color:#a6e22e>CursorHold</span> \* <span style=color:#a6e22e>silent</span> <span style=color:#a6e22e>call</span> <span style=color:#a6e22e>CocActionAsync</span>(<span style=color:#e6db74>&#39;highlight&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Symbol renaming.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>rn</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>rename</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Formatting selected code.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span> <span style=color:#a6e22e>f</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>format</span>-<span style=color:#a6e22e>selected</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>f</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>format</span>-<span style=color:#a6e22e>selected</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>augroup</span> <span style=color:#a6e22e>mygroup</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>autocmd</span>!
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34; Setup formatexpr specified filetype(s).</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>autocmd</span> <span style=color:#a6e22e>FileType</span> <span style=color:#a6e22e>typescript</span>,<span style=color:#a6e22e>json</span> <span style=color:#a6e22e>setl</span> <span style=color:#a6e22e>formatexpr</span>=<span style=color:#a6e22e>CocAction</span>(<span style=color:#e6db74>&#39;formatSelected&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34; Update signature help on jump placeholder.</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>autocmd</span> <span style=color:#a6e22e>User</span> <span style=color:#a6e22e>CocJumpPlaceholder</span> <span style=color:#a6e22e>call</span> <span style=color:#a6e22e>CocActionAsync</span>(<span style=color:#e6db74>&#39;showSignatureHelp&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>augroup</span> <span style=color:#a6e22e>end</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Applying codeAction to the selected region.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Example: `aap` for current paragraph</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span> <span style=color:#a6e22e>a</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>codeaction</span>-<span style=color:#a6e22e>selected</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>a</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>codeaction</span>-<span style=color:#a6e22e>selected</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Remap keys for applying codeAction to the current buffer.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>ac</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>codeaction</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Apply AutoFix to problem on the current line.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>qf</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>fix</span>-<span style=color:#a6e22e>current</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Run the Code Lens action on the current line.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span> <span style=color:#a6e22e>cl</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>codelens</span>-<span style=color:#a6e22e>action</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Map function and class text objects</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; NOTE: Requires &#39;textDocument.documentSymbol&#39; support from the language server.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>funcobj</span>-<span style=color:#a6e22e>i</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>omap</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>funcobj</span>-<span style=color:#a6e22e>i</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span> <span style=color:#a6e22e>af</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>funcobj</span>-<span style=color:#a6e22e>a</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>omap</span> <span style=color:#a6e22e>af</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>funcobj</span>-<span style=color:#a6e22e>a</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span> <span style=color:#a6e22e>ic</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>classobj</span>-<span style=color:#a6e22e>i</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>omap</span> <span style=color:#a6e22e>ic</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>classobj</span>-<span style=color:#a6e22e>i</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span> <span style=color:#a6e22e>ac</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>classobj</span>-<span style=color:#a6e22e>a</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>omap</span> <span style=color:#a6e22e>ac</span> (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>classobj</span>-<span style=color:#a6e22e>a</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Remap  and  for scroll float windows/popups.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#39;nvim-0.4.0&#39;</span>) || <span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#39;patch-8.2.0750&#39;</span>)
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>nnoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>has</span>\<span style=color:#a6e22e>_scroll</span>() ? <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>scroll</span>(<span style=color:#ae81ff>1</span>) : <span style=color:#e6db74>&#34;\&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>nnoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>has</span>\<span style=color:#a6e22e>_scroll</span>() ? <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>scroll</span>(<span style=color:#ae81ff>0</span>) : <span style=color:#e6db74>&#34;\&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>inoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>has</span>\<span style=color:#a6e22e>_scroll</span>() ? <span style=color:#e6db74>&#34;\=coc#float#scroll(1)\&#34; : &#34;</span>\&#34;
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>inoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>has</span>\<span style=color:#a6e22e>_scroll</span>() ? <span style=color:#e6db74>&#34;\=coc#float#scroll(0)\&#34; : &#34;</span>\&#34;
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>vnoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>has</span>\<span style=color:#a6e22e>_scroll</span>() ? <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>scroll</span>(<span style=color:#ae81ff>1</span>) : <span style=color:#e6db74>&#34;\&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>vnoremap</span>   <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>has</span>\<span style=color:#a6e22e>_scroll</span>() ? <span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>float</span>#<span style=color:#a6e22e>scroll</span>(<span style=color:#ae81ff>0</span>) : <span style=color:#e6db74>&#34;\&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endif</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Use CTRL-S for selections ranges.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Requires &#39;textDocument/selectionRange&#39; support of language server.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nmap</span>   (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>range</span>-<span style=color:#a6e22e>select</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xmap</span>   (<span style=color:#a6e22e>coc</span>-<span style=color:#a6e22e>range</span>-<span style=color:#a6e22e>select</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Add `:Format` command to format current buffer.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>command</span>! -<span style=color:#a6e22e>nargs</span>=<span style=color:#ae81ff>0</span> <span style=color:#a6e22e>Format</span> :<span style=color:#a6e22e>call</span> <span style=color:#a6e22e>CocActionAsync</span>(<span style=color:#e6db74>&#39;format&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Add `:Fold` command to fold current buffer.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>command</span>! -<span style=color:#a6e22e>nargs</span>=? <span style=color:#a6e22e>Fold</span> :<span style=color:#a6e22e>call</span> <span style=color:#a6e22e>CocAction</span>(<span style=color:#e6db74>&#39;fold&#39;</span>, )
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Add `:OR` command for organize imports of the current buffer.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>command</span>! -<span style=color:#a6e22e>nargs</span>=<span style=color:#ae81ff>0</span> <span style=color:#a6e22e>OR</span> :<span style=color:#a6e22e>call</span> <span style=color:#a6e22e>CocActionAsync</span>(<span style=color:#e6db74>&#39;runCommand&#39;</span>, <span style=color:#e6db74>&#39;editor.action.organizeImport&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Add (Neo)Vim&#39;s native statusline support.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; NOTE: Please see `:h coc-status` for integrations with external plugins that</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; provide custom statusline: lightline.vim, vim-airline.</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>set</span> <span style=color:#a6e22e>statusline</span>^=%{<span style=color:#a6e22e>coc</span>#<span style=color:#a6e22e>status</span>()}%{<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>b</span>:,<span style=color:#e6db74>&#39;coc\_current\_function&#39;</span>,<span style=color:#e6db74>&#39;&#39;</span>)}
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Mappings for CoCList</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Show all diagnostics.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>a</span> :<span style=color:#a6e22e>CocList</span> <span style=color:#a6e22e>diagnostics</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Manage extensions.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>e</span> :<span style=color:#a6e22e>CocList</span> <span style=color:#a6e22e>extensions</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Show commands.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>c</span> :<span style=color:#a6e22e>CocList</span> <span style=color:#a6e22e>commands</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Find symbol of current document.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>o</span> :<span style=color:#a6e22e>CocList</span> <span style=color:#a6e22e>outline</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Search workspace symbols.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>s</span> :<span style=color:#a6e22e>CocList</span> -<span style=color:#a6e22e>I</span> <span style=color:#a6e22e>symbols</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Do default action for next item.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>j</span> :<span style=color:#a6e22e>CocNext</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Do default action for previous item.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>k</span> :<span style=color:#a6e22e>CocPrev</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&#34; Resume latest coc list.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>nnoremap</span>  <span style=color:#a6e22e>p</span> :<span style=color:#a6e22e>CocListResume</span>
+</span></span></code></pre></div><p>La primera linea <strong>source $HOME/.config/nvim/vim-plug/plugins.vim</strong> llama a el primer plugin de todos <strong>vim-plug</strong> este plugin nos ayudara a descargar, actualizar, y manejar los demas plugins, en este caso el plugin esta llamando a otro archivo llamado <strong>plugins.vim</strong> para que funcione con la configuracion que tengo este archivo debe estar dentro de una carpeta llamada <strong>vim-plug</strong>, pero solo hace con hacer referencia a este archivo en esa funcion es suficiente, he visto algunos init.vim que contienen lo que contendria plugins.vim, esto se hace poniendo lo siguiente en lugar de source en el archivo de init.vim</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span> <span style=color:#a6e22e>call</span> <span style=color:#a6e22e>plug</span>#<span style=color:#a6e22e>begin</span>(<span style=color:#a6e22e>system</span>(<span style=color:#e6db74>&#39;echo -n &#34;${XDG\_CONFIG\_HOME:-$HOME/.config}/nvim/plugged&#34;&#39;</span>))
+</span></span><span style=display:flex><span> #
+</span></span><span style=display:flex><span> #
+</span></span><span style=display:flex><span> #
+</span></span><span style=display:flex><span> #
+</span></span><span style=display:flex><span> #
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>call</span> <span style=color:#a6e22e>plug</span>#<span style=color:#a6e22e>end</span>()
+</span></span></code></pre></div><p>Para poder instalar otros plugins necesitamos primero instalar vim-plug existen varias formas de instalarlo, pero encuentro que solo agregando las siguientes lineas al archivo init.vim es la mejor pues estas lineas se aseguran de instalarlo correctamente y de verificar si esta instalado y si no lo instala, lo que significa que con solo el archivo de vim.init se puede usar la misma confuguracion de vim con los mismos plugins.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span><span style=color:#66d9ef>if</span> ! <span style=color:#a6e22e>filereadable</span>(<span style=color:#a6e22e>system</span>(<span style=color:#e6db74>&#39;echo -n &#34;${XDG\_CONFIG\_HOME:-$HOME/.config}/nvim/autoload/plug.vim&#34;&#39;</span>))
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>echo</span> <span style=color:#e6db74>&#34;Downloading junegunn/vim-plug to manage plugins...&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>silent</span> !<span style=color:#a6e22e>mkdir</span> -<span style=color:#a6e22e>p</span> ${<span style=color:#a6e22e>XDG</span>\<span style=color:#a6e22e>_CONFIG</span>\<span style=color:#a6e22e>_HOME</span>:-$<span style=color:#a6e22e>HOME</span><span style=color:#e6db74>/.config}/</span><span style=color:#a6e22e>nvim</span><span style=color:#e6db74>/autoload/</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>silent</span> !<span style=color:#a6e22e>curl</span> <span style=color:#e6db74>&#34;https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#34;</span> &gt; ${<span style=color:#a6e22e>XDG</span>\<span style=color:#a6e22e>_CONFIG</span>\<span style=color:#a6e22e>_HOME</span>:-$<span style=color:#a6e22e>HOME</span><span style=color:#e6db74>/.config}/</span><span style=color:#a6e22e>nvim</span><span style=color:#e6db74>/autoload/</span><span style=color:#a6e22e>plug</span>.<span style=color:#a6e22e>vim</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>autocmd</span> <span style=color:#a6e22e>VimEnter</span> \* <span style=color:#a6e22e>PlugInstall</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endif</span>
+</span></span></code></pre></div><p>Otra alternativa es el siguiente comando de shell</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span> sh -c <span style=color:#e6db74>&#39;curl -fLo &#34;${XDG\_DATA\_HOME:-$HOME/.local/share}&#34;/nvim/site/autoload/plug.vim --create-dirs \
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;</span>
+</span></span></code></pre></div><p>Para mas metodos de instalacion y dudas sobre vim-plug hay que visitar su <a href=https://github.com/junegunn/vim-plug>github</a></p><h2 id=plugins>Plugins</h2><p>Para verificar que el plugin vim-plug se installo correctamente hay que ejecutar el comando de vim</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span> :<span style=color:#a6e22e>PlugStatus</span>
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div><p>Si no encuentra el comando no fue instalado correctamente, cuando si se logro instalar habrira un buffer donde mostrara que todo esta en orden</p><p>Los plugins son lo extentienden las funciones de vim/nvim, para instalarlas hay que poner lo siguiente dentro de <a href=#plug>esta seccion</a> en lugar de los***#***</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;**link**&#39;</span>
+</span></span></code></pre></div><p>Donde link es el enlace ha donde se encuentra el plugin, en el caso de plugins que se encuentren en github.com solo es necesario colocar el usuario y el repositorio, tal como se indica en la pagina de vim-plug (Para pasar el argumento hay que usar comillas simples &lsquo;&rsquo;, pues el lenguaje vimscript toma las comillas dobles "" como indicacion de un comentario)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span><span style=color:#75715e>&#34; Notacion corta; Indica a https://github.com/junegunn/vim-easy-align</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;junegunn/vim-easy-align&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>&#34; Toda URL git es valida </span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;https://github.com/junegunn/vim-github-dashboard.git&#39;</span>
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div><p>Entonces el archivo en donde estan los plugins que ocupo quedaria como:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span><span style=color:#75715e>&#34; auto-install vim-plug</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>empty</span>(<span style=color:#a6e22e>glob</span>(<span style=color:#e6db74>&#39;~/.config/nvim/autoload/plug.vim&#39;</span>))
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>silent</span> !<span style=color:#a6e22e>curl</span> -<span style=color:#a6e22e>fLo</span> ~<span style=color:#e6db74>/.config/</span><span style=color:#a6e22e>nvim</span><span style=color:#e6db74>/autoload/</span><span style=color:#a6e22e>plug</span>.<span style=color:#a6e22e>vim</span> --<span style=color:#a6e22e>create</span>-<span style=color:#a6e22e>dirs</span>
+</span></span><span style=display:flex><span> \ <span style=color:#a6e22e>https</span>:<span style=color:#e6db74>//</span><span style=color:#a6e22e>raw</span>.<span style=color:#a6e22e>githubusercontent</span>.<span style=color:#a6e22e>com</span><span style=color:#e6db74>/junegunn/</span><span style=color:#a6e22e>vim</span>-<span style=color:#a6e22e>plug</span><span style=color:#e6db74>/master/</span><span style=color:#a6e22e>plug</span>.<span style=color:#a6e22e>vim</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>endif</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>call</span> <span style=color:#a6e22e>plug</span>#<span style=color:#a6e22e>begin</span>(<span style=color:#e6db74>&#39;~/.config/nvim/autoload/plugged&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e> &#34; File Explorer</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;ms-jpq/chadtree&#39;</span>, {<span style=color:#e6db74>&#39;branch&#39;</span>: <span style=color:#e6db74>&#39;chad&#39;</span>, <span style=color:#e6db74>&#39;do&#39;</span>: <span style=color:#e6db74>&#39;python3 -m chadtree deps&#39;</span>}
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;kevinhwang91/rnvimr&#39;</span>, {<span style=color:#e6db74>&#39;do&#39;</span>: <span style=color:#e6db74>&#39;make sync&#39;</span>}
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;nvim-lua/plenary.nvim&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;https://github.com/nvim-telescope/telescope.nvim&#39;</span>, { <span style=color:#e6db74>&#39;tag&#39;</span>: <span style=color:#e6db74>&#39;0.1.0&#39;</span> }
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34; Auto pairs for &#39;(&#39; &#39;[&#39; &#39;{&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;tpope/vim-surround&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34; Enviroment </span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;vim-airline/vim-airline&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;rrethy/vim-hexokinase&#39;</span>, { <span style=color:#e6db74>&#39;do&#39;</span>: <span style=color:#e6db74>&#39;make hexokinase&#39;</span> }
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;AlphaTechnolog/pywal.nvim&#39;</span>, { <span style=color:#e6db74>&#39;as&#39;</span>: <span style=color:#e6db74>&#39;pywal&#39;</span> }
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;senchpimy/dashboard-vim&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;farmergreg/vim-lastplace&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;Yggdroot/indentLine&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34;Plug &#39;akinsho/bufferline.nvim&#39;, { &#39;tag&#39;: &#39;v2.\*&#39; }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;jreybert/vimagit&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;kyazdani42/nvim-web-devicons&#39;</span> <span style=color:#75715e>&#34; Recommended (for coloured icons)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e> &#34; Plug &#39;ryanoasis/vim-devicons&#39; Icons without colours</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;akinsho/bufferline.nvim&#39;</span>, { <span style=color:#e6db74>&#39;tag&#39;</span>: <span style=color:#e6db74>&#39;v2.\*&#39;</span> }
+</span></span><span style=display:flex><span><span style=color:#75715e> 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> &#34;Autocompletion</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;neovim/nvim-lspconfig&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;hrsh7th/nvim-compe&#39;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;neoclide/coc.nvim&#39;</span>, {<span style=color:#e6db74>&#39;branch&#39;</span>: <span style=color:#e6db74>&#39;release&#39;</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>call</span> <span style=color:#a6e22e>plug</span>#<span style=color:#a6e22e>end</span>()
+</span></span></code></pre></div><p>Algunos plugins necesitan especificaciones extras para funcionar correctamente, generalmente los creadores de los plugins lo especifican en sus <strong>README.md</strong> por eso, lo que hay despues de la coma son esas especificaciones de los plugins, tambien por lo general los creadores dan instrucciones de como instalar el plugin con vim-plug, y por lo general si no dan mas especificaciones es por que no hay que hacer nada.</p><p>Para instalar los plugins, con todo y las especificaciones hay que ejecutar el comando:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span> :<span style=color:#a6e22e>PlugInstall</span>
+</span></span></code></pre></div><p>Este comando se encargara de hacer todo el trabajo, y a menos de que salga un error no hay que hacer nada mas</p><p>Vim-plug es un programa de administracion de plugins si, pero este trpgrama es para vim, yo uso Neovim que incorpora algunos cambios y para poder usar mejor y aprovechar estas diferencias que tiene Neovim me entero que existe otro plugin llamado <strong>Packer</strong>, eso no significa que vim-plug no sirva con Neovim, justo ahora estoy escribiendo este documento con neovim+vim-plug pero packer es mejor para mis necesidades y apenas lo descubri, despues cambiare vim-plug por packer</p></main></body></html>

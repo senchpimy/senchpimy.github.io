@@ -1,0 +1,42 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>C en Rust</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>C en Rust</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Este es un pequeño resumen de como usar codigo de C existente en proyectos de Rust.</p><h2 id=buildrs>build.rs</h2><p>Este es un pequeño programa que se encargara de compilar el codigo de C para despues añadirlo a el codigo de Rust.</p><p>En este caso especificamos el codigo y la compilacion</p><p><strong>build.rs</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>extern</span> <span style=color:#66d9ef>crate</span> cc; <span style=color:#75715e>//Importamos la libreria que nos ayda a compilar
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    cc::Build::new()
+</span></span><span style=display:flex><span>        .file(<span style=color:#e6db74>&#34;src/contar.c&#34;</span>) <span style=color:#75715e>// Especificamos el archivo
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        .compile(<span style=color:#e6db74>&#34;libcontar.a&#34;</span>); <span style=color:#75715e>// especificamos la salida
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>Y añadimos la dependencia de el script bajo esta seccion en el archivo Cargo.toml
+<strong>Cargo.toml</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[<span style=color:#a6e22e>build-dependencies</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>cc</span> = { <span style=color:#a6e22e>version</span> = <span style=color:#e6db74>&#34;1.0&#34;</span>, <span style=color:#a6e22e>features</span> = [<span style=color:#e6db74>&#34;parallel&#34;</span>] }
+</span></span></code></pre></div><p>Y asi ya podemos acceder a las funciones que tenemos en nuestros archivos, pero hay que declararla primero</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>extern</span> <span style=color:#e6db74>&#34;C&#34;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>funcion</span>(arg: <span style=color:#a6e22e>type</span>) -&gt; <span style=color:#a6e22e>type</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Donde para acceder a los tipos de c se tiene que usar la siguiente importacion:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>use</span> std::ffi::{tipo};
+</span></span></code></pre></div><p>Y los tipos estan llamados:</p><ul><li>c_int</li><li>c_char</li><li>c_void</li><li>c_long</li><li>&mldr;</li></ul><p>Algo que note fue que para pasar un <em>String</em> de rust a una funcion que necesecite un *char se requiere de la siquiente funcion
+Donde si la funcion usa un **char * ** en Rust se tiene que declarar como <strong>*const c_char</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#75715e>#[no_mangle]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>extern</span> <span style=color:#e6db74>&#34;C&#34;</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>create_string</span>(val: Option<span style=color:#f92672>&lt;&amp;</span><span style=color:#66d9ef>str</span><span style=color:#f92672>&gt;</span>) -&gt; <span style=color:#f92672>*</span><span style=color:#66d9ef>const</span> c_char {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>match</span> val {
+</span></span><span style=display:flex><span>        Some(val) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>let</span> c_string <span style=color:#f92672>=</span> CString::new(val).expect(<span style=color:#e6db74>&#34;CString::new failed&#34;</span>);
+</span></span><span style=display:flex><span>            c_string.into_raw() <span style=color:#75715e>// Move ownership to C
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
+</span></span><span style=display:flex><span>        None <span style=color:#f92672>=&gt;</span> CString::new(<span style=color:#e6db74>&#34;No value&#34;</span>)
+</span></span><span style=display:flex><span>            .expect(<span style=color:#e6db74>&#34;CString::new failed&#34;</span>)
+</span></span><span style=display:flex><span>            .into_raw(),
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Si se tienen funciones que requieren structuras especificas estas se tienen que declarar tanto en C como en Rust</p><p><em>Rust</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#75715e>#[repr(C)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Raices</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> positivas: <span style=color:#66d9ef>i32</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> negativas: <span style=color:#66d9ef>i32</span>,
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><em>C</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> positivas;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> negativas;
+</span></span><span style=display:flex><span>}Raices;
+</span></span></code></pre></div><p>Y finalmente para ejecutar las funciones se requiere usar la funcion <em>unsafe</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>unsafe</span>{funcion()}
+</span></span></code></pre></div></main></body></html>

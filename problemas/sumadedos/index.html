@@ -1,0 +1,56 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Suma De Dos</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Suma De Dos</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=suma-de-dos>Suma de Dos</h2><p>Este problema consiste en encontrar la ubicacion de dos numeros en un vectos ordenado de forma ascendente que sumados den como resultado un valor deseado.</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> binarySearch(vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&amp;</span> arr, <span style=color:#66d9ef>int</span> l, <span style=color:#66d9ef>int</span> r, <span style=color:#66d9ef>int</span> x)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> (l <span style=color:#f92672>&lt;=</span> r) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> m <span style=color:#f92672>=</span> l <span style=color:#f92672>+</span> (r <span style=color:#f92672>-</span> l) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (arr[m] <span style=color:#f92672>==</span> x)
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> m;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (arr[m] <span style=color:#f92672>&lt;</span> x)
+</span></span><span style=display:flex><span>                l <span style=color:#f92672>=</span> m <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>                r <span style=color:#f92672>=</span> m <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> twoSum(vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&amp;</span> numbers, <span style=color:#66d9ef>int</span> target) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> lon <span style=color:#f92672>=</span> numbers.size();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> buscar;
+</span></span><span style=display:flex><span>        vector<span style=color:#f92672>&lt;</span>tint<span style=color:#f92672>&gt;</span> vec;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>lon;i<span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>         buscar <span style=color:#f92672>=</span> target<span style=color:#f92672>-</span>numbers[i];
+</span></span><span style=display:flex><span>         <span style=color:#66d9ef>int</span> resultado <span style=color:#f92672>=</span> binarySearch(numbers,i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,lon<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,buscar);
+</span></span><span style=display:flex><span>         <span style=color:#66d9ef>if</span> (resultado<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>){
+</span></span><span style=display:flex><span>            vec.push_back(i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>            vec.push_back(resultado<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> vec;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> vec;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> };
+</span></span></code></pre></div><p>Mi solucion fue restarle a el numero objetivo el valor del primer elemento de la lista, asi ya sabriamos que numero debemos encontrar, despues como la lista esta ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer numero, por lo tanto repetimos el proceso con el segundo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.</p><p>Este metodo fue el mas tardado pues termino al ultimo, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pense que esta era la respuesta correcta asi que busque otra soluciones y me encontre con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span> vector<span style=color:#f92672>&amp;</span>ltint<span style=color:#f92672>&gt;</span> twoSum(vector<span style=color:#f92672>&amp;</span>ltint<span style=color:#f92672>&gt;&amp;</span> numbers, <span style=color:#66d9ef>int</span> target) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> numbers.size();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, j <span style=color:#f92672>=</span> n <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>while</span> (i <span style=color:#f92672>&lt;</span> j) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>int</span> sum <span style=color:#f92672>=</span> numbers[i] <span style=color:#f92672>+</span> numbers[j];
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> (sum <span style=color:#f92672>==</span> target) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> {i <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>, j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>};
+</span></span><span style=display:flex><span> } <span style=color:#66d9ef>else</span> <span style=color:#a6e22e>if</span> (sum <span style=color:#f92672>&lt;</span> target) {
+</span></span><span style=display:flex><span> <span style=color:#f92672>++</span>i;
+</span></span><span style=display:flex><span> } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span> <span style=color:#f92672>--</span>j;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> {<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>};
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> };
+</span></span></code></pre></div><p>Este metodo usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dara un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del ultimo valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.</p></main></body></html>

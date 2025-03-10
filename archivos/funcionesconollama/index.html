@@ -1,0 +1,142 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>LLamado de funciones con Ollama</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>LLamado de funciones con Ollama</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=salida-estructurada-en-llamacpp>Salida Estructurada en Llama.cpp</h2><p>En un modelo de lenguaje es aveces util poder estructurar la salida, es decir dado un prompt poder limitar la salida de tal forma que cumpla ciertas normas o formatos tal como json.</p><p>En llama.cpp existe la opcion de crear una <strong>gramatica formal</strong> mediante el formato de <strong>GBNF</strong>.</p><h3 id=gramatica-formal>Gramatica Formal</h3><p>Describe que cadenas de un <strong>alfabeto</strong> de un <strong>Lenguaje formal</strong> son validas segun la sintaxis de el lenguaje.</p><p>Un lenguaje formal consiste de palabras cuyas letras son tomadas de un alfabeto y estas siguen una serie de reglas definidas por su gramatica.</p><h3 id=backus-naur-form>Backus-Naur form</h3><p>Esta notacion es usada para definir la sintaxis de cualquier lenguaje formal tal como un lenguaje de programacion. Esta notacion se forma de simbolos, simbolos terminales y reglas
+para reemplazar simbolos no-terminales con una sequencia de simbolos. la notacion es la siguiente:</p><pre tabindex=0><code> &lt;symbol&gt; ::= __expression__
+</code></pre><ul><li><strong><symbol></strong>: Es una variable no terminal que siempre esta cerrada por los caracteres &ldquo;&lt;>&rdquo;</li><li><strong>::=</strong>: Significa que el simbolo de la izquierda debe ser remplazado por el simbolo de la derecha</li><li><strong><strong>expression</strong></strong>: Consiste de una o varias sequencias de simbolos terminales o no-terminales donde cada sequencia es separado por un &ldquo;<strong>|</strong>&rdquo; indicando una opcion para sustituir el simbolo en la derecha</li></ul><h3 id=ejemplos>Ejemplos:</h3><pre tabindex=0><code># `root` specifies the pattern for the overall output
+`root`      `::= ` `diagnosis`
+ 
+`diagnosis` `::=` `&#34;arthritis&#34;` `|` `&#34;dengue&#34;` `|` `&#34;urinary` `tract` `infection&#34;` `|` `&#34;impetigo&#34;` `|` `&#34;cervical` `spondyl`
+</code></pre><p>Este ejemplo limita el lenguaje a una serie de diagnosticos de los cuales solo son validos esos y ninguno más.</p><pre tabindex=0><code>`root`        `::=` `jp-char+` `([` `\t\n]` `jp-char+)*`
+ 
+`jp-char`     `::=` `hiragana` `|` `katakana` `|` `punctuation` `|` `cjk`
+ 
+`hiragana`    `::=` `[ぁ-ゟ]`
+ 
+`katakana`    `::=` `[ァ-ヿ]`
+ 
+`punctuation` `::=` `[、-〾]`
+ 
+`cjk`         `::=` `[一-鿿]`
+</code></pre><p>Esta notacion limita el lenguaje a solamente a los alfabetos japoneses.</p><p>(Ejemplos de llama.cpp)[https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md]</p><h2 id=llamando-funciones>Llamando funciones</h2><p>Usando estas herramientas es posible usar <em>langchain</em> para limitar la salida y hacer un llamado de funciones por ejemplo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#f92672>from</span> langchain_experimental.llms.ollama_functions <span style=color:#f92672>import</span> OllamaFunctions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>model <span style=color:#f92672>=</span> OllamaFunctions(model<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;phi3&#34;</span>, keep_alive<span style=color:#f92672>=-</span><span style=color:#ae81ff>1</span>, format<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;json&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>model <span style=color:#f92672>=</span> model<span style=color:#f92672>.</span>bind_tools(
+</span></span><span style=display:flex><span>    tools<span style=color:#f92672>=</span>[
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;get_current_weather&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;Get the current weather in a given location&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;parameters&#34;</span>: {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;object&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;properties&#34;</span>: {
+</span></span><span style=display:flex><span>                    <span style=color:#e6db74>&#34;location&#34;</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;string&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#e6db74>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The city and state, &#34;</span> <span style=color:#e6db74>&#34;e.g. San Francisco, CA&#34;</span>,
+</span></span><span style=display:flex><span>                    },
+</span></span><span style=display:flex><span>                    <span style=color:#e6db74>&#34;unit&#34;</span>: {
+</span></span><span style=display:flex><span>                        <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;string&#34;</span>,
+</span></span><span style=display:flex><span>                        <span style=color:#e6db74>&#34;enum&#34;</span>: [<span style=color:#e6db74>&#34;celsius&#34;</span>, <span style=color:#e6db74>&#34;fahrenheit&#34;</span>],
+</span></span><span style=display:flex><span>                    },
+</span></span><span style=display:flex><span>                },
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;required&#34;</span>: [<span style=color:#e6db74>&#34;location&#34;</span>, <span style=color:#e6db74>&#34;unit&#34;</span>],
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    ],
+</span></span><span style=display:flex><span>    function_call<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;get_current_weather&#34;</span>},
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>response <span style=color:#f92672>=</span> model<span style=color:#f92672>.</span>invoke(<span style=color:#e6db74>&#34;what is the weather in Singapore?&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(response)
+</span></span></code></pre></div><h2 id=extra-creando-objetos>EXTRA: Creando Objetos</h2><p>Se supone que tambien se pueden generar objetos dado un prompt, por ejemplo con el codigo siguiente:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#f92672>from</span> langchain_core.prompts <span style=color:#f92672>import</span> PromptTemplate
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> langchain_core.pydantic_v1 <span style=color:#f92672>import</span> BaseModel, Field
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> langchain_experimental.llms.ollama_functions <span style=color:#f92672>import</span> OllamaFunctions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Pydantic Schema for structured response</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Person</span>(BaseModel):
+</span></span><span style=display:flex><span>    name: str <span style=color:#f92672>=</span> Field(description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;The person&#39;s name&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>    height: float <span style=color:#f92672>=</span> Field(description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;The person&#39;s height&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>    hair_color: str <span style=color:#f92672>=</span> Field(description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;The person&#39;s hair color&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>context <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;&#34;Alex is 5 feet tall. 
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Claudia is 1 feet taller than Alex and jumps higher than him. 
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Claudia is a brunette and Alex is blonde.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Prompt template llama3</span>
+</span></span><span style=display:flex><span>prompt <span style=color:#f92672>=</span> PromptTemplate<span style=color:#f92672>.</span>from_template(
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    You are a smart assistant take the following context and question below and return your answer in JSON.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>QUESTION: </span><span style=color:#e6db74>{question}</span><span style=color:#e6db74> </span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>CONTEXT: </span><span style=color:#e6db74>{context}</span><span style=color:#e6db74> </span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>JSON:
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;|eot_id|&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Chain</span>
+</span></span><span style=display:flex><span>llm <span style=color:#f92672>=</span> OllamaFunctions(model<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;llama3&#34;</span>, format<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;json&#34;</span>, temperature<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>structured_llm <span style=color:#f92672>=</span> llm<span style=color:#f92672>.</span>with_structured_output(Person)
+</span></span><span style=display:flex><span>chain <span style=color:#f92672>=</span> prompt <span style=color:#f92672>|</span> structured_llm
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>response <span style=color:#f92672>=</span> chain<span style=color:#f92672>.</span>invoke({<span style=color:#e6db74>&#34;question&#34;</span>: <span style=color:#e6db74>&#34;Who is taller?&#34;</span>, <span style=color:#e6db74>&#34;context&#34;</span>: context})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(response)
+</span></span></code></pre></div><p>Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con exito, pues de alguna o de otra forma estos se equivocaban estos fueron los modelos que probe y de 10 intento cuantos objetos de <em>Person</em> fueron serializados con exito:</p><blockquote><p>{&lsquo;codellama:13b-code&rsquo;: 0, &lsquo;mistral&rsquo;: 0, &lsquo;phi3&rsquo;: 0, &lsquo;wizardlm2&rsquo;: 1, &rsquo;llama3&rsquo;:0}</p></blockquote><p>Un comportamiento extraño que note fue que <em>wizardlm2</em> siempre que terminaba el programa y lo volvia a ejecutar su primer intento era correcto sin importar cuantas veces lo ejecutara pero los demas resultaban en error, pero a pesar de que realizaba
+la tarea con exito sus resultados eran erroneos pues obtenia esta salida</p><blockquote><p>name=&lsquo;Claudia&rsquo; height=5.0 hair_color=&lsquo;brunette&rsquo;</p></blockquote><p>Aunque el modelo podia crear un json correcto no podia racionalizar que Claudia mide 6 pies. Aunque el modelo <em>codellama</em> no pudo serializar los obejtos pienso que su salida fue la más concisa y util de todas pues en sus intentos este siempre respondia con:</p><blockquote><p>{&ldquo;answer&rdquo;: &ldquo;Claudia&rdquo;}</p></blockquote><p>Y finalmente la salida de <em>llama3</em> puede que sea la más util si es que se configurara el prompt:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Comparison&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;object&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;properties&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;person1&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Alex&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The first person&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;required&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;height1&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Height of Alex&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The height of Alex&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;required&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;number&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;hair_color1&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Hair Color of Alex&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The hair color of Alex&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;required&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;person2&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Claudia&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The second person&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;required&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;height2&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Height of Claudia&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The height of Claudia&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;required&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;number&#34;</span>
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;hair_color2&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Hair Color of Claudia&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;description&#34;</span>: <span style=color:#e6db74>&#34;The hair color of Claudia&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;required&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;string&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;required&#34;</span>: [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;person1&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;height1&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;hair_color1&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;person2&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;height2&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;hair_color2&#34;</span>
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>De cierta forma logra identificar lo que se necesita pero no es capaz de completarlo correctamente</p></main></body></html>

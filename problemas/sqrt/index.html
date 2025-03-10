@@ -1,0 +1,24 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Sqrt</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Sqrt</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=sqrt>Sqrt</h2><p>Este problema consisten en encontrar el numero entero más cercano a la raiz de un numero dado.</p><h3 id=solucion>Solucion</h3><p>El problema consiste en una busqueda binaria en el rango desde 0 hasta el numero dado</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>mySqrt</span>(<span style=color:#a6e22e>x</span> <span style=color:#66d9ef>int</span>) <span style=color:#66d9ef>int</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>st</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>max</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>x</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>res</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>st</span> <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>max</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>st</span> <span style=color:#f92672>+</span> ((<span style=color:#a6e22e>max</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>st</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>m</span>)
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>sq</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>m</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>sq</span> &gt; <span style=color:#a6e22e>x</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>max</span> = <span style=color:#a6e22e>m</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>sq</span> &lt; <span style=color:#a6e22e>x</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>st</span> = <span style=color:#a6e22e>m</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>res</span> = <span style=color:#a6e22e>m</span>
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>m</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>res</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></main></body></html>

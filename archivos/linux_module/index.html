@@ -1,0 +1,144 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Linux Module</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Linux Module</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Estoy haciendo un servidor grafico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidi usar las lecturas analogicas de un joystick, de la misma forma que uno puede leer desde <em>/dev/input/mouse0</em> mi intencion es hacer lo mismo, pero con un joystick</p><h2 id=comunicacion-serial>Comunicacion Serial</h2><p>Algunos sistemas como la *Raspberry Pi * * no pueden leer entradas analogicas directamente, entonces para estos casos escribi un programa en un arduino, el plan es crear una comunicacion serial entre los dos para comunicar las lecturas analogicas de del joystick, este es el codigo que
+desarrolle:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ino data-lang=ino><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> pin_x <span style=color:#f92672>=</span> A0;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> pin_y <span style=color:#f92672>=</span> A1;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> pin_btn <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> sensorValue;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>bool</span> pressed <span style=color:#f92672>=</span> false;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>begin</span>(<span style=color:#ae81ff>9600</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pinMode</span>(pin_btn, <span style=color:#66d9ef>INPUT</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loop</span>() {
+</span></span><span style=display:flex><span>  sensorValue <span style=color:#f92672>=</span> <span style=color:#a6e22e>analogRead</span>(pin_x);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;X&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>println</span>(sensorValue);
+</span></span><span style=display:flex><span>  sensorValue <span style=color:#f92672>=</span> <span style=color:#a6e22e>analogRead</span>(pin_y);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;Y&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>println</span>(sensorValue);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>bool</span> readv <span style=color:#f92672>=</span> <span style=color:#a6e22e>digitalRead</span>(pin_btn);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>readv <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span>pressed){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;bp&#34;</span>);
+</span></span><span style=display:flex><span>    pressed <span style=color:#f92672>=</span> true;
+</span></span><span style=display:flex><span>  }<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (readv <span style=color:#f92672>&amp;&amp;</span> pressed){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Serial</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;br&#34;</span>);
+</span></span><span style=display:flex><span>    pressed <span style=color:#f92672>=</span> false;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma serial en la configuración y el codigo para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribi en c:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;fcntl.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;termios.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> serial_port;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> buffer[<span style=color:#ae81ff>2</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> buffer_f[<span style=color:#ae81ff>5</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ssize_t</span> bytes_read;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>match_input</span>();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  serial_port <span style=color:#f92672>=</span> <span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#34;/dev/ttyS0&#34;</span>, O_RDWR); <span style=color:#75715e>// Adjust the port as needed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>struct</span> termios tty;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (serial_port <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>perror</span>(<span style=color:#e6db74>&#34;Error opening serial port&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>memset</span>(<span style=color:#f92672>&amp;</span>tty, <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>sizeof</span>(tty));
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>tcgetattr</span>(serial_port, <span style=color:#f92672>&amp;</span>tty) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>perror</span>(<span style=color:#e6db74>&#34;Error from tcgetattr&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cfsetospeed</span>(<span style=color:#f92672>&amp;</span>tty, B9600);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cfsetispeed</span>(<span style=color:#f92672>&amp;</span>tty, B9600);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  tty.c_cflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>PARENB; <span style=color:#75715e>// No parity bit
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_cflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>CSTOPB; <span style=color:#75715e>// 1 stop bit
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_cflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>CSIZE;
+</span></span><span style=display:flex><span>  tty.c_cflag <span style=color:#f92672>|=</span> CS8; <span style=color:#75715e>// 8 data bits
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  tty.c_cflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>CRTSCTS;       <span style=color:#75715e>// No hardware flow control
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_cflag <span style=color:#f92672>|=</span> CREAD <span style=color:#f92672>|</span> CLOCAL; <span style=color:#75715e>// Enable receiver, ignore modem control lines
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  tty.c_lflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>ICANON; <span style=color:#75715e>// Disable canonical mode
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_lflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>ECHO;   <span style=color:#75715e>// Disable echo
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_lflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>ECHOE;  <span style=color:#75715e>// Disable erasure
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_lflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>ECHONL; <span style=color:#75715e>// Disable new-line echo
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  tty.c_lflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>ISIG;   <span style=color:#75715e>// Disable interpretation of INTR, QUIT, and SUSP
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  tty.c_iflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>(IXON <span style=color:#f92672>|</span> IXOFF <span style=color:#f92672>|</span> IXANY); <span style=color:#75715e>// Disable software flow control
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  tty.c_oflag <span style=color:#f92672>&amp;=</span> <span style=color:#f92672>~</span>OPOST; <span style=color:#75715e>// Raw output
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>tcsetattr</span>(serial_port, TCSANOW, <span style=color:#f92672>&amp;</span>tty);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> index <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>while</span> (<span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>    bytes_read <span style=color:#f92672>=</span> <span style=color:#a6e22e>read</span>(serial_port, <span style=color:#f92672>&amp;</span>buffer, <span style=color:#66d9ef>sizeof</span>(buffer));
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (bytes_read <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (buffer[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;\n&#39;</span>) {
+</span></span><span style=display:flex><span>        buffer_f[index] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span>        index <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>match_input</span>();
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      buffer_f[index] <span style=color:#f92672>=</span> buffer[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span>      index<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>close</span>(serial_port);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Serial connection closed.</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>match_input</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> value;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> pressed[] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;p&#34;</span>};
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> released[] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;r&#34;</span>};
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> up[] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;u&#34;</span>};
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> down[] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;d&#34;</span>};
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> left[] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;l&#34;</span>};
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> rigth[] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;r&#34;</span>};
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>char</span> v <span style=color:#f92672>=</span> buffer_f[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (v <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;X&#39;</span>) {
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#a6e22e>atoi</span>(((<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)buffer_f) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (value <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>580</span>) { <span style=color:#75715e>// rigth
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, rigth);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (value <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>400</span>) { <span style=color:#75715e>// left
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, left);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (v <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;Y&#39;</span>) {
+</span></span><span style=display:flex><span>    value <span style=color:#f92672>=</span> <span style=color:#a6e22e>atoi</span>(((<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)buffer_f) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (value <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>580</span>) { <span style=color:#75715e>// up
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, up);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (value <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>400</span>) { <span style=color:#75715e>// down
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, down);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (v <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;b&#39;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>switch</span> (buffer_f[<span style=color:#ae81ff>1</span>]) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;p&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// Presed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, pressed);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;r&#39;</span><span style=color:#f92672>:</span> <span style=color:#75715e>// relesed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, released);
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Me hubiera gustado hacer que se mantuviera la igualdad en los valores que linux genera, pero estos tambien incluyen datos como cuanto se movio en la direccion indicada, y siento que para mi proyecto eso esta fuera de lo que intenta ser</p></main></body></html>

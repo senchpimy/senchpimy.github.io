@@ -1,0 +1,233 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>hyperland</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>hyperland</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Hyperland es un compositor de wayland (osea un administrador de ventanas) y este al ser mas simple y minimalista
+para poder tener un sistema completo se necesita muchos otros programas diferentes</p><h2 id=hyperland>Hyperland</h2><p>Para la configuracion de este use la configuracion ya existente de <a href=https://github.com/prasanthrangan/hyprdots>Hyde</a> ya que esta contiene scripts
+que configuran y declaran ciertas variables en el sistema para tener la menor cantidad de problemas de compatibilidad con otros programas, lo que
+modifique en este caso fue el teclado y algunas configuraciones de la teclas:</p><pre tabindex=0><code>input {
+    kb_layout = es
+    follow_mouse = 1
+
+    touchpad {
+        natural_scroll = no
+    }
+
+    sensitivity = 0
+    force_no_accel = 1
+}
+</code></pre><p>Diferencias entre el que esta por defecto y el mio</p><pre tabindex=0><code>12,14c12,14
+&lt; $term = kitty
+&lt; $editor = code
+&lt; $file = dolphin
+---
+&gt; $term = alacritty
+&gt; $editor = v
+&gt; $file = nautilus
+15a16
+&gt; exec-once =  swww init
+19,20c20
+&lt; bind = Alt, F4, exec, $scrPath/dontkillsteam.sh # close focused window
+&lt; bind = $mainMod, Delete, exit, # kill hyprland session
+---
+&gt; bind = $mainMod+Shift, Q, exit, # kill hyprland session
+23,24c23,24
+&lt; bind = Alt, Return, fullscreen, # toggle the window between focus and fullscreen
+&lt; bind = $mainMod, L, exec, swaylock # launch lock screen
+---
+&gt; bind = $mainMod, M, fullscreen, # toggle the window between focus and fullscreen
+&gt; bind = $mainMod, B, exec, swaylock # launch lock screen
+26,27c26,27
+&lt; bind = $mainMod, Backspace, exec, $scrPath/logoutlaunch.sh # launch logout menu
+&lt; bind = Ctrl+Alt, W, exec, killall waybar || waybar # toggle waybar
+---
+&gt; bind = $mainMod+Ctrl, P, exec, $scrPath/logoutlaunch.sh # launch logout menu
+&gt; bind = Ctrl, Escape, exec, killall waybar || waybar # toggle waybar
+30c30
+&lt; bind = $mainMod, T, exec, $term # launch terminal emulator
+---
+&gt; bind = $mainMod, RETURN, exec, $term # launch terminal emulator
+32,33c32,33
+&lt; bind = $mainMod, C, exec, $editor # launch text editor
+&lt; bind = $mainMod, F, exec, $browser # launch web browser
+---
+&gt; #bind = $mainMod, C, exec, $editor # launch text editor
+&gt; #bind = $mainMod, F, exec, $browser # launch web browser
+37,38c37,40
+&lt; bind = $mainMod, A, exec, pkill -x rofi || $scrPath/rofilaunch.sh d # launch application launcher
+&lt; bind = $mainMod, Tab, exec, pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher
+---
+&gt; bind = $mainMod, R, exec, pkill -x rofi || $scrPath/rofilaunch.sh d # launch application launcher
+&gt; #bind = $mainMod, Tab, exec, pkill -x rofi || $scrPath/rofilaunch.sh w # launch window switcher
+&gt; #bind = $mainMod, Tab, exec, workspace, previous
+&gt; bind=$mainMod,TAB,workspace,previous
+60,63d61
+&lt; # Move between grouped windows
+&lt; bind = $mainMod CTRL , H, changegroupactive, b
+&lt; bind = $mainMod CTRL , L, changegroupactive, f
+&lt; 
+65,68c63,66
+&lt; bind = $mainMod, P, exec, $scrPath/screenshot.sh s # partial screenshot capture
+&lt; bind = $mainMod+Ctrl, P, exec, $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen)
+&lt; bind = $mainMod+Alt, P, exec, $scrPath/screenshot.sh m # monitor screenshot capture
+&lt; bind = , Print, exec, $scrPath/screenshot.sh p # all monitors screenshot capture
+---
+&gt; #bind = $mainMod, P, exec, $scrPath/screenshot.sh s # partial screenshot capture
+&gt; #bind = $mainMod+Ctrl, P, exec, $scrPath/screenshot.sh sf # partial screenshot capture (frozen screen)
+&gt; #bind = $mainMod+Alt, P, exec, $scrPath/screenshot.sh m # monitor screenshot capture
+&gt; #bind = , Print, exec, $scrPath/screenshot.sh p # all monitors screenshot capture
+71c69
+&lt; bind = $mainMod+Alt, G, exec, $scrPath/gamemode.sh # disable hypr effects for gamemode
+---
+&gt; #bind = $mainMod+Alt, G, exec, $scrPath/gamemode.sh # disable hypr effects for gamemode
+164a163,167
+&gt; 
+&gt; 
+&gt; binds{
+&gt; allow_workspace_cycles=true
+&gt; }
+</code></pre><h2 id=waybar>Waybar</h2><p>Al ser muy minimalista hay que instalar una barra superior y en este utlizo waybar pero luego me gustaria cambiarla a <strong>eww</strong>, esta es la configuracion</p><p>config</p><pre tabindex=0><code>{
+	&#34;layer&#34;: &#34;top&#34;,	
+	&#34;position&#34;: &#34;top&#34;,
+    &#34;height&#34;: 20,
+
+
+    &#34;modules-left&#34;: [&#34;hyprland/workspaces&#34;, &#34;sway/mode&#34;, &#34;hyprland/window&#34;],
+    &#34;modules-center&#34;: [],
+    &#34;modules-right&#34;: [&#34;pulseaudio&#34;,&#34;network&#34;, &#34;backlight&#34;, &#34;clock&#34;, &#34;tray&#34;],
+
+
+	&#34;hyprland/window&#34;: {
+    	&#34;format&#34;: &#34;{}&#34;,
+    	&#34;max-length&#34;: 150
+},
+
+
+
+    &#34;tray&#34;: {
+        &#34;icon-size&#34;: 18,
+        &#34;spacing&#34;: 15
+},
+
+
+    &#34;clock&#34;: {
+        &#34;format&#34;: &#34;{:%a %b %e  %R}&#34;,
+        &#34;interval&#34;: 30
+},
+
+    &#34;network&#34;: {
+        &#34;interface&#34;: &#34;wlp4s0&#34;, 
+        &#34;format-wifi&#34;: &#34;   WiFi-On&#34;,
+        &#34;format-disconnected&#34;: &#34;睊   Disconnected&#34;,
+        &#34;interval&#34;: 60
+},
+
+
+	&#34;backlight&#34;: {
+    	&#34;device&#34;: &#34;intel_backlight&#34;,
+    	&#34;format&#34;: &#34;{icon}  {percent}%  &#34;,
+    	&#34;format-icons&#34;: [&#34;&#34;,&#34;&#34;,&#34;&#34;,&#34;&#34;],
+    	&#34;interval&#34;: 60
+},
+
+    &#34;network&#34;: {
+        // &#34;interface&#34;: &#34;wlp2s0&#34;, // (Optional) To force the use of this interface
+        &#34;format-wifi&#34;: &#34;{essid} ({signalStrength}%) &#34;,
+        &#34;format-ethernet&#34;: &#34;{ifname}: {ipaddr}/{cidr} &#34;,
+        &#34;format-disconnected&#34;: &#34;Disconnected ⚠&#34;
+    },
+
+    &#34;pulseaudio&#34;: {
+        &#34;format&#34;: &#34; {icon} {volume}% &#34;,
+        &#34;format-bluetooth&#34;: &#34;  {volume}%  &#34;,
+        &#34;format-muted&#34;:&#34;婢  Mute  &#34;,
+        &#34;interval&#34;: 60,
+
+        &#34;format-icons&#34;: {
+        &#34;default&#34;: [&#34;&#34;]
+},
+        &#34;on-click&#34;: &#34;pavucontrol&#34;
+
+
+}
+
+}
+
+    &#34;hyprland/workspaces&#34;: {
+        &#34;disable-markup&#34;: true,
+        &#34;format&#34;: &#34;{index}&#34; 
+        &#34;disable-scroll&#34;: true,
+		&#34;format&#34;: &#34;{name} {icon}&#34;,
+		&#34;format-icons&#34;: {
+			&#34;active&#34;: &#34; &#34;,
+			&#34;default&#34;: &#34; &#34;
+		},
+        &#34;persistent_workspaces&#34;: {
+            &#34;1&#34;: [],
+            &#34;2&#34;: [],
+            &#34;3&#34;: [],
+            &#34;4&#34;: [],
+        },
+    },
+</code></pre><p>style.css</p><pre tabindex=0><code>* {
+    font-family: &#34;UbuntuMono Nerd Font&#34;;
+    font-size: 13px;
+}
+window#waybar { 
+    background-color: #225877; 
+    color: #ffffff;    
+}
+.modules-left {
+	background-color: #323232;
+	padding: 0px 0px 0px 0px;
+}
+.modules-right {
+	background-color: #323232;
+	padding: 0px 5px 0px 0px;
+}
+#workspaces {
+}
+#workspaces button {
+	padding: 0px 11px 0px 11px; 
+ 	min-width: 1px;
+	color: #888888;
+}
+#workspaces button.active {
+	background-color: #46474a;
+}
+#workspaces button.focused { 
+	padding: 0px 11px 0px 11px; 
+	background-color: #285577;
+	color: #ffffff;
+}
+#mode { 
+	 background-color: #900000;
+	 color: #ffffff;
+     padding: 0px 5px 0px 5px;
+     border: 1px solid #2f343a;
+}
+#window {
+	 color: #ffffff;
+	 background-color: #285577;
+     padding: 0px 10px 0px 10px;
+}
+window#waybar.empty #window {
+	background-color: transparent;
+	color: transparent;
+}
+window#waybar.empty {
+	background-color: #323232;
+}
+#network, #temperature, #backlight, #pulseudio, #battery {
+    padding: 0px 15px 0px 15px;
+}
+#clock {
+	margin: 0px 15px 0px 15px;
+}
+#network.disconnected {
+    color: #ff5555;
+}
+</code></pre><h2 id=swww>Swww</h2><p>Tambien se necesita un fondo de pantalla y el programa mas simple para cumplir cone sta tarea es swww el cual
+no requiere de configuracion mas que cuando se utiliza el comando y eso depende de la imagen, este inicia automaticamente
+cuando inicia Hyperland</p><h2 id=rofi>Rofi</h2><p>Rofi es un programa muy simple que funciona tanto en xorg como en wayland solo hay que tener la version correcta instalada,
+para este use la configuracion por defecto que viene en hyde</p><h2 id=dunst>Dunst</h2><p>El progrma que se encarga de mostrar las notificaciones tambien use la modificacion por defecto de hyde</p></main></body></html>

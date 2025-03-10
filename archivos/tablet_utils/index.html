@@ -1,0 +1,169 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Funcionalidades Extra de Tablet</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Funcionalidades Extra de Tablet</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=introduccion>Introduccion</h2><p>Compre una computadora la cual tiene la capacidad de doblarse como tablet y leer la entrada de dispositivos touch y en este caso tambien de una pluma
+pero en mi caso me gusta la experiencia de un administrador de ventanas, y aunque gnome por defecto tengo una buena experiencia con las diferentes
+funcionalidades de el hardware me gusta mas un sistema ligero, por lo que quise crear un programa con el cual pueda agregar diferentes funcionalidades
+usando esta pluma.</p><h2 id=leyendo-la-entrada>Leyendo la entrada</h2><p>Primero se necesita leer los datos que se reciben desde el kernel, por algun motivo fue algo confuso al principio, pues al parecer sin
+ningun motivo aparente la entrada de la pluma puede estar en cualquiera de estas dos ubicaciones, no se por que pero cambia cada vez que se reinicia
+la computadora.</p><ul><li>/dev/input/event12</li><li>/dev/input/event13</li></ul><p>Por lo que estoy leyendo ambos al mismo tiempo.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>rundaemon</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> event_size <span style=color:#f92672>=</span> mem::size_of::<span style=color:#f92672>&lt;</span>input::StylusInputRaw<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Crear un closure para leer y procesar eventos
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>let</span> read_and_process <span style=color:#f92672>=</span> <span style=color:#f92672>|</span>event_device: <span style=color:#66d9ef>&amp;</span>&#39;static <span style=color:#66d9ef>str</span><span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        thread::spawn(<span style=color:#66d9ef>move</span> <span style=color:#f92672>||</span> {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// Abrir el dispositivo
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> f <span style=color:#f92672>=</span> File::open(event_device)
+</span></span><span style=display:flex><span>                .expect(<span style=color:#f92672>&amp;</span>format!(<span style=color:#e6db74>&#34;Failed to open input device: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, event_device));
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> buffer <span style=color:#f92672>=</span> vec![<span style=color:#ae81ff>0</span><span style=color:#66d9ef>u8</span>; event_size];
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> state <span style=color:#f92672>=</span> interaction::State::new();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            println!(<span style=color:#e6db74>&#34;Started Reading from </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, event_device);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>loop</span> {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// Intentar leer del dispositivo
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#66d9ef>if</span> f.read_exact(<span style=color:#f92672>&amp;</span><span style=color:#66d9ef>mut</span> buffer).is_ok() {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>let</span> r <span style=color:#f92672>=</span> input::parse_stylus_input(<span style=color:#f92672>&amp;</span>buffer, event_size);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> Some(raw) <span style=color:#f92672>=</span> r {
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>let</span> data <span style=color:#f92672>=</span> input::StylusInput::from_raw(raw);
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> Some(data) <span style=color:#f92672>=</span> data {
+</span></span><span style=display:flex><span>                            state.process(data);
+</span></span><span style=display:flex><span>                            state.handle_live();
+</span></span><span style=display:flex><span>                        }
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                    eprintln!(<span style=color:#e6db74>&#34;Incomplete event on </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, event_device);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        })
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Iniciar los hilos para ambos dispositivos
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>let</span> handle1 <span style=color:#f92672>=</span> read_and_process(<span style=color:#e6db74>&#34;/dev/input/event12&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> handle2 <span style=color:#f92672>=</span> read_and_process(<span style=color:#e6db74>&#34;/dev/input/event13&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Esperar a que ambos hilos terminen (nunca sucederá en este caso)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    handle1.join().unwrap();
+</span></span><span style=display:flex><span>    handle2.join().unwrap();
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Luego tengo que leer cada evento, en linux los eventos miden 24 bytes, su definicion
+en el kernel de linux es la siguiente:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> input_event {
+</span></span><span style=display:flex><span><span style=color:#75715e>#if (__BITS_PER_LONG != 32 || !defined(__USE_TIME_BITS64)) &amp;&amp; !defined(__KERNEL__)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>struct</span> timeval time;
+</span></span><span style=display:flex><span><span style=color:#75715e>#define input_event_sec time.tv_sec
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define input_event_usec time.tv_usec
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#else
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	__kernel_ulong_t __sec;
+</span></span><span style=display:flex><span><span style=color:#75715e>#if defined(__sparc__) &amp;&amp; defined(__arch64__)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> __usec;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> __pad;
+</span></span><span style=display:flex><span><span style=color:#75715e>#else
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	__kernel_ulong_t __usec;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define input_event_sec  __sec
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define input_event_usec __usec
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	__u16 type;
+</span></span><span style=display:flex><span>	__u16 code;
+</span></span><span style=display:flex><span>	__s32 value;
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>Lo que se podia reducir a solo la siguiente</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> input_event {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>struct</span> timeval time; <span style=color:#75715e>/* tiempo del evento */</span>
+</span></span><span style=display:flex><span>    __u16 type;          <span style=color:#75715e>/* tipo del evento */</span>
+</span></span><span style=display:flex><span>    __u16 code;          <span style=color:#75715e>/* código del evento */</span>
+</span></span><span style=display:flex><span>    __s32 value;         <span style=color:#75715e>/* valor del evento */</span>
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>Por lo que tengo que leer cada 24 bytes y ordenarlos de tal forma en la que
+pueda tener acceso a cada valor para poder trabajar con cada uno de estos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#75715e>#[derive(Debug)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>StylusInputRaw</span> {
+</span></span><span style=display:flex><span>    tv_sec: <span style=color:#66d9ef>i64</span>,
+</span></span><span style=display:flex><span>    tv_usec: <span style=color:#66d9ef>i64</span>,
+</span></span><span style=display:flex><span>    type_: <span style=color:#66d9ef>u16</span>,
+</span></span><span style=display:flex><span>    code: <span style=color:#66d9ef>u16</span>,
+</span></span><span style=display:flex><span>    val: <span style=color:#66d9ef>i32</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>parse_stylus_input</span>(raw_data: <span style=color:#66d9ef>&amp;</span>Vec<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>u8</span><span style=color:#f92672>&gt;</span>, size: <span style=color:#66d9ef>usize</span>) -&gt; Option<span style=color:#f92672>&lt;</span>StylusInputRaw<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> raw_data.len() <span style=color:#f92672>!=</span> size {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> None; <span style=color:#75715e>// Ensure the input data has the correct length
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Some(StylusInputRaw {
+</span></span><span style=display:flex><span>        tv_sec: <span style=color:#66d9ef>i64</span>::from_ne_bytes(raw_data[<span style=color:#ae81ff>0</span><span style=color:#f92672>..</span><span style=color:#ae81ff>8</span>].try_into().unwrap()),
+</span></span><span style=display:flex><span>        tv_usec: <span style=color:#66d9ef>i64</span>::from_ne_bytes(raw_data[<span style=color:#ae81ff>8</span><span style=color:#f92672>..</span><span style=color:#ae81ff>16</span>].try_into().unwrap()),
+</span></span><span style=display:flex><span>        type_: <span style=color:#66d9ef>u16</span>::from_ne_bytes(raw_data[<span style=color:#ae81ff>16</span><span style=color:#f92672>..</span><span style=color:#ae81ff>18</span>].try_into().unwrap()),
+</span></span><span style=display:flex><span>        code: <span style=color:#66d9ef>u16</span>::from_ne_bytes(raw_data[<span style=color:#ae81ff>18</span><span style=color:#f92672>..</span><span style=color:#ae81ff>20</span>].try_into().unwrap()),
+</span></span><span style=display:flex><span>        val: <span style=color:#66d9ef>i32</span>::from_ne_bytes(raw_data[<span style=color:#ae81ff>20</span><span style=color:#f92672>..</span><span style=color:#ae81ff>24</span>].try_into().unwrap()),
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y luego lo puedo guardar en una serie de estructuras y enums que me gusto como
+quedo gracias al sistema de tipos de rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Pressed</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>bool</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, PartialEq)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>StylusAction</span> {
+</span></span><span style=display:flex><span>    Tilt(StylusCoord),
+</span></span><span style=display:flex><span>    Btn1(Pressed),
+</span></span><span style=display:flex><span>    Btn2(Pressed),
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, PartialEq)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>StylusCoord</span> {
+</span></span><span style=display:flex><span>    X(<span style=color:#66d9ef>i32</span>),
+</span></span><span style=display:flex><span>    Y(<span style=color:#66d9ef>i32</span>),
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, PartialEq)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>StylusData</span> {
+</span></span><span style=display:flex><span>    Coord(StylusCoord),
+</span></span><span style=display:flex><span>    Action(StylusAction),
+</span></span><span style=display:flex><span>    Pression, <span style=color:#75715e>// I dont about this one tho
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Terminator,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#[derive(Debug)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>StylusInput</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> date: <span style=color:#a6e22e>DateTime</span><span style=color:#f92672>&lt;</span>Utc<span style=color:#f92672>&gt;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> data: <span style=color:#a6e22e>StylusData</span>,
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>impl</span> StylusInput {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>from_raw</span>(raw: <span style=color:#a6e22e>StylusInputRaw</span>) -&gt; Option<span style=color:#f92672>&lt;</span>Self<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> timestamp <span style=color:#f92672>=</span> raw.tv_sec;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> nanos <span style=color:#f92672>=</span> (raw.tv_usec <span style=color:#f92672>*</span> <span style=color:#ae81ff>1_000</span>) <span style=color:#66d9ef>as</span> <span style=color:#66d9ef>u32</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> date <span style=color:#f92672>=</span> DateTime::from_timestamp(timestamp, nanos).unwrap();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> data <span style=color:#f92672>=</span> <span style=color:#66d9ef>match</span> raw.type_ {
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>0</span> <span style=color:#f92672>=&gt;</span> Some(StylusData::Terminator),
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>1</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>match</span> raw.code {
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>320</span> <span style=color:#f92672>=&gt;</span> Some(StylusData::Action(StylusAction::Btn1(raw.val <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>1</span>))),
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>331</span> <span style=color:#f92672>=&gt;</span> Some(StylusData::Action(StylusAction::Btn2(raw.val <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>1</span>))),
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>26</span> <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>                    println!(<span style=color:#e6db74>&#34;Tilt X&#34;</span>);
+</span></span><span style=display:flex><span>                    Some(StylusData::Action(StylusAction::Tilt(StylusCoord::X(
+</span></span><span style=display:flex><span>                        raw.val,
+</span></span><span style=display:flex><span>                    ))))
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>27</span> <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>                    println!(<span style=color:#e6db74>&#34;Tilt Y&#34;</span>);
+</span></span><span style=display:flex><span>                    Some(StylusData::Action(StylusAction::Tilt(StylusCoord::Y(
+</span></span><span style=display:flex><span>                        raw.val,
+</span></span><span style=display:flex><span>                    ))))
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>330</span> <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>                    <span style=color:#75715e>//I dont know but I sometimes get this code
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                    None
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                _ <span style=color:#f92672>=&gt;</span> None,
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>3</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>match</span> raw.code {
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>0</span> <span style=color:#f92672>=&gt;</span> Some(StylusData::Coord(StylusCoord::X(raw.val))),
+</span></span><span style=display:flex><span>                <span style=color:#ae81ff>1</span> <span style=color:#f92672>=&gt;</span> Some(StylusData::Coord(StylusCoord::Y(raw.val))),
+</span></span><span style=display:flex><span>                _ <span style=color:#f92672>=&gt;</span> None,
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            <span style=color:#ae81ff>4</span> <span style=color:#f92672>=&gt;</span> Some(StylusData::Pression),
+</span></span><span style=display:flex><span>            _ <span style=color:#f92672>=&gt;</span> None,
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>        data.map(<span style=color:#f92672>|</span>data<span style=color:#f92672>|</span> Self { date, data })
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Finalmente puedo definir ciertas interacciones y actuar de acuerdo a la
+que recibi</p></main></body></html>

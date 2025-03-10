@@ -1,0 +1,122 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Rust en Arduino</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Rust en Arduino</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Rust es un lenguaje de bajo nivel que me gustaria aprender, aqui hay un ejemplo de el equivalente al programa blink, para el <strong>arduino uno</strong> usando Rust.</p><p>Primero hay que instalar los programas necesarios para linkear y compilar para el arduino, en arch son las siguientes:</p><p>pacman -S arduino-avr-core
+pacman -S avr-gcc</p><p>Luego hay que crear un nuevo proyecto de rust usando cargo.</p><p>En este proyecto hay que usar una version diferente de el compilador por lo que en la carpeta hay que ejecutar <strong>rustup override set nightly</strong>, luego ya podemos modificar al archivo Cargo.toml con los siguientes campos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>dependencies</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>panic-halt</span> = <span style=color:#e6db74>&#34;0.2.0&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>dependencies</span>.<span style=color:#a6e22e>arduino-hal</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>git</span> = <span style=color:#e6db74>&#34;https://github.com/Rahix/avr-hal&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>rev</span> = <span style=color:#e6db74>&#34;4c9c44c&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>features</span> = [<span style=color:#e6db74>&#34;arduino-uno&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>profile</span>.<span style=color:#a6e22e>dev</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>panic</span> = <span style=color:#e6db74>&#34;abort&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>lto</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>opt-level</span> = <span style=color:#e6db74>&#34;s&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>profile</span>.<span style=color:#a6e22e>release</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>panic</span> = <span style=color:#e6db74>&#34;abort&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>codegen-units</span> = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>debug</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>lto</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>opt-level</span> = <span style=color:#e6db74>&#34;s&#34;</span>
+</span></span><span style=display:flex><span> 
+</span></span></code></pre></div><p>Entonces el archivo Cargo.toml finalmente quedaria como:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[<span style=color:#a6e22e>package</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;arduino-rust-1&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>version</span> = <span style=color:#e6db74>&#34;0.1.0&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>edition</span> = <span style=color:#e6db74>&#34;2021&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>dependencies</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>panic-halt</span> = <span style=color:#e6db74>&#34;0.2.0&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>dependencies</span>.<span style=color:#a6e22e>arduino-hal</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>git</span> = <span style=color:#e6db74>&#34;https://github.com/Rahix/avr-hal&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>rev</span> = <span style=color:#e6db74>&#34;4c9c44c&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>features</span> = [<span style=color:#e6db74>&#34;arduino-uno&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>profile</span>.<span style=color:#a6e22e>dev</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>panic</span> = <span style=color:#e6db74>&#34;abort&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>lto</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>opt-level</span> = <span style=color:#e6db74>&#34;s&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>profile</span>.<span style=color:#a6e22e>release</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>panic</span> = <span style=color:#e6db74>&#34;abort&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>codegen-units</span> = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>debug</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>lto</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>opt-level</span> = <span style=color:#e6db74>&#34;s&#34;</span>
+</span></span></code></pre></div><p>En la misma carpeta raiz hay que crear un archivo av-atmega328p.json y le ponemos lo siguiente:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;llvm-target&#34;</span>: <span style=color:#e6db74>&#34;avr-unknown-unknown&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;cpu&#34;</span>: <span style=color:#e6db74>&#34;atmega328p&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;target-endian&#34;</span>: <span style=color:#e6db74>&#34;little&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;target-pointer-width&#34;</span>: <span style=color:#e6db74>&#34;16&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;target-c-int-width&#34;</span>: <span style=color:#e6db74>&#34;16&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;os&#34;</span>: <span style=color:#e6db74>&#34;unknown&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;target-env&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;target-vendor&#34;</span>: <span style=color:#e6db74>&#34;unknown&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;arch&#34;</span>: <span style=color:#e6db74>&#34;avr&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;data-layout&#34;</span>: <span style=color:#e6db74>&#34;e-P1-p:16:8-i8:8-i16:8-i32:8-i64:8-f32:8-f64:8-n8-a:8&#34;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;executables&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;linker&#34;</span>: <span style=color:#e6db74>&#34;avr-gcc&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;linker-flavor&#34;</span>: <span style=color:#e6db74>&#34;gcc&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;pre-link-args&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;gcc&#34;</span>: [<span style=color:#e6db74>&#34;-Os&#34;</span>, <span style=color:#e6db74>&#34;-mmcu=atmega328p&#34;</span>]
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;exe-suffix&#34;</span>: <span style=color:#e6db74>&#34;.elf&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-link-args&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;gcc&#34;</span>: [<span style=color:#e6db74>&#34;-Wl,--gc-sections&#34;</span>]
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;singlethread&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;no-builtins&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;no-default-libraries&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;eh-frame-header&#34;</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span> }
+</span></span></code></pre></div><p>Luego hay que crear la carpeta &ldquo;.cargo&rdquo; y en esta el archivo &ldquo;config.toml&rdquo;, el cual contendra lo siguiente:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span> [<span style=color:#a6e22e>build</span>]
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>target</span> = <span style=color:#e6db74>&#34;avr-atmega328p.json&#34;</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> [<span style=color:#a6e22e>unstable</span>]
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>build-std</span> = [<span style=color:#e6db74>&#34;core&#34;</span>]
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>Y</span> <span style=color:#a6e22e>para</span> <span style=color:#a6e22e>la</span> <span style=color:#a6e22e>configuracion</span> <span style=color:#a6e22e>esto</span> <span style=color:#a6e22e>seria</span> <span style=color:#a6e22e>todo</span>, <span style=color:#a6e22e>luego</span> <span style=color:#a6e22e>el</span> <span style=color:#a6e22e>codigo</span> <span style=color:#a6e22e>para</span> <span style=color:#a6e22e>probar</span> <span style=color:#a6e22e>si</span> <span style=color:#a6e22e>funciona</span> <span style=color:#a6e22e>es</span> <span style=color:#a6e22e>el</span> <span style=color:#a6e22e>siguente</span><span style=color:#960050;background-color:#1e0010>:</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e>#![no_std]</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>#![no_main]</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>use</span> <span style=color:#a6e22e>panic_halt</span> <span style=color:#a6e22e>as</span> <span style=color:#a6e22e>_</span><span style=color:#960050;background-color:#1e0010>;</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e>#[arduino_hal::entry]</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>fn</span> <span style=color:#a6e22e>main</span><span style=color:#960050;background-color:#1e0010>()</span> <span style=color:#a6e22e>-</span><span style=color:#960050;background-color:#1e0010>&gt;</span> <span style=color:#960050;background-color:#1e0010>!</span> {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>let</span> <span style=color:#a6e22e>dp</span> = <span style=color:#a6e22e>arduino_hal</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>Peripherals</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>take</span><span style=color:#960050;background-color:#1e0010>()</span>.<span style=color:#a6e22e>unwrap</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>let</span> <span style=color:#a6e22e>pins</span> = <span style=color:#a6e22e>arduino_hal</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>pins</span><span style=color:#960050;background-color:#1e0010>!(</span><span style=color:#a6e22e>dp</span><span style=color:#960050;background-color:#1e0010>);</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#a6e22e>Digital</span> <span style=color:#a6e22e>pin</span> <span style=color:#ae81ff>13</span> <span style=color:#a6e22e>is</span> <span style=color:#a6e22e>also</span> <span style=color:#a6e22e>connected</span> <span style=color:#a6e22e>to</span> <span style=color:#a6e22e>an</span> <span style=color:#a6e22e>onboard</span> <span style=color:#a6e22e>LED</span> <span style=color:#a6e22e>marked</span> <span style=color:#e6db74>&#34;L&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>let</span> <span style=color:#a6e22e>mut</span> <span style=color:#a6e22e>led</span> = <span style=color:#a6e22e>pins</span>.<span style=color:#a6e22e>d13</span>.<span style=color:#a6e22e>into_output</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>let</span> <span style=color:#a6e22e>mut</span> <span style=color:#a6e22e>trig</span> = <span style=color:#a6e22e>pins</span>.<span style=color:#a6e22e>d10</span>.<span style=color:#a6e22e>into_output</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>let</span> <span style=color:#a6e22e>mut</span> <span style=color:#a6e22e>ecco</span> = <span style=color:#a6e22e>pins</span>.<span style=color:#a6e22e>d9</span><span style=color:#960050;background-color:#1e0010>;</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>led</span>.<span style=color:#a6e22e>set_high</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>//</span><span style=color:#a6e22e>led</span>.<span style=color:#a6e22e>set_low</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>loop</span> {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>led</span>.<span style=color:#a6e22e>toggle</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>arduino_hal</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>delay_ms</span><span style=color:#960050;background-color:#1e0010>(</span><span style=color:#ae81ff>100</span><span style=color:#960050;background-color:#1e0010>);</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>led</span>.<span style=color:#a6e22e>toggle</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>arduino_hal</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>delay_ms</span><span style=color:#960050;background-color:#1e0010>(</span><span style=color:#ae81ff>100</span><span style=color:#960050;background-color:#1e0010>);</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>led</span>.<span style=color:#a6e22e>toggle</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>arduino_hal</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>delay_ms</span><span style=color:#960050;background-color:#1e0010>(</span><span style=color:#ae81ff>100</span><span style=color:#960050;background-color:#1e0010>);</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>led</span>.<span style=color:#a6e22e>toggle</span><span style=color:#960050;background-color:#1e0010>();</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>arduino_hal</span><span style=color:#960050;background-color:#1e0010>::</span><span style=color:#a6e22e>delay_ms</span><span style=color:#960050;background-color:#1e0010>(</span><span style=color:#ae81ff>800</span><span style=color:#960050;background-color:#1e0010>);</span>
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span></code></pre></div><p>Y al ejecutar <strong>cargo build</strong> deberiamos tener una compilación exxitosa que dos dara como resultado un archivo <strong>.elf</strong> en la carpeta <strong>target/avr-atmega328p/debug/</strong>, de ser asi Entonces ejecutamos <strong>cargo build &ndash;release</strong>, que tardara un poco más en compilar pero el compilador hace mas optimizaciones al codigo, y el resultado de este estara en la carpeta <strong>target/avr-atmega328p/relase/</strong>, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span> <span style=color:#75715e>#! /usr/bin/zsh</span>
+</span></span><span style=display:flex><span> echo $1
+</span></span><span style=display:flex><span> cargo build
+</span></span><span style=display:flex><span> sudo avrdude -q -C/etc/avrdude.conf -patmega328p -carduino -P/dev/ttyACM0 -D <span style=color:#e6db74>&#34;-Uflash:w:</span>$1<span style=color:#e6db74>:e&#34;</span>
+</span></span></code></pre></div><p>Y entonces todo deberia funcionar correctamente y el led incluido en el arduino conectado en el pin 13 deberia parpadear.</p><p>Esto es possible gracias a la libreria <a href=https://github.com/Rahix/avr-hal>avr-hal</a>, en su github esta ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino</p></main></body></html>

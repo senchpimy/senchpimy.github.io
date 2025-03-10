@@ -1,0 +1,47 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Search Index</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Search Index</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=search-index>Search Index</h2><p>Este problema consisten en implementar busqueda binaria</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {Integer[]} nums</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @param {Integer} target</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>search_insert</span>(nums, target)
+</span></span><span style=display:flex><span>    izq <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> 
+</span></span><span style=display:flex><span>    der <span style=color:#f92672>=</span> nums<span style=color:#f92672>.</span>length
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> izq <span style=color:#f92672>&lt;=</span> der
+</span></span><span style=display:flex><span>        mid <span style=color:#f92672>=</span> (izq<span style=color:#f92672>+</span>der)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> nums<span style=color:#f92672>[</span>mid<span style=color:#f92672>]==</span><span style=color:#66d9ef>nil</span> <span style=color:#f92672>||</span> mid <span style=color:#f92672>==</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> nums<span style=color:#f92672>[</span>mid<span style=color:#f92672>]&lt;</span>target
+</span></span><span style=display:flex><span>            izq<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elsif</span> nums<span style=color:#f92672>[</span>mid<span style=color:#f92672>]&gt;</span>target
+</span></span><span style=display:flex><span>            der <span style=color:#f92672>-=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> mid
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    izq
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div><p>Solo que por algun motivo tenia que verificar que los dos valores no fueran nulos aunque cuando imprimia los valores en ningun momento estos eran nulos, y el input nunca era nulo, pero si quitaba esas 3 lineas el programa no funcionaba.</p><p>Esta es la solucion al problema 31 pero tambien funciona para el problema 704 aunque no es la optima</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {Integer[]} nums</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @param {Integer} target</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># @return {Integer}</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>search_insert</span>(nums, target)
+</span></span><span style=display:flex><span>    izq <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> 
+</span></span><span style=display:flex><span>    der <span style=color:#f92672>=</span> nums<span style=color:#f92672>.</span>length
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> izq <span style=color:#f92672>&lt;=</span> der
+</span></span><span style=display:flex><span>        mid <span style=color:#f92672>=</span> (izq<span style=color:#f92672>+</span>der)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> nums<span style=color:#f92672>[</span>mid<span style=color:#f92672>]==</span><span style=color:#66d9ef>nil</span> <span style=color:#f92672>||</span> mid <span style=color:#f92672>==</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> nums<span style=color:#f92672>[</span>mid<span style=color:#f92672>]&lt;</span>target
+</span></span><span style=display:flex><span>            izq<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elsif</span> nums<span style=color:#f92672>[</span>mid<span style=color:#f92672>]&gt;</span>target
+</span></span><span style=display:flex><span>            der <span style=color:#f92672>-=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> mid
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>end</span>
+</span></span></code></pre></div></main></body></html>

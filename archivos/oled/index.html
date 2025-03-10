@@ -1,0 +1,198 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Raspberry Pi Oled</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Raspberry Pi Oled</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Inspirado en este video decidi comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribi el siguiente script de bash que atomatiza la instalacion de las librerias y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span> !/bin/bash
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo apt-get install -y python3 git python3-pip
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############python3, git and pyhton3-pip installed#############</span>
+</span></span><span style=display:flex><span>sudo pip3 install --upgrade setuptools
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############python setuptools installed#############</span>
+</span></span><span style=display:flex><span>cd ~
+</span></span><span style=display:flex><span>sudo raspi-config nonint <span style=color:#66d9ef>do</span><span style=color:#ae81ff>\_</span>i2c <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############i2c enabled#############</span>
+</span></span><span style=display:flex><span>sudo raspi-config nonint <span style=color:#66d9ef>do</span><span style=color:#ae81ff>\_</span>spi <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############spi enabled#############</span>
+</span></span><span style=display:flex><span>sudo raspi-config nonint <span style=color:#66d9ef>do</span><span style=color:#ae81ff>\_</span>serial <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############serial comunication enabled#############</span>
+</span></span><span style=display:flex><span>sudo raspi-config nonint <span style=color:#66d9ef>do</span><span style=color:#ae81ff>\_</span>ssh <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############ssh enabled#############</span>
+</span></span><span style=display:flex><span>sudo raspi-config nonint <span style=color:#66d9ef>do</span><span style=color:#ae81ff>\_</span>camera <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############camera enabled#############</span>
+</span></span><span style=display:flex><span>sudo raspi-config nonint disable<span style=color:#ae81ff>\_</span>raspi<span style=color:#ae81ff>\_</span>config<span style=color:#ae81ff>\_</span>at<span style=color:#ae81ff>\_</span>boot <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############raspi-init disabled at boot#############</span>
+</span></span><span style=display:flex><span>sudo apt-get install -y i2c-tools libgpiod-dev
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############i2c-tools and libgiod-dev installed############# </span>
+</span></span><span style=display:flex><span>pip3 install --upgrade RPi.GPIO
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############pip3 RPi.GPIO installed#############</span>
+</span></span><span style=display:flex><span>pip3 install --upgrade adafruit-blinka
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############blinka installed#############</span>
+</span></span><span style=display:flex><span>pip3 install adafruit-circuitpython-ssd1306
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############adafruit enabled#############</span>
+</span></span><span style=display:flex><span>sudo apt-get install -y python3-pil
+</span></span><span style=display:flex><span>echo <span style=color:#75715e>#############python-pil installed#############</span>
+</span></span></code></pre></div><p>Tambien modifique el codigo del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi codigo se apaga a los dos minutos, para cambier este tiempo solo hay que modificar la variable <strong>Tiempo</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span> <span style=color:#75715e># Created by: Michael Klements</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># For Raspberry Pi Desktop Case with OLED Stats Display</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Base on Adafruit CircuitPython &amp; SSD1306 Libraries</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Installation &amp; Setup Instructions - https://www.the-diy-life.com/add-an-oled-stats-display-to-raspberry-pi-os-bullseye/</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> time
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> board
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> busio
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> digitalio
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> PIL <span style=color:#f92672>import</span> Image, ImageDraw, ImageFont
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> adafruit_ssd1306
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> subprocess
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Time in minutes with the screen on</span>
+</span></span><span style=display:flex><span>Tiempo<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Define the Reset Pin</span>
+</span></span><span style=display:flex><span>oled_reset <span style=color:#f92672>=</span> digitalio<span style=color:#f92672>.</span>DigitalInOut(board<span style=color:#f92672>.</span>D4)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Display Parameters</span>
+</span></span><span style=display:flex><span>WIDTH <span style=color:#f92672>=</span> <span style=color:#ae81ff>128</span>
+</span></span><span style=display:flex><span>HEIGHT <span style=color:#f92672>=</span> <span style=color:#ae81ff>64</span>
+</span></span><span style=display:flex><span>BORDER <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Use for I2C.</span>
+</span></span><span style=display:flex><span>i2c <span style=color:#f92672>=</span> board<span style=color:#f92672>.</span>I2C()
+</span></span><span style=display:flex><span>oled <span style=color:#f92672>=</span> adafruit_ssd1306<span style=color:#f92672>.</span>SSD1306_I2C(WIDTH, HEIGHT, i2c, addr<span style=color:#f92672>=</span><span style=color:#ae81ff>0x3C</span>, reset<span style=color:#f92672>=</span>oled_reset)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Clear display.</span>
+</span></span><span style=display:flex><span>oled<span style=color:#f92672>.</span>fill(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>oled<span style=color:#f92672>.</span>show()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create blank image for drawing.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Make sure to create image with mode &#39;1&#39; for 1-bit color.</span>
+</span></span><span style=display:flex><span>image <span style=color:#f92672>=</span> Image<span style=color:#f92672>.</span>new(<span style=color:#e6db74>&#34;1&#34;</span>, (oled<span style=color:#f92672>.</span>width, oled<span style=color:#f92672>.</span>height))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Get drawing object to draw on image.</span>
+</span></span><span style=display:flex><span>draw <span style=color:#f92672>=</span> ImageDraw<span style=color:#f92672>.</span>Draw(image)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Draw a white background</span>
+</span></span><span style=display:flex><span>draw<span style=color:#f92672>.</span>rectangle((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, oled<span style=color:#f92672>.</span>width, oled<span style=color:#f92672>.</span>height), outline<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>font <span style=color:#f92672>=</span> ImageFont<span style=color:#f92672>.</span>truetype(<span style=color:#e6db74>&#39;PixelOperator.ttf&#39;</span>, <span style=color:#ae81ff>16</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>#font = ImageFont.load_default()</span>
+</span></span><span style=display:flex><span>start<span style=color:#f92672>=</span>time<span style=color:#f92672>.</span>time()
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Draw a black filled box to clear the image.</span>
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>rectangle((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, oled<span style=color:#f92672>.</span>width, oled<span style=color:#f92672>.</span>height), outline<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load</span>
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;hostname -I | cut -d</span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74> </span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74> -f1&#34;</span>
+</span></span><span style=display:flex><span> IP <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;top -bn1 | grep load | awk &#39;{printf </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>CPU: </span><span style=color:#e6db74>%.2f</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>, $(NF-2)}&#39;&#34;</span>
+</span></span><span style=display:flex><span> CPU <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;free -m | awk &#39;NR==2{printf </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Mem: </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>/</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>MB </span><span style=color:#e6db74>%.2f%%</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>, $3,$2,$3\*100/$2 }&#39;&#34;</span>
+</span></span><span style=display:flex><span> MemUsage <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;df -h | awk &#39;$NF==</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>/</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>{printf </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Disk: </span><span style=color:#e6db74>%d</span><span style=color:#e6db74>/</span><span style=color:#e6db74>%d</span><span style=color:#e6db74>GB </span><span style=color:#e6db74>%s</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>, $3,$2,$5}&#39;&#34;</span>
+</span></span><span style=display:flex><span> Disk <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;vcgencmd measure_temp |cut -f 2 -d &#39;=&#39;&#34;</span>
+</span></span><span style=display:flex><span> temp <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Pi Stats Display</span>
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>), <span style=color:#e6db74>&#34;IP: &#34;</span> <span style=color:#f92672>+</span> str(IP,<span style=color:#e6db74>&#39;utf-8&#39;</span>), font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>16</span>), str(CPU,<span style=color:#e6db74>&#39;utf-8&#39;</span>) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;%&#34;</span>, font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>80</span>, <span style=color:#ae81ff>16</span>), str(temp,<span style=color:#e6db74>&#39;utf-8&#39;</span>) , font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>32</span>), str(MemUsage,<span style=color:#e6db74>&#39;utf-8&#39;</span>), font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>48</span>), str(Disk,<span style=color:#e6db74>&#39;utf-8&#39;</span>), font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Display image</span>
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>image(image)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show()
+</span></span><span style=display:flex><span> time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>.1</span>)
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> ((time<span style=color:#f92672>.</span>time()<span style=color:#f92672>-</span>start)<span style=color:#f92672>/</span><span style=color:#ae81ff>60</span><span style=color:#f92672>&gt;</span>Tiempo):
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>fill(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show()
+</span></span><span style=display:flex><span><span style=color:#75715e># time.sleep(300)</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#oled.fill(0)</span>
+</span></span></code></pre></div><p>Para finalizar le quise poner a la pantalla el logo de <em><strong>Copland Os</strong></em> pues este script se ejecuta al prenderse y se veria como si la computadora fuera de esa marca, para eso cree una imagen en png de 128x64 para ajustarse a el tamaño de la pantalla oled, asi fue como quedo</p><p><img src=/wallpapers/copland.png alt>
+<img src=/wallpapers/lainentrada0.png alt></p><p>Para mi caso opte por ponerle el texto de <em><strong>Copland Os</strong></em> en los primeros 16 pixeles pues en el modelo de la pantalla que ocupe los primeros 16 pixeles son de color amarillo, para esto solo tuve que convertir la imagen en formato ppm.
+Entonces para el codigo final solo le tuve que agregar la parte en negritas para que usara la imagen.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span> Created by: Michael Klements
+</span></span><span style=display:flex><span> <span style=color:#75715e># For Raspberry Pi Desktop Case with OLED Stats Display</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Base on Adafruit CircuitPython &amp; SSD1306 Libraries</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Installation &amp; Setup Instructions - https://www.the-diy-life.com/add-an-oled-stats-display-to-raspberry-pi-os-bullseye/</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>import</span> time
+</span></span><span style=display:flex><span> <span style=color:#f92672>import</span> board
+</span></span><span style=display:flex><span> <span style=color:#f92672>import</span> busio
+</span></span><span style=display:flex><span> <span style=color:#f92672>import</span> digitalio
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#f92672>from</span> PIL <span style=color:#f92672>import</span> Image, ImageDraw, ImageFont
+</span></span><span style=display:flex><span> <span style=color:#f92672>import</span> adafruit\_ssd1306
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#f92672>import</span> subprocess
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Define the Reset Pin</span>
+</span></span><span style=display:flex><span> oled\_reset <span style=color:#f92672>=</span> digitalio<span style=color:#f92672>.</span>DigitalInOut(board<span style=color:#f92672>.</span>D4)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Display Parameters</span>
+</span></span><span style=display:flex><span> WIDTH <span style=color:#f92672>=</span> <span style=color:#ae81ff>128</span>
+</span></span><span style=display:flex><span> HEIGHT <span style=color:#f92672>=</span> <span style=color:#ae81ff>64</span>
+</span></span><span style=display:flex><span> BORDER <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Use for I2C.</span>
+</span></span><span style=display:flex><span> i2c <span style=color:#f92672>=</span> board<span style=color:#f92672>.</span>I2C()
+</span></span><span style=display:flex><span> oled <span style=color:#f92672>=</span> adafruit\_ssd1306<span style=color:#f92672>.</span>SSD1306\_I2C(WIDTH, HEIGHT, i2c, addr<span style=color:#f92672>=</span><span style=color:#ae81ff>0x3C</span>, reset<span style=color:#f92672>=</span>oled\_reset)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#f92672>**</span>image<span style=color:#f92672>=</span> Image<span style=color:#f92672>.</span>open(<span style=color:#e6db74>&#39;lain.ppm&#39;</span>)<span style=color:#f92672>.</span>convert(<span style=color:#e6db74>&#39;1&#39;</span>)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>image(image)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show()
+</span></span><span style=display:flex><span> time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>fill(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show()<span style=color:#f92672>**</span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Clear display.</span>
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>fill(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show()
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Create blank image for drawing.</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># Make sure to create image with mode &#39;1&#39; for 1-bit color.</span>
+</span></span><span style=display:flex><span> image <span style=color:#f92672>=</span> Image<span style=color:#f92672>.</span>new(<span style=color:#e6db74>&#34;1&#34;</span>, (oled<span style=color:#f92672>.</span>width, oled<span style=color:#f92672>.</span>height))
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Get drawing object to draw on image.</span>
+</span></span><span style=display:flex><span> draw <span style=color:#f92672>=</span> ImageDraw<span style=color:#f92672>.</span>Draw(image)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Draw a white background</span>
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>rectangle((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, oled<span style=color:#f92672>.</span>width, oled<span style=color:#f92672>.</span>height), outline<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> font <span style=color:#f92672>=</span> ImageFont<span style=color:#f92672>.</span>truetype(<span style=color:#e6db74>&#39;PixelOperator.ttf&#39;</span>, <span style=color:#ae81ff>16</span>)
+</span></span><span style=display:flex><span> <span style=color:#75715e>#font = ImageFont.load\_default()</span>
+</span></span><span style=display:flex><span> start<span style=color:#f92672>=</span>time<span style=color:#f92672>.</span>time()
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Draw a black filled box to clear the image.</span>
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>rectangle((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, oled<span style=color:#f92672>.</span>width, oled<span style=color:#f92672>.</span>height), outline<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load</span>
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;hostname -I | cut -d</span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74> </span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74> -f1&#34;</span>
+</span></span><span style=display:flex><span> IP <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check\_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;top -bn1 | grep load | awk &#39;{printf </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>CPU: </span><span style=color:#e6db74>%.2f</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>, $(NF-2)}&#39;&#34;</span>
+</span></span><span style=display:flex><span> CPU <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check\_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;free -m | awk &#39;NR==2{printf </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Mem: </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>/</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>MB </span><span style=color:#e6db74>%.2f%%</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>, $3,$2,$3\*100/$2 }&#39;&#34;</span>
+</span></span><span style=display:flex><span> MemUsage <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check\_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;df -h | awk &#39;$NF==</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>/</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>{printf </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>Disk: </span><span style=color:#e6db74>%d</span><span style=color:#e6db74>/</span><span style=color:#e6db74>%d</span><span style=color:#e6db74>GB </span><span style=color:#e6db74>%s</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>, $3,$2,$5}&#39;&#34;</span>
+</span></span><span style=display:flex><span> Disk <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check\_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;vcgencmd measure\_temp |cut -f 2 -d &#39;=&#39;&#34;</span>
+</span></span><span style=display:flex><span> temp <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>check\_output(cmd, shell <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span> )
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Pi Stats Display</span>
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>), <span style=color:#e6db74>&#34;IP: &#34;</span> <span style=color:#f92672>+</span> str(IP,<span style=color:#e6db74>&#39;utf-8&#39;</span>), font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>)
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>16</span>), str(CPU,<span style=color:#e6db74>&#39;utf-8&#39;</span>) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;%&#34;</span>, font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>) 
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>80</span>, <span style=color:#ae81ff>16</span>), str(temp,<span style=color:#e6db74>&#39;utf-8&#39;</span>) , font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>) 
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>32</span>), str(MemUsage,<span style=color:#e6db74>&#39;utf-8&#39;</span>), font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>) 
+</span></span><span style=display:flex><span> draw<span style=color:#f92672>.</span>text((<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>48</span>), str(Disk,<span style=color:#e6db74>&#39;utf-8&#39;</span>), font<span style=color:#f92672>=</span>font, fill<span style=color:#f92672>=</span><span style=color:#ae81ff>255</span>) 
+</span></span><span style=display:flex><span> <span style=color:#75715e># Display image </span>
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>image(image) 
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show() 
+</span></span><span style=display:flex><span> time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>.1</span>) 
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> ((time<span style=color:#f92672>.</span>time()<span style=color:#f92672>-</span>start)<span style=color:#f92672>/</span><span style=color:#ae81ff>60</span><span style=color:#f92672>&gt;</span><span style=color:#ae81ff>2</span>): 
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>fill(<span style=color:#ae81ff>0</span>) 
+</span></span><span style=display:flex><span> oled<span style=color:#f92672>.</span>show() 
+</span></span><span style=display:flex><span> <span style=color:#75715e># time.sleep(300) </span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>break</span> 
+</span></span><span style=display:flex><span> <span style=color:#75715e>#oled.fill(0) </span>
+</span></span></code></pre></div></main></body></html>

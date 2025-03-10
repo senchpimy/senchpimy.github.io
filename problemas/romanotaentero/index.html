@@ -1,0 +1,83 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Romano A Entero</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Romano A Entero</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><h2 id=romano-a-entero>Romano A Entero</h2><p>Este problema consisten en regresar el valor entero de un numero dad su representacion como numero romano</p><h3 id=solucion>Solucion</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>romanToInt</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>int</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>total</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>s</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34; &#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>byte</span>]<span style=color:#66d9ef>int</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;I&#39;</span>] = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;V&#39;</span>] = <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;X&#39;</span>] = <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;L&#39;</span>] = <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;C&#39;</span>] = <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;D&#39;</span>] = <span style=color:#ae81ff>500</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;M&#39;</span>] = <span style=color:#ae81ff>1000</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>s</span>)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>char</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>s</span>[<span style=color:#a6e22e>i</span>]
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>n_char</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>s</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>n_char</span>] &gt; <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>char</span>] {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>total</span> <span style=color:#f92672>+=</span> (<span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>n_char</span>] <span style=color:#f92672>-</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>char</span>])
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>total</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>char</span>]
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>total</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Este problema se resuelve primero mapeando cada posible caracter a su respectivo valor, luego se itera por todo el array y solo se busca la posible condicion de que el numero este restando y para cubrir esta condicion
+hay que preguntar si el siguiente caracter es mayor.</p><p>Mi primer intento fue el siguiente codigo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>romanToInt</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>int</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>total</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>s</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34; &#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>byte</span>]<span style=color:#66d9ef>int</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;I&#39;</span>] = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;V&#39;</span>] = <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;X&#39;</span>] = <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;L&#39;</span>] = <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;C&#39;</span>] = <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;D&#39;</span>] = <span style=color:#ae81ff>500</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;M&#39;</span>] = <span style=color:#ae81ff>1000</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>s</span>)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>char</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>s</span>[<span style=color:#a6e22e>i</span>]
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>n_char</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>s</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>n_char</span>] &gt; <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>char</span>] {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>total</span> <span style=color:#f92672>+=</span> (<span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>n_char</span>] <span style=color:#f92672>-</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>char</span>])
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>total</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>char</span>]
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>total</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y es exactamente el mismo codigo, pero esta solucion salio como muy lenta, entonces vi la siguiente solucion, la cual se supone era 87% más rapida:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>romanToInt</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>int</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>total</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>byte</span>]<span style=color:#66d9ef>int</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;I&#39;</span>] = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;V&#39;</span>] = <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;X&#39;</span>] = <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;L&#39;</span>] = <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;C&#39;</span>] = <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;D&#39;</span>] = <span style=color:#ae81ff>500</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#39;M&#39;</span>] = <span style=color:#ae81ff>1000</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>s</span>); <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>currentValue</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>s</span>[<span style=color:#a6e22e>i</span>]]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>s</span>)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>nextValue</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#a6e22e>s</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]]
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>currentValue</span> &lt; <span style=color:#a6e22e>nextValue</span> {
+</span></span><span style=display:flex><span>				<span style=color:#a6e22e>total</span> <span style=color:#f92672>+=</span> (<span style=color:#a6e22e>nextValue</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>currentValue</span>)
+</span></span><span style=display:flex><span>				<span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>total</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>currentValue</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>total</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y note que la unica diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte de el codigo, al cambiar esto en mi primera version tambien logre tener una respuesta más rapida que el 87%</p></main></body></html>

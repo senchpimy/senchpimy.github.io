@@ -1,0 +1,72 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Rust en RiscV</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Rust en RiscV</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/ascci/main/>ASCCI</a>
+<a href=/problemas>Problemas</a></div><p>Este es una guia basada en <a href=https://barretts.club/posts/i-got-a-milkv-duo/>esta guia</a>.</p><p>Suponiendo que ya se tiene el <em>milk V</em> con linux instalado y acceso a una terminal.</p><p>Primero hay que descargar o compilar el toolchain para compilar rust en riscv, yo lo compile para evitar errores de compatibilidad</p><h2 id=compilacion>Compilacion</h2><p>Primero hay que descargar la toolchain <a href=https://github.com/kinsamanka/milkv-buildroot>desde aqui</a>, al momento de escribir esto, las instrucciones para compilar estan en el reademe de el repositorio
+en donde despues de 20 min de compilacion obtuve una carpeta llamada <em>build</em> en donde se encuentran los compiladores y el linker de esta arquitectura</p><h2 id=compilar-en-rust>Compilar en Rust</h2><p>Creamos un nuevo proyecto de rust y añadimos algunas dependencias:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cargo add anyhow tokio tracing tracing-subscriber --features<span style=color:#f92672>=</span>tokio/rt,tokio/macros,tracing/async-await
+</span></span></code></pre></div><p>Y reemplazar el archivo main.rs con la siguiente prueba:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rs data-lang=rs><span style=display:flex><span><span style=color:#75715e>#[tokio::main(flavor = </span><span style=color:#e6db74>&#34;current_thread&#34;</span><span style=color:#75715e>)]</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#[tracing::instrument]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() -&gt; <span style=color:#a6e22e>anyhow</span>::Result<span style=color:#f92672>&lt;</span>()<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> subscriber <span style=color:#f92672>=</span> tracing_subscriber::FmtSubscriber::new();
+</span></span><span style=display:flex><span>    tracing::subscriber::set_global_default(subscriber)<span style=color:#f92672>?</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(<span style=color:#e6db74>&#34;Hello, world!&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    tracing::info!(<span style=color:#e6db74>&#34;Test&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Ok(())
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y especificamos la arquitectura target en el archivo de configuracion de cargo de el proyecto. Este archivo debe de estar en <em>.cargo/config.toml</em> ya sea en la carpeta de el proyecto o en el home de el usuario
+y añadimos la siguientes especificaciones al archivo</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>riscv64gc-unknown-linux-musl</span>]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>linker</span> = <span style=color:#e6db74>&#34;XXXXXXXXXX/milkv-buildroot/build/host/bin/riscv64-buildroot-linux-musl-gcc.br_real&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>rustflags</span> = [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;-C&#34;</span>, <span style=color:#e6db74>&#34;target-feature=-crt-static&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;-C&#34;</span>, <span style=color:#e6db74>&#34;link-arg=--sysroot=XXXXXXXXXX/milkv-buildroot/sdk/host/riscv64-buildroot-linux-musl/sysroot&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e># &#34;-C&#34;, &#34;target-feature=+crt-static&#34;, # Uncomment me to force static compilation</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># &#34;-C&#34;, &#34;panic=abort&#34;, # Uncomment me to avoid compiling in panics</span>
+</span></span><span style=display:flex><span>]
+</span></span></code></pre></div><p>En donde <em>XXXXXXXXXX</em> es la carpeta en donde se encuentran estos archivos.</p><p>Y para compilarlo para la arquitectura que queremos usamos el siguiente comando:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cargo +nightly build --target riscv64gc-unknown-linux-musl -Zbuild-std --release
+</span></span></code></pre></div><p>En el tutorial dice que hay que usar la version nightly pero la version base tambien me ha funcionado</p><p>Y finalmente lo movemos a nuestro milkv con el comando <strong>scp</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span> scp -O target/riscv64gc-unknown-linux-musl/release/binary root@192.168.42.1:/root/binary
+</span></span></code></pre></div><p>Y en mi caso me ocurrio el siguiente error:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>[</span>root@milkv-duo<span style=color:#f92672>]</span>~# ./binary 
+</span></span><span style=display:flex><span>-sh: binary: not found
+</span></span></code></pre></div><p>Este error ocurre por que no encuentra las librerias dinamicas. Podemos ver cuales son las librerias que este binario requiere con el siguiente comando</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>readelf -l binary 
+</span></span></code></pre></div><p>Yo obtengo la siguiente salida:</p><blockquote><p>Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x10e94
+There are 10 program headers, starting at offset 64</p><p>Program Headers:
+Type Offset VirtAddr PhysAddr
+FileSiz MemSiz Flags Align
+PHDR 0x0000000000000040 0x0000000000000040 0x0000000000000040
+0x0000000000000230 0x0000000000000230 R 0x8
+INTERP 0x0000000000000270 0x0000000000000270 0x0000000000000270
+0x000000000000001a 0x000000000000001a R 0x1
+<strong>[Requesting program interpreter: /lib/ld-musl-riscv64.so.1]</strong>
+RISCV_ATTRIBUT 0x000000000009095b 0x0000000000000000 0x0000000000000000
+0x0000000000000053 0x0000000000000000 R 0x1
+LOAD 0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x00000000000881e4 0x00000000000881e4 R E 0x1000
+LOAD 0x0000000000088c68 0x0000000000089c68 0x0000000000089c68
+0x0000000000007c90 0x0000000000007e78 RW 0x1000
+DYNAMIC 0x000000000008edf0 0x000000000008fdf0 0x000000000008fdf0
+0x0000000000000210 0x0000000000000210 RW 0x8
+TLS 0x0000000000088c68 0x0000000000089c68 0x0000000000089c68
+0x0000000000000048 0x00000000000001c9 R 0x8
+GNU_EH_FRAME 0x0000000000073668 0x0000000000073668 0x0000000000073668
+0x0000000000002cec 0x0000000000002cec R 0x4
+GNU_STACK 0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 RW 0x10
+GNU_RELRO 0x0000000000088c68 0x0000000000089c68 0x0000000000089c68
+0x0000000000006398 0x0000000000006398 R 0x1</p><p>Section to Segment mapping:
+Segment Sections&mldr;
+00
+01 .interp
+02 .riscv.attributes
+03 .interp .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .plt .text .rodata .eh_frame_hdr .eh_frame .gcc_except_table
+04 .tdata .init_array .fini_array .data.rel.ro .dynamic .data .got .sdata .sbss .bss
+05 .dynamic
+06 .tdata .tbss
+07 .eh_frame_hdr
+08
+09 .tdata .init_array .fini_array .data.rel.ro .dynamic</p></blockquote><p>Para eso hay que encontrar la libreria, con el siguiente comando</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>find /lib -name <span style=color:#e6db74>&#34;**ld-musl**&#34;</span>
+</span></span></code></pre></div><p>Yo obtuve la siguiente salida en la version 1.0.6</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>/lib/ld-musl-riscv64v0p7_xthead.so.1
+</span></span></code></pre></div><p>Entonces solo linkeamos las dos ubicaciones</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>ln -sf /lib/ld-musl-riscv64v0p7_xthead.so.1 /lib/ld-musl-riscv64.so.1
+</span></span></code></pre></div><p>Y asi ya se pueden ejecutar programas de rust en el milkv</p></main></body></html>
