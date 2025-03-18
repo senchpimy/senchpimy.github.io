@@ -1,7 +1,6 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Anagrama</title><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Anagrama</h1><div class=contenidos><a href=/entradas/>Entradas</a>
 <a href=/archivos/>Archivos</a>
 <a href=/wallpapers/>Wallpaper</a>
-<a href=/ascci/main/>ASCCI</a>
 <a href=/problemas>Problemas</a></div><h2 id=anagrama>Anagrama</h2><p>Este problema consisten en dado una lista de palabras regresar una lista de listas de palabras que sean anagramas entre si</p><h3 id=solucion>Solucion</h3><p>Este problema se soluciona primero iterando por cada palabra de el array y ordenandola, luego esta se añade en un hashmap donde la llave es la palabra ordenada y el valor es un array que contiene esta palabra, array que se expandira si
 al ordenar otra palabra de la lista original esta coincide con la llave.</p><p>Finalmente se itera por el hashmap y cada valor de el hashmap se agrega a una nueva lista que se regresa.</p><p>Mi primera solucion fue la siguiente</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rb data-lang=rb><span style=display:flex><span><span style=color:#75715e># @param {String[]} strs</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># @return {String[][]}</span>
