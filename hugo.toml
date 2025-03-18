@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://senchpimy.github.io/'
 languageCode = 'en-us'
 title = 'Senchpimy'
 
@@ -15,10 +15,6 @@ title = 'Senchpimy'
     name = 'Wallpaper'
     pageRef = '/wallpapers'
     weight = 30
-[[menu.main]]
-    name = 'ASCCI'
-    pageRef = '/ascci/main'
-    weight = 40
 [[menu.main]]
     name = 'Problemas'
     url = '/problemas'
