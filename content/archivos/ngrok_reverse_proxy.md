@@ -39,11 +39,18 @@ Tenemos que registrarnos en la página oficial de ngrok para obtener un token de
 ngrok config add-authtoken TU_TOKEN_AQUI
 ```
 
-Y finalmente para poder usar ngrok, simplemente ejecutamos el siguiente comando:
+Y finalmente para poder usar ngrok (empezar a servir la pagina), simplemente ejecutamos el siguiente comando:
 
 ```bash
 ngrok http --url=URL 80
 ```
 
 Esto creará un túnel desde la URL pública proporcionada por ngrok hacia el puerto 80 de nuestra máquina local. Ahora, cualquier persona que acceda a esa URL podrá interactuar con nuestra aplicación local como si estuviera en un servidor público.
+
+Y por ultimo yo tuve que configurar mi archivo de hosts para que la URL proporcionada por ngrok apunte a mi localhost.
+
+```bash
+sudo nano /etc/hosts
+# 127.0.0.1     localhost
+```
 
