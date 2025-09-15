@@ -1,0 +1,91 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Programando un Pic16F887 desde Arch Linux en 2025</title><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css type=text/css media=all></head><body><main class=content><h1>Programando un Pic16F887 desde Arch Linux en 2025</h1><div class=contenidos><a href=/entradas/>Entradas</a>
+<a href=/archivos/>Archivos</a>
+<a href=/wallpapers/>Wallpaper</a>
+<a href=/problemas>Problemas</a></div><h2 id=introducción>Introducción</h2><p>En este artículo, te guiaré a través del proceso de programación de un microcontrolador PIC16F887 utilizando Arch Linux.
+A pesar de que existen muchas herramientas y métodos para programar microcontroladores, aquí nos enfocaremos en una solución sencilla y efectiva utilizando herramientas de línea de comandos.</p><h2 id=requisitos-previos>Requisitos previos</h2><p>Antes de comenzar, asegúrate de tener lo siguiente:</p><ul><li>Un microcontrolador PIC16F887.</li><li>Un programador compatible con PIC, en mi caso estoy usando el <strong>PICkit 2</strong>.</li><li>Un cable USB para conectar el programador a tu computadora.</li><li>Arch Linux instalado en tu computadora.</li></ul><h2 id=instalación-de-herramientas-necesarias>Instalación de herramientas necesarias</h2><p>Primero, necesitamos instalar las herramientas necesarias para detectar el PIC y para cargar el programa en él. Para esto usaremos el paquete del AUR pk2cmd, pues estamos usando un PICkit 2.
+Existe un problema conocido con el paquete <code>pk2cmd</code> en el AUR, lo que pasa que es que el enlace de descarga ya es obsoleto, y esto es conocido desde 2023, pues en el sitio
+web del paquete tmb nos dice la solucion, y es descargar el archivo desde otro enlace.</p><p><img src=/pk2cmd_error.png alt="Error de descarga del paquete pk2cmd"></p><p>Aplicando esta correcion, al final el PKGBUILD quedaria asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace <a href=https://aur.archlinux.org/packages/pk2cmd-plus>de aqui</a> (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor seria hacer un wget) y ponerlos en una carpeta, y luego ejecutar <code>makepkg -si</code> en esa carpeta.:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Maintainer: BxS &lt;bxsbxs at gmail dot com&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>pkgname<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;pk2cmd-plus&#39;</span>
+</span></span><span style=display:flex><span>pkgver<span style=color:#f92672>=</span>1.21rc1_1.63.148
+</span></span><span style=display:flex><span>pkgrel<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>pkgdesc<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;PICkit 2 CLI software with updated DeviceFile and udev rules&#34;</span>
+</span></span><span style=display:flex><span>arch<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;i686&#39;</span> <span style=color:#e6db74>&#39;x86_64&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;http://www.microchip.com/pickit2&#39;</span>
+</span></span><span style=display:flex><span>license<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;custom&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>depends<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;libusb-compat&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>provides<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;pk2cmd&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>conflicts<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;pk2cmd&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>install<span style=color:#f92672>=</span>$pkgname.install
+</span></span><span style=display:flex><span>source<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;http://ww1.microchip.com/downloads/en/DeviceDoc/PICkit2_PK2CMD_WIN32_SourceV1-21_RC1.zip&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;PK2DeviceFile_v1.63.148.zip::https://web.archive.org/web/20201128020840/http://www.microchip.com/forums/download.axd?file=0;749972&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;pk2_devicefile_osfile_paths.patch&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;60-pickit2.rules&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;LICENSE&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>md5sums<span style=color:#f92672>=(</span><span style=color:#e6db74>&#39;6f93ede97be484ab7859626a9156a5d6&#39;</span>
+</span></span><span style=display:flex><span>         <span style=color:#e6db74>&#39;3983ce4f45992318c4f0037c8d1acf9f&#39;</span>
+</span></span><span style=display:flex><span>         <span style=color:#e6db74>&#39;c3972d96ac997eb35ae76a861eb4ae0c&#39;</span>
+</span></span><span style=display:flex><span>         <span style=color:#e6db74>&#39;a5cf4ffff54af41c4d1cf8c97d007dcf&#39;</span>
+</span></span><span style=display:flex><span>         <span style=color:#e6db74>&#39;6d53baa09ac4ac3907d503992349b17a&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[[</span> <span style=color:#e6db74>${</span>DLAGENTS[1]<span style=color:#e6db74>}</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;http::/usr/bin/curl&#39;</span>* <span style=color:#f92672>]]</span> <span style=color:#f92672>&amp;&amp;</span> DLAGENTS<span style=color:#f92672>[</span>1<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>DLAGENTS[1]:<span style=color:#66d9ef>:-</span>3<span style=color:#e6db74>}</span><span style=color:#e6db74> -A firefox %u&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>build<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>  cd $srcdir/pk2cmd/pk2cmd
+</span></span><span style=display:flex><span>  patch -Np1 -i $srcdir/pk2_devicefile_osfile_paths.patch
+</span></span><span style=display:flex><span>  make linux
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>package<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>  install -Dm <span style=color:#ae81ff>755</span> $srcdir/pk2cmd/pk2cmd/pk2cmd $pkgdir/usr/bin/pk2cmd
+</span></span><span style=display:flex><span>  install -Dm <span style=color:#ae81ff>644</span> $srcdir/PK2DeviceFile.dat $pkgdir/usr/share/pk2/PK2DeviceFile.dat
+</span></span><span style=display:flex><span>  install -Dm <span style=color:#ae81ff>644</span> $srcdir/pk2cmd/release/PK2V023200.hex $pkgdir/usr/share/pk2/PK2V023200.hex
+</span></span><span style=display:flex><span>  install -Dm <span style=color:#ae81ff>644</span> $srcdir/60-pickit2.rules $pkgdir/etc/udev/rules.d/60-pickit2.rules
+</span></span><span style=display:flex><span>  install -Dm <span style=color:#ae81ff>644</span> $srcdir/LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>Una vez que ejecutaste <code>makepkg -si</code> en la carpeta donde tienes los archivos, se deberia instalar sin problemas. Para que el sistema detecte el programador, hay que recargar las reglas de udev con los siguientes comandos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo udevadm control --reload-rules<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>sudo udevadm trigger
+</span></span></code></pre></div><p>Despues para saber si se instalo y detecta el programador, conectamos el PICkit 2 a la computadora y ejecutamos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pk2cmd -P
+</span></span></code></pre></div><p>Si todo esta bien, deberia salir algo como esto:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Auto-Detect: Found part PIC16F887.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Operation Succeeded
+</span></span></code></pre></div><h2 id=compilando-el-programa>Compilando el programa</h2><p>Ahora que tenemos todo listo, vamos a crear un programa simple para el PIC16F887. Para este ejemplo, vamos a hacer que un LED parpadee.
+Este seria el programa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;xc.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#pragma config FOSC = INTRC_NOCLKOUT </span><span style=color:#75715e>// Oscilador interno, pines I/O disponibles
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config WDTE = OFF       </span><span style=color:#75715e>// Watchdog Timer deshabilitado
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config PWRTE = OFF      </span><span style=color:#75715e>// Power-up Timer deshabilitado
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config MCLRE = ON       </span><span style=color:#75715e>// Pin MCLR/VPP funciona como Master Clear Reset
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config CP = OFF         </span><span style=color:#75715e>// Protección de código desactivada
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config CPD = OFF        </span><span style=color:#75715e>// Protección de datos EEPROM desactivada
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config BOREN = ON       </span><span style=color:#75715e>// Brown-out Reset habilitado
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config IESO = ON        </span><span style=color:#75715e>// Internal/External Switchover mode habilitado
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config FCMEN = ON       </span><span style=color:#75715e>// Fail-Safe Clock Monitor habilitado
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e>#pragma config LVP = OFF        </span><span style=color:#75715e>// Low-Voltage Programming deshabilitado
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define _XTAL_FREQ 8000000
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>void</span>) {
+</span></span><span style=display:flex><span>    OSCCON <span style=color:#f92672>=</span> <span style=color:#ae81ff>0x70</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    TRISBbits.TRISB0 <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    PORTBbits.RB0 <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span>(<span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>        PORTBbits.RB0 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>__delay_ms</span>(<span style=color:#ae81ff>500</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        PORTBbits.RB0 <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>__delay_ms</span>(<span style=color:#ae81ff>500</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Y para compilarlo usamos <code>xc8</code>, que se instala con el paquete <strong>microchip-mplabxc8-bin</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>paru -S microchip-mplabxc8-bin
+</span></span></code></pre></div><p>Y para poder compilarlo necesitaremos unas definiciones que no se encuentran en el paquete y hay que descargarlas desde <a href=https://packs.download.microchip.com/>este enlace</a>, debajo de cada pack dice cual es el microchip que
+soporta, y buscamos el que dice PIC16F887, y descargamos el pack, que en mi caso es el <strong>Microchip PIC16Fxxx Series Device Support (1.7.162)</strong>.
+Una vez descargado y descomprimido el Device Pack, su estructura interna contiene los archivos de soporte que necesitamos. Sin embargo,
+en las versiones modernas del compilador XC8, simplemente copiar archivos no es suficiente. Debemos decirle explícitamente al compilador dónde encontrar estos nuevos archivos de soporte al momento de compilar.</p><p>La forma correcta de hacerlo es usando el flag <code>-mdfp</code>.</p><p>Asumiendo que has guardado el código anterior en un archivo llamado <code>main.c</code>, el comando final para compilarlo es el siguiente. Este comando le indica al compilador que use los archivos de soporte
+que se encuentran dentro de la carpeta <code>xc8</code> del paquete que descargaste.</p><p>Primero, descomprime el archivo <code>.atpack</code> que descargaste (recuerda que es solo un archivo zip).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>unzip ~/Downloads/Microchip.PIC16Fxxx_DFP.1.7.162.atpack -d ~/Downloads/PIC16Fxxx_DFP
+</span></span></code></pre></div><p>Ahora, compila tu <code>main.c</code> apuntando a la carpeta <code>xc8</code> dentro del directorio descomprimido:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>xc8-cc -mcpu<span style=color:#f92672>=</span>16F887 -mdfp<span style=color:#f92672>=</span>~/Downloads/PIC16Fxxx_DFP/xc8/ main.c
+</span></span></code></pre></div><ul><li><code>-mcpu=16F887</code>: Especifica nuestro microcontrolador.</li><li><code>-mdfp=...</code>: Le da la ruta a la carpeta que contiene los archivos de soporte del dispositivo (<code>Device Family Pack</code>).</li></ul><p>Si la compilación no muestra errores, se habrá generado un archivo <strong><code>main.hex</code></strong> en tu carpeta. ¡Este es el programa listo para ser cargado en el PIC!</p><h2 id=cargando-el-programa-en-el-pic>Cargando el programa en el PIC</h2><p>Ahora que tenemos nuestro archivo <code>main.hex</code>, el último paso es usar <code>pk2cmd</code> para grabarlo en el microcontrolador. Asegúrate de tener tu PIC16F887 conectado correctamente al programador PICKit 2.</p><p>El comando para subir y verificar el programa es:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pk2cmd -P -M -Fmain.hex
+</span></span></code></pre></div><ul><li><code>-P</code>: Auto-detecta el PIC conectado.</li><li><code>-M</code>: Graba el archivo en la memoria de programa.</li><li><code>-Fmain.hex</code>: Especifica el archivo a grabar.</li></ul><p>Si todo sale bien, la terminal mostrará un mensaje de &ldquo;Verification Succeeded&rdquo; y el LED conectado a tu PIC16F887 comenzará a parpadear.</p></main></body></html>
