@@ -2,19 +2,42 @@
 title: "Teclado V2"
 date: "28 Jul 2023"
 ---
- El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
- bonotes y no se pueden mover tan facil, etc.
-   
+El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
+bonotes y no se pueden mover tan facil, etc.
 
-  
+Entonces mejor decidi hacer una nueva version de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo tambien consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
+de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontre con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
+que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opcion de generar los modelos con un espacio para una pantalla oled de 128x32 con 
+varios metodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opcion de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
+puede usar.
 
- Entonces mejor decidi hacer una nueva version de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo tambien consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
- de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontre con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
- que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opcion de generar los modelos con un espacio para una pantalla oled de 128x32 con 
- varios metodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opcion de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
- puede usar.
-   
-  
+### Materiales Necesarios
+
+Para construir esta versión del teclado, necesitarás los siguientes componentes:
+
+*   **Partes impresas en 3D:**
+    *   1 x Carcasa izquierda del Dactyl Manuform 5x6
+    *   1 x Carcasa derecha del Dactyl Manuform 5x6
+    *   2 x Placas inferiores
+
+*   **Electrónica:**
+    *   2 x Microcontroladores (compatibles con Pro Micro, como los baseados en ATmega32U4)
+    *   68 x Switches para teclado mecánico (estilo Cherry MX)
+    *   68 x Diodos (1N4148 son los más comunes)
+    *   2 x Pantallas OLED SSD1306 de 128x32 píxeles
+    *   2 x Jacks de audio TRRS
+    *   1 x Cable TRRS
+
+*   **Hardware y Cableado:**
+    *   Tornillos y posibles insertos de calor para unir las carcasas a las placas inferiores.
+    *   Cable de cobre de un solo núcleo (calibres 22-26 AWG son recomendables) para la matriz.
+    *   1 x Cable USB para conectar el teclado a la computadora.
+
+*   **Keycaps:**
+    *   1 x Juego de keycaps compatible con switches MX.
+
+
+### El modelo
 
  Lo unico malo que le encontre a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** estan caidos, por lo que hay que buscar un poco, pero los pude encontrar en la **Wayback machine** [aqui](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
  [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si estan usando el mismo microprocesador
@@ -555,18 +578,15 @@ if __name__ == '__main__':
 
  Despues de imprimirlos coloque los botones en sus respectivos lugares y los conecte segun el firmware que iba a ocupar,.
 
+
  # Firmware
-
-
-  
-  
 
  El programa que se encarga de programar al microcontrolador para que funcione como teclado en conjunto con otro microcontrolador se llama **QMK** en el cual hay una gran cantidad de firmwares para diferentes teclados, al descarga la utilidad para terminal tambien se va a clonar el repositorio con 
  todos los teclados. En la carpeta *keyboards/handwired/dactyl_manuform* encontraremos la carpeta de *5x6_68* que hace referencia al teclado que tengo, pues de 5x6 y con las 6 teclas para los pulgares hacen un total de 68 teclas entre los dos teclados.
    
   
 
- Hay que modificar estos archivos directamente para poder cambiar el funcionamiento del teclado, el primero cambio que hice fue cambiar el pin de comunicacion y la orientacion de los diodos, esto se hace en archivo **info.json**, el cambio del pin de la comunicacion fue por que para las pantallas se
+ Hay que modificar estos archivos directamente para poder cambiar el funcionamiento del teclado, el primero cambio que hice fue cambiar el pin de comunicacion y la orientacion de los diodos , esto se hace en archivo **info.json**, el cambio del pin de la comunicacion fue por que para las pantallas se
  utiliza el protocolo **I2C** y para este protocolo se necesitan dos pines, que serian el **2 y 3** en digital pero los pines **D1 Y D0** si se utiliza el nombre de los pines por como los detecta el microcontrolador y el segundo por como conecte hice la matriz de conecciones
    
 
@@ -682,14 +702,7 @@ SRC += ./burst.c \
  
 ![](/pro_img/teclado2_10.png)
 
-  
-
-  
-
  Teniendo un total de 6 columans con 6 filas, los diodos los coloque con el anodo saliendo del switch y el catodo conectado a su columna correspondiente, osea de la siguiente forma:
-   
-
-  
 
 
 ![](/pro_img/teclado2_11.png)
