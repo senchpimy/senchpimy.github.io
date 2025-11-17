@@ -14,7 +14,7 @@ Una solución mucho más sencilla y rápida es usar una herramienta de túneling
 Esta utilidad crea un túnel seguro desde un servidor público de ngrok directamente a un puerto específico de nuestra computadora.
 En esencia, nos proporciona una URL pública que redirige todo el tráfico hacía nuestra aplicación local, sin necesidad de modificar nuestro router o firewall.
 
-Para empezar a usar ngrok, primero debemos instalarlo en nuestro sistema. La pagina oficial proporciona el siguiente comando para sistemas basados en Debian/Ubuntu:
+Para empezar a usar ngrok, primero debemos instalarlo en nuestro sistema. La página oficial proporciona el siguiente comando para sistemas basados en Debian/Ubuntu:
 
 ```bash
 
@@ -39,7 +39,7 @@ Tenemos que registrarnos en la página oficial de ngrok para obtener un token de
 ngrok config add-authtoken TU_TOKEN_AQUI
 ```
 
-Y finalmente para poder usar ngrok (empezar a servir la pagina), simplemente ejecutamos el siguiente comando:
+Y finalmente para poder usar ngrok (empezar a servir la página), simplemente ejecutamos el siguiente comando:
 
 ```bash
 ngrok http --url=URL 80

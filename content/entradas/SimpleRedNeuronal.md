@@ -10,7 +10,7 @@ Esta entrada habla sobre el algoritmo **NEAT** que no solo hace que la red apren
 
 ##  NeuroEvolution of Augmenting Topologies (NEAT)
 En una red NEAT se usa *dags* (directed acyclic graphs) para representar las redes neuronales, un dags en un grafo en el cual no hay ciclos, este tipos de redes no están totalmente conectadas, por lo que se usa ordenamiento topologico para determinar el orden en el que se llevarán a cabo las
-operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera que el descendiente siempre valla después de el precedente
+operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera que el descendiente siempre vaya después de el precedente
 
 ![Ordenamiento Topologico](/ejemplo_ordenamiento_topologico.png)
 ![Grafo Ordenado](/grafo-ordenado.png)
@@ -32,12 +32,12 @@ A cada agente/candidato hace la tarea que le hes asignada y se le asigna una eva
 Se selecciona a x% de agentes de la población que hallan tenido la mejor puntuacion y se agregan a la siguiente poblacion sin ningún cambio
 
 ### Mutación
-El siguiente porcentaje de la poblacion es escojido con una probabilidad segun su evaluacion, **ademas de sufrir alguna mutacion, ya sea una nueva conneccion, un nuevo nodo o una modficacion a los pesos**
+El siguiente porcentaje de la poblacion es escojido con una probabilidad segun su evaluacion, **además de sufrir alguna mutacion, ya sea una nueva conneccion, un nuevo nodo o una modficacion a los pesos**
 
 ## Evaluacion
 
 En este ejemplo se tomo como funcion de aptitud (fitness) cuanto tiempo en segundos podian mantener en equilibrio un pendulo sobre una linea y cada agente tiene 100 segundos para intentar tener la mayor puntuacion, los valores de salida es la 
-velocidad de el carro y los valores de entrada son la poscicion, la direccion en x, la direccion en y la velocidad angular
+velocidad de el carro y los valores de entrada son la poscicion, la dirección en x, la dirección en y la velocidad angular
 
 ### Cambios a la funcion de aptitud
 

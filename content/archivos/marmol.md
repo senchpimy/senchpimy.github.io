@@ -27,7 +27,7 @@ date: "30 Jun 2023"
 ![](/pro_img/marmol2.png)
 
 
- Tambien como obsidian se pueden mostrar los archivos que hay en un vault, buscar por algo en todos los archivos, y también soporta busqueda con **regex**, ademas de mostrar los documentos favoritos, se puede hacer un documento favorito con click derecho.
+ Tambien como obsidian se pueden mostrar los archivos que hay en un vault, buscar por algo en todos los archivos, y también soporta busqueda con **regex**, además de mostrar los documentos favoritos, se puede hacer un documento favorito con click derecho.
  
 
 ![](/pro_img/marmol3.png)
@@ -40,7 +40,7 @@ date: "30 Jun 2023"
 
   
 
- Algunas cosas que obsidian tiene y que megustaria agregar es la sincronizacion de archivos a un servidor remoto y varios detalles en como se ve, y el plugin de Excalidraw, ademas de que me gustaria reescribir el renderizador de Markdown y poder crear un deamon para que de notificaciones.
+ Algunas cosas que obsidian tiene y que megustaria agregar es la sincronizacion de archivos a un servidor remoto y varios detalles en como se ve, y el plugin de Excalidraw, además de que me gustaria reescribir el renderizador de Markdown y poder crear un deamon para que de notificaciones.
  
 
 

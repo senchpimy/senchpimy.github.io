@@ -7,7 +7,7 @@ Este es un pequeño resumen de como usar código de C existente en proyectos de 
 
 ## build.rs
 
-Este es un pequeño programa que se encargara de compilar el código de C para después añadirlo a el código de Rust.
+Este es un pequeño programa que se encargará de compilar el código de C para después añadirlo a el código de Rust.
 
 En este caso especificamos el código y la compilación
 
@@ -50,7 +50,7 @@ Y los tipos están llamados:
 - c_long
 - ...
 
-Algo que note fue que para pasar un *String* de rust a una funcion que necesite un *char se requiere de la siguiente funcion
+Algo que note fue que para pasar un *String* de rust a una funcion que necesité un *char se requiere de la siguiente funcion
 Donde si la funcion usa un **char \* ** en Rust se tiene que declarar como **\*const c_char** 
 ```rs
 #[no_mangle]

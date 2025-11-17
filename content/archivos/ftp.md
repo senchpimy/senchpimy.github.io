@@ -5,7 +5,7 @@ date: "05 Sep 2023"
 
 
  FTP es un protocolo para transmitir archivos, desde hace tiempo he intentado tener un servidor dentro de mi red local el cual funcione con unos discos que tengo, e intentado usar **OpenMediaVault**, pero tiene algunos bugs y no me gusto, también intente usar **Owncloud**, pero parece que no
- que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalacion debian desde apt no funciona pues la versión de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuracion del servidor, entonces mejor decidi usar
+ que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalación debian desde apt no funciona pues la versión de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuracion del servidor, entonces mejor decidí usar
  un simple servidor ftp
    
   
@@ -23,7 +23,7 @@ date: "05 Sep 2023"
  systemctl start vsftpd
 ``` 
  
- Y ya, el servidor estaria funcionando, y a diferencia de los otros dos programas que intentan ser más simples y faciles de administrar con sus interfaces graficas, este fue mucho más facil para mi.
+ Y ya, el servidor estaría funcionando, y a diferencia de los otros dos programas que intentan ser más simples y fáciles de administrar con sus interfaces gráficas, este fue mucho más fácil para mi.
    
   
 
@@ -34,11 +34,11 @@ date: "05 Sep 2023"
  ftp://192.168.XXX.XXX
 ``` 
  
- Y se conecto automáticamente, me pidio contraseña y usuario pero fue todo lo que necesite.
+ Y se conecto automáticamente, me pidió contraseña y usuario pero fue todo lo que necesité.
    
   
 
- Para poder usar mis discos los tuve que montar, lo cual es bastante sencillo pero cada vez que se apague y se vuelva a prender necesitaria volver a hacer lo mismo, entonce para evitar esto cambie el archivo de **fstab** con los siguientes comandos:
+ Para poder usar mis discos los tuve que montar, lo cual es bastante sencillo pero cada vez que se apague y se vuelva a prender necesitaría volver a hacer lo mismo, entonces para evitar esto cambie el archivo de **fstab** con los siguientes comandos:
  
 ```sh
  uuid=$(ls -al /dev/disk/by-uuid/ | grep **sdb1** | awk '{print $9}')
@@ -46,13 +46,13 @@ date: "05 Sep 2023"
  echo $str >> /etc/fstab
 ``` 
  
- Solo hay que cambiar en estos pequeños comandos el nombre del disco y la direccion en la cual se van a montar, y verificar que la configuracion fue correcta con el siguiente comando
+ Solo hay que cambiar en estos pequeños comandos el nombre del disco y la dirección en la cual se van a montar, y verificar que la configuracion fue correcta con el siguiente comando
  
 ``` sh
  findmnt --verify
 ``` 
  
- Y solo para confirmar que todo este funcionando correctamente estaria bien reiniciar la computadora y verificar que tanto el servidor ftp como el disco este funcionando correctamente
+ Y solo para confirmar que todo este funcionando correctamente estaría bien reiniciar la computadora y verificar que tanto el servidor ftp como el disco este funcionando correctamente
 
  [Mi intento de hacer un reporte de owncloud](/pro_img/owncloud.html)
 

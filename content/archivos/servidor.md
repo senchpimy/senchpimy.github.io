@@ -14,7 +14,7 @@ title: "Preparar un Servidor"
 ### Ejecutar servicios
 
 
- Cuando ejecutamos un programa este tiene la capacidad de modificar y hacer lo mismo que este en la capacidad segun los permisos de el usuario que lo ejecuto, por lo que si tenemos un programa ejecutado por root, este mismo podría hacer lo mismo que root, que es practicamente hacer todo, por esto es necesario que cualquier servicio que sea ejecutado y que valla a estar al servicio de cualquier persona en el internet **no** sea ejecutado por root, lo ideal seria que un usuario con menor privilegios sea el que ejecute estos servicios, algunos programas por defecto no se ejecutan si detectan que son ejecutados por root.
+ Cuando ejecutamos un programa este tiene la capacidad de modificar y hacer lo mismo que este en la capacidad segun los permisos de el usuario que lo ejecuto, por lo que si tenemos un programa ejecutado por root, este mismo podría hacer lo mismo que root, que es practicamente hacer todo, por esto es necesario que cualquier servicio que sea ejecutado y que vaya a estar al servicio de cualquier persona en el internet **no** sea ejecutado por root, lo ideal seria que un usuario con menor privilegios sea el que ejecute estos servicios, algunos programas por defecto no se ejecutan si detectan que son ejecutados por root.
 
   
 
@@ -27,7 +27,7 @@ title: "Preparar un Servidor"
  ssh root@<IP>
 ```
 
- El cual nos pedira la contraseña, y la ingresamos y con eso deberiamos tener acceso a el servidor como root, lo primero que se debe hacer es cambiar la contraseña, yo uso el programa **keepassxc** para administrar y generar contraseñas, yo no usaria una contraseña que pudiera recordar facilmente como **c0ntr4s3ñ4** ó **Cu4lqU13r.C0ntr4s3ñ45786**, pues cualquiera que sea facil para nosotros recordar también es facil de crackear [**ejemplo**](https://www.youtube.com/watch?v=BiStxSaLs7U)
+ El cual nos pedira la contraseña, y la ingresamos y con eso deberiamos tener acceso a el servidor como root, lo primero que se debe hacer es cambiar la contraseña, yo uso el programa **keepassxc** para administrar y generar contraseñas, yo no usaria una contraseña que pudiera recordar facilmente como **c0ntr4s3ñ4** ó **Cu4lqU13r.C0ntr4s3ñ45786**, pues cualquiera que sea fácil para nosotros recordar también es fácil de crackear [**ejemplo**](https://www.youtube.com/watch?v=BiStxSaLs7U)
   
 
 ### Conectarse al Servidor
@@ -40,7 +40,7 @@ title: "Preparar un Servidor"
  ssh-copy-id root@<IP>
 ```
 
- Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo **/etc/ssh/sshd\_config** y modificar la linea que dice **PasswordAuthentication** y **USEPam** a **no**, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. Tambien estaria bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto último puede ser considerado inutil.
+ Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo **/etc/ssh/sshd\_config** y modificar la linea que dice **PasswordAuthentication** y **USEPam** a **no**, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. Tambien estaría bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto último puede ser considerado inutil.
 
 
 ### Firewall

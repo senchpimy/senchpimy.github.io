@@ -4,7 +4,7 @@ date: "31 Jul 2022"
 ---
 
 
-Neovim es un programa de edicion de texto basado en vim, este se diferencia de vim en que Neovim tiene integracion con el lenguaje de programacion lua, lo que lo hace mas extensible en el momento de usar plugins
+Neovim es un programa de edicion de texto basado en vim, este se diferencia de vim en que Neovim tiene integracion con el lenguaje de programación lua, lo que lo hace mas extensible en el momento de usar plugins
  
 
  Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad de el programa y aquí explicare los que uso actualmente, que hacen y como los configure
@@ -236,7 +236,7 @@ endif
 ``` 
  
 
- Para mas metodos de instalacion y dudas sobre vim-plug hay que visitar su [github](https://github.com/junegunn/vim-plug)
+ Para mas metodos de instalación y dudas sobre vim-plug hay que visitar su [github](https://github.com/junegunn/vim-plug)
 
 ## Plugins
 
@@ -260,7 +260,7 @@ endif
  Plug '**link**'
 ```
 
- Donde link es el enlace ha donde se encuentra el plugin, en el caso de plugins que se encuentren en github.com solo es necesario colocar el usuario y el repositorio, tal como se indica en la pagina de vim-plug (Para pasar el argumento hay que usar comillas simples '', pues el lenguaje vimscript toma las comillas dobles "" como indicacion de un comentario)
+ Donde link es el enlace ha donde se encuentra el plugin, en el caso de plugins que se encuentren en github.com solo es necesario colocar el usuario y el repositorio, tal como se indica en la página de vim-plug (Para pasar el argumento hay que usar comillas simples '', pues el lenguaje vimscript toma las comillas dobles "" como indicacion de un comentario)
  
 
  
@@ -327,7 +327,7 @@ call plug#end()
 ```
  
 
- Este comando se encargara de hacer todo el trabajo, y a menos de que salga un error no hay que hacer nada mas 
+ Este comando se encargará de hacer todo el trabajo, y a menos de que salga un error no hay que hacer nada mas 
  
 
  Vim-plug es un programa de administracion de plugins si, pero este trpgrama es para vim, yo uso Neovim que incorpora algunos cambios y para poder usar mejor y aprovechar estas diferencias que tiene Neovim me entero que existe otro plugin llamado **Packer**, eso no significa que vim-plug no sirva con Neovim, justo ahora estoy escribiendo este documento con neovim+vim-plug pero packer es mejor para mis necesidades y apenas lo descubri, después cambiare vim-plug por packer

@@ -45,7 +45,7 @@ nmap &ltspace&gtq &ltcmd&gtq &ltbar>&ltcmd&gtq
 
 
 
-[Markdown-previous.nvim](https://github.com/iamcco/markdown-preview.nvim) es un plugin que como su nombre lo dice da una preview de un archivo Markdown (.md, .MD), para que este plugin funcione se debe tener instalado **yarn** y **node**, este plugin funciona con muchos tipos de archivos que crean archivos de texto, ademas que cualquier cambio se ve reflejado en tiempo real en la previsualizacion en el navegador que especifiques, en mi caso **qutebrowser** y para hacerlo solo use la linea de a continuacion
+[Markdown-previous.nvim](https://github.com/iamcco/markdown-preview.nvim) es un plugin que como su nombre lo dice da una preview de un archivo Markdown (.md, .MD), para que este plugin funcione se debe tener instalado **yarn** y **node**, este plugin funciona con muchos tipos de archivos que crean archivos de texto, además que cualquier cambio se ve reflejado en tiempo real en la previsualizacion en el navegador que especifiques, en mi caso **qutebrowser** y para hacerlo solo use la linea de a continuacion
  
 
 ```vim
@@ -84,7 +84,7 @@ nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR>
 
 
 
-[Coc.nvim](https://github.com/neoclide/coc.nvim) Es un plugin que funciona para atuocompletar código en diferentes lenguajes de programacion, se requiere mucha configuracion pero, existe una configuracion por defecto que esta disponible en la pagina de github del el programa, esa misma configuracion es la que uso y la que me funciona bien
+[Coc.nvim](https://github.com/neoclide/coc.nvim) Es un plugin que funciona para atuocompletar código en diferentes lenguajes de programación, se requiere mucha configuracion pero, existe una configuracion por defecto que esta disponible en la página de github del el programa, esa misma configuracion es la que uso y la que me funciona bien
  
 
 ```vim
@@ -292,7 +292,7 @@ END
 
 
 
-[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar mas información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rapida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
+[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar mas información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rápida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
  
 
 ```vim
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, ademas que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, además que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuracion similar a **gitsigns y lualine**
 
 
@@ -377,7 +377,7 @@ require'hop'.setup()
 
 
 
-[Emmet-vim](https://github.com/mattn/emmet-vim) es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin también tiene un autocompletado de html basado en la selección y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
+[Emmet-vim](https://github.com/mattn/emmet-vim) es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin también tiene un autocompletado de html basado en la selección y tags, este plugin es muy útil y me ahorra mucho tiempo aunque no haga páginas web.
 Mi configuracion para tener un snippet de la descripción de estos plugins es lo siguiente 
 
 
@@ -417,7 +417,7 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho mas sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separacion de después de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separacion de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargara de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separacion de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho mas sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separación de filas, etc.
 
 ## vim-matchup
 
@@ -463,7 +463,7 @@ let g:targets\_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 
 
 
-[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es mas legible que la linea por defecto, ademas de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que esoty acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
+[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es mas legible que la linea por defecto, además de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
 
 
 ```vim
@@ -497,9 +497,9 @@ EOF
 
 
 
-[Hydra.nvim](https://github.com/anuvyklack/hydra.nvim) es un plugin muy util y me gusto mucho su explicacion en la pagina de github
+[Hydra.nvim](https://github.com/anuvyklack/hydra.nvim) es un plugin muy útil y me gusto mucho su explicacion en la página de github
 
-> Una vez que invocas a la hydra a traves de la tecla prefijada (el cuerpo + cualquier cabeza), todas las cabezas pueden ser llamadas en sucession solo con una pequeña extension.
+> Una vez que invocas a la hydra a traves de la tecla prefijada (el cuerpo + cualquier cabeza), todas las cabezas pueden ser llamadas en sucession solo con una pequeña extensión.
 > La hydra es vencida una vez que hercules o cualquier otra tecla que no sea una cabeza de la Hydra intervenga
 
 
@@ -582,7 +582,7 @@ require('illuminate').configure()
 
 
 
-[Jaq,nvim](https://github.com//is0n/jaq-nvim) Como su nombre lo indica es un plugin para poder ejecutar código dentro de vim/neovim, este plugin necesita una configuracion pues necesita saber que comando de shell ejecutar con cierto tipo de archivos, la configuracion que esta en su pagina de github funciona muy bien, y para ejecutarlo solo necesitamos ejecutar como comando de vim **Jaq** y esto lo empezara a ejecutar
+[Jaq,nvim](https://github.com//is0n/jaq-nvim) Como su nombre lo indica es un plugin para poder ejecutar código dentro de vim/neovim, este plugin necesita una configuracion pues necesita saber que comando de shell ejecutar con cierto tipo de archivos, la configuracion que esta en su página de github funciona muy bien, y para ejecutarlo solo necesitamos ejecutar como comando de vim **Jaq** y esto lo empezara a ejecutar
 quoso
 
 
@@ -686,7 +686,7 @@ Este plugin no requiere configuracion
 
 
 
-[Nvim-tressitter](https://github.com/nvim-treesitter/nvim-treesitter) es una plugin que colorea la syntaxis en diferentes lenguajes de programacion.
+[Nvim-tressitter](https://github.com/nvim-treesitter/nvim-treesitter) es una plugin que colorea la syntaxis en diferentes lenguajes de programación.
 
 
 ```lua
@@ -802,7 +802,7 @@ require('lspconfig')['tsserver'].setup{
 ```
 
 
- EL plugin que se encarga de configurarlo con lsp se llama [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) el cual tiene intrucciones sobre su configuracion en su pagina, para agregar cualquier otro plugin como puede ser [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) para agregar al autocompletado todas las palabras que se encuentren en el mismo buffer la configuracion seria la siguiente:
+ EL plugin que se encarga de configurarlo con lsp se llama [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) el cual tiene intrucciones sobre su configuracion en su página, para agregar cualquier otro plugin como puede ser [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) para agregar al autocompletado todas las palabras que se encuentren en el mismo buffer la configuracion seria la siguiente:
 
 
 ```lua

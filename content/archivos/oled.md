@@ -2,7 +2,7 @@
 title: "Raspberry Pi Oled"
 date: "31 Jul 2022"
 ---
- Inspirado en este video decidi comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribi el siguiente script de bash que atomatiza la instalacion de las librerias y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando
+ Inspirado en este video decidí comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribi el siguiente script de bash que atomatiza la instalación de las librerias y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando
 
 
 ```sh

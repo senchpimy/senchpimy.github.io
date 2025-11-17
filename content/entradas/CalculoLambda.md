@@ -15,7 +15,7 @@ syntaxis y regresa una conclusion
 
 ## Calculo Lambda 
 
-El calculo Lambda es un sistema formal en la logica matematica, inventado por Alonzo Church, lo creo para represntar la notacion una funcion desde 
+El calculo Lambda es un sistema formal en la logica matematica, inventado por Alonzo Church, lo creo para represntar la notación una funcion desde 
 una prespectiva de la computacion, Alonzo fue el supervisor de phD de Alan Turing, el cual cuando desarrollo las maquinas de Turing, estas
 plantean un modelo de computacion basado en estados, mientras que Alonzo con el calculo lambda planteo un modelo de computacion basado en
 funcion, ambos son equivalentes y a esta equivalencia se le llama la hipotesis Church-Turing.
@@ -29,7 +29,7 @@ Las funciones en calculo lambda se definen de la siguiente manera
 
 $$\lambda$$
 
-Expresa que el siguiente elemento sera un argumento de la funcion, es decir en la siguiente notacion x es u n argumento
+Expresa que el siguiente elemento sera un argumento de la funcion, es decir en la siguiente notación x es u n argumento
 
 $$\lambda x$$
 

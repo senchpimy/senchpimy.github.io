@@ -52,7 +52,7 @@ date: "09 Nov 2022"
  
 ![](/pro_img/dwmstatus.png)
 
- Con esto podemos hacer graficas tomando valores del 1-100 y mapearlos del 0-32 que es el maximo que tengo configurado como el tamaño, podremos mostrar el uso de cada core de el cpu y el uso total de la memoria ram, ademas de la fecha y yo agregue que cancion esta reproduciendo mpd, finalmente me quedo asi:
+ Con esto podemos hacer gráficas tomando valores del 1-100 y mapearlos del 0-32 que es el maximo que tengo configurado como el tamaño, podremos mostrar el uso de cada core de el cpu y el uso total de la memoria ram, además de la fecha y yo agregue que cancion esta reproduciendo mpd, finalmente me quedo asi:
  
 ![](/pro_img/dwmstatus2.png)
 

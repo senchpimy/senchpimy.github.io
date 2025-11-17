@@ -18,7 +18,7 @@ date: "28 Oct 2023"
  Donde se conecta cada uno con su color correspondiente en el otro, en la parte de herramientas ahora cambiamos la parte que dice **Placa** a la que dice **Sanguino**, el **Programador** a **Arduino como ISP** y el **Proceasdor** a **ATmega 1284P (16 MHz)** en la misma parte de herramientas hasta anajo daremos click en **Quemar bootloader** y si todo salio bien nos saldrá que el bootloader a sido grabado sin errores.
  
 
- Luego debemos desconectar el Arduino de la computadora y conectar la placa directamente para poder cargar el Marlin, pero primero debemos de descargar unas librerias que nos faltan para poder compilar el Marlin, con una instalacion fresca de Octubre del 2022, las unicas librerias que faltaron fueron **U8glib** Y **U8glib-HAL** los cuales para instalarlos solo debemos hacer click en **Archivos&gtAdministar Librerias** y solo debemos buscar estos nombres por separado en el buscador de la ventana que sale e instalar estas librerias.
+ Luego debemos desconectar el Arduino de la computadora y conectar la placa directamente para poder cargar el Marlin, pero primero debemos de descargar unas librerias que nos faltan para poder compilar el Marlin, con una instalación fresca de Octubre del 2022, las unicas librerias que faltaron fueron **U8glib** Y **U8glib-HAL** los cuales para instalarlos solo debemos hacer click en **Archivos&gtAdministar Librerias** y solo debemos buscar estos nombres por separado en el buscador de la ventana que sale e instalar estas librerias.
  
 
  Cuando estas ya se hayan descargado ya podremos cargar nuestra configuracion de Marlin a nuestra placa.

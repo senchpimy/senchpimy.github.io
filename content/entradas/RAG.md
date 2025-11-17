@@ -14,7 +14,7 @@ Este metodo se puede dividir en tres partes:
 ### Index
 En esta parte la información que le hes dada al modelo es dividida en n partes, cada parte después es procesada y le hes asignado un vector,
 el proceso de crear el vector puede variar dependiendo la implementación, es guardado en una forma de vector para que pueda ser buscado 
-de forma facil después.
+de forma fácil después.
 este vector es guardado en una base de vectores
 
 ### Retrieval

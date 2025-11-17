@@ -7,7 +7,7 @@ date: "26 Oct 2022"
 
 
 
- Estas son las paginas del el libro de ficcion "La Filosofia de el el Viaje En El Tiempo" por Roberta Sparrow.
+ Estas son las páginas del el libro de ficcion "La Filosofia de el el Viaje En El Tiempo" por Roberta Sparrow.
 
 ## Prefacio
 
@@ -30,7 +30,7 @@ date: "26 Oct 2022"
 
  Si no lo es, entonces, rezo por ti el lector de este libro
 
- Si sigo viva cuando los eventos predichos en estas paginas ocurran, entonces espero que tu me puedoas encontrar antes de que sea muy tarde
+ Si sigo viva cuando los eventos predichos en estas páginas ocurran, entonces espero que tu me puedoas encontrar antes de que sea muy tarde
 
  Roberta Ann Sparrow
  Octubre, 1944

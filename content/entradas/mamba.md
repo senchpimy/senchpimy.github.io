@@ -22,7 +22,7 @@ Una red recurrente le aplica una red neuronal a un vector y a la salida previa a
 
 La desventaja de este acercamiento es que este proceso no se puede paralelizar pues cada salida depende de la anterior.
 
-Por que en la practica un transformer es mas rápido que una red recurrente, ademas que en una red convolucional aunque en teoria se puede tener información sobre cualquier vector anterior, en la practica son solo unos pocos los que son "recordados"
+Por que en la practica un transformer es mas rápido que una red recurrente, además que en una red convolucional aunque en teoria se puede tener información sobre cualquier vector anterior, en la practica son solo unos pocos los que son "recordados"
 
 ## Red Neuronal Recurrente Lineal
 

@@ -3,7 +3,7 @@ title: "Minimonitor"
 date: "18 Jan 2023"
 ---
 
- Compré el siguiente monitor para poder usarlo con mi raspberry pi el monitor que compre fue el siguiente
+ Compré el siguiente monitor para poder usarlo con mi raspberry pi el monitor que compré fue el siguiente
    
 
   
@@ -11,8 +11,8 @@ date: "18 Jan 2023"
 
 ![](/pro_img/pantallaRaspberry.jpg)
 
- Y como se puede observar, es muy simple el modelo y por eso lo elegí, pense en hacerle un carcasa pues est modelo no cuenta con una ni con el espacio como para ponerle tornillos asi que le diseñe una en 3D y la imprimi.
- Lo primero que diseñe fue la parte delantera, en esta parte los botonoes y la pantalla estaran, para esto los diseñe uno al lado del otro de cierta forma que incluso aunque los botones esten tapados estos se puedan presionar.
+ Y como se puede observar, es muy simple el modelo y por eso lo elegí, pense en hacerle un carcasa pues est modelo no cuenta con una ni con el espacio como para ponerle tornillos asi que le diseñé una en 3D y la imprimi.
+ Lo primero que diseñé fue la parte delantera, en esta parte los botonoes y la pantalla estaran, para esto los diseñé uno al lado del otro de cierta forma que incluso aunque los botones esten tapados estos se puedan presionar.
  
 ![](/pro_img/pantallafrente1.png)
 ![](/pro_img/pantallafrente2.png)
@@ -22,7 +22,7 @@ date: "18 Jan 2023"
 ![](/pro_img/pantallaenmedio1.png)
 ![](/pro_img/pantallaenmedio2.png)
 
- Finalmente la tapa que va encima de estos otros componentes, esta tiene una forma especifica en la cual la segunda placa debe pasar a traves, esto para que todo al final se vea de el color de la ultima tapa, ademas de que debia de tener espacio para la salida de todos los conectores de la placa grande y ademas una entrada que trate de hacer "estandar" para que este monitor luego pueda ser montado en cualquier parte con la montura correcta, esta parte consiste en 4 hoyos de 1/8 de pulgada formando un cuadrado de 5cm por lado, asi si quisiera hacer un soporte solo necesito diseñar el soporte y luego esta entrada para finalmente tener un soprte funcional, que fue luego lo que hice
+ Finalmente la tapa que va encima de estos otros componentes, esta tiene una forma especifica en la cual la segunda placa debe pasar a traves, esto para que todo al final se vea de el color de la ultima tapa, además de que debia de tener espacio para la salida de todos los conectores de la placa grande y además una entrada que trate de hacer "estandar" para que este monitor luego pueda ser montado en cualquier parte con la montura correcta, esta parte consiste en 4 hoyos de 1/8 de pulgada formando un cuadrado de 5cm por lado, asi si quisiera hacer un soporte solo necesito diseñar el soporte y luego esta entrada para finalmente tener un soprte funcional, que fue luego lo que hice
  
 ![](/pro_img/pantallafinal1.png)
 ![](/pro_img/pantallafinal2.png)

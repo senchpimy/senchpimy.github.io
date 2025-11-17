@@ -21,7 +21,7 @@ Entonces con esa ecuacion podemos calcular d.
 
 Entonces si n es publico y para calcular d se requiere euler(n) entonces se podría calcular con fuerza bruta.
 
-Otra forma seria factorizar n, si sabemos que p y q son primos entonces debemos de encontrar todos lor primos menores a n, que cuando n es pequeño es una tarea trivial. O si los valores P y Q son primos que son numeros que están cercanos es facil encontrar la factorizacion,
+Otra forma seria factorizar n, si sabemos que p y q son primos entonces debemos de encontrar todos lor primos menores a n, que cuando n es pequeño es una tarea trivial. O si los valores P y Q son primos que son numeros que están cercanos es fácil encontrar la factorizacion,
 con el algoritmo de fermat se puede realizar.
 
 El algoritmo de fermat consiste en que N = a^2 - b^2 = (a+b)*(a-b), en donde (a+b) = p y (a-b) = q
@@ -30,7 +30,7 @@ Se puede obtener la siguiente equcacion:
 
 b^2=a^2 - N
 
-Esta ecuacion es más facil de hacer por fuerza bruta pues al intentar obtener un valor de a se tiene que hacer de tal forma que el resultado de a^2-N sea un numero que tenga una raiz cuadrada. Ejemplo de implementación:
+Esta ecuacion es más fácil de hacer por fuerza bruta pues al intentar obtener un valor de a se tiene que hacer de tal forma que el resultado de a^2-N sea un numero que tenga una raiz cuadrada. Ejemplo de implementación:
 
 ```py
 n = 3747883... #Valor publico

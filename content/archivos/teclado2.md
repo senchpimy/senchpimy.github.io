@@ -3,10 +3,10 @@ title: "Teclado V2"
 date: "28 Jul 2023"
 ---
 El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
-bonotes y no se pueden mover tan facil, etc.
+bonotes y no se pueden mover tan fácil, etc.
 
-Entonces mejor decidi hacer una nueva versión de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
-de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
+Entonces mejor decidí hacer una nueva versión de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresión 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
+de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy fácil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
 que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opción de generar los modelos con un espacio para una pantalla oled de 128x32 con 
 varios metodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opción de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
 puede usar.
@@ -601,7 +601,7 @@ if __name__ == '__main__':
  
  OLED_ENABLE = yes
  
- Finalmente el código que utilice fue una versión modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veía y como funcionaban las pantallas, ademas que este es **tematico**
+ Finalmente el código que utilice fue una versión modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veía y como funcionaban las pantallas, además que este es **tematico**
  de **Serial Experiments Lain** por lo que todavia me gusto más.
  
 ![](/pro_img/teclado2_7.gif)

@@ -1,24 +1,24 @@
 ---
-title: "LLamado de funciones con Ollama"
+title: "Llamado de funciones con Ollama"
 date: "19 Jul 2024"
 ---
 
 ## Salida Estructurada en Llama.cpp
 
-En un modelo de lenguaje es aveces util poder estructurar la salida, es decir dado un prompt poder limitar la salida de tal forma que cumpla ciertas normas o formatos tal como json.
+En un modelo de lenguaje es a veces útil poder estructurar la salida, es decir dado un prompt poder limitar la salida de tal forma que cumpla ciertas normas o formatos tal como json.
 
-En llama.cpp existe la opción de crear una **gramatica formal** mediante el formato de **GBNF**.
+En llama.cpp existe la opción de crear una **gramática formal** mediante el formato de **GBNF**.
 
-### Gramatica Formal
+### Gramática Formal
 
-Describe que cadenas de un **alfabeto** de un **Lenguaje formal** son validas segun la sintaxis de el lenguaje.
+Describe que cadenas de un **alfabeto** de un **Lenguaje formal** son válidas segun la sintaxis de el lenguaje.
 
-Un lenguaje formal consiste de palabras cuyas letras son tomadas de un alfabeto y estas siguen una serie de reglas definidas por su gramatica.
+Un lenguaje formal consiste de palabras cuyas letras son tomadas de un alfabeto y estas siguen una serie de reglas definidas por su gramática.
 
 ### Backus-Naur form
 
-Esta notacion es usada para definir la sintaxis de cualquier lenguaje formal tal como un lenguaje de programacion. Esta notacion se forma de simbolos, simbolos terminales y reglas
-para reemplazar simbolos no-terminales con una sequencia de simbolos. la notacion es la siguiente:
+Esta notación es usada para definir la sintaxis de cualquier lenguaje formal tal como un lenguaje de programación. Esta notación se forma de simbolos, simbolos terminales y reglas
+para reemplazar simbolos no-terminales con una sequencia de simbolos. la notación es la siguiente:
 
 ```
  <symbol> ::= __expression__
@@ -50,7 +50,7 @@ Este ejemplo limita el lenguaje a una serie de diagnosticos de los cuales solo s
  
 `cjk`         `::=` `[一-鿿]`
 ```
-Esta notacion limita el lenguaje a solamente a los alfabetos japoneses.
+Esta notación limita el lenguaje a solamente a los alfabetos japoneses.
 
 (Ejemplos de llama.cpp)[https://github.com/ggerganov/llama.cpp/blob/master/grammars/README.md]
 
@@ -146,11 +146,11 @@ la tarea con exito sus resultados eran erroneos pues obtenia esta salida
 
 >name='Claudia' height=5.0 hair_color='brunette'
 
-Aunque el modelo podia crear un json correcto no podia racionalizar que Claudia mide 6 pies. Aunque el modelo *codellama* no pudo serializar los obejtos pienso que su salida fue la más concisa y util de todas pues en sus intentos este siempre respondia con:
+Aunque el modelo podia crear un json correcto no podia racionalizar que Claudia mide 6 pies. Aunque el modelo *codellama* no pudo serializar los obejtos pienso que su salida fue la más concisa y útil de todas pues en sus intentos este siempre respondia con:
 
 >{"answer": "Claudia"}
 
-Y finalmente la salida de *llama3* puede que sea la más util si es que se configurara el prompt:
+Y finalmente la salida de *llama3* puede que sea la más útil si es que se configurara el prompt:
 
 ```json
 {

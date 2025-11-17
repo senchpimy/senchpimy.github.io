@@ -24,7 +24,7 @@ func add(x int, y int) int{
 }
 ```
 
-Tambien hay que agregar el paquete y una funcion main vacia, ademas de  indicar que la funcion es publica convirtiendo la primera letra a mayuscula
+Tambien hay que agregar el paquete y una funcion main vacia, además de  indicar que la funcion es publica convirtiendo la primera letra a mayuscula
 
 
 ```go

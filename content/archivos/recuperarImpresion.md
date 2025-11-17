@@ -3,7 +3,7 @@ title: "recuperarImpresion"
 date: "02 Aug 2023"
 ---
 
- Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no quería volver a imprimir todo otra vez, asi que tuve que buscar como poder recuperar una impresion.
+ Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no quería volver a imprimir todo otra vez, asi que tuve que buscar como poder recuperar una impresión.
  Este metodo funciona editando el Gcode de la pieza, puede haber otros metodos como imprimir por separado la pieza faltante
    
 

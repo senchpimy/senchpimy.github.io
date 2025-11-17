@@ -4,7 +4,7 @@ date: "2024-05-04"
 ---
 
 # Zig 
-Zig es un "nuevo" lenguaje de programacion que se enfoca en ser lo más compatible con C como sea posible, pero teniendo una sintaxis y ecosistema
+Zig es un "nuevo" lenguaje de programación que se enfoca en ser lo más compatible con C como sea posible, pero teniendo una sintaxis y ecosistema
 moderno, para probarlo cree este programa que crea una ventana usando la librería "Xlib" que esta totalmente escrita en C.
 
 Este es el código en C:

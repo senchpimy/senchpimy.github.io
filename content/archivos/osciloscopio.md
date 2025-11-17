@@ -20,7 +20,7 @@ date: "15 Sep 2023"
 
 ![](oscilo_diagrama_fixed.png)
 
- Y finalmente el código fue el mismo que el que se presenta en la pagina, pero por problemas del encoding no se puede que los comentarios no se vean de fomra correcta
+ Y finalmente el código fue el mismo que el que se presenta en la página, pero por problemas del encoding no se puede que los comentarios no se vean de fomra correcta
 
 ```ino 
  /\*
