@@ -8,7 +8,7 @@ date: "09 Nov 2022"
 
   
 
- Por defecto y sin ningún cambio Dwm tiene en la esquina superior derecha un texto en el cual se lee **dwm-xx** donde xx es la versión de dwm, para poder cambiar este texto con el comando **xsetroot -name "XXX"** donde XXX es el texto que va a salir en esta esquina, y con esto podemos hacer que salida de un comando sea el texto de que aparecerá en esa parte por ejemplo **xsetroot -name "$(date)"** pondra en esa esquina la salida de el comando date que es la fecha, con esto en cuenta el programa [dwmblocks](https://github.com/torrinfail/dwmblocks) nos da una implementación de poder colocar la salida de cualquier comando en esta parte de la pantalla, si compilamos el programa con **sudo make clean install** y lo ejecutamos como **dwmblocks** podremos ver que en la esquina tendremos la fecha y cuanta memoria esta disponible y cuánta a ha sido utilizada y que estos valores cambian cada cierto tiempo, estos son los ejemplos que vienen en el archivo blocks.def.h, 
+ Por defecto y sin ningún cambio Dwm tiene en la esquina superior derecha un texto en el cual se lee **dwm-xx** donde xx es la versión de dwm, para poder cambiar este texto con el comando **xsetroot -name "XXX"** donde XXX es el texto que va a salir en esta esquina, y con esto podemos hacer que salida de un comando sea el texto de que aparecerá en esa parte por ejemplo **xsetroot -name "$(date)"** pondra en esa esquina la salida del comando date que es la fecha, con esto en cuenta el programa [dwmblocks](https://github.com/torrinfail/dwmblocks) nos da una implementación de poder colocar la salida de cualquier comando en esta parte de la pantalla, si compilamos el programa con **sudo make clean install** y lo ejecutamos como **dwmblocks** podremos ver que en la esquina tendremos la fecha y cuanta memoria esta disponible y cuánta a ha sido utilizada y que estos valores cambian cada cierto tiempo, estos son los ejemplos que vienen en el archivo blocks.def.h, 
 
 ```c
  static const Block blocks[] = {
@@ -42,7 +42,7 @@ date: "09 Nov 2022"
  
 **^b#XXXXXX^**
  
- Y el siguiente código pondra el fondo de el color **XXXXXX**.
+ Y el siguiente código pondra el fondo del color **XXXXXX**.
  por lo que el siguiente código
 ```sh
  xsetroot -name "^c#55cdfc^^r3,3,14,14^^f20^"
@@ -52,7 +52,7 @@ date: "09 Nov 2022"
  
 ![](/pro_img/dwmstatus.png)
 
- Con esto podemos hacer gráficas tomando valores del 1-100 y mapearlos del 0-32 que es el máximo que tengo configurado como el tamaño, podremos mostrar el uso de cada core de el cpu y el uso total de la memoria ram, además de la fecha y yo agregue que cancion esta reproduciendo mpd, finalmente me quedó asi:
+ Con esto podemos hacer gráficas tomando valores del 1-100 y mapearlos del 0-32 que es el máximo que tengo configurado como el tamaño, podremos mostrar el uso de cada core del cpu y el uso total de la memoria ram, además de la fecha y yo agregue que cancion esta reproduciendo mpd, finalmente me quedó asi:
  
 ![](/pro_img/dwmstatus2.png)
 

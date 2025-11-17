@@ -11,7 +11,7 @@ Primero hay que descargar o compilar el toolchain para compilar rust en riscv, y
 
 ## Compilacion
 
-Primero hay que descargar la toolchain [desde aquí](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe de el repositorio 
+Primero hay que descargar la toolchain [desde aquí](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe del repositorio 
 en donde después de 20 min de compilación obtuve una carpeta llamada *build* en donde se encuentran los compiladores y el linker de esta arquitectura
 
 ## Compilar en Rust
@@ -38,7 +38,7 @@ async fn main() -> anyhow::Result<()> {
     Ok(())
 }
 ```
-Y especificamos la arquitectura target en el archivo de configuración de cargo de el proyecto. Este archivo debe de estar en *.cargo/config.toml* ya sea en la carpeta de el proyecto o en el home de el usuario
+Y especificamos la arquitectura target en el archivo de configuración de cargo del proyecto. Este archivo debe de estar en *.cargo/config.toml* ya sea en la carpeta del proyecto o en el home del usuario
 y añadimos la siguientes especificaciones al archivo
 
 ```toml

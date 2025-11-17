@@ -34,7 +34,7 @@ nmap &ltspace&gtr &ltcmd&gtRnvimrToggle&ltCR>
 ```
  
 
- Esa única linea de configuración hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver más opciones de su uso, se sale de la aplicación con "q", si se ejecuta en la aplicación de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuración era la siguiente
+ Esa única linea de configuración hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver más opciones de su uso, se sale de la aplicación con "q", si se ejecuta en la aplicación de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana del programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuración era la siguiente
  
 
 ```vim
@@ -267,7 +267,7 @@ END
 
 
 
-[Vim-sorround](https://github.com/tpope/vim-surround) es un plugin que por medio de comando cambia, elimina o añade elementos a una palabra, palabras o linea especificada, este no requiere de configuración 
+[Vim-sorround](https://github.com/tpope/vim-surround) es un plugin que por medio de comando cambia, elimina o añadelementos a una palabra, palabras o linea especificada, este no requiere de configuración 
  
 ## suda.vim
 
@@ -312,7 +312,7 @@ END
 
 
 
-[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia versión y meti los cambio en el código fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuración se hace al igual que **gitsigns** y **lualine**
+[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia versión y meti los cambio en el código fuente del plugin, ahora que ya lo se editar desdel init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuración se hace al igual que **gitsigns** y **lualine**
 
 
 ```lua
@@ -334,7 +334,7 @@ END
 
 
 
-[Vim-hexokinase](https://github.com/RRethy/vim-hexokinase) vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que esta escribiendo, en mi caso esta configurado para colorear las letras de el color que representan, la única configuración que tengo es para poder lograr este efecto
+[Vim-hexokinase](https://github.com/RRethy/vim-hexokinase) vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que esta escribiendo, en mi caso esta configurado para colorear las letras del color que representan, la única configuración que tengo es para poder lograr este efecto
  
 
 ```vim
@@ -417,7 +417,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segúnda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segúnda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro del espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
 
 ## vim-matchup
 
@@ -479,7 +479,7 @@ noremap &ltsilent>&ltTAB> :BufferLineCycleNext&ltCR>
 noremap &ltsilent>&ltS-TAB> :BufferLineCyclePrev&ltCR>
 ```
 
-Algo que no me gusto de este plugin es que si quieres cerrar un buffer en vim/neovim vanilla bastaba con **:q** en la ventana de el buffer, para poder hacerlo con este plugin se necesita de el comando **:BufferlineXXXClose** donde XXXX es una de las funciones que trae para cerrar el buffer
+Algo que no me gusto de este plugin es que si quieres cerrar un buffer en vim/neovim vanilla bastaba con **:q** en la ventana del buffer, para poder hacerlo con este plugin se necesita del comando **:BufferlineXXXClose** donde XXXX es una de las funciones que trae para cerrar el buffer
 ## Which-key.nvim
 
 
@@ -560,7 +560,7 @@ nmap &ltleader&gt- &ltCmd&gtlua require("harpoon.mark").rm\_file()&ltCR> &ltbar>
 
 
 
-[Dracula](https://github.com/dracula/vim) es un tema de vim, es decir cambia los colores de el fondo, el resaltado de letras, etc. con este plugin remplaze a pywal, pues pywal al hacer una paleta de colores le misma imagen muchas veces los colores eran muy parecidos y asia que al editar texto por mucho tiempo perdiera de vista las declaraciones de variables, funciones, etc. Dracula es un tema que tiene mucho contraste entre colores y por eso me permite usar vim por más tiempo sin que pierda el hilo
+[Dracula](https://github.com/dracula/vim) es un tema de vim, es decir cambia los colores del fondo, el resaltado de letras, etc. con este plugin remplaze a pywal, pues pywal al hacer una paleta de colores le misma imagen muchas veces los colores eran muy parecidos y asia que al editar texto por mucho tiempo perdiera de vista las declaraciones de variables, funciones, etc. Dracula es un tema que tiene mucho contraste entre colores y por eso me permite usar vim por más tiempo sin que pierda el hilo
 
 
 ```vim
@@ -679,7 +679,7 @@ quoso
 
 
 
-[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks) es un plugin que hace el manejo de las bookmarks de vim más sencillo y más visual, vim tiene esta función en donde en un documento se pueden marcar bookmarks, es decir una especie de marcador en una linea la cual con otro comando, no importa en que parte de el archivo estemos si presionamos ese comando nos mandara a la bookmark que marcamos, este plugin nos permite anotar notas en una bookmark, gurdar y cargar las bookmarks que hayamos creado mover una bookmark a otra linea, etc.
+[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks) es un plugin que hace el manejo de las bookmarks de vim más sencillo y más visual, vim tiene esta función en donde en un documento se pueden marcar bookmarks, es decir una especie de marcador en una linea la cual con otro comando, no importa en que parte del archivo estemos si presionamos ese comando nos mandara a la bookmark que marcamos, este plugin nos permite anotar notas en una bookmark, gurdar y cargar las bookmarks que hayamos creado mover una bookmark a otra linea, etc.
 Este plugin no requiere configuración
 
 ## Nvim-tressitter
@@ -768,7 +768,7 @@ require'nvim-treesitter.configs'.setup {
  .....
  .....
  end
------------------------------Y agrrgarlo a la configuración de el LSP-------------------
+-----------------------------Y agrrgarlo a la configuración del LSP-------------------
 require('lspconfig')['tsserver'].setup{
  on_attach = on_attach,
  flags = lsp_flags,

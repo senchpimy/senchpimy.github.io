@@ -31,5 +31,5 @@ end
     
 end
 ```
-Este programa funciona con tres apuntadores, uno que iterara por todo el array, uno para indicar el principio de el array, el cual avanzara cada que se el primero encuentre un cero, pues intercambiaran lugares y significara que desde 0 hasta su posición -1 
-todos los valores son 0, y el último, el cual cumple la misma función que el segúndo pero de manera inversa, para el final de el array. 
+Este programa funciona con tres apuntadores, uno que iterara por todo el array, uno para indicar el principio del array, el cual avanzara cada que se el primero encuentre un cero, pues intercambiaran lugares y significara que desde 0 hasta su posición -1 
+todos los valores son 0, y el último, el cual cumple la misma función que el segúndo pero de manera inversa, para el final del array. 

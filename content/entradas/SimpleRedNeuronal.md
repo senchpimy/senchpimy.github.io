@@ -10,15 +10,15 @@ Esta entrada habla sobre el algoritmo **NEAT** que no solo hace que la red apren
 
 ##  NeuroEvolution of Augmenting Topologies (NEAT)
 En una red NEAT se usa *dags* (directed acyclic graphs) para representar las redes neuronales, un dags en un grafo en el cual no hay ciclos, este tipos de redes no están totalmente conectadas, por lo que se usa ordenamiento topologico para determinar el orden en el que se llevarán a cabo las
-operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera que el descendiente siempre vaya después de el precedente
+operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera que el descendiente siempre vaya después del precedente
 
 ![Ordenamiento Topologico](/ejemplo_ordenamiento_topologico.png)
 ![Grafo Ordenado](/grafo-ordenado.png)
 
-La justificacion para este acercamiento surge de el analisis de como la estructura de una red neuronal afecta el comportamiento de esta y aunque una red neuronal totalmente conectada puede aproximar cualquier función, la topologia afecta en la rapidez y prescicion de esta
+La justificacion para este acercamiento surge del analisis de como la estructura de una red neuronal afecta el comportamiento de esta y aunque una red neuronal totalmente conectada puede aproximar cualquier función, la topologia afecta en la rapidez y prescicion de esta
 
 Luego las operaciones son las normales, siguiendo el orden definido a cada nodo de entrada se le asigna un valor según el valor de entrada, se le suma un sesgo y luego se le es aplicado una función de activacion, luego a cada valor de cada nodo es multiplicado por el peso de su 
-connecion con el siguiente nodo correspondiente y este valor es sumado a el valor de entrada de el siguiente nodo
+connecion con el siguiente nodo correspondiente y este valor es sumado a el valor de entrada del siguiente nodo
 
 ## Entrenamiento
 
@@ -37,12 +37,12 @@ El siguiente porcentaje de la poblacion es escojido con una probabilidad según 
 ## Evaluacion
 
 En este ejemplo se tomo como función de aptitud (fitness) cuanto tiempo en segúndos podian mantener en equilibrio un pendulo sobre una linea y cada agente tiene 100 segúndos para intentar tener la mayor puntuacion, los valores de salida es la 
-velocidad de el carro y los valores de entrada son la posición, la dirección en x, la dirección en y la velocidad angular
+velocidad del carro y los valores de entrada son la posición, la dirección en x, la dirección en y la velocidad angular
 
 ### Cambios a la función de aptitud
 
-En la experimentacion se encontro que aunque se cumplia con el propósito de mantener el pendulo en equilibrio este oscilaba mucho, por lo que se penso en cambiar la función de aptitud a ahora tomar en cuenta la velocidad angular de el pendulo. En este caso se encontro que
-se logro estabilizar el movimiento de el carro
+En la experimentacion se encontro que aunque se cumplia con el propósito de mantener el pendulo en equilibrio este oscilaba mucho, por lo que se penso en cambiar la función de aptitud a ahora tomar en cuenta la velocidad angular del pendulo. En este caso se encontro que
+se logro estabilizar el movimiento del carro
 
 ## Fuentes
 [How to train simple AIs]( https://www.youtube.com/watch?v=EvV5Qtp_fYg)

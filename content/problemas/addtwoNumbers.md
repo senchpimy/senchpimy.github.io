@@ -6,7 +6,7 @@ date: "20 Jun 2024"
 ## Add Two Numbers
 
 Este problema consisten en dadas dos listas ligadas las cuales tienen los digitos de un numero entero en reversa y el problema consiste en sumar estos dos
-valores y regresar otra lista ligada en reversa con los digitos de el resultado
+valores y regresar otra lista ligada en reversa con los digitos del resultado
 
 ### Solucion
 

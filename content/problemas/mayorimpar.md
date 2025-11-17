@@ -25,5 +25,5 @@ impl Solution {
 }
 ```
 
-La solución consiste en que si encontramos el primer numero impar de el final hacía delante, entonces el mayor numero impar es la combinacion de
+La solución consiste en que si encontramos el primer numero impar del final hacía delante, entonces el mayor numero impar es la combinacion de
 ese junto todos los que están al comienzo

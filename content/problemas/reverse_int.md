@@ -40,7 +40,7 @@ def reverse(x)
 end
 ```
 
-Este programa primero toma el valor absoluto de el numero y guarda si es positivo o negativo, esto por que en algunos lenguajes el modulo de los numeros negativos funciona de diferentes maneras.
+Este programa primero toma el valor absoluto del numero y guarda si es positivo o negativo, esto por que en algunos lenguajes el modulo de los numeros negativos funciona de diferentes maneras.
 
 Luego guardamos como constante el valor de 2**31 y lo asignamos a unas variables para que no lo tenga que recomputar en cada ciclo, como algunas veces lo hace ruby.
 

@@ -22,7 +22,7 @@ este vector es guardado en una base de vectores
 Dado un prompt por el usuario, este prompt es analizado y marcado como un vector, después se buscan en la base de datos creada
 los vectores más cercanos a el prompt y finalmente esta información que coincide es extraida. 
 
-Esta información se puede obtener de diferentes formas, una de ellas es una búsqueda léxica, es decir contar cuantas palabras coinciden entre
+Esta información se puede obtener de diferentes formas, una dellas es una búsqueda léxica, es decir contar cuantas palabras coinciden entre
 lo que se esta buscando y la información que se tiene. También existe la búsqueda semántica que es buscar por palabras/temas clave
 
 Por lo que un modelo **BERT** que es un transformer que solo es un encoder, es capaz de codificar y encontrar similaridades semánticas entre 

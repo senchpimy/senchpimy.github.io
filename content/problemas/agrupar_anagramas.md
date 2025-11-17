@@ -8,10 +8,10 @@ date: "17 Jun 2024"
 Este problema consisten en dado una lista de palabras regresar una lista de listas de palabras que sean anagramas entre si
 
 ### Solucion
-Este problema se solucióna primero iterando por cada palabra de el array y ordenandola, luego esta se añade en un hashmap donde la llave es la palabra ordenada y el valor es un array que contiene esta palabra, array que se expandira si 
+Este problema se solucióna primero iterando por cada palabra del array y ordenandola, luego esta se añade en un hashmap donde la llave es la palabra ordenada y el valor es un array que contiene esta palabra, array que se expandira si 
 al ordenar otra palabra de la lista original esta coincide con la llave.
 
-Finalmente se itera por el hashmap y cada valor de el hashmap se agrega a una nueva lista que se regresa.
+Finalmente se itera por el hashmap y cada valor del hashmap se agrega a una nueva lista que se regresa.
 
 Mi primera solución fue la siguiente
 

@@ -34,7 +34,7 @@ end
 ```
 
 Este programa lo resolvi creado dos ques para cada arbol, y añadiendo los nodos hoja de cada nodo a su respectiva lista y regresando false en
-la diferencia de valor de el nodo o de la arquitectura.
+la diferencia de valor del nodo o de la arquitectura.
 
 Primero se guardan en una lista y se van sacando los elementos uno por uno, luego se revisa si existe diferencia entre si, es decir continua
 si los dos son nulos o si los dos son no-nulos, si alguno es nulo pero el otro no entonces no son iguales, finalmente compara el valor de cada

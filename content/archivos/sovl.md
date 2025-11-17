@@ -68,7 +68,7 @@ date: "26 Oct 2022"
  
 ### 9/1/2023
  
- Ya esta el control de la cancion, botones redondos que funcionan y poder cambiar el color de el slider, hay que mejorar las imágenes en los botones
+ Ya esta el control de la cancion, botones redondos que funcionan y poder cambiar el color del slider, hay que mejorar las imágenes en los botones
  
 
 ![](/pro_img/sovl.png)

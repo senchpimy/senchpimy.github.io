@@ -3,7 +3,7 @@ title: "Rust en Arduino"
 date: "07 Jan 2023"
 ---
 
- Rust es un lenguaje de bajo nivel que me gustaría aprender, aquí hay un ejemplo de el equivalente al programa blink, para el **arduino uno** usando Rust.
+ Rust es un lenguaje de bajo nivel que me gustaría aprender, aquí hay un ejemplo del equivalente al programa blink, para el **arduino uno** usando Rust.
 
 
  Primero hay que instalar los programas necesarios para linkear y compilar para el arduino, en arch son las siguientes:
@@ -16,7 +16,7 @@ date: "07 Jan 2023"
 
   
 
- En este proyecto hay que usar una versión diferente de el compilador por lo que en la carpeta hay que ejecutar **rustup override set nightly**, luego ya podemos modificar al archivo Cargo.toml con los siguientes campos:
+ En este proyecto hay que usar una versión diferente del compilador por lo que en la carpeta hay que ejecutar **rustup override set nightly**, luego ya podemos modificar al archivo Cargo.toml con los siguientes campos:
 ```toml
 
 [dependencies]
@@ -148,7 +148,7 @@ opt-level = "s"
  }
 ```
  
- Y al ejecutar **cargo build** deberíamos tener una compilación exxitosa que dos dará como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace más optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
+ Y al ejecutar **cargo build** deberíamos tener una compilación exxitosa que dos dará como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace más optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz del proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
  
 ```sh
  #! /usr/bin/zsh

@@ -7,7 +7,7 @@ date: "31 Jul 2022"
 Neovim es un programa de edición de texto basado en vim, este se diferencia de vim en que Neovim tiene integración con el lenguaje de programación lua, lo que lo hace más extensible en el momento de usar plugins
  
 
- Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad de el programa y aquí explicaré los que uso actualmente, que hacen y como los configuré
+ Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad del programa y aquí explicaré los que uso actualmente, que hacen y como los configuré
  
 ## init.vim
 

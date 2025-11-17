@@ -3,7 +3,7 @@ title: "Configuración de Marlin Para la Ender3"
 date: "29 Oct 2022"
 ---
 
- Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifiqué mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
+ Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifiqué mi impresora desdel hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
  
 ## _Statusscreen.h
 
@@ -65,7 +65,7 @@ date: "29 Oct 2022"
 ```
 
 
- Los valores de al final son los que debemos poner en la configuración de el Marlin, en el archivo Config.h Aproximadamente en la linea 656 es donde empiezan, en mi caso por defecto los valores son los siguientes:
+ Los valores de al final son los que debemos poner en la configuración del Marlin, en el archivo Config.h Aproximadamente en la linea 656 es donde empiezan, en mi caso por defecto los valores son los siguientes:
  
 ```make
 // Creality Ender-3
@@ -108,8 +108,8 @@ date: "29 Oct 2022"
 
 
  Cuando cambie de hotend este traía un termistor aparte y como era diferente tenía una resistencia diferente que necesita
- ser especificada en el firmware de Marlin, lo que hice fue que en la descripción de el hotend que compré, este tenía una
- descripción de el termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la búsqueda "Marlin" y encontré que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valor es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
+ ser especificada en el firmware de Marlin, lo que hice fue que en la descripción del hotend que compré, este tenía una
+ descripción del termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la búsqueda "Marlin" y encontré que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valor es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
  
 ## Extrusor
 

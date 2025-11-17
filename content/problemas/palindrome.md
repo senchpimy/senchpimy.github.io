@@ -35,7 +35,7 @@ date: "12 Jun 2023"
 
 ```
 
- En la primera linea primero eliminamos todos los caracteres que no sean alfanumericos, la función **.erase** toma una función la cual filtra desde el principio hasta el final todos los elementos que no sean alfanumericos.
+ En la primera linea primero eliminamos todos los caracteres que no sean alfanumericos, la función **.erase** toma una función la cual filtra desdel principio hasta el final todos los elementos que no sean alfanumericos.
 
  Luego ponemos un marcador hasta el final del array , y finalmente iteramos desde una mitad hasta la otra, lo hice con mitades pues si no encontramos ninguna indiferencia entre la primera y la ultima mitad no la vamos a encontrar entre la ultima y la primera pues estas ya se evaluaron entre si, es decir si evualos las otras dos mitades sería evaluar los dos mismol elementos pero en diferente orden.
 

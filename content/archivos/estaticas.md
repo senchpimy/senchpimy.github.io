@@ -28,6 +28,6 @@ date: "03 Feb 2023"
  }
 ``` 
  
- El programa de **nginx** se encargará de administrar las solicitudes a el servidor y de evitar que se intente acceder a otros archivos de el sistema que no sean los especificados
+ El programa de **nginx** se encargará de administrar las solicitudes a el servidor y de evitar que se intente acceder a otros archivos del sistema que no sean los especificados
  
 

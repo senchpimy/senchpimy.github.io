@@ -21,9 +21,9 @@ distribución normal
 
 ### Ejemplo Python
 Este programa calcula pi con el metodo de montecarlo, suponiendo que el circulo tiene un radio de 1, se generan puntos aleatorios
-y luego se calcula la distancia con el centro, si es menor o igual a uno entonces el punto esta dentro de el circulo,
-como el area de el circulo en el primer cuadrante de un plano cartesiano es igual a $$\frac{\pi}{4}$$ entonces para obtener pi 
-se caulculan cuantos puntos aleatorios están dentro de las dimenciones de el circulo y se divide por la cantidad de puntos que se lanzaron, después se multiplica por cuatro y se obtiene un aproximado de pi
+y luego se calcula la distancia con el centro, si es menor o igual a uno entonces el punto esta dentro del circulo,
+como el area del circulo en el primer cuadrante de un plano cartesiano es igual a $$\frac{\pi}{4}$$ entonces para obtener pi 
+se caulculan cuantos puntos aleatorios están dentro de las dimenciones del circulo y se divide por la cantidad de puntos que se lanzaron, después se multiplica por cuatro y se obtiene un aproximado de pi
 
 ```py
 import random

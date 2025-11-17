@@ -3,11 +3,11 @@ title: "timetravel"
 date: "26 Oct 2022"
 ---
 
-## La filosofia de el Viaje en el Tiempo
+## La filosofia del Viaje en el Tiempo
 
 
 
- Estas son las páginas del el libro de ficcion "La Filosofia de el el Viaje En El Tiempo" por Roberta Sparrow.
+ Estas son las páginas del el libro de ficcion "La Filosofia del el Viaje En El Tiempo" por Roberta Sparrow.
 
 ## Prefacio
 
@@ -41,29 +41,29 @@ date: "26 Oct 2022"
 
  El universo primario es tenso con gran peligro. Guerra, plaga, hambruna y desastres naturales son comunes.
 
- La muerte nos llega a todo, La cuarta dimension de el tiempo es una construccion estable, pero no impenetrable
+ La muerte nos llega a todo, La cuarta dimension del tiempo es una construccion estable, pero no impenetrable
 
  Incidentes como la corrupcion de la cuarta dimension son increiblemente raros.
 
  Si un Universo Tangente Ocurre, sería extremadamente insostenible, sosteniendose a si mismo por no más que unas cuantas semanas.
 
- Eventualmente colapsara en si mismo, formando un agujero negro dentro de el Universo Primario capaz de destruir toda la existencia.
+ Eventualmente colapsara en si mismo, formando un agujero negro dentro del Universo Primario capaz de destruir toda la existencia.
 
 ## Capitulo Dos: Agua y Metal
 
 
 
- Agua y Metal son los elementos claves de el viaje en el tiempo.
+ Agua y Metal son los elementos claves del viaje en el tiempo.
 
  El agua es el elemento barrera para la construccion de Portales de Tiempo usados como puentes entre Universos como el Vortice Tangente
 
- El Metal es el elemento de transición para la construccion de el Artefactos de Transporte.
+ El Metal es el elemento de transición para la construccion del Artefactos de Transporte.
 
 ## Capitulo Cuatro: El artefacto y El Vivo
 
 
 
- Cuando un Universo tangente ocurre, aquellos que viven cerca de el vortice, se encontraran en el epicentro de un nuevo mundo peligroso
+ Cuando un Universo tangente ocurre, aquellos que viven cerca del vortice, se encontraran en el epicentro de un nuevo mundo peligroso
 
  Los Artefactos proveen la primera señal de que el universo tangente a ocurrido.
 
@@ -71,9 +71,9 @@ date: "26 Oct 2022"
 
  Los artefactos son formados con metal, como la punta de una felcha de una antigua civilizacion Maya, o una espada de metal de la Europa Medieval
 
- Los artefactos nacidos de el Universo Primarios son relacionados con Iconografia religiosa, como si su prescencia en la tierra desafiara cualquier explicacion logica.
+ Los artefactos nacidos del Universo Primarios son relacionados con Iconografia religiosa, como si su prescencia en la tierra desafiara cualquier explicacion logica.
 
- La intervencion divina es considerada la única conclusion logica para la aparicion de el artefacto.
+ La intervencion divina es considerada la única conclusion logica para la aparicion del artefacto.
 
 ## Capitulo Seis: El Receptor Viviente
 
@@ -95,13 +95,13 @@ date: "26 Oct 2022"
 
 
 
- Los Manipulados vivientes generalmente son amigos cercanos o vecinos de el receptor viviente.
+ Los Manipulados vivientes generalmente son amigos cercanos o vecinos del receptor viviente.
 
  Ellos son propensos a comportamientos irracionales, bizarros y generalmente violentes.
 
  Este es un resultado desafortunado de su tarea, que es ayudar a el receptor viviente a regresar el Artefacto a el universo primario.
 
- Los vivos Manipulados haran lo que sea para salvarse de el olvido.
+ Los vivos Manipulados haran lo que sea para salvarse del olvido.
 
 ## Capitulo Nueve: Trampa de Seguridad
 
@@ -131,11 +131,11 @@ date: "26 Oct 2022"
 
  Cuando el manipulado despierte de su Viaje en el Universo Tangente, son generalmente perseguidos por sus experiencias en sus sueños.
 
- Muchos de ellos no recuerdan.
+ Muchos dellos no recuerdan.
 
- Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la única evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda de el mundo perdido.
+ Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la única evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda del mundo perdido.
 
- Mitos antiguos nos hablan de el guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algún ejercito, ningún enemigo fue encontrado.
+ Mitos antiguos nos hablan del guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algún ejercito, ningún enemigo fue encontrado.
 
  Se nos han contado sobre Caballeros Medievales misteriosamente asesinados por una espada que todavía no habia sido construida.
 

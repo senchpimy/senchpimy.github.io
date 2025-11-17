@@ -73,4 +73,4 @@ def merge(nums1, m, nums2, n)
 end
 ```
 
-Como el array nums1 tiene al final una serie de 0s el cual se tiene que llenar, se pueden recorrer ambos arrays en reversa con dos apuntadores apuntando al final de cada array y agregar el mayor de el final de cada uno y recorrer el apuntador en el array del elemento que se agrego.
+Como el array nums1 tiene al final una serie de 0s el cual se tiene que llenar, se pueden recorrer ambos arrays en reversa con dos apuntadores apuntando al final de cada array y agregar el mayor del final de cada uno y recorrer el apuntador en el array del elemento que se agrego.

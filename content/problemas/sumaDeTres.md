@@ -40,7 +40,7 @@ def three_sum(nums)
 end
 ```
 Este programa primero ordena la lista, luego usa el algoritmo que se usa en sumaDos para buscar dos numeros que sumados den un numero objetivo,
-en este caso el opuesto de el numero que se esta buscando actualmente.
+en este caso el opuesto del numero que se esta buscando actualmente.
 
 Pero en este caso como estamos buscando todas las posibilidades diferentes entonces tomar en cuenta que se repitan varios 
 valores entonces para encontrar cada posible dato diferente debemos mover el último indice hasta que el último valor sea diferente

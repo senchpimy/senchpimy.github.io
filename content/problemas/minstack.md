@@ -80,4 +80,4 @@ obj->pop();
   return 0;
 }
 ```
-La verdadera respuesta consiste en tener dos vectores en uno se guardan los elementos de el stack y en el otro se debe guardar siempre el menor elemento en la lista hasta ese momento
+La verdadera respuesta consiste en tener dos vectores en uno se guardan los elementos del stack y en el otro se debe guardar siempre el menor elemento en la lista hasta ese momento

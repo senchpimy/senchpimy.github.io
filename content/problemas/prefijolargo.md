@@ -27,5 +27,5 @@ def longest_common_prefix(strs)
   return prefix
 end
 ```
-Este programa toma el primer de el array, luego por cada elemento restante de el array va a comparar sus caracteres iniciales, y cuando detecta
-que son diferentes entonces significa que se encontro el largo máximo de el prefijo y se regresa el prefijo
+Este programa toma el primer del array, luego por cada elemento restante del array va a comparar sus caracteres iniciales, y cuando detecta
+que son diferentes entonces significa que se encontro el largo máximo del prefijo y se regresa el prefijo

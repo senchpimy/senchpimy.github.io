@@ -32,7 +32,7 @@ def str_str(haystack, needle)
     return -1
 end
 ```
-Este programa primero calcula hasta dode sería posible encontrar el string encontrar por su longitud dentro de el string en cual buscar, luego lo recorre e intenta comparar cada uno de los caracteres, si se han logrado comparar todos los caracteres de el
+Este programa primero calcula hasta dode sería posible encontrar el string encontrar por su longitud dentro del string en cual buscar, luego lo recorre e intenta comparar cada uno de los caracteres, si se han logrado comparar todos los caracteres del
 segúndo string entonces se ha encontrado el segúndo string y se regresa el indice
 
 Esta solución funciona pero en comparación a las demás respuestas enviadas es muy lenta y ocupa mucha memoria asi que usando la función ya integrada en el lenguaje para hacer esto se obtiene el siguiente código
@@ -45,7 +45,7 @@ def str_str(haystack, needle)
     return haystack.index(needle) != nil ? haystack.index(needle):-1
 end
 ```
-Que usa la función indice para encontrar el indice y si no se encuentra el indice entonces se regresa -1, pero aun asi no cambio mucho el uso de memoria ni de velociada entonces pensé que tal vez no se optimizaba el llamado a la funciion y esta terminaba llamandose 2 veces, asi que solo guarde el resultado
+Que usa la función indice para encontrar el indice y si no se encuentra el indice entonces se regresa -1, pero aun asi no cambio mucho el uso de memoria ni de velociada entonces pensé que tal vez no se optimizaba el llamado a la funciion y esta terminaba llamandose 2 veces, asi que solo guardel resultado
 y lo intente de nuevo:
 
 ```rb

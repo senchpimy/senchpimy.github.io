@@ -7,12 +7,12 @@ date: "18 Sep 2024"
 
 Compré una computadora la cual tiene la capacidad de doblarse como tablet y leer la entrada de dispositivos touch y en este caso también de una pluma
 pero en mi caso me gusta la experiencia de un administrador de ventanas, y aunque gnome por defecto tengo una buena experiencia con las diferentes
-funcionalidades de el hardware me gusta más un sistema ligero, por lo que quise crear un programa con el cual pueda agregar diferentes funcionalidades
+funcionalidades del hardware me gusta más un sistema ligero, por lo que quise crear un programa con el cual pueda agregar diferentes funcionalidades
 usando esta pluma.
 
 ## Leyendo la entrada
 
-Primero se necesita leer los datos que se reciben desde el kernel, por algún motivo fue algo confuso al principio, pues al parecer sin 
+Primero se necesita leer los datos que se reciben desdel kernel, por algún motivo fue algo confuso al principio, pues al parecer sin 
 ningún motivo aparente la entrada de la pluma puede estar en cualquiera de estas dos ubicaciones, no se por que pero cambia cada vez que se reinicia
 la computadora.
 

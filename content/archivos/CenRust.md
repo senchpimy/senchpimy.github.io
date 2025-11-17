@@ -22,7 +22,7 @@ fn main() {
 }
 ```
 
-Y añadimos la dependencia de el script bajo esta sección en el archivo Cargo.toml
+Y añadimos la dependencia del script bajo esta sección en el archivo Cargo.toml
 **Cargo.toml**
 
 ```toml
