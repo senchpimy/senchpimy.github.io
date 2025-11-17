@@ -5,19 +5,19 @@ title = 'Senchpimy'
 [menu]
 [[menu.main]]
     name = 'Entradas'
-    pageRef = '/entradas'
+    pageRef = 'entradas'
     weight = 10
 [[menu.main]]
     name = 'Archivos'
-    pageRef = '/archivos'
+    pageRef = 'archivos'
     weight = 20
 [[menu.main]]
     name = 'Wallpaper'
-    pageRef = '/wallpapers'
+    pageRef = 'wallpapers'
     weight = 30
 [[menu.main]]
     name = 'Problemas'
-    url = '/problemas'
+    pageRef = 'problemas'
     weight = 50
 
 [markup.goldmark.renderer]
