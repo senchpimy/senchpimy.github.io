@@ -125,7 +125,7 @@ void main(void) {
 }
 ```
 
-Y para compilarlo usamos `xc8`, que se instales con el paquete **microchip-mplabxc8-bin**
+Y para compilarlo usamos `xc8`, que se instala con el paquete **microchip-mplabxc8-bin**
 
 ```bash
 paru -S microchip-mplabxc8-bin
@@ -159,7 +159,7 @@ Si la compilación no muestra errores, se habrá generado un archivo **`main.hex
 
 ## Cargando el programa en el PIC
 
-Ahora que tenemos nuestro archivo `main.hex`, el último paso es usar `pk2cmd` para grabarlo en el microcontrolador. Asegúrate de tener tu PIC16F887 conectado correctamente al programador PICKit 2.
+Ahora que tenemos nuestro archivo `main.hex`, el último paso es usar `pk2cmd` para grabarlo en el microcontrolador. Asegúrate de tener tu PIC16F887 conectado correctamente al programador PICkit 2.
 
 El comando para subir y verificar el programa es:
 

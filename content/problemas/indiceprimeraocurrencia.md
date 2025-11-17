@@ -45,7 +45,7 @@ def str_str(haystack, needle)
     return haystack.index(needle) != nil ? haystack.index(needle):-1
 end
 ```
-Que usa la función indice para encontrar el indice y si no se encuentra el indice entonces se regresa -1, pero aun así no cambio mucho el uso de memoria ni de velociada entonces pensé que tal vez no se optimizaba el llamado a la funciion y esta terminaba llamandose 2 veces, así que solo guardel resultado
+Que usa la función indice para encontrar el indice y si no se encuentra el indice entonces se regresa -1, pero aun así no cambio mucho el uso de memoria ni de velociada entonces pensé que tal vez no se optimizaba el llamado a la funciion y esta terminaba llamandose 2 veces, así que solo guarde el resultado
 y lo intente de nuevo:
 
 ```rb

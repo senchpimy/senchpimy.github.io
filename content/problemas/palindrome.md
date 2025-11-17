@@ -42,7 +42,7 @@ date: "12 Jun 2023"
  Evaluamos estos dos elementos (el primero y el último) en minuscula pues la el estring puede contener minusculas y mayusculas, si son diferentes entonces estos no se pueden leer de atrás hacía delante de la misma manera y por lo tanto no sol palindromos y regresamos false.
  Si terminamos las comparaciones esto significa que son iguales y por lo tanto es un palindromo por lo que regresamos true .
 
- Este metodo me dio un &lt90% en la velocidad y memoria en leetcode
+ Este método me dio un &lt90% en la velocidad y memoria en leetcode
  
  
 

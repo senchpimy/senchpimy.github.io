@@ -8,8 +8,8 @@ katex: true
 
 Es un algoritmo no determinista (con una misma entrada puede tener salidas diferentes) usado para aproximar expresiones matematicas complejas.
 
-Este metodo puede ser aplicado a cualquier problema estocastico (depende de procesos aleatorios) o determinista (sistema en el que el azar no esta involucrado en el desarrollo de los futuros estados del sistema). A diferencia de los métodos numericos que se basan en
-evaluaciones en N puntos en un espacio de M dimenciones para producir una solución aproximada, el metodo de montecarlo tiene un error absoluto que decrece como:
+Este método puede ser aplicado a cualquier problema estocastico (depende de procesos aleatorios) o determinista (sistema en el que el azar no esta involucrado en el desarrollo de los futuros estados del sistema). A diferencia de los métodos numericos que se basan en
+evaluaciones en N puntos en un espacio de M dimenciones para producir una solución aproximada, el método de montecarlo tiene un error absoluto que decrece como:
 $$ \frac{1}{\sqrt{N}}$$
 
 Segun el **teorema de límite central**
@@ -20,7 +20,7 @@ Indica que si S es la suma de n variables aleatorias (*una función que asígna 
 distribución normal
 
 ### Ejemplo Python
-Este programa calcula pi con el metodo de montecarlo, suponiendo que el circulo tiene un radio de 1, se generan puntos aleatorios
+Este programa calcula pi con el método de montecarlo, suponiendo que el circulo tiene un radio de 1, se generan puntos aleatorios
 y luego se calcula la distancia con el centro, si es menor o igual a uno entonces el punto esta dentro del circulo,
 como el area del circulo en el primer cuadrante de un plano cartesiano es igual a $$\frac{\pi}{4}$$ entonces para obtener pi 
 se caulculan cuantos puntos aleatorios están dentro de las dimenciones del circulo y se divide por la cantidad de puntos que se lanzaron, después se multiplica por cuatro y se obtiene un aproximado de pi

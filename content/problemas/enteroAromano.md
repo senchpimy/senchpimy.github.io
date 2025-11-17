@@ -26,7 +26,7 @@ end
 ```
 Los límites dados son que ningún numero superara los 3999.
 
-Este programa crea un hashmap para los unidades, decenas, centenas y milesimas, luego dividel numero por el indice de su equivalente en el hashmap.
+Este programa crea un hashmap para los unidades, decenas, centenas y milesimas, luego divide el numero por el indice de su equivalente en el hashmap.
 Esta versión esta en el top ~50% en cuanto a velocidad y ~70% en cuanto a memoria, luego me di cuenta que no era necesario un hashmap y se podía usar
 una lista cualquiera, pues al final cada numero es equivalente a su posición.
 

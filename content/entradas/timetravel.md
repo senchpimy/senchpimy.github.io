@@ -131,7 +131,7 @@ date: "26 Oct 2022"
 
  Cuando el manipulado despierte de su Viaje en el Universo Tangente, son generalmente perseguidos por sus experiencias en sus sueños.
 
- Muchos dellos no recuerdan.
+ Muchos de ellos no recuerdan.
 
  Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la única evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda del mundo perdido.
 

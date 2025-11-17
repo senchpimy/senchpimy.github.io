@@ -48,7 +48,7 @@ date: "14 Jun 2023"
 
  Mi solución fue restarle a el numero objetivo el valor del primer elemento de la lista, así ya sabriamos que numero debemos encontrar, después como la lista esta ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer numero, por lo tanto repetimos el proceso con el segúndo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.
 
- Este metodo fue el más tardado pues termino al último, pero en memoria supero al 95% de las otras soluciónes, me sorprendio pues pensé que esta era la respuesta correcta así que busque otra soluciónes y me encontré con esta que gana al 99.91% de las otras soluciónes en velocidad y al 75% en memoria.
+ Este método fue el más tardado pues termino al último, pero en memoria supero al 95% de las otras soluciónes, me sorprendio pues pensé que esta era la respuesta correcta así que busque otra soluciónes y me encontré con esta que gana al 99.91% de las otras soluciónes en velocidad y al 75% en memoria.
  
 
 ```cpp
@@ -73,7 +73,7 @@ date: "14 Jun 2023"
 ```
  
 
- Este metodo usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dará un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del último valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.
+ Este método usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dará un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del último valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.
  
 
 

@@ -16,12 +16,12 @@ entrenarrlo, así se pueden encotrar problemas como *overfitting* o *sesgo de se
 
 ### Leave-p-out cross-validation
 
-Este metodo implica usar *p* observaciones como el set de validacion y el resto como el de entrenarmiento, esto se repite de todas formas 
+Este método implica usar *p* observaciones como el set de validacion y el resto como el de entrenarmiento, esto se repite de todas formas 
 
 
 ### Leave-one-out cross-validation
 
-Este metodo es un caso particular de Leave-p-out con p=1
+Este método es un caso particular de Leave-p-out con p=1
 
 ### K-fold corss validation
 

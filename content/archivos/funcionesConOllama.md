@@ -150,7 +150,7 @@ Aunque el modelo podía crear un json correcto no podía racionalizar que Claudi
 
 >{"answer": "Claudia"}
 
-Y finalmente la salida de *llama3* puede que sea la más útil si es que se configurara el prompt:
+Y finalmente la salida de *llama3* puede que sea la más útil si es que se configuraral prompt:
 
 ```json
 {

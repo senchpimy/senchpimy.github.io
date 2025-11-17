@@ -3,16 +3,16 @@ title: "RAG"
 date: "10 Sep 2024"
 ---
 
-## Retrieval Aumented Generation
+## Retrieval Augmented Generation
 
 RAG consiste en proporcionar a un modelo de lenguaje información de tal manera en que la salida de estos modelos no solo sea la contenida en el
-mismo modelo, sino que sea recuperada de la información que le fue proporcionada. Este metodo es muy interesante pues aumenta las capacidades
+mismo modelo, sino que sea recuperada de la información que le fue proporcionada. Este método es muy interesante pues aumenta las capacidades
 de un modelo ya existente sin la necesidad de volver a entrenar o de fintunear.
 
 ## Funcionamiento
-Este metodo se puede dividir en tres partes:
+Este método se puede dividir en tres partes:
 ### Index
-En esta parte la información que le es dada al modelo es dividida en n partes, cada parte después es procesada y le es asígnado un vector,
+En esta parte la información que le es dada al modelo es dividida en n partes, cada parte después es procesada y le es asignado un vector,
 el proceso de crear el vector puede variar dependiendo la implementación, es guardado en una forma de vector para que pueda ser buscado 
 de forma fácil después.
 este vector es guardado en una base de vectores
@@ -20,10 +20,10 @@ este vector es guardado en una base de vectores
 ### Retrieval
 
 Dado un prompt por el usuario, este prompt es analizado y marcado como un vector, después se buscan en la base de datos creada
-los vectores más cercanos a el prompt y finalmente esta información que coincide es extraida. 
+los vectores más cercanos al prompt y finalmente esta información que coincide es extraída. 
 
-Esta información se puede obtener de diferentes formas, una de ellas es una búsqueda léxica, es decir contar cuantas palabras coinciden entre
-lo que se esta buscando y la información que se tiene. También existe la búsqueda semántica que es buscar por palabras/temas clave
+Esta información se puede obtener de diferentes formas, una de ellas es una búsqueda léxica, es decir contar cuántas palabras coinciden entre
+lo que se está buscando y la información que se tiene. También existe la búsqueda semántica que es buscar por palabras/temas clave
 
 Por lo que un modelo **BERT** que es un transformer que solo es un encoder, es capaz de codificar y encontrar similaridades semánticas entre 
 los documentos/información y lo que se busca. Por lo que midiendo las distancias vectoriales podemos encontrar los documentos más relevantes
@@ -44,13 +44,13 @@ Uno de los puntos encontra de esta tecnica es que ahora existen muchos más posi
 ### Indexing
 
 Actualmente para generar los vectores en espacios de información en lugar de usar un LLM para dividir la información de forma semántica, un 
-**Trainable Embedded Model** puede ser usado para convertir el texto a vectores, de tal forma que un modelo entrenardo para programar
+**Trainable Embedded Model** puede ser usado para convertir el texto a vectores, de tal forma que un modelo entrenado para programar
 va a tomar en cuenta la indentación de los textos en comparación a uno de propósito general.
 
 
 ### Generation
 
-Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar la información más cercana en el espacio vectorial, si no retraer
+Una tecnica para mejorar la generación de resultados relevantes es no solo tomar la información más cercana en el espacio vectorial, si no retraer
 *K* elementos que sean relevantes, luego estos resultados son pasados por un LLM para clasificar que resultados son los más relevantes que podrian
 contestar la pregunta, y este modelo también puede ser modelado para ser especifico en un dominio.
 
