@@ -159,5 +159,5 @@ opt-level = "s"
  
  Y entonces todo deberia funcionar correctamente y el led incluido en el arduino conectado en el pin 13 deberia parpadear.
 
- Esto es possible gracias a la libreria [avr-hal](https://github.com/Rahix/avr-hal), en su github esta ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
+ Esto es possible gracias a la librería [avr-hal](https://github.com/Rahix/avr-hal), en su github esta ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
 

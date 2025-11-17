@@ -40,7 +40,7 @@ date: "23 Jun 2023"
  mismo tiempo el teclado detecta tambien que otras teclas estan siendo presionadas, cuales teclas producen este efecto depende de las conecciones de cada teclado.
 
 
- Y finalmente en la programacion del arduino use una libreria que rescate de uno de los ejemplos, parece ser que el creador la uso para su propio diseño, el cual incorppraba
+ Y finalmente en la programacion del arduino use una librería que rescate de uno de los ejemplos, parece ser que el creador la uso para su propio diseño, el cual incorppraba
  animaciones y efectos muy interesantes, yo la use para mostrar una barra mostrando el porcentaje del brillo y del volumen el cual habia enviado el teclado, en ese momento
  no sabia si era posible recibir esta informacion desde la computadora, asi que solo tomaba en cuanta la del teclado.
  

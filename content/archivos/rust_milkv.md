@@ -125,7 +125,7 @@ Yo obtengo la siguiente salida:
 >    08
 >    09     .tdata .init_array .fini_array .data.rel.ro .dynamic
 
-Para eso hay que encontrar la libreria, con el siguiente comando
+Para eso hay que encontrar la librería, con el siguiente comando
 
 ```sh
 find /lib -name "**ld-musl**"

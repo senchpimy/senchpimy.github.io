@@ -13,7 +13,7 @@ En este caso especificamos el código y la compilación
 
 **build.rs**
 ```rs
-extern crate cc; //Importamos la libreria que nos ayda a compilar
+extern crate cc; //Importamos la librería que nos ayuda a compilar
 
 fn main() {
     cc::Build::new()

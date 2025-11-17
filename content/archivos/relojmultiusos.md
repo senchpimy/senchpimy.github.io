@@ -9,9 +9,9 @@ En este proyecto use un despertador antiguo que no servia y lo "repare" y ademas
 Primero use un **esp32** como microcontrolador para el proyecto, pues este ya tiene coneccion a wifi y bluetooth, use un display de 7 segmentos para matener el formato de la hora, especificamente use el TM1637, y el programa de la hora se ejecuta en el sgundo core de
 el esp32. Ademas este usa los botones que el desperator ya traia para dar la hora.
 
-Ademas le añadi una pantalla de e-ink, esto por que el despertador tambien traia una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la libreria por que algunas cosas no funcionaban.
+Ademas le añadi una pantalla de e-ink, esto por que el despertador tambien traia una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
 
-Por ejemplo en la libreria hay unos headers que estan mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
+Por ejemplo en la librería hay unos headers que estan mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
 que se ejecuta cada que se quiera dibujar una linea, para cambiar las coordenadas para que estas tengan la rotacion correspondiente. El cambio especifico lo saque de el código fuente que se supone que lo haria desde la biblioteca.
 
 Pero esto significa que fucniones como la escritura no funcionaba, asi que tuve que crear una fuente, pasarla a bitmap depues pasarla a código de C y finalmente implementar la lectura y la forma en la que cada pixel es dibujado, en este caso tuve un problema, pues
@@ -37,7 +37,7 @@ Me gustaria retomar este proyecto en algun momento y poder mejorarlo, para poder
 
 https://github.com/avishorp/TM1637/blob/master/examples/TM1637Test/TM1637Test.ino
 
-Instalacion de libreria:
+Instalacion de librería:
 https://www.waveshare.com/wiki/5.65inch_e-Paper_Module_(F)_Manual#C
 https://www.waveshare.com/wiki/5.65inch_e-Paper_Module_(F)_Manual#ESP32
 https://www.waveshare.com/wiki/E-Paper_ESP32_Driver_Board#Image_Processing_Algorithms

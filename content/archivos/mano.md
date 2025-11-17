@@ -144,7 +144,7 @@ void loop() {
 }
  ```
  
- Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se uraria python y la libreria **Pyserial**, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto
+ Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se uraria python y la librería **Pyserial**, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto
  
  ```py
 import serial
