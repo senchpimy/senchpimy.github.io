@@ -144,15 +144,15 @@ void loop() {
 }
  ```
  
- Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se usaría python y la librería **Pyserial**, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto
+ Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se usaría python y la librería **Pyseríal**, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto
  
  ```py
-import serial
+import seríal
 
 class hand():
  def __init__(self):
- self.ard = serial.Serial('/dev/ttyACM0',9600)
- #ard = serial.Serial('COM3', 9600)
+ self.ard = seríal.Serial('/dev/ttyACM0',9600)
+ #ard = seríal.Serial('COM3', 9600)
  def thumb(self, num:int):
  nu = str(num)
  st = f"T{nu.zfill(3)}\n"

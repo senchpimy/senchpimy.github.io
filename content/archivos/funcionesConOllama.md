@@ -137,7 +137,7 @@ response = chain.invoke({"question": "Who is taller?", "context": context})
 print(response)
 ```
 
-Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con éxito, pues de alguna o de otra forma estos se equivocaban estos fueron los modelos que probé y de 10 intento cuantos objetos de *Person* fueron serializados con éxito:
+Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con éxito, pues de alguna o de otra forma estos se equivocaban estos fueron los modelos que probé y de 10 intento cuantos objetos de *Person* fueron seríalizados con éxito:
 
 >{'codellama:13b-code': 0, 'mistral': 0, 'phi3': 0, 'wizardlm2': 1, 'llama3':0}
 
@@ -146,7 +146,7 @@ la tarea con éxito sus resultados eran erróneos pues obtenia esta salida
 
 >name='Claudia' height=5.0 hair_color='brunette'
 
-Aunque el modelo podía crear un json correcto no podía racionalizar que Claudia mide 6 pies. Aunque el modelo *codellama* no pudo serializar los objetos pienso que su salida fue la más concisa y útil de todas pues en sus intentos este siempre respondia con:
+Aunque el modelo podía crear un json correcto no podía racionalizar que Claudia mide 6 pies. Aunque el modelo *codellama* no pudo seríalizar los objetos pienso que su salida fue la más concisa y útil de todas pues en sus intentos este siempre respondia con:
 
 >{"answer": "Claudia"}
 

@@ -17,11 +17,11 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 ## Instalación de herramientas necesarias
 Primero, necesitamos instalar las herramientas necesarias para detectar el PIC y para cargar el programa en él. Para esto usaremos el paquete del AUR pk2cmd, pues estamos usando un PICkit 2.
 Existe un problema conocido con el paquete `pk2cmd` en el AUR, lo que pasa que es que el enlace de descarga ya es obsoleto, y esto es conocido desde 2023, pues en el sitio
-web del paquete tmb nos dice la solución, y es descargar el archivo desde otro enlace. 
+web del paquete también nos dice la solución, y es descargar el archivo desde otro enlace. 
 
 ![Error de descarga del paquete pk2cmd](/pk2cmd_error.png)
 
-Aplicando esta correcion, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
+Aplicando esta corrección, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiándolos, pero como se hace un hash de el archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
 ```bash
 # Maintainer: BxS <bxsbxs at gmail dot com>
 
@@ -63,7 +63,7 @@ package() {
 }
 ```
 
-Una vez que ejecutaste `makepkg -si` en la carpeta donde tienes los archivos, se deberia instalar sin problemas. Para que el sistema detecte el programador, hay que recargar las reglas de udev con los siguientes comandos: 
+Una vez que ejecutaste `makepkg -si` en la carpeta donde tienes los archivos, se debería instalar sin problemas. Para que el sistema detecte el programador, hay que recargar las reglas de udev con los siguientes comandos: 
 
 ```bash
 sudo udevadm control --reload-rules\
@@ -71,13 +71,13 @@ sudo udevadm trigger
 ```
 
 
-Después para saber si se instalo y detecta el programador, conectamos el PICkit 2 a la computadora y ejecutamos:
+Después para saber si se instaló y detecta el programador, conectamos el PICkit 2 a la computadora y ejecutamos:
 
 ```bash
 pk2cmd -P
 ```
 
-Si todo esta bien, deberia salir algo como esto:
+Si todo esta bien, debería salir algo como esto:
 
 
 ```bash
@@ -131,7 +131,7 @@ Y para compilarlo usamos `xc8`, que se instales con el paquete **microchip-mplab
 paru -S microchip-mplabxc8-bin
 ```
 
-Y para poder compilarlo necesitaremos unas definiciones que no se encuentran en el paquete y hay que descargarlas desde [este enlace](https://packs.download.microchip.com/), debajo de cada pack dice cual es el microchip que 
+Y para poder compilarlo necesitaremos unas definiciones que no se encuentran en el paquete y hay que descargarlas desde [este enlace](https://packs.download.microchip.com/), debajo de cada pack dice cuál es el microchip que 
 soporta, y buscamos el que dice PIC16F887, y descargamos el pack, que en mi caso es el **Microchip PIC16Fxxx Series Device Support (1.7.162)**.
 Una vez descargado y descomprimido el Device Pack, su estructura interna contiene los archivos de soporte que necesitamos. Sin embargo,
 en las versiones modernas del compilador XC8, simplemente copiar archivos no es suficiente. Debemos decirle explícitamente al compilador dónde encontrar estos nuevos archivos de soporte al momento de compilar.

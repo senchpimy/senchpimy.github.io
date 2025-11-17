@@ -38,7 +38,7 @@ date: "05 Sep 2023"
    
   
 
- Para poder usar mis discos los tuve que montar, lo cual es bastante sencillo pero cada vez que se apague y se vuelva a prender necesitaría volver a hacer lo mismo, entonces para evitar esto cambie el archivo de **fstab** con los siguientes comandos:
+ Para poder usar mis discos los tuve que montar, lo cuál es bastante sencillo pero cada vez que se apague y se vuelva a prender necesitaría volver a hacer lo mismo, entonces para evitar esto cambie el archivo de **fstab** con los siguientes comandos:
  
 ```sh
  uuid=$(ls -al /dev/disk/by-uuid/ | grep **sdb1** | awk '{print $9}')

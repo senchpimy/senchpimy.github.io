@@ -115,7 +115,7 @@ date: "29 Oct 2022"
 
 
 
- Como cambie el extrusor por defecto a el extrusor BondtechBMG el cual es de extrusión directa, este extrusor necesita una cantidad diferente de pasos para poder extruir la misma cantidad de material, existe una fórmula para poder tener la cantidad de pasos exactos que especificar, pero al buscar en internet me encontré que para este extrusor la cantidad de pasos son **415** en comparación a los **93** que tiene por defecto, en este caso no se necesita editar el marlin (aunque se puede) para modificar este valor, en la pantalla de mi ender 3, en **Configuration> AdvancedConfiguration> Steps> Extruder** e ingresamos el valor y lo guardamos, para finalizar solo hay que guardar los cambios para que estos permanezcan después de que se apague la impresora
+ Como cambie el extrusor por defecto a el extrusor BondtechBMG el cuál es de extrusión directa, este extrusor necesita una cantidad diferente de pasos para poder extruir la misma cantidad de material, existe una fórmula para poder tener la cantidad de pasos exactos que especificar, pero al buscar en internet me encontré que para este extrusor la cantidad de pasos son **415** en comparación a los **93** que tiene por defecto, en este caso no se necesita editar el marlin (aunque se puede) para modificar este valor, en la pantalla de mi ender 3, en **Configuration> AdvancedConfiguration> Steps> Extruder** e ingresamos el valor y lo guardamos, para finalizar solo hay que guardar los cambios para que estos permanezcan después de que se apague la impresora
  
 
 

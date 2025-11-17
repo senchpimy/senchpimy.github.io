@@ -8,15 +8,15 @@ date: "2025-03-17"
 Es una tecnica que sirve para validar como un analisis estadistico generaliza una serie de datos independientes, se usa cuando la meta es la predicción y 
 uno quiere estimar que tan preciso es el modelo en las predicciónes.
 
-En problema de predicción se tiene una serie de datos en la cual el modelo se entrenara (datos de entrenamiento) y otros datos desconocidos para el modelo, contra
+En problema de predicción se tiene una serie de datos en la cual el modelo se entrenarra (datos de entrenarmiento) y otros datos desconocidos para el modelo, contra
 los cuales es el modelo probado, la meta de la cross validacion es probar la habilidad de el modelo de predecir más nuevos datos usando valores que no se usaron para
-entrenarlo, asi se pueden encotrar problemas como *overfitting* o *sesgo de selección*
+entrenarrlo, asi se pueden encotrar problemas como *overfitting* o *sesgo de selección*
 
 ## Tipos
 
 ### Leave-p-out cross-validation
 
-Este metodo implica usar *p* observaciones como el set de validacion y el resto como el de entrenamiento, esto se repite de todas formas 
+Este metodo implica usar *p* observaciones como el set de validacion y el resto como el de entrenarmiento, esto se repite de todas formas 
 
 
 ### Leave-one-out cross-validation

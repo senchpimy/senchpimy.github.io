@@ -435,7 +435,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen esta función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo dejé de usar, las configuraciones requeridas son las siguientes
+[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse fácilmente entre las ventanas y tabs de vim, vim y neovim ya tienen esta función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo dejé de usar, las configuraciones requeridas son las siguientes
 
 
 ```vim

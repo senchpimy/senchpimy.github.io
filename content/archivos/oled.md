@@ -17,8 +17,8 @@ sudo raspi-config nonint do\_i2c 0
 echo #############i2c enabled#############
 sudo raspi-config nonint do\_spi 0
 echo #############spi enabled#############
-sudo raspi-config nonint do\_serial 0
-echo #############serial communication enabled#############
+sudo raspi-config nonint do\_seríal 0
+echo #############seríal communication enabled#############
 sudo raspi-config nonint do\_ssh 0
 echo #############ssh enabled#############
 sudo raspi-config nonint do\_camera 0

@@ -27,7 +27,7 @@ title: "Preparar un Servidor"
  ssh root@<IP>
 ```
 
- El cual nos pedira la contraseña, y la ingresamos y con eso deberíamos tener acceso a el servidor como root, lo primero que se debe hacer es cambiar la contraseña, yo uso el programa **keepassxc** para administrar y generar contraseñas, yo no usaria una contraseña que pudiera recordar facilmente como **c0ntr4s3ñ4** ó **Cu4lqU13r.C0ntr4s3ñ45786**, pues cualquiera que sea fácil para nosotros recordar también es fácil de crackear [**ejemplo**](https://www.youtube.com/watch?v=BiStxSaLs7U)
+ El cual nos pedira la contraseña, y la ingresamos y con eso deberíamos tener acceso a el servidor como root, lo primero que se debe hacer es cambiar la contraseña, yo uso el programa **keepassxc** para administrar y generar contraseñas, yo no usaria una contraseña que pudiera recordar fácilmente como **c0ntr4s3ñ4** ó **Cu4lqU13r.C0ntr4s3ñ45786**, pues cualquiera que sea fácil para nosotros recordar también es fácil de crackear [**ejemplo**](https://www.youtube.com/watch?v=BiStxSaLs7U)
   
 
 ### Conectarse al Servidor
@@ -46,7 +46,7 @@ title: "Preparar un Servidor"
 ### Firewall
 
 
- El firewall es una herramienta que nos ayudara a rechazar conecciones en puertos que podrian estar abiertos, dejando una probabilidad de que alguien pueda acceder a el servidor por medio de alguno de estos puertos abiertos, para esto yo use **ufw** el cual es un programa que nos ayuda a admministrar los puertos.
+ El firewall es una herramienta que nos ayudara a rechazar conecciones en puertos que podrian estar abiertos, dejando una probabilidad de que alguien pueda acceder a el servidor por medio de alguno de estos puertos abiertos, para esto yo use **ufw** el cuál es un programa que nos ayuda a admministrar los puertos.
    
 
  Después de instalarlo hay que permitir los siguientes puertos **80,443,22(O puerto de ssh)** usando el comando 

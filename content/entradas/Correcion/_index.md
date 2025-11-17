@@ -1,5 +1,5 @@
 ---
-title: "Algoritmo para la correcion de palabras"
+title: "Algoritmo para la corrección de palabras"
 date: "2024-02-08"
 ---
 ```py

@@ -26,7 +26,7 @@ Una forma de contrarrestar esto es si generamos n píxeles que no sean dependien
 
 Un modelo de Diffusion toma una imagen de ruido y en lugar de agregar información, elimina información de el ruido.
 
-Cuando estos modelos se entrenan, se tiene una imagen y se le agrega "ruido", la forma de generar este ruido es la que aprenden los modelos de generación. Para después dada una imagen de ruido, este proceso pueda ser invertido, eliminando el ruido en cada iteración
+Cuando estos modelos se entrenarn, se tiene una imagen y se le agrega "ruido", la forma de generar este ruido es la que aprenden los modelos de generación. Para después dada una imagen de ruido, este proceso pueda ser invertido, eliminando el ruido en cada iteración
 y por lo tanto generando una imagen coherente.
 
 

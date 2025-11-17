@@ -6,7 +6,7 @@ date: "2024-01-16"
 Estoy haciendo un servidor gráfico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidí usar las lecturas analógicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intención es hacer lo mismo, pero con un joystick
 
 ## Comunicacion Serial
-Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analógicas directamente, entonces para estos casos escribí un programa en un arduino, el plan es crear una comunicación serial entre los dos para comunicar las lecturas analógicas de del joystick, este es el código que 
+Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analógicas directamente, entonces para estos casos escribí un programa en un arduino, el plan es crear una comunicación seríal entre los dos para comunicar las lecturas analógicas de del joystick, este es el código que 
 desarrollé:
 
 ```ino
@@ -39,7 +39,7 @@ void loop() {
 }
 ```
 
-Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma serial en la configuración y el código para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribí en c:
+Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma seríal en la configuración y el código para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribí en c:
 
 ```c
 #include <fcntl.h>
@@ -49,22 +49,22 @@ Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de f
 #include <termios.h>
 #include <unistd.h>
 
-int serial_port;
+int seríal_port;
 char buffer[2];
 char buffer_f[5];
 ssize_t bytes_read;
 void match_input();
 int main() {
-  serial_port = open("/dev/ttyS0", O_RDWR); // Adjust the port as needed
+  seríal_port = open("/dev/ttyS0", O_RDWR); // Adjust the port as needed
   struct termios tty;
 
-  if (serial_port < 0) {
-    perror("Error opening serial port");
+  if (seríal_port < 0) {
+    perror("Error opening seríal port");
     return 1;
   }
 
   memset(&tty, 0, sizeof(tty));
-  if (tcgetattr(serial_port, &tty) != 0) {
+  if (tcgetattr(seríal_port, &tty) != 0) {
     perror("Error from tcgetattr");
     return 1;
   }
@@ -90,12 +90,12 @@ int main() {
 
   tty.c_oflag &= ~OPOST; // Raw output
 
-  tcsetattr(serial_port, TCSANOW, &tty);
+  tcsetattr(seríal_port, TCSANOW, &tty);
 
   printf("\n");
   int index = 0;
   while (1) {
-    bytes_read = read(serial_port, &buffer, sizeof(buffer));
+    bytes_read = read(seríal_port, &buffer, sizeof(buffer));
     if (bytes_read == 1) {
       if (buffer[0] == '\n') {
         buffer_f[index] = '\0';
@@ -109,7 +109,7 @@ int main() {
     }
   }
 
-  close(serial_port);
+  close(seríal_port);
   printf("Serial connection closed.\n");
 
   return 0;

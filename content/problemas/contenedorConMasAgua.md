@@ -5,7 +5,7 @@ date: "23 Jun 2024"
 
 ## Contenedor con más agua
 
-Este problema consisten en dado una lista con numeros los cuales representan la altura de pilares en un contenedor, encontrar cual es el volumen mayor que se encontrara entre dos pilares cualquiera
+Este problema consisten en dado una lista con numeros los cuales representan la altura de pilares en un contenedor, encontrar cuál es el volumen mayor que se encontrara entre dos pilares cualquiera
 
 ### Solucion
 

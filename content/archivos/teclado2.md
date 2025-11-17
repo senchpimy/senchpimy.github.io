@@ -587,7 +587,7 @@ if __name__ == '__main__':
   
 
  Hay que modificar estos archivos directamente para poder cambiar el funcionamiento del teclado, el primero cambio que hice fue cambiar el pin de comunicación y la orientacion de los diodos , esto se hace en archivo **info.json**, el cambio del pin de la comunicación fue por que para las pantallas se
- utiliza el protocolo **I2C** y para este protocolo se necesitan dos pines, que serian el **2 y 3** en digital pero los pines **D1 Y D0** si se utiliza el nombre de los pines por como los detecta el microcontrolador y el segúndo por como conecte hice la matriz de conecciones
+ utiliza el protocolo **I2C** y para este protocolo se necesitan dos pines, que serían el **2 y 3** en digital pero los pines **D1 Y D0** si se utiliza el nombre de los pines por como los detecta el microcontrolador y el segúndo por como conecte hice la matriz de conecciones
    
 
 

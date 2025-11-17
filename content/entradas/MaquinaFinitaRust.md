@@ -39,7 +39,7 @@ struct Maquina{
 }
 ```
 
-Y las fucniones asociadas con esta estructura serian:
+Y las fucniones asociadas con esta estructura serían:
 
 ```rs
 impl Maquina{

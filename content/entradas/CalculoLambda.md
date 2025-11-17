@@ -5,7 +5,7 @@ katex: true
 ---
 
 ### Conceptos
-**Formalismo Matematico**: En las matematicas la formalizacion es una teoria que sostiene que las proposiciones de la matematica 
+**Formalismo Matematico**: En las matematicas la formalizacion es una teoría que sostiene que las proposiciones de la matematica 
 
 **Sistema formal**: Es una estructura abstracta y formalizacion de un sistema de axiomas usado para inferir teoremas de axiomas dado
 una reglas de inferencia

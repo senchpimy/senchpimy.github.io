@@ -51,7 +51,7 @@ date: "21 Jan 2023"
  chmod 770 /etc/gitea
 ``` 
  
- Luego hay que crear un servicio de **systemd**, en el repositorio de gitea hay un ejemplo pero yo tengo otro el cual es un poco diferente, este archivo hay que guardarlo en **/etc/systemd/system** como **gitea.service**
+ Luego hay que crear un servicio de **systemd**, en el repositorio de gitea hay un ejemplo pero yo tengo otro el cuál es un poco diferente, este archivo hay que guardarlo en **/etc/systemd/system** como **gitea.service**
 
 ``` toml
  [Unit]

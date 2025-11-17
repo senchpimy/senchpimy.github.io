@@ -157,7 +157,7 @@ opt-level = "s"
  sudo avrdude -q -C/etc/avrdude.conf -patmega328p -carduino -P/dev/ttyACM0 -D "-Uflash:w:$1:e"
 ```
  
- Y entonces todo deberia funcionar correctamente y el led incluido en el arduino conectado en el pin 13 deberia parpadear.
+ Y entonces todo debería funcionar correctamente y el led incluido en el arduino conectado en el pin 13 debería parpadear.
 
  Esto es possible gracias a la librería [avr-hal](https://github.com/Rahix/avr-hal), en su github esta ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
 
