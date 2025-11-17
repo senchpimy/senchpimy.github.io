@@ -26,7 +26,7 @@ date: "29 Jun 2023"
  
 
  En este vez usamos expresiones regulares para poder buscar las ocurrencias, con grep buscamos estas equivalencias, con los símbolos **^** y **$**
- decimos que seleccionamos todos los caracteres en una linea, con el texto **[0-9]** decimos que el caracter en esa poscicion puede ser un valor desde el 0 hasta el 9
+ decimos que seleccionamos todos los caracteres en una linea, con el texto **[0-9]** decimos que el caracter en esa posición puede ser un valor desde el 0 hasta el 9
  y con **{3}** hace que encuentre 3 caracteres de concuerden con el caracter anterior, y como el caracter anterior es un numero entre 0 y 9, luego repetimos este patron 
  y agregamos los caracteres **-** y **()** para que concuerden con los numeros validos
  

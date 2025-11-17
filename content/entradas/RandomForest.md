@@ -5,7 +5,7 @@ date: "08 Sep 2024"
 
 ### Conceptos
 
-**Metodo de Ensamble**: Es un metodo que combina multiples modelos de aprendizaje para mejorar la generalizacion y la robustez sobre un unico modelo.
+**Metodo de Ensamble**: Es un metodo que combina multiples modelos de aprendizaje para mejorar la generalizacion y la robustez sobre un único modelo.
 El metodo de ensamble entrena dos o más modelos de aprendizaje en una tarea especifica de regresion o clasificacion.
 
 **Arbol de Decision**: Es un modelo de aprendizaje supervisado que se utiliza para la toma de decisiones. Es un arbol que se compone de nodos y ramas.
@@ -20,7 +20,7 @@ al utilizar la aleatoriedad en la selección de las caracteristicas, evita el so
 los arboles de decision, Random Forest no utiliza todos los datos para entrenar cada arbol, sino que utiliza una muestra aleatoria de los datos lo que
 hace que el modelo sea más robusto y generalice mejor.
 
-Tambien utiliza el metodo de bagging, que consiste en entrenar multiples arboles de decision con diferentes subconjuntos de datos y luego
+También utiliza el metodo de bagging, que consiste en entrenar multiples arboles de decision con diferentes subconjuntos de datos y luego
 combinar las salidas de los arboles para obtener un resultado final.
 
 Tomando en cuenta toda la variabilidad potencial en los datos disminuimos el riesgo de sobreajuste y aumentamos la precision del modelo.

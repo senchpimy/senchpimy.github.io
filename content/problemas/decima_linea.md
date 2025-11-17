@@ -17,7 +17,7 @@ date: "30 Jun 2023"
 ```
  
 
- Pero fallaba cuando el documento no tenía más de 10 lineas, entonces con **awk** tienen la varibale **NR** que practicamente un contador de lineas,etonces
+ Pero fallaba cuando el documento no tenía más de 10 líneas, entonces con **awk** tienen la varibale **NR** que practicamente un contador de líneas,etonces
  se puede usar de la siguiente manera
  
 

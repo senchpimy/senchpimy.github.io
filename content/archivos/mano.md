@@ -57,7 +57,7 @@ webcam.release()
 cv2.destroyAllWindows()
 ```
  
- Este programa usa **mediapipe** para poder obtener las imagenes de una camara y **opencv** para detectar ciertos puntos de la mano
+ Este programa usa **mediapipe** para poder obtener las imágenes de una camara y **opencv** para detectar ciertos puntos de la mano
  
 ![](/pro_img/manos_ejemplos.png)
 ![](/pro_img/puntos_mano.png)
@@ -83,7 +83,7 @@ cv2.destroyAllWindows()
 
   
 
- El programa del arduino es igual de simple, este lee los primeros 4 caracteres, siendo el primero el dedo que se va a mover y los otros 3 la cantidad, ejemplo: **T180** (mover el pulgar *Thumb* a la poscicion 180)
+ El programa del arduino es igual de simple, este lee los primeros 4 caracteres, siendo el primero el dedo que se va a mover y los otros 3 la cantidad, ejemplo: **T180** (mover el pulgar *Thumb* a la posición 180)
  
  ```ino
 

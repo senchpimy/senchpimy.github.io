@@ -212,7 +212,7 @@ nnoremap  p :CocListResume
  call plug#end()
 ``` 
 
- Para poder instalar otros plugins necesitamos primero instalar vim-plug existen varias formas de instalarlo, pero encuentro que solo agregando las siguientes lineas al archivo init.vim es la mejor pues estas lineas se aseguran de instalarlo correctamente y de verificar si está instalado y si no lo instales, lo que significa que con solo el archivo de vim.init se puede usar la misma confuguracion de vim con los mismos plugins.
+ Para poder instalar otros plugins necesitamos primero instalar vim-plug existen varias formas de instalarlo, pero encuentro que solo agregando las siguientes líneas al archivo init.vim es la mejor pues estas líneas se aseguran de instalarlo correctamente y de verificar si está instalado y si no lo instales, lo que significa que con solo el archivo de vim.init se puede usar la misma confuguracion de vim con los mismos plugins.
  
 
  

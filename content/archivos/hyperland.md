@@ -2,14 +2,14 @@
 title: "hyperland"
 date: 2024-06-08
 ---
-Hyperland es un compositor de wayland (osea un administrador de ventanas) y este al ser más simple y minimalista
+Hyperland es un compositor de wayland (o sea un administrador de ventanas) y este al ser más simple y minimalista
 para poder tener un sistema completo se necesita muchos otros programas diferentes
 
 ## Hyperland
 
 Para la configuración de este use la configuración ya existente de [Hyde](https://github.com/prasanthrangan/hyprdots) ya que está contiene scripts
 que configuran y declaran ciertas variables en el sistema para tener la menor cantidad de problemas de compatibilidad con otros programas, lo que
-modifique en este caso fue el teclado y algunas configuraciones de la teclas:
+modifiqué en este caso fue el teclado y algunas configuraciones de la teclas:
 
 ```
 input {
@@ -254,7 +254,7 @@ window#waybar.empty {
 ```
 ## Swww
 
-Tambien se necesita un fondo de pantalla y el programa más simple para cumplir cone sta tarea es swww el cual
+También se necesita un fondo de pantalla y el programa más simple para cumplir con sta tarea es swww el cual
 no requiere de configuración más que cuando se utiliza el comando y eso depende de la imagen, este inicia automáticamente
 cuando inicia Hyperland
 
@@ -265,5 +265,5 @@ para este use la configuración por defecto que viene en hyde
 
 ## Dunst
 
-El progrma que se encarga de mostrar las notificaciones también use la modificación por defecto de hyde
+El programa que se encarga de mostrar las notificaciones también use la modificación por defecto de hyde
 

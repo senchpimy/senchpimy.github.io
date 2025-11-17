@@ -12,7 +12,7 @@ date: "08 Sep 2024"
 
 ## Forma Backus-Naur
 La forma Backus Naur (BNF) es una notación para describir la sintaxis de algunos lenguajes formales, fue desarrollada por Jhon Backus Y Peter Naur. BNF puede ser descrita como una *notación de metasintaxis* para gramaticas libre de contexto. BNF es usado cuando
-descripciones exactas de lenguajes son necesarias, como en la especificacion de un lenguaje oficial, en manuales, etc. Incluso para describir formatos de documentos, sets de instrucciones y protocolos de comunicacion.
+descripciones exactas de lenguajes son necesarias, como en la especificacion de un lenguaje oficial, en manuales, etc. Incluso para describir formatos de documentos, sets de instrucciones y protocolos de comunicación.
 
 Los BNF describen como combinar diferentes símbolos para producir sequencias sintacticamente correctas. Los BNFs consistes de 3 componentes. Los símbolos terminales, los no-terminales y las reglas para reemplazar los símbolos no-terminales con una secuencia de símbolos.
 Las reglas de derivacion se escriben de la siguiente manera:

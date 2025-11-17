@@ -251,7 +251,7 @@ nnoremap <silent><nowait> <space>p :<C-u>CocListResume<CR>
 
 
 
-[Gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) es un plugin que nos deja usar y ver muchas funciones relacionadas el programa git (control y manejo de versiones de software) para poder ver en un archivo que lineas fueron eliminadas, en que commits y cuando se agreagron otras lineas, entre mucas otras funciones, está escrito en lua y para poder ocuparlo es necesario que neovim lo llame, en un archivo de configuración de vimscript para neovim (init.vim) se necesitan las siguietes tres lineas
+[Gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) es un plugin que nos deja usar y ver muchas funciones relacionadas el programa git (control y manejo de versiones de software) para poder ver en un archivo que líneas fueron eliminadas, en que commits y cuando se agreagron otras líneas, entre mucas otras funciones, está escrito en lua y para poder ocuparlo es necesario que neovim lo llame, en un archivo de configuración de vimscript para neovim (init.vim) se necesitan las siguietes tres líneas
  
 
 ```vim
@@ -292,7 +292,7 @@ END
 
 
 
-[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar más información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuración por default pero existem muchos temas que luego probare, está es en promedio más rápida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuración de gitsigns
+[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar más información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuración por default pero existen muchos temas que luego probare, está es en promedio más rápida que lightline y airline, dos plugins hechos para cumplir el mismo propósito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuración de gitsigns
  
 
 ```vim
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger está escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger está escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuración similar a **gitsigns y lualine**
 
 
@@ -405,7 +405,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automáticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automáticamente agregara "2. " y me pondra un espacio después para escribir directamente, también funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
+[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo único que hace es agregar automáticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automáticamente agregara "2. " y me pondra un espacio después para escribir directamente, también funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
 
 ## Impatient.nvim
 
@@ -417,7 +417,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separación de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
 
 ## vim-matchup
 
@@ -429,7 +429,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-cursorword](https://github.com/itchyny/vim-cursorword) es un plugin simple y lo unico que hace es que cuando el cursor (sin omportar el modo) este en una palabra el plugin va a subrayar la palabra en la que está el cursor y todas las palabras iguales. Este plugin no tiene configuración
+[Vim-cursorword](https://github.com/itchyny/vim-cursorword) es un plugin simple y lo único que hace es que cuando el cursor (sin omportar el modo) este en una palabra el plugin va a subrayar la palabra en la que está el cursor y todas las palabras iguales. Este plugin no tiene configuración
 
 ## Vim-choosewin
 

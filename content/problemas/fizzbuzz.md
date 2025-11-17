@@ -31,7 +31,7 @@ class Solution(object):
 
  **(i%x==1)**
 
- En donde x es 3 y 5, está expresion evalua si el valor **i** es divisible entre **x**, el resultado es un Booleano osea cierto o falso, estos valores también se representan como 0 o 1, por lo que cuando se evalua la expresion si no es verdad el resultado sería 0 y por lo tanto el string se multiplicaria por 0 y por lo tanto dicho string no existiria, se evalua con **"Fizz"** y luego se concatena el resultado de la segunda evaluacion con **"Buzz"**, en caso de que ninguno se a multiplicado por uno entonces el valor sera 0 y por lo tanto se evalua como falso, por lo que es cuando el valor que está después de **or** es el que se guarda en la lista.
+ En donde x es 3 y 5, está expresion evalua si el valor **i** es divisible entre **x**, el resultado es un Booleano o sea cierto o falso, estos valores también se representan como 0 o 1, por lo que cuando se evalua la expresion si no es verdad el resultado sería 0 y por lo tanto el string se multiplicaria por 0 y por lo tanto dicho string no existiria, se evalua con **"Fizz"** y luego se concatena el resultado de la segunda evaluacion con **"Buzz"**, en caso de que ninguno se a multiplicado por uno entonces el valor sera 0 y por lo tanto se evalua como falso, por lo que es cuando el valor que está después de **or** es el que se guarda en la lista.
 
  Esto se evalua por todos los elementos del for y termina, por lo tanto resolviendo el problema
  

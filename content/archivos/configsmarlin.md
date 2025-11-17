@@ -3,7 +3,7 @@ title: "Configuración de Marlin Para la Ender3"
 date: "29 Oct 2022"
 ---
 
- Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifique mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
+ Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifiqué mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
  
 ## _Statusscreen.h
 
@@ -29,7 +29,7 @@ date: "29 Oct 2022"
 
  Al ya estar conectado enviaremos el siguiente texto a la computadora **M303 E0 S205 C7**, lo que este comando de g code significa es lo siguiente
 * **M303:** Este comando indica que haremos al prueba de calibración de los valores de PID
-* **E0:** Esto significa que llevaremos la prueba en el extrusor 0 pues como solo tiene uno mi impresora es el unico que hay que calibrar
+* **E0:** Esto significa que llevaremos la prueba en el extrusor 0 pues como solo tiene uno mi impresora es el único que hay que calibrar
 * **S205:** Significa que el hotend se calentará hasta los 205 grados para hacer la prueba
 * **C7:** Significa que la prueba se llevará a cabo 7 veces, esto es para tener unos valores más exactos, también se pueden hacer menos pero podría llevar a inexactitudes o se podrian hacer más pero llevaria más tiempo y puede que las optimizaciones no valgan la pena
 

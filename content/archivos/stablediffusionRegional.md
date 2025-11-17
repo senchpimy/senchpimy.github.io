@@ -4,7 +4,7 @@ date: "04 Aug 2023"
 ---
 
 
-**Stable Diffusion Regional Prompt** es una extensión para la interfaz [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui), este extensión nos permite generar imagenes de tal manera que ciertos elementos esten es un espacio espefico de la imagen
+**Stable Diffusion Regional Prompt** es una extensión para la interfaz [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui), este extensión nos permite generar imágenes de tal manera que ciertos elementos esten es un espacio espefico de la imagen
  generada, pero este elemento se va a colocar de tal manera que no parece agregado de forma aparte.
    
   
@@ -103,7 +103,7 @@ date: "04 Aug 2023"
  ADDBASE A red car in the forest best quality, masterpiece
  ADDCOL realistic, dinosour, open mouth, screaming
  
- Obtenemos las siguientes imagenes
+ Obtenemos las siguientes imágenes
  
 ![](/pro_img/regional_propmpter6.png)
 ![](/pro_img/regional_propmpter7.png)

@@ -2,8 +2,8 @@
 title: "Stable Diffusion"
 date: "20 Jul 2023"
 ---
-**Stable Diffusion**, es un modelo de inteligencia artifical que sirve para generar imagenes, lo bueno de este modeloes que es **open source** y se puede ejecutar de forma local, entonces lo quise ejecutar en mi propia maquina, entonces vi que una de las formas más rápida de poder usar este 
- modelo es usando el programa **[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)**, este programa funciona en casi todas las computadoras de forma automatica, solo hay que ejecutar el script de instalación y asi deberia funcionar, pero en mi computadora
+**Stable Diffusion**, es un modelo de inteligencia artifical que sirve para generar imágenes, lo bueno de este modeloes que es **open source** y se puede ejecutar de forma local, entonces lo quise ejecutar en mi propia maquina, entonces vi que una de las formas más rápida de poder usar este 
+ modelo es usando el programa **[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)**, este programa funciona en casi todas las computadoras de forma automática, solo hay que ejecutar el script de instalación y asi deberia funcionar, pero en mi computadora
  y por el hardware que tengo tuve que hacer unos pasos extras.
 
  Al intentar ejecutar el script por primera vez, este no descaragba la versión de **ROCm** necesaria para funcionar, luego de tiempo de investigar me di cuenta que mi tarjeta gráfica todavía no estaba soportada por este software, asi que deje de intentarlo por un tiempo hasta que vi la noticia

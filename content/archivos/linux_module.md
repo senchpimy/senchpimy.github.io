@@ -6,7 +6,7 @@ date: "2024-01-16"
 Estoy haciendo un servidor gráfico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidí usar las lecturas analogicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intencion es hacer lo mismo, pero con un joystick
 
 ## Comunicacion Serial
-Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analogicas directamente, entonces para estos casos escribi un programa en un arduino, el plan es crear una comunicacion serial entre los dos para comunicar las lecturas analogicas de del joystick, este es el código que 
+Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analogicas directamente, entonces para estos casos escribi un programa en un arduino, el plan es crear una comunicación serial entre los dos para comunicar las lecturas analogicas de del joystick, este es el código que 
 desarrolle:
 
 ```ino

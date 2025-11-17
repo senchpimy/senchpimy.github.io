@@ -8,7 +8,7 @@ date: "15 Jan 2023"
   
   
 
-* **Cuztomizar el prompt:** El prompt es el texto que aparece antes de el cursor en el terminal, y en este aparece información como el directorio, el estado de el proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Asi como modificar los colores y símbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización está en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
+* **Cuztomizar el prompt:** El prompt es el texto que aparece antes de el cursor en el terminal, y en este aparece información como el directorio, el estado de el proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Así como modificar los colores y símbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización está en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
 
 ```toml
 

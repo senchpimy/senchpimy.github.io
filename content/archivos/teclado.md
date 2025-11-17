@@ -9,7 +9,7 @@ date: "23 Jun 2023"
 ![](/pro_img/iris_keyboard.webp)
 ![](/pro_img/lily58.webp)
 
- Para poder hacerlo necesité comprar unos botones mecanicos, pues estos son los que dan la flexibilidad de poder usarlos en cualquier poscicion y de cualquier manera,
+ Para poder hacerlo necesité comprar unos botones mecanicos, pues estos son los que dan la flexibilidad de poder usarlos en cualquier posición y de cualquier manera,
  también necesité unos arduino pro-micro, estos en especificos pues su microprocesador a diferencia de otros arduino a excepcion del **Leonardo** ya tiene incluida
  la capacidad de ser leido como un periferico por las computadoras solo con el uso de unas librerias, pero el **Leonardo** es demasiado grande y costoso, pues se 
  van a necesitar dos de estos elementos, uno para cada mitad del teclado

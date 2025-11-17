@@ -6,7 +6,7 @@ El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos qued
 bonotes y no se pueden mover tan fácil, etc.
 
 Entonces mejor decidí hacer una nueva versión de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresión 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
-de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy fácil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
+de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estándar de crear estos teclados y es muy fácil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
 que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opción de generar los modelos con un espacio para una pantalla oled de 128x32 con 
 varios metodos para colocar está en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opción de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
 puede usar.
@@ -39,7 +39,7 @@ Para construir está versión del teclado, necesitarás los siguientes component
 
 ### El modelo
 
- Lo unico malo que le encontré a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los puede encontrar en la **Wayback machine** [aquí](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
+ Lo único malo que le encontré a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los puede encontrar en la **Wayback machine** [aquí](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
  [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si están usando el mismo microprocesador
  
 ![](/pro_img/teclado2_1.png)
@@ -586,7 +586,7 @@ if __name__ == '__main__':
    
   
 
- Hay que modificar estos archivos directamente para poder cambiar el funcionamiento del teclado, el primero cambio que hice fue cambiar el pin de comunicacion y la orientacion de los diodos , esto se hace en archivo **info.json**, el cambio del pin de la comunicacion fue por que para las pantallas se
+ Hay que modificar estos archivos directamente para poder cambiar el funcionamiento del teclado, el primero cambio que hice fue cambiar el pin de comunicación y la orientacion de los diodos , esto se hace en archivo **info.json**, el cambio del pin de la comunicación fue por que para las pantallas se
  utiliza el protocolo **I2C** y para este protocolo se necesitan dos pines, que serian el **2 y 3** en digital pero los pines **D1 Y D0** si se utiliza el nombre de los pines por como los detecta el microcontrolador y el segundo por como conecte hice la matriz de conecciones
    
 
@@ -611,8 +611,8 @@ if __name__ == '__main__':
   
   
 
- El código fuente del keymap original [se encuentra aquí](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar está carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, después en el archivo **keymap.c**
- hay que agregar estas lineas:
+ El código fuente del keymap original [se encuentra aquí](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realicé fueron primero copiar está carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, después en el archivo **keymap.c**
+ hay que agregar estas líneas:
 ```c
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
@@ -651,9 +651,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 ```
 
- Que es el keymap del teclado el cual queremos ocupar, pero también hay que eliminar o comentar estas otras lineas, las cuales son el keymap del teclado anterior.
+ Que es el keymap del teclado el cual queremos ocupar, pero también hay que eliminar o comentar estas otras líneas, las cuales son el keymap del teclado anterior.
  
- Y finalmente en el archivo **rules.mk** ***(PERO SOLO EL QUE ESTA DENTRO DE LA CARPETA DE DRUOTONI)*** hay que eliminar dos lineas, pero yo lo borraria todo y lo remplazaria por esto
+ Y finalmente en el archivo **rules.mk** ***(PERO SOLO EL QUE ESTA DENTRO DE LA CARPETA DE DRUOTONI)*** hay que eliminar dos líneas, pero yo lo borraria todo y lo remplazaria por esto
  
 ```c
  # Build Options
@@ -688,7 +688,7 @@ SRC += ./burst.c \
  make handwired/dactyl_manuform/5x6_68:druotoni:flash 
  ```
  
- Hay que tomar en cuenta que cada microcontrolador se flaseha de forma diferente, como dicen las intrucciones originales del keymap de droutoni hay que cambiar estas lineas en el archivo **config.h** segun de que lado se este flasheando el programa:
+ Hay que tomar en cuenta que cada microcontrolador se flaseha de forma diferente, como dicen las intrucciones originales del keymap de droutoni hay que cambiar estas líneas en el archivo **config.h** segun de que lado se este flasheando el programa:
  
 ```make
  //#define IS_LEFT 1
@@ -702,7 +702,7 @@ SRC += ./burst.c \
  
 ![](/pro_img/teclado2_10.png)
 
- Teniendo un total de 6 columans con 6 filas, los diodos los coloque con el anodo saliendo del switch y el catodo conectado a su columna correspondiente, osea de la siguiente forma:
+ Teniendo un total de 6 columans con 6 filas, los diodos los coloque con el anodo saliendo del switch y el catodo conectado a su columna correspondiente, o sea de la siguiente forma:
 
 
 ![](/pro_img/teclado2_11.png)

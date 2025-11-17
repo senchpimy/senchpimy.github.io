@@ -21,7 +21,7 @@ date: "02 Aug 2023"
 
   
 
- Tambien podriamos medir con una regla y a veces puede ser lo más exacto que necesitamos pero también con la impresora podriamos mover el eje Z hasta que, el extrusor frio apenas este tocando la pieza, esto hay que hacerlo con mucho cuidado de que por mover alguno de los ejes, el extrusor termine empujando
+ También podriamos medir con una regla y a veces puede ser lo más exacto que necesitamos pero también con la impresora podriamos mover el eje Z hasta que, el extrusor frio apenas este tocando la pieza, esto hay que hacerlo con mucho cuidado de que por mover alguno de los ejes, el extrusor termine empujando
  la pieza o la termine despegando de la cama, lo cual sería casi imposible de recuperar.
    
 
@@ -48,7 +48,7 @@ date: "02 Aug 2023"
 
   
 
- Y ya que la encontramos porcedemos a borrar todas las lineas que este anteriores a esas, excepto las que verifican la tempreatura y las que lo mueven al comienzo
+ Y ya que la encontramos porcedemos a borrar todas las líneas que este anteriores a esas, excepto las que verifican la tempreatura y las que lo mueven al comienzo
  
 
 

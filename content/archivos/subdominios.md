@@ -12,7 +12,7 @@ date: "09 Jan 2023"
 ![](/pro_img/subdominios.png)
 
  En la foto podemos ver el dominio principal apuntando a un servidor y el subdomnio apunta a el mismo servidor / dirección IP, asi que en la parte de los registros de DNS ya es todo.
- Asi que ahora con nuestro servicio ejecutando en el puerto 3001 y un subdominio apuntando a el servidor, ya podemos configurar **nginx**.
+ Así que ahora con nuestro servicio ejecutando en el puerto 3001 y un subdominio apuntando a el servidor, ya podemos configurar **nginx**.
    
 
   
@@ -32,7 +32,7 @@ server {
 }
 ``` 
  
- En este archivo estamos especificando que el nombre de el servidor sea el del subdominio que tenemos, y que este va a escuchar en el puerto 80, pero en realidad se refiere a que la comunicacion va a ser **http**, los valores **root** e **index**, no son importantes en este caso, pues en una página estatica estos son los archivo sque se serviran en el servidor, pero como lo estamos sobreescribiendo en la parte de **location**, estos no tienen ningún efecto y finalmente la parte de **location** vamos a escribir **proxy\_pass** y luego la dirección local de nuestra maquina, que en todos los casos sera **127.0.0.1**, acompañado con el protocolo que en este caso es http y finalmente ahora si apuntando hacía el puerto en el que está nuestro servicio, siendo este el **3001** ponemos el **:** y luego el puerto que en este caso sería el 3001.
+ En este archivo estamos especificando que el nombre de el servidor sea el del subdominio que tenemos, y que este va a escuchar en el puerto 80, pero en realidad se refiere a que la comunicación va a ser **http**, los valores **root** e **index**, no son importantes en este caso, pues en una página estatica estos son los archivo sque se serviran en el servidor, pero como lo estamos sobreescribiendo en la parte de **location**, estos no tienen ningún efecto y finalmente la parte de **location** vamos a escribir **proxy\_pass** y luego la dirección local de nuestra maquina, que en todos los casos sera **127.0.0.1**, acompañado con el protocolo que en este caso es http y finalmente ahora si apuntando hacía el puerto en el que está nuestro servicio, siendo este el **3001** ponemos el **:** y luego el puerto que en este caso sería el 3001.
 
  Anque si ahora intentas acceder desde cualquier navegador te saldrá una advertencia diciendo que la página no es segura, y para que pase esto hay que tener una coneccion de tipo **https** que para obtener hay que conseguir un certificado SSL para poder tener una coneccion de tipo **https**, en lugar de la **http**, para poder hacer esto simplemente hay que tener instalado **python3-certbot-nginx** que en un servido tipo debian sería **apt install python3-certbot-nginx** y luego ejecutar **certbot --nginx**, después solo hay que seguir las instrucciones.
 

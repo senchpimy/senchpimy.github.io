@@ -27,7 +27,7 @@ date: "30 Jun 2023"
 ![](/pro_img/marmol2.png)
 
 
- Tambien como obsidian se pueden mostrar los archivos que hay en un vault, buscar por algo en todos los archivos, y también soporta busqueda con **regex**, además de mostrar los documentos favoritos, se puede hacer un documento favorito con click derecho.
+ También como obsidian se pueden mostrar los archivos que hay en un vault, buscar por algo en todos los archivos, y también soporta busqueda con **regex**, además de mostrar los documentos favoritos, se puede hacer un documento favorito con click derecho.
  
 
 ![](/pro_img/marmol3.png)

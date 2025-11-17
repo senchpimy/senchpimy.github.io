@@ -12,7 +12,7 @@ Este proyecto es una modificación a mi impresora una ender 3 para que está sea
 ![](/pro_img/adaptador_motor_con_motor.png)
 
 Lo malo de este diseño es que no tuve en cuenta la distancia de la broca a la placa, lo estoy ocupando para hacer circuitos impresos, y para esto tuve que incorporar una extensión en cura la cual me permite agregar una separación entre el extrusor y la cama directamente en el **G-code** *\*en mi caso (pues coloco una tabla de madera para proteger la cama de la ender 3 de la broca) de más de 2 cm\**
-Tambien diseñé una adaptador para diferentes tipos de plumas o lápices para este adaptador basado en [este modelo](https://www.thingiverse.com/thing:4721453), para que funcione solo necesitas descargar la tuerca desde la página original y [mi adaptación](pluma_cnc.stl)
+También diseñé una adaptador para diferentes tipos de plumas o lápices para este adaptador basado en [este modelo](https://www.thingiverse.com/thing:4721453), para que funcione solo necesitas descargar la tuerca desde la página original y [mi adaptación](pluma_cnc.stl)
 
 ![](/pro_img/adaptador_pluma.png)
 

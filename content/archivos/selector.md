@@ -2,7 +2,7 @@
 title: "Selector de Archivos"
 date: "16 Jan 2023"
 ---
- Cuando estaba haciendo mi programa para mandar mensajes me di cuenta que al haber tantos navegadores de archivos no habia un estandar para invocar un selector de archivos y tener el **string** de la ubicación de este archivo que fue seleccionado, con esto en mente cree en rust un selecotr de archivos simple, este solo muestra los contenidos de una carpeta y al hacer click en algún archivo este regresa el string de su ubicación, este programa tiene un buscador y además de que puede ser ejecutado de forma en la que solo aparezacan archivos de determinado tipo
+ Cuando estaba haciendo mi programa para mandar mensajes me di cuenta que al haber tantos navegadores de archivos no habia un estándar para invocar un selector de archivos y tener el **string** de la ubicación de este archivo que fue seleccionado, con esto en mente cree en rust un selecotr de archivos simple, este solo muestra los contenidos de una carpeta y al hacer click en algún archivo este regresa el string de su ubicación, este programa tiene un buscador y además de que puede ser ejecutado de forma en la que solo aparezacan archivos de determinado tipo
  
 ![](/pro_img/archivos.gif)
 

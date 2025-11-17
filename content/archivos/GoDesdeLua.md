@@ -24,7 +24,7 @@ func add(x int, y int) int{
 }
 ```
 
-Tambien hay que agregar el paquete y una función main vacia, además de  indicar que la función es publica convirtiendo la primera letra a mayuscula
+También hay que agregar el paquete y una función main vacía, además de  indicar que la función es publica convirtiendo la primera letra a mayúscula
 
 
 ```go
@@ -52,7 +52,7 @@ local ffi = require("ffi")
 local awesome = ffi.load("./awesome.so")
 
 ```
-Y finalmente hay que añadir las definiciones, el siguiente ejemplo crea una definicion en un .h para indicar su equivalencia en C
+Y finalmente hay que añadir las definiciones, el siguiente ejemplo crea una definición en un .h para indicar su equivalencia en C
 
 ```lua
 local ffi = require("ffi")
@@ -75,7 +75,7 @@ extern GoInt Log(GoString p0);
 ]]);
 ```
 
-En nuesttro caso quedaría como:
+En nuestro caso quedaría como:
 
 
 ```lua

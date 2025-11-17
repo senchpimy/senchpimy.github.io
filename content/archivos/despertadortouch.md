@@ -46,7 +46,7 @@ en la versión 0.11 en debian.
 
 Pero esto fue inutil ya que este Tinywl no tenía soporte para la pantalla touch, es decir no detectaba el touch.
 
-Entonces tuve que cambiar a usar Xorg y use una versión modificada de dwm para que solo muestre este unico programa y compilarlo para está
+Entonces tuve que cambiar a usar Xorg y use una versión modificada de dwm para que solo muestre este único programa y compilarlo para está
 arquitectura
 
 ## Final

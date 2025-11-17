@@ -39,7 +39,7 @@ echo #############python-pil installed#############
 ```
 
 
- Tambien modifique el código del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi código se apaga a los dos minutos, para cambier este tiempo solo hay que modificar la variable **Tiempo**
+ También modifiqué el código del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi código se apaga a los dos minutos, para cambier este tiempo solo hay que modificar la variable **Tiempo**
 
 
 ```py

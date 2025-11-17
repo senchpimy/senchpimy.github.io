@@ -24,7 +24,7 @@ date: "26 Oct 2022"
 
 
 
- El proposito de este pequeño libro se para ser usado como una gia simple y directaen algún momento de gran peligro.
+ El propósito de este pequeño libro se para ser usado como una gia simple y directaen algún momento de gran peligro.
 
  Rezo que este solo sea un trabajo de ficcion
 
@@ -79,7 +79,7 @@ date: "26 Oct 2022"
 
 
 
- El receptor viviente es escogido para guiar a el artefacto en poscicion para su viaje de regreso a el Universo Primario.
+ El receptor viviente es escogido para guiar a el artefacto en posición para su viaje de regreso a el Universo Primario.
 
  Nadie conoce como o por que un receptor sera escogido.
 

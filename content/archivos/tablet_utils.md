@@ -64,7 +64,7 @@ fn rundaemon() {
 }
 ```
 
-Luego tengo que leer cada evento, en linux los eventos miden 24 bytes, su definicion
+Luego tengo que leer cada evento, en linux los eventos miden 24 bytes, su definición
 en el kernel de linux es la siguiente:
 
 ```c

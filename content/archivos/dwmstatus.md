@@ -20,13 +20,13 @@ date: "09 Nov 2022"
 ``` 
   
 
- Podemos ver que lo unico que hay en está lista son dos comandos **de shell** que son ejecutados, los comentarios son muy explicativos en esto, hay un icono, este es opcional y este saldrá enfrente de la salida de su respectivo comando, luego sigue el comando que se va a ejecutar y finalmente está el intervalo que es cada cuanto este comando se volvera a ejecutar y el valor que presenta se reiniciará.
+ Podemos ver que lo único que hay en está lista son dos comandos **de shell** que son ejecutados, los comentarios son muy explicativos en esto, hay un icono, este es opcional y este saldrá enfrente de la salida de su respectivo comando, luego sigue el comando que se va a ejecutar y finalmente está el intervalo que es cada cuanto este comando se volvera a ejecutar y el valor que presenta se reiniciará.
  
 
 ![](https://dwm.suckless.org/patches/status2d/status2d.png)
 
 
- Pero esto solo nos podrá mostrar letras, si queremos hacerlo algo más lindo como la imagen de arriba en donde podremos ver diferentes figuras necesitaríamos dwm tenga el patch de [status2d](https://dwm.suckless.org/patches/status2d/), este patch nos permite que con una cierta secuencia de caracteres podremos generar rectángulos, lineas y efectos sobre las letras de cualquier color hexadecimal, ya con este patch instalado podremos hacer estos efectos:
+ Pero esto solo nos podrá mostrar letras, si queremos hacerlo algo más lindo como la imagen de arriba en donde podremos ver diferentes figuras necesitaríamos dwm tenga el patch de [status2d](https://dwm.suckless.org/patches/status2d/), este patch nos permite que con una cierta secuencia de caracteres podremos generar rectángulos, líneas y efectos sobre las letras de cualquier color hexadecimal, ya con este patch instalado podremos hacer estos efectos:
  
  **^c#XXXXXX^**
  

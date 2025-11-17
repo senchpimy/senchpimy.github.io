@@ -37,11 +37,11 @@ El siguiente porcentaje de la poblacion es escojido con una probabilidad segun s
 ## Evaluacion
 
 En este ejemplo se tomo como función de aptitud (fitness) cuanto tiempo en segundos podian mantener en equilibrio un pendulo sobre una linea y cada agente tiene 100 segundos para intentar tener la mayor puntuacion, los valores de salida es la 
-velocidad de el carro y los valores de entrada son la poscicion, la dirección en x, la dirección en y la velocidad angular
+velocidad de el carro y los valores de entrada son la posición, la dirección en x, la dirección en y la velocidad angular
 
 ### Cambios a la función de aptitud
 
-En la experimentacion se encontro que aunque se cumplia con el proposito de mantener el pendulo en equilibrio este oscilaba mucho, por lo que se penso en cambiar la función de aptitud a ahora tomar en cuenta la velocidad angular de el pendulo. En este caso se encontro que
+En la experimentacion se encontro que aunque se cumplia con el propósito de mantener el pendulo en equilibrio este oscilaba mucho, por lo que se penso en cambiar la función de aptitud a ahora tomar en cuenta la velocidad angular de el pendulo. En este caso se encontro que
 se logro estabilizar el movimiento de el carro
 
 ## Fuentes

@@ -37,7 +37,7 @@ Los diferentes argumento se separan con puntos, para definir varios argumentos e
 
 $$\lambda x.\lambda y$$
 
-Y finalmente la salida se coloca después de la definicion de los argumentos con un punto. Por ejemplo una función que aumente en 1 los valores
+Y finalmente la salida se coloca después de la definición de los argumentos con un punto. Por ejemplo una función que aumente en 1 los valores
 
 $$\lambda x.x+1$$
 
@@ -83,7 +83,7 @@ $$(\lambda y.True\textrm{ M y}) \textrm{ N} \rightarrow (True\textrm{ M N}) \rig
 
 ## Tipos en el calculo Lambda
 
-Para limitar el tipo de datos que una abstraccion lambda puede recibir se agregan tipos a la definicion lambda de la siguiente forma:
+Para limitar el tipo de datos que una abstraccion lambda puede recibir se agregan tipos a la definición lambda de la siguiente forma:
 
 $${\textstyle \lambda x.M : A \rightarrow B}$$
 
