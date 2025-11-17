@@ -260,7 +260,7 @@ cuando inicia Hyperland
 
 ## Rofi
 
-Rofi es un programa muy simple que funciona tanto en xorg como en wayland solo hay que tener la version correcta instalada,
+Rofi es un programa muy simple que funciona tanto en xorg como en wayland solo hay que tener la versión correcta instalada,
 para este use la configuracion por defecto que viene en hyde
 
 ## Dunst

@@ -43,4 +43,4 @@ Este programa primero ordena la lista, luego usa el algoritmo que se usa en suma
 en este caso el opuesto de el numero que se esta buscando actualmente.
 
 Pero en este caso como estamos buscando todas las posibilidades diferentes entonces tomar en cuenta que se repitan varios 
-valores entonces para encontrar cada posible dato diferente debemos mover el ultimo indice hasta que el ultimo valor sea diferente
+valores entonces para encontrar cada posible dato diferente debemos mover el último indice hasta que el último valor sea diferente

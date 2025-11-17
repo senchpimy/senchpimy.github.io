@@ -29,7 +29,7 @@ A cada agente/candidato hace la tarea que le hes asignada y se le asigna una eva
 
 ### Selección
 
-Se selecciona a x% de agentes de la población que hallan tenido la mejor puntuacion y se agregan a la siguiente poblacion sin ningun cambio
+Se selecciona a x% de agentes de la población que hallan tenido la mejor puntuacion y se agregan a la siguiente poblacion sin ningún cambio
 
 ### Mutación
 El siguiente porcentaje de la poblacion es escojido con una probabilidad segun su evaluacion, **ademas de sufrir alguna mutacion, ya sea una nueva conneccion, un nuevo nodo o una modficacion a los pesos**

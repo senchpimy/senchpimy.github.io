@@ -3,7 +3,7 @@ title: "Rust en Arduino"
 date: "07 Jan 2023"
 ---
 
- Rust es un lenguaje de bajo nivel que me gustaria aprender, aqui hay un ejemplo de el equivalente al programa blink, para el **arduino uno** usando Rust.
+ Rust es un lenguaje de bajo nivel que me gustaria aprender, aquí hay un ejemplo de el equivalente al programa blink, para el **arduino uno** usando Rust.
 
 
  Primero hay que instalar los programas necesarios para linkear y compilar para el arduino, en arch son las siguientes:
@@ -16,7 +16,7 @@ date: "07 Jan 2023"
 
   
 
- En este proyecto hay que usar una version diferente de el compilador por lo que en la carpeta hay que ejecutar **rustup override set nightly**, luego ya podemos modificar al archivo Cargo.toml con los siguientes campos:
+ En este proyecto hay que usar una versión diferente de el compilador por lo que en la carpeta hay que ejecutar **rustup override set nightly**, luego ya podemos modificar al archivo Cargo.toml con los siguientes campos:
 ```toml
 
 [dependencies]
@@ -46,7 +46,7 @@ opt-level = "s"
 ```toml
 [package]
 name = "arduino-rust-1"
-version = "0.1.0"
+versión = "0.1.0"
 edition = "2021"
 
 [dependencies]

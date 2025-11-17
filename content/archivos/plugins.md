@@ -279,7 +279,7 @@ END
 
 
 
-[Vim-Lastplace](https://github.com/farmergreg/vim-lastplace) es un plugin que al momento de editar un archivo, cerrarlo y abrirlo de nuevo, el curso aparecera justo en la posicion anterior, justo antes de cerrarlo, tiene unas configuracions pero yo ocupo ninguna
+[Vim-Lastplace](https://github.com/farmergreg/vim-lastplace) es un plugin que al momento de editar un archivo, cerrarlo y abrirlo de nuevo, el curso aparecerá justo en la posicion anterior, justo antes de cerrarlo, tiene unas configuracions pero yo ocupo ninguna
  
 ## CHADtree
 
@@ -312,7 +312,7 @@ END
 
 
 
-[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia version y meti los cambio en el código fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuracion se hace al igual que **gitsigns** y **lualine**
+[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia versión y meti los cambio en el código fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuracion se hace al igual que **gitsigns** y **lualine**
 
 
 ```lua
@@ -399,7 +399,7 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 ```
 
 
- Y para hacerlo funcionar solo tengo que escribir **descplug** en un documento html o css y luego en modo de comando escribir  **(control+y)**y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una funcion que todavia no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con **≶ C-y > ,**, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el ultimo o el primero y apretamos **≶ C-y > u** temenos la opción de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
+ Y para hacerlo funcionar solo tengo que escribir **descplug** en un documento html o css y luego en modo de comando escribir  **(control+y)**y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una funcion que todavia no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con **≶ C-y > ,**, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el último o el primero y apretamos **≶ C-y > u** temenos la opción de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
 
 ## Bullets.vim
 
@@ -503,7 +503,7 @@ EOF
 > La hydra es vencida una vez que hercules o cualquier otra tecla que no sea una cabeza de la Hydra intervenga
 
 
-Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en comun, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un aventana etc, pero si queremos repetir un comando tendriamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldra una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de esta interfaz
+Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en comun, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un aventana etc, pero si queremos repetir un comando tendriamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de esta interfaz
  Mi configuracion para la manipulacion de ventanas es la siguiente:
 
 
@@ -733,7 +733,7 @@ require'nvim-treesitter.configs'.setup {
 
 
 
- En la version +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo [Winbar](https://github.com/senchpimy/winbar.nvim) hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con [Nvim-Navic](https://github.com/SmiteshP/nvim-navic) hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos código es un objeto, funcion, etc.
+ En la versión +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo [Winbar](https://github.com/senchpimy/winbar.nvim) hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con [Nvim-Navic](https://github.com/SmiteshP/nvim-navic) hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos código es un objeto, funcion, etc.
 
 
 ```lua

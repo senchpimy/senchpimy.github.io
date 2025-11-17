@@ -40,7 +40,7 @@ title: "Preparar un Servidor"
  ssh-copy-id root@<IP>
 ```
 
- Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo **/etc/ssh/sshd\_config** y modificar la linea que dice **PasswordAuthentication** y **USEPam** a **no**, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. Tambien estaria bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto ultimo puede ser considerado inutil.
+ Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo **/etc/ssh/sshd\_config** y modificar la linea que dice **PasswordAuthentication** y **USEPam** a **no**, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. Tambien estaria bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto último puede ser considerado inutil.
 
 
 ### Firewall

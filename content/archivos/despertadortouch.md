@@ -42,11 +42,11 @@ Ya que tenemos el programa terminado y la pantalla lista necesitamos saber como 
 Mi primera opción fue usar TinyWl que es un administrador de ventanas de Wayland que es muy simple y por lo tanto usa mínimos recursos
 tuve que compilarlo desde la raspberry pi pues linkeaba las librerias de mi computadora (arch) y al momento de ejecutarlo (debian) no
 encontraba las librerias, después tuve que compilarlo desde un commit del 2020 pues **wlroots** la librería que usa tinywl se encuentra
-en la version 0.11 en debian.
+en la versión 0.11 en debian.
 
 Pero esto fue inutil ya que este Tinywl no tenía soporte para la pantalla touch, es decir no detectaba el touch.
 
-Entonces tuve que cambiar a usar Xorg y use una version modificada de dwm para que solo muestre este unico programa y compilarlo para esta
+Entonces tuve que cambiar a usar Xorg y use una versión modificada de dwm para que solo muestre este unico programa y compilarlo para esta
 arquitectura
 
 ## Final

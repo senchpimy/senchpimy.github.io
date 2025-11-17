@@ -11,7 +11,7 @@ Primero hay que descargar o compilar el toolchain para compilar rust en riscv, y
 
 ## Compilacion
 
-Primero hay que descargar la toolchain [desde aqui](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe de el repositorio 
+Primero hay que descargar la toolchain [desde aquí](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe de el repositorio 
 en donde después de 20 min de compilación obtuve una carpeta llamada *build* en donde se encuentran los compiladores y el linker de esta arquitectura
 
 ## Compilar en Rust
@@ -61,7 +61,7 @@ Y para compilarlo para la arquitectura que queremos usamos el siguiente comando:
 cargo +nightly build --target riscv64gc-unknown-linux-musl -Zbuild-std --release
 ```
 
-En el tutorial dice que hay que usar la version nightly pero la version base también me ha funcionado
+En el tutorial dice que hay que usar la versión nightly pero la versión base también me ha funcionado
 
 Y finalmente lo movemos a nuestro milkv con el comando **scp**
 
@@ -117,7 +117,7 @@ Yo obtengo la siguiente salida:
 >    00
 >    01     .interp
 >    02     .riscv.attributes
->    03     .interp .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .plt .text .rodata .eh_frame_hdr .eh_frame .gcc_except_table
+>    03     .interp .hash .gnu.hash .dynsym .dynstr .gnu.versión .gnu.version_r .rela.dyn .rela.plt .plt .text .rodata .eh_frame_hdr .eh_frame .gcc_except_table
 >    04     .tdata .init_array .fini_array .data.rel.ro .dynamic .data .got .sdata .sbss .bss
 >    05     .dynamic
 >    06     .tdata .tbss
@@ -130,7 +130,7 @@ Para eso hay que encontrar la librería, con el siguiente comando
 ```sh
 find /lib -name "**ld-musl**"
 ```
-Yo obtuve la siguiente salida en la version 1.0.6
+Yo obtuve la siguiente salida en la versión 1.0.6
 
 ```sh
 /lib/ld-musl-riscv64v0p7_xthead.so.1

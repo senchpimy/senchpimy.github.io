@@ -3,9 +3,9 @@ title: "Ender3 como CNC"
 date: "09 Nov 2022"
 ---
 
-Este proyecto es una modificación a mi impresora una ender 3 para que esta sea capaza de funcionar como una CNC, lo que hice fue imprimir [este adaptador (Version 4 para la ender 3)](https://www.thingiverse.com/thing:3369444) pues es una modificación que me permitira hacer que a la ender 3 se le puedan montar varias herramientas de forma rapida sin tener la preocupacion que lo que se valla a montar no quede centrado.
+Este proyecto es una modificación a mi impresora una ender 3 para que esta sea capaz de funcionar como una CNC, lo que hice fue imprimir [este adaptador (Version 4 para la ender 3)](https://www.thingiverse.com/thing:3369444) pues es una modificación que me permitira hacer que a la ender 3 se le puedan montar varias herramientas de forma rapida sin tener la preocupacion que lo que se valla a montar no quede centrado.
 
- Como la quiero hacer una CNC necesito un adaptador para el motor que tengo que seria el **GS-775M**, encontré un diseño de ese motor en internet y en base a ese pude hacer [este diseño](motor_cnc.stl), se imprime con soportes y yo recomiendo una relleno +20% con +2 paredes, el diseño funciona muy bien y si puede soportar el motor sin tener vibraciones.
+ Como la quiero hacer una CNC necesito un adaptador para el motor que tengo que seria el **GS-775M**, encontré un diseño de ese motor en internet y en base a ese puede hacer [este diseño](motor_cnc.stl), se imprime con soportes y yo recomiendo una relleno +20% con +2 paredes, el diseño funciona muy bien y si puede soportar el motor sin tener vibraciones.
  
 
 ![](/pro_img/adaptador_motor.png)

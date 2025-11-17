@@ -21,7 +21,7 @@ web del paquete tmb nos dice la solucion, y es descargar el archivo desde otro e
 
 ![Error de descarga del paquete pk2cmd](/pk2cmd_error.png)
 
-Aplicando esta correcion, al final el PKGBUILD quedaria asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aqui](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor seria hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
+Aplicando esta correcion, al final el PKGBUILD quedaria asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor seria hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
 ```bash
 # Maintainer: BxS <bxsbxs at gmail dot com>
 

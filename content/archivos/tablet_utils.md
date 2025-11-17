@@ -13,7 +13,7 @@ usando esta pluma.
 ## Leyendo la entrada
 
 Primero se necesita leer los datos que se reciben desde el kernel, por algun motivo fue algo confuso al principio, pues al parecer sin 
-ningun motivo aparente la entrada de la pluma puede estar en cualquiera de estas dos ubicaciones, no se por que pero cambia cada vez que se reinicia
+ningún motivo aparente la entrada de la pluma puede estar en cualquiera de estas dos ubicaciones, no se por que pero cambia cada vez que se reinicia
 la computadora.
 
 - /dev/input/event12

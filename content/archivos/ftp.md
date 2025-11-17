@@ -5,7 +5,7 @@ date: "05 Sep 2023"
 
 
  FTP es un protocolo para transmitir archivos, desde hace tiempo he intentado tener un servidor dentro de mi red local el cual funcione con unos discos que tengo, e intentado usar **OpenMediaVault**, pero tiene algunos bugs y no me gusto, también intente usar **Owncloud**, pero parece que no
- que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalacion debian desde apt no funciona pues la version de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuracion del servidor, entonces mejor decidi usar
+ que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalacion debian desde apt no funciona pues la versión de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuracion del servidor, entonces mejor decidi usar
  un simple servidor ftp
    
   

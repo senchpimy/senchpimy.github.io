@@ -10,7 +10,7 @@ date: "08 Jun 2023"
  sudo apt install docker
  ```
  
- Por lo que tuve que seguir las instrucciones de [aqui](https://docs.docker.com/engine/install/debian/)
+ Por lo que tuve que seguir las instrucciones de [aquí](https://docs.docker.com/engine/install/debian/)
   
 
  Luego cree el grupo docker y añadi mi usuario

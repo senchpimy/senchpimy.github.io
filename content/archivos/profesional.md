@@ -3,7 +3,7 @@ title: "Pagina Profesional"
 date: "22 Jan 2023"
 ---
 
- Viendo que mi pagina se queda algo simple, pero aun asi me gusta, decidi hacer esta misma pagina, con los mismos contenidos pero con otros estilos, y para no tener una copia de todos los archivos que tengo aqui, que tendria que sincronizar cada vez que haga una modificación, pense en usar mi pagina principal para obtener el html de su contenido pero cambiar sus estilos, para hacer esto hice un simple prorama en go que hace específicamente esto:
+ Viendo que mi pagina se queda algo simple, pero aun asi me gusta, decidi hacer esta misma pagina, con los mismos contenidos pero con otros estilos, y para no tener una copia de todos los archivos que tengo aquí, que tendria que sincronizar cada vez que haga una modificación, pense en usar mi pagina principal para obtener el html de su contenido pero cambiar sus estilos, para hacer esto hice un simple prorama en go que hace específicamente esto:
  
 ```go
 

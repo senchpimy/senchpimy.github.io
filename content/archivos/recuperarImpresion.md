@@ -16,7 +16,7 @@ date: "02 Aug 2023"
   
 
  Primero hay que tener la capa en la cual la maquina se quedo (si lograste ver la altura en la cual se quedo no hay porblema colo hay que tener este numero presente) y hay bastantes formas de hacerlo, podemos contar las capas que ya llevaba, pero cuando son muchas este no resulta practico, pero también podemos encontrar algun punto como una esquina o un borde de una capa anterior que ya este terminada
- y desde ahi poder contar cuantas capas extra a la capa que se quedo atorada faltan.
+ y desde ahí poder contar cuantas capas extra a la capa que se quedo atorada faltan.
    
 
   
@@ -27,7 +27,7 @@ date: "02 Aug 2023"
 
   
 
- Ya con la altura en la que se quedo la capa esta hay que localizarla en en archivo Gcode del cual empezo a imprimirse, y retomar desde ahi, algunos generadores de Gcode ya incluyen por defecto comentarios sobre cual cuapa es la que se esta imprimiendo, pero otros como **cura** no lo tienen
+ Ya con la altura en la que se quedo la capa esta hay que localizarla en en archivo Gcode del cual empezo a imprimirse, y retomar desde ahí, algunos generadores de Gcode ya incluyen por defecto comentarios sobre cual cuapa es la que se esta imprimiendo, pero otros como **cura** no lo tienen
  por defecto asi que en este hay que encontrar la capa por la altura y esto se hace buscando el string que este furmulado de la siguiente forma:
    
 

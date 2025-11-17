@@ -38,7 +38,7 @@ end
 
 Pero era muy lenta en comparación a otras soluciones, que al revisarlas note que lo unico que cambiaban era en los metodos que usaban, no en el algoritmo,
 primero note que usaban **<<** como forma de ingresar datos en una lista en lugar de **.push(x)** al cambiarlo fue un poco mas lento, también note que en el
-ultimo punto, en el momento de insertar los datos en una nueva lista, estos iteraban sobre las llaves y accedian a los valores en lugar de iterar entre los
+último punto, en el momento de insertar los datos en una nueva lista, estos iteraban sobre las llaves y accedian a los valores en lugar de iterar entre los
 valores directamente, asi que lo cambie
 
 Siendo la solucion final la siguiente

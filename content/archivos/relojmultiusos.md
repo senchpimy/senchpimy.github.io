@@ -30,7 +30,7 @@ esta pagina no funcionaba, por lo que termine usando la pagina **http://www.what
 Y después de obtener la fecha actual y poder hacer las solicitudes de los datos necesarios a la pagina **rate.sx** funcionaba correctamente.... Pero algunas veces yo creo que la pagina pensaba que estaba intentando atacarla por medio de DDOS pues algunas veces 
 negaba las solicitudes y no era confiable.
 
-Finalmente intente usar la API de **CriptoCompare** pues esta tenía todo lo necesario, con usa sola solicitud tenía los datos de los 30 dias y no era necesarioobtener la fecha actual, lo unico malo y por lo que no pude usar esta API fue por que esta usaba el
+Finalmente intente usar la API de **CriptoCompare** pues esta tenía todo lo necesario, con usa sola solicitud tenía los datos de los 30 dias y no era necesarioobtener la fecha actual, lo unico malo y por lo que no puede usar esta API fue por que esta usaba el
 protocolo **https** y todas las paginas que use anteriormente usaban **http** este cambio hacía que se crasheara todo el programa pues la liberia de requests web de el ESP32 parece no soportar https, por lo que finalmente decidi mostrar en la gráfica datos estaticos.
 
 Me gustaria retomar este proyecto en algun momento y poder mejorarlo, para poder mostrar imagenes, pero tendria que impementar el algoritmo de floyd y un algoritmo para poder leer estos datos de imagen.

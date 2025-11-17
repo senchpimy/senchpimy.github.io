@@ -135,7 +135,7 @@ date: "26 Oct 2022"
 
  Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la unica evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda de el mundo perdido.
 
- Mitos antiguos nos hablan de el guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algun ejercito, ningun enemigo fue encontrado.
+ Mitos antiguos nos hablan de el guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algun ejercito, ningún enemigo fue encontrado.
 
  Se nos han contado sobre Caballeros Medievales misteriosamente asesinados por una espada que todavia no habia sido construida.
 

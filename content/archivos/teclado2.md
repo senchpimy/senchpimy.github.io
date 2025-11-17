@@ -5,7 +5,7 @@ date: "28 Jul 2023"
 El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
 bonotes y no se pueden mover tan facil, etc.
 
-Entonces mejor decidi hacer una nueva version de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
+Entonces mejor decidi hacer una nueva versión de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
 de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
 que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opción de generar los modelos con un espacio para una pantalla oled de 128x32 con 
 varios metodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opción de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
@@ -39,13 +39,13 @@ Para construir esta versión del teclado, necesitarás los siguientes componente
 
 ### El modelo
 
- Lo unico malo que le encontré a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los pude encontrar en la **Wayback machine** [aqui](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
+ Lo unico malo que le encontré a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los puede encontrar en la **Wayback machine** [aquí](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
  [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si están usando el mismo microprocesador
  
 ![](/pro_img/teclado2_1.png)
 ![](/pro_img/teclado2_2.png)
 
- Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripción de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generara un 
+ Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripción de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generará un 
  archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenía, mantuve la corvatura por defecto pues pense que seria la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
  y finalmete seleccioné el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedo asi:
  
@@ -572,7 +572,7 @@ if __name__ == '__main__':
 ![](/pro_img/teclado2_4.png)
 
 
- Y para convertir los archivos **.scad** a **.stl** hay que abrirlos con el programa **OpenSCAD** y ahi nos da la opción de exportarlos a stl.
+ Y para convertir los archivos **.scad** a **.stl** hay que abrirlos con el programa **OpenSCAD** y ahí nos da la opción de exportarlos a stl.
    
   
 
@@ -601,7 +601,7 @@ if __name__ == '__main__':
  
  OLED_ENABLE = yes
  
- Finalmente el código que utilice fue una version modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veía y como funcionaban las pantallas, ademas que este es **tematico**
+ Finalmente el código que utilice fue una versión modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veía y como funcionaban las pantallas, ademas que este es **tematico**
  de **Serial Experiments Lain** por lo que todavia me gusto más.
  
 ![](/pro_img/teclado2_7.gif)
@@ -611,7 +611,7 @@ if __name__ == '__main__':
   
   
 
- El código fuente del keymap original [se encuentra aqui](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, después en el archivo **keymap.c**
+ El código fuente del keymap original [se encuentra aquí](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, después en el archivo **keymap.c**
  hay que agregar estas lineas:
 ```c
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

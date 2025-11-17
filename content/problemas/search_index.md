@@ -32,7 +32,7 @@ def search_insert(nums, target)
     izq
 end
 ```
-Solo que por algun motivo tenía que verificar que los dos valores no fueran nulos aunque cuando imprimia los valores en ningun momento estos eran nulos, y el input nunca era nulo, pero si quitaba esas 3 lineas el programa no funcionaba.
+Solo que por algun motivo tenía que verificar que los dos valores no fueran nulos aunque cuando imprimia los valores en ningún momento estos eran nulos, y el input nunca era nulo, pero si quitaba esas 3 lineas el programa no funcionaba.
 
 Esta es la solucion al problema 31 pero también funciona para el problema 704 aunque no es la optima
 ```rb

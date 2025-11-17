@@ -27,7 +27,7 @@ Y añadimos la dependencia de el script bajo esta sección en el archivo Cargo.t
 
 ```toml
 [build-dependencies]
-cc = { version = "1.0", features = ["parallel"] }
+cc = { versión = "1.0", features = ["parallel"] }
 
 ```
 Y asi ya podemos acceder a las funciones que tenemos en nuestros archivos, pero hay que declararla primero 

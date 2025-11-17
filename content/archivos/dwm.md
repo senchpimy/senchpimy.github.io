@@ -4,7 +4,7 @@ date: "06 Oct 2022"
 ---
 
 
-[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante mas rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una version modificada de este, los patches que agregue en este fueron los siguientes:
+[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante mas rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una versión modificada de este, los patches que agregue en este fueron los siguientes:
  
 ## CenteredMaster
 
@@ -112,7 +112,7 @@ date: "06 Oct 2022"
 
 
 
-[Status 2D](https://dwm.suckless.org/patches/status2d/) este patch permite dibujar rectangulos en la barra de estatus de dwm.
+[Status 2D](https://dwm.suckless.org/patches/status2d/) este patch permite dibujar rectángulos en la barra de estatus de dwm.
  
 ## Status cmd
 

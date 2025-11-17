@@ -69,7 +69,7 @@ cv2.destroyAllWindows()
 
   
 
- Este es un [modelo](https://www.thingiverse.com/thing:17773) ya diseñado, este enlace contiene lo necesario para armar la mano hasta cierto nivel, pero yo encontré más conveniente solo imprimir la mano de ese modelo y luego imprimir el antebrazo desde [este modelo de aqui](https://www.thingiverse.com/thing:1927150)
+ Este es un [modelo](https://www.thingiverse.com/thing:17773) ya diseñado, este enlace contiene lo necesario para armar la mano hasta cierto nivel, pero yo encontré más conveniente solo imprimir la mano de ese modelo y luego imprimir el antebrazo desde [este modelo de aquí](https://www.thingiverse.com/thing:1927150)
  también hay que imprimir los modelos que soportan a los servo motores y guian los hilos de los dedos de las mano y estos se encuentran en [este modelo](https://www.thingiverse.com/thing:65274) asi como las poleas de los servos
    
 

@@ -9,7 +9,7 @@ date: "04 Aug 2023"
    
   
 
- Es decir podemos dar un prompt especifico para cierta region y con esto se generara lo que especificamos y lo acoplara de forma natural al resto de la imagen.
+ Es decir podemos dar un prompt especifico para cierta region y con esto se generará lo que especificamos y lo acoplara de forma natural al resto de la imagen.
    
   
 
@@ -91,8 +91,8 @@ date: "04 Aug 2023"
 
   
  
- Al darle click en el boton de **Visualize and make template** dos cosas pasan, primero se generara una imagen en donde con colores diferentes se mostrara com quedara dividida la imagen, este rectangulo siempre es del mismo tamaño pero se respetan las proporciones cuando se tiene un rectangulo como 
- imagen por ejemplo, y la segunda cosa es que se generara la template, que es lo que necesitamos colocar en el prompt para poder generar en lugares especificos, por ejemplo si queremos generar una imagen con un dinosaurio de un lado y un auto del otro, con la configuracion de **1,1** en **horizontal**
+ Al darle click en el boton de **Visualize and make template** dos cosas pasan, primero se generará una imagen en donde con colores diferentes se mostrara com quedara dividida la imagen, este rectangulo siempre es del mismo tamaño pero se respetan las proporciones cuando se tiene un rectangulo como 
+ imagen por ejemplo, y la segunda cosa es que se generará la template, que es lo que necesitamos colocar en el prompt para poder generar en lugares especificos, por ejemplo si queremos generar una imagen con un dinosaurio de un lado y un auto del otro, con la configuracion de **1,1** en **horizontal**
  tendremos el sigueinte template:
  
  ADDBASE 

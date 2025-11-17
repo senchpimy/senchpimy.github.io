@@ -102,4 +102,4 @@ func romanToInt(s string) int {
 }
 ```
 
-Y note que la unica diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte de el código, al cambiar esto en mi primera version también logre tener una respuesta más rapida que el 87%
+Y note que la unica diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte de el código, al cambiar esto en mi primera versión también logre tener una respuesta más rapida que el 87%

@@ -47,7 +47,7 @@ ngrok http --url=URL 80
 
 Esto creará un túnel desde la URL pública proporcionada por ngrok hacía el puerto 80 de nuestra máquina local. Ahora, cualquier persona que acceda a esa URL podrá interactuar con nuestra aplicación local como si estuviera en un servidor público.
 
-Y por ultimo yo tuve que configurar mi archivo de hosts para que la URL proporcionada por ngrok apunte a mi localhost.
+Y por último yo tuve que configurar mi archivo de hosts para que la URL proporcionada por ngrok apunte a mi localhost.
 
 ```bash
 sudo nano /etc/hosts

@@ -40,4 +40,4 @@ Primero se guardan en una lista y se van sacando los elementos uno por uno, lueg
 si los dos son nulos o si los dos son no-nulos, si alguno es nulo pero el otro no entonces no son iguales, finalmente compara el valor de cada
 uno.
 
-Esta version se encuentra en el top ~98% de velocidad
+Esta versión se encuentra en el top ~98% de velocidad

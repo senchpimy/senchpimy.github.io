@@ -44,7 +44,7 @@ Compilamos el archivo con el siguiente comando
 ```bash
 go build -o awesome.so -buildmode=c-shared awesome.go
 ```
-Esto nos generara un archivo llamado **awesome.so**
+Esto nos generará un archivo llamado **awesome.so**
 Luego en Lua se hace lo siguiente:
 
 ```lua
@@ -90,7 +90,7 @@ extern GoInt Add(GoInt p0, GoInt p1);
 ]]);
 ```
 
-Y se podría ejecutar lo siguiente sin ningun problema:
+Y se podría ejecutar lo siguiente sin ningún problema:
 ```lua
 awesome.Add(1,+1) --2
 ```

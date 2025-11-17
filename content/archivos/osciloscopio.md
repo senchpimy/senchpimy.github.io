@@ -14,7 +14,7 @@ date: "15 Sep 2023"
 
   
 
- Pero a mi no me funcino ese diagrama tal cual, le tuve que hacer una serie de modificaciones, primero desconecte la entrada marcada como **SIG-IN** de la tierra, asi como no utilice ningun capacitor aunque el diagrama tenga 3, y finalmente descarte el uso del led, por lo que finalmente el diagrama quedo de la siguiente forma para mi
+ Pero a mi no me funcino ese diagrama tal cual, le tuve que hacer una serie de modificaciones, primero desconecte la entrada marcada como **SIG-IN** de la tierra, asi como no utilice ningún capacitor aunque el diagrama tenga 3, y finalmente descarte el uso del led, por lo que finalmente el diagrama quedo de la siguiente forma para mi
    
 
 
