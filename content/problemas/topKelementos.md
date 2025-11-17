@@ -93,7 +93,7 @@ class Solution {
  
 ```
 
- Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilacion dentro del código, al buscarlo me encontre que "pragma" le permite al compilador cambiar las caracteristicas de la compilacion por archivo.
+ Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilación dentro del código, al buscarlo me encontre que "pragma" le permite al compilador cambiar las caracteristicas de la compilación por archivo.
 
  Luego esta linea nucna la habia visto antes:
  

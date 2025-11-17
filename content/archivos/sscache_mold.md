@@ -4,7 +4,7 @@ date: "29 Jun 2023"
 ---
 
 
- Estas herramientas ayudan a reducir los tiempos de compilacion.
+ Estas herramientas ayudan a reducir los tiempos de compilación.
 
  **Sccache** lo instale con cargo, y para usarlo con **gcc** se ocupa antes del comando:
    
@@ -22,7 +22,7 @@ export RUSTC\_WRAPPER=/path/to/sccache
 
   
 
- Reduce los tiempos de compilacion al almacenar los resultados de compilacion, lo que hace que solo compile los archivos necesarios.
+ Reduce los tiempos de compilación al almacenar los resultados de compilación, lo que hace que solo compile los archivos necesarios.
    
 
   

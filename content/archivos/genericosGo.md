@@ -53,7 +53,7 @@ Para crear genericos se tiene que especificar que tipos de datos son soportados,
 se llama con argumentos de tipo y argumentos normales.
 
 Cuando se define un tipo, cada parametro debe tener un *type constraint* (restricciones de tipo) cada type constraint limita que tipos pueden usar dicha funcion,
-al momento de la compilacion se verifica que el tipo que pasa coincida con los limites que le fueron puestos
+al momento de la compilación se verifica que el tipo que pasa coincida con los limites que le fueron puestos
 
 
 ```go

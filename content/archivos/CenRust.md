@@ -9,7 +9,7 @@ Este es un pequeño resumen de como usar código de C existente en proyectos de 
 
 Este es un pequeño programa que se encargara de compilar el código de C para después añadirlo a el código de Rust.
 
-En este caso especificamos el código y la compilacion
+En este caso especificamos el código y la compilación
 
 **build.rs**
 ```rs
