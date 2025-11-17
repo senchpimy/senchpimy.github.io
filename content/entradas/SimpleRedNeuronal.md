@@ -10,7 +10,7 @@ Esta entrada habla sobre el algoritmo **NEAT** que no solo hace que la red apren
 
 ##  NeuroEvolution of Augmenting Topologies (NEAT)
 En una red NEAT se usa *dags* (directed acyclic graphs) para representar las redes neuronales, un dags en un grafo en el cual no hay ciclos, este tipos de redes no estan totalmente conectadas, por lo que se usa ordenamiento topologico para determinar el orden en el que se llevaran a cabo las
-operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera que el descendiente siempre valla despues de el precedente
+operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera que el descendiente siempre valla después de el precedente
 
 ![Ordenamiento Topologico](/ejemplo_ordenamiento_topologico.png)
 ![Grafo Ordenado](/grafo-ordenado.png)

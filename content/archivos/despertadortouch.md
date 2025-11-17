@@ -41,7 +41,7 @@ Ya que tenemos el programa terminado y la pantalla lista necesitamos saber como 
 
 Mi primera opcion fue usar TinyWl que es un administrador de ventanas de Wayland que es muy simple y por lo tanto usa minimos recursos
 tuve que compilarlo desde la raspberry pi pues linkeaba las librerias de mi computadora (arch) y al momento de ejecutarlo (debian) no
-encotraba las librerias, despues tuve que compilarlo desde un commit del 2020 pues **wlroots** la libreria que usa tinywl se encuentra
+encotraba las librerias, después tuve que compilarlo desde un commit del 2020 pues **wlroots** la libreria que usa tinywl se encuentra
 en la version 0.11 en debian.
 
 Pero esto fue inutil ya que este Tinywl no tenia soporte para la pantalla touch, es decir no detectaba el touch.

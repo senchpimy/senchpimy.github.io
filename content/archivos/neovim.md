@@ -316,7 +316,7 @@ call plug#end()
 ```
  
 
- Algunos plugins necesitan especificaciones extras para funcionar correctamente, generalmente los creadores de los plugins lo especifican en sus **README.md**  por eso, lo que hay despues de la coma son esas especificaciones de los plugins, tambien por lo general los creadores dan instrucciones de como instalar el plugin con vim-plug, y por lo general si no dan mas especificaciones es por que no hay que hacer nada.
+ Algunos plugins necesitan especificaciones extras para funcionar correctamente, generalmente los creadores de los plugins lo especifican en sus **README.md**  por eso, lo que hay después de la coma son esas especificaciones de los plugins, tambien por lo general los creadores dan instrucciones de como instalar el plugin con vim-plug, y por lo general si no dan mas especificaciones es por que no hay que hacer nada.
  
 
  Para instalar los plugins, con todo y las especificaciones hay que ejecutar el comando:
@@ -330,7 +330,7 @@ call plug#end()
  Este comando se encargara de hacer todo el trabajo, y a menos de que salga un error no hay que hacer nada mas 
  
 
- Vim-plug es un programa de administracion de plugins si, pero este trpgrama es para vim, yo uso Neovim que incorpora algunos cambios y para poder usar mejor y aprovechar estas diferencias que tiene Neovim me entero que existe otro plugin llamado **Packer**, eso no significa que vim-plug no sirva con Neovim, justo ahora estoy escribiendo este documento con neovim+vim-plug pero packer es mejor para mis necesidades y apenas lo descubri, despues cambiare vim-plug por packer
+ Vim-plug es un programa de administracion de plugins si, pero este trpgrama es para vim, yo uso Neovim que incorpora algunos cambios y para poder usar mejor y aprovechar estas diferencias que tiene Neovim me entero que existe otro plugin llamado **Packer**, eso no significa que vim-plug no sirva con Neovim, justo ahora estoy escribiendo este documento con neovim+vim-plug pero packer es mejor para mis necesidades y apenas lo descubri, después cambiare vim-plug por packer
  
 
 

@@ -611,7 +611,7 @@ if __name__ == '__main__':
   
   
 
- El código fuente del keymap original [se encuentra aqui](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, despues en el archivo **keymap.c**
+ El código fuente del keymap original [se encuentra aqui](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, después en el archivo **keymap.c**
  hay que agregar estas lineas:
 ```c
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

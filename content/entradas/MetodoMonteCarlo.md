@@ -23,7 +23,7 @@ distribucion normal
 Este programa calcula pi con el metodo de montecarlo, suponiendo que el circulo tiene un radio de 1, se generan puntos aleatorios
 y luego se calcula la distancia con el centro, si es menor o igual a uno entonces el punto esta dentro de el circulo,
 como el area de el circulo en el primer cuadrante de un plano cartesiano es igual a $$\frac{\pi}{4}$$ entonces para obtener pi 
-se caulculan cuantos puntos aleatorios estan dentro de las dimenciones de el circulo y se divide por la cantidad de puntos que se lanzaron, despues se multiplica por cuatro y se obtiene un aproximado de pi
+se caulculan cuantos puntos aleatorios estan dentro de las dimenciones de el circulo y se divide por la cantidad de puntos que se lanzaron, después se multiplica por cuatro y se obtiene un aproximado de pi
 
 ```py
 import random

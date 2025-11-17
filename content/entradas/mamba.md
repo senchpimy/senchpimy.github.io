@@ -27,7 +27,7 @@ Por que en la practica un transformer es mas rapido que una red recurrente, adem
 ## Red Neuronal Recurrente Lineal
 
 Esta arquietectura remueve la red neuronal por una funcion lineal, aunque esto por si solo no es suficiente para una red neural pues una funcion lineal solo pueden realizar transformaciones simples de sus datos de entrada pero para evitar estas limitaciones de la funcion lineal se
-agrega una red neuronal a cada vector despues de su transformacion
+agrega una red neuronal a cada vector después de su transformacion
 
 ## Paralelizar RNN Lineales
 

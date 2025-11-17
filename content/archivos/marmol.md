@@ -3,7 +3,7 @@ title: "Marmol"
 date: "30 Jun 2023"
 ---
 
- Este es un programa inspirado en otro programa llamado obsidian, este primero es un interprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizaran despues con las reglas de markdown correspondientes.
+ Este es un programa inspirado en otro programa llamado obsidian, este primero es un interprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizaran después con las reglas de markdown correspondientes.
  
 
  Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos mas que por extenciones y solo por medio de **git**, entonces escribi este programa para corregir esto, ahora le faltan algunas cosas que me gustaria agregar asi,

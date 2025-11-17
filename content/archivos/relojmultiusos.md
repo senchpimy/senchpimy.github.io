@@ -11,7 +11,7 @@ el esp32. Ademas este usa los botones que el desperator ya traia para dar la hor
 
 Ademas le añadi una pantalla de e-ink, esto por que el despertador tambien traia una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la libreria por que algunas cosas no funcionaban.
 
-Por ejemplo en la libreria hay unos headers que estan mal escrito y hay que editar el código fuente para poder corregirlo, despues por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
+Por ejemplo en la libreria hay unos headers que estan mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
 que se ejecuta cada que se quiera dibujar una linea, para cambiar las coordenadas para que estas tengan la rotacion correspondiente. El cambio especifico lo saque de el código fuente que se supone que lo haria desde la biblioteca.
 
 Pero esto significa que fucniones como la escritura no funcionaba, asi que tuve que crear una fuente, pasarla a bitmap depues pasarla a código de C y finalmente implementar la lectura y la forma en la que cada pixel es dibujado, en este caso tuve un problema, pues
@@ -27,7 +27,7 @@ era inutil, luego use una pagina que se llama **rate.sx** la cual da los datos d
 tuve que primero obtener la fecha actual, lo intente mediante la pagina **http://worldclockapi.com/** pero esta pagina esta en constante reparacion y muchas veces durante las pruebas esta pagina estaba fuera de servicio. por lo que no podia seguir haciendo más pruebas si
 esta pagina no funcionaba, por lo que termine usando la pagina **http://www.whattimeisit.com/**, la cual tenia que usar un poco más de memoria pues estaba parseando html en lugar de json que daba la otra pagina, pero finalmente esta logro ser más estable.
 
-Y despues de obtener la fecha actual y poder hacer las solicitudes de los datos necesarios a la pagina **rate.sx** funcionaba correctamente.... Pero algunas veces yo creo que la pagina pensaba que estaba intentando atacarla por medio de DDOS pues algunas veces 
+Y después de obtener la fecha actual y poder hacer las solicitudes de los datos necesarios a la pagina **rate.sx** funcionaba correctamente.... Pero algunas veces yo creo que la pagina pensaba que estaba intentando atacarla por medio de DDOS pues algunas veces 
 negaba las solicitudes y no era confiable.
 
 Finalmente intente usar la API de **CriptoCompare** pues esta tenia todo lo necesario, con usa sola solicitud tenia los datos de los 30 dias y no era necesarioobtener la fecha actual, lo unico malo y por lo que no pude usar esta API fue por que esta usaba el

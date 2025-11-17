@@ -16,7 +16,7 @@ date: "20 Jul 2023"
 ``` 
  
 
- Con esto descargue la version correcta, la cual descargaba la version más nueva de **pytorch** y la version **5.5** de **ROCm** en lugar de la estable **5.4**, con esto elscript ya funciono y avanzo, pero justo en la ultima linea del script despues de ejecutarlo me daba un error de 
+ Con esto descargue la version correcta, la cual descargaba la version más nueva de **pytorch** y la version **5.5** de **ROCm** en lugar de la estable **5.4**, con esto elscript ya funciono y avanzo, pero justo en la ultima linea del script después de ejecutarlo me daba un error de 
  **segmentation fault**, que al buscar este error, era por que por algun motivo tambien detectaba la grafica dentro de mi cpu y no funciona bien, por lo que hay que exportar la siguiente variables:
  
 ``` sh

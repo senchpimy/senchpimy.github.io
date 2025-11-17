@@ -328,7 +328,7 @@ END
 
 
 
-[Vim-cool](https://github.com/romainl/vim-cool) desactiva el destacado en las palabras que hace vim despues de que terminas de buscar algo, y lo vuele a activar cuando buscas algo de nuevo, tiene solo una configuracion pero no la uso
+[Vim-cool](https://github.com/romainl/vim-cool) desactiva el destacado en las palabras que hace vim después de que terminas de buscar algo, y lo vuele a activar cuando buscas algo de nuevo, tiene solo una configuracion pero no la uso
  
 ## Vim-hexokinase
 
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rapido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, ademas que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, despues en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rapido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, ademas que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuracion similar a **gitsigns y lualine**
 
 
@@ -405,7 +405,7 @@ Mi configuracion para tener un snippet de la descripcion de estos plugins es lo 
 
 
 
-[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automaticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automaticamente agregara "2. " y me pondra un espacio despues para escribir directamente, tambien funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
+[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automaticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automaticamente agregara "2. " y me pondra un espacio después para escribir directamente, tambien funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
 
 ## Impatient.nvim
 
@@ -417,7 +417,7 @@ Mi configuracion para tener un snippet de la descripcion de estos plugins es lo 
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho mas sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separacion de despues de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separacion de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargara de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separacion de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho mas sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separacion de después de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separacion de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargara de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separacion de filas, etc.
 
 ## vim-matchup
 

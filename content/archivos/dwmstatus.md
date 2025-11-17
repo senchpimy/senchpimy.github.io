@@ -30,7 +30,7 @@ date: "09 Nov 2022"
  
  **^c#XXXXXX^**
  
- Con el texto de arriba dwm aplicara el color hexadecimal **XXXXXX** a todo lo que este despues de ese texto ya sea un grafico o letras
+ Con el texto de arriba dwm aplicara el color hexadecimal **XXXXXX** a todo lo que este después de ese texto ya sea un grafico o letras
  
  **^r3,3,14,14^**
  

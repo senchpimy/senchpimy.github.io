@@ -37,7 +37,7 @@ Los diferentes argumento se separan con puntos, para definir varios argumentos e
 
 $$\lambda x.\lambda y$$
 
-Y finalmente la salida se coloca despues de la definicion de los argumentos con un punto. Por ejemplo una funcion que aumente en 1 los valores
+Y finalmente la salida se coloca después de la definicion de los argumentos con un punto. Por ejemplo una funcion que aumente en 1 los valores
 
 $$\lambda x.x+1$$
 

@@ -82,7 +82,7 @@ date: "21 Jan 2023"
  chmod 640 app.ini
 ``` 
  
- Y depende en que carpeta estemos hay que mover este archivo a la ubicacion especificada; En este archivo hay cambiar el puerto en el que se ejeucta, el dominio (si es que tenemos uno), en mi caso despues de la instalacion web quedo de la siguiente manera:
+ Y depende en que carpeta estemos hay que mover este archivo a la ubicacion especificada; En este archivo hay cambiar el puerto en el que se ejeucta, el dominio (si es que tenemos uno), en mi caso después de la instalacion web quedo de la siguiente manera:
  
 ```toml
  APP_NAME = Senchpimy Git Server
@@ -109,10 +109,10 @@ date: "21 Jan 2023"
  systemctl start gitea.service
  
 ``` 
- Y ahora si nos dirigimos en este caso seria a senchpimy.xyz:3000, deberiamos ver la pagina de instalacion web, en el tipo de database escogi sqlite, pues solo estare yo usando ese ervidor y no hay necesidad de una databse mas robusta, en este apartado nos dara opcion de modificar las cosas más importantes para que funcione, despues de que ya esta configurado, el servidor ya es usable, en este caso solo desde el puerto **3000** y para cambiar esto hay que hacerlo desde **nginx (más información [aqui](./subdominios.html))**.
+ Y ahora si nos dirigimos en este caso seria a senchpimy.xyz:3000, deberiamos ver la pagina de instalacion web, en el tipo de database escogi sqlite, pues solo estare yo usando ese ervidor y no hay necesidad de una databse mas robusta, en este apartado nos dara opcion de modificar las cosas más importantes para que funcione, después de que ya esta configurado, el servidor ya es usable, en este caso solo desde el puerto **3000** y para cambiar esto hay que hacerlo desde **nginx (más información [aqui](./subdominios.html))**.
    
 
- Finalmente me gustaria cambiar la pagina principal que se muestra cuando no hay una cuenta registrada, para lograr esto hay que crear una carpeta llamada **templates** dentro de la carpeta **custom** que creamos en la parte de arriba, y despues hay que crear la template de la que va a remplazar a la original, en este caso seria **home** y por lo tanto hay que guardarlo como **home.tmpl**, Despues hay que copiar el [ejemplo](https://github.com/go-gitea/gitea/blob/main/templates/home.tmpl) que esta en el repositorio de gitea, y se supone que es la misma que trae por defecto, pero al momento de cambiarla los siguientes bloques me daban error y no permitian que el servicio completo empezara a ejecutarse
+ Finalmente me gustaria cambiar la pagina principal que se muestra cuando no hay una cuenta registrada, para lograr esto hay que crear una carpeta llamada **templates** dentro de la carpeta **custom** que creamos en la parte de arriba, y después hay que crear la template de la que va a remplazar a la original, en este caso seria **home** y por lo tanto hay que guardarlo como **home.tmpl**, Despues hay que copiar el [ejemplo](https://github.com/go-gitea/gitea/blob/main/templates/home.tmpl) que esta en el repositorio de gitea, y se supone que es la misma que trae por defecto, pero al momento de cambiarla los siguientes bloques me daban error y no permitian que el servicio completo empezara a ejecutarse
  
 ```go
  {{.locale.Tr "startpage.platform\_desc" | Str2html}}
