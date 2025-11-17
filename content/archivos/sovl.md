@@ -3,7 +3,7 @@ title: "sovl"
 date: "26 Oct 2022"
 ---
 
- Sovl es una aplicacion que funciona como frontend para mpc y pamixer, este programa lee un archivo de configuracion que esta **"~/.config/sovl/"** y se llama **config.ini**, este archivo debe comfigurarse como un archivo .toml, y debe contener la configuracion de la aplicacion, esta configuracion debe tener la configuracion de las ventanas, botones y deslizadores, esta configuracion debe incluir el tamaño, poscicion, funcion y estilo de cada uno de los elementos, cuando se ejecuta el programa este lee la configuracion y se modifica en base a esto, por lo que cada vez que se quieran ver los cambios se necesita terminar y volver a ejecutar la aplicacion, un ejemplo de esta configuracion es el siguiente:
+ Sovl es una aplicación que funciona como frontend para mpc y pamixer, este programa lee un archivo de configuracion que esta **"~/.config/sovl/"** y se llama **config.ini**, este archivo debe comfigurarse como un archivo .toml, y debe contener la configuracion de la aplicación, esta configuracion debe tener la configuracion de las ventanas, botones y deslizadores, esta configuracion debe incluir el tamaño, poscicion, función y estilo de cada uno de los elementos, cuando se ejecuta el programa este lee la configuracion y se modifica en base a esto, por lo que cada vez que se quieran ver los cambios se necesita terminar y volver a ejecutar la aplicación, un ejemplo de esta configuracion es el siguiente:
  
 ```toml
  [Button]
@@ -64,7 +64,7 @@ date: "26 Oct 2022"
  
 ### 27/10/2022
  
- Ya agregue el deslizador que cambia el tiempo de la cancion, me gusataria después reescribir el programa en **c++** para hacerlo mas rápido
+ Ya agregue el deslizador que cambia el tiempo de la cancion, me gusataria después reescribir el programa en **c++** para hacerlo más rápido
  
 ### 9/1/2023
  

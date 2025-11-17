@@ -13,7 +13,7 @@ func add(x int, y int) int{
 }
 ```
 
-luego hay que importar la librería necesaria para convertirlo a código de C y también indicar que dicha funcion va a ser exportada
+luego hay que importar la librería necesaria para convertirlo a código de C y también indicar que dicha función va a ser exportada
 
 ```go
 import "C"
@@ -24,7 +24,7 @@ func add(x int, y int) int{
 }
 ```
 
-Tambien hay que agregar el paquete y una funcion main vacia, además de  indicar que la funcion es publica convirtiendo la primera letra a mayuscula
+Tambien hay que agregar el paquete y una función main vacia, además de  indicar que la función es publica convirtiendo la primera letra a mayuscula
 
 
 ```go
@@ -75,7 +75,7 @@ extern GoInt Log(GoString p0);
 ]]);
 ```
 
-En nuesttro caso quedaria como:
+En nuesttro caso quedaría como:
 
 
 ```lua

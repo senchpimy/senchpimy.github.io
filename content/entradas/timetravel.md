@@ -24,7 +24,7 @@ date: "26 Oct 2022"
 
 
 
- El proposito de este pequeño libro se para ser usado como una gia simple y directaen algun momento de gran peligro.
+ El proposito de este pequeño libro se para ser usado como una gia simple y directaen algún momento de gran peligro.
 
  Rezo que este solo sea un trabajo de ficcion
 
@@ -45,7 +45,7 @@ date: "26 Oct 2022"
 
  Incidentes como la corrupcion de la cuarta dimension son increiblemente raros.
 
- Si un Universo Tangente Ocurre, seria extremadamente insostenible, sosteniendose a si mismo por no mas que unas cuantas semanas.
+ Si un Universo Tangente Ocurre, seria extremadamente insostenible, sosteniendose a si mismo por no más que unas cuantas semanas.
 
  Eventualmente colapsara en si mismo, formando un agujero negro dentro de el Universo Primario capaz de destruir toda la existencia.
 
@@ -115,7 +115,7 @@ date: "26 Oct 2022"
 
 
 
- El Muerto Manipulado es mas poderoso que el Receptor viviente. Si una persona muere en la dimension tangente, ellos son capaces de contactar con el Receptor Viviente a traves de una construccion en la Cuarta Dimension.
+ El Muerto Manipulado es más poderoso que el Receptor viviente. Si una persona muere en la dimension tangente, ellos son capaces de contactar con el Receptor Viviente a traves de una construccion en la Cuarta Dimension.
 
  La construccion en cuarta dimension esta hecha de agua.
 
@@ -123,7 +123,7 @@ date: "26 Oct 2022"
 
  El Muerto Manipulado pondra una trampa de seguridad para el receptor viviente, esto para asegurarse que el artefacto sea regresado a salvo a el universo primario.
 
- Si la trampa de seguridad es exitosas, el Receptor viviente no tiene opción mas que usar sus poderes de la cuarta dimension para enviar de regreso el Artefacto a el universo primario antes de que el agujero negro colapse sobre si mismo
+ Si la trampa de seguridad es exitosas, el Receptor viviente no tiene opción más que usar sus poderes de la cuarta dimension para enviar de regreso el Artefacto a el universo primario antes de que el agujero negro colapse sobre si mismo
 
 ## Capitulo Doce: Sueños
 
@@ -135,9 +135,9 @@ date: "26 Oct 2022"
 
  Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la unica evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda de el mundo perdido.
 
- Mitos antiguos nos hablan de el guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algun ejercito, ningún enemigo fue encontrado.
+ Mitos antiguos nos hablan de el guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algún ejercito, ningún enemigo fue encontrado.
 
- Se nos han contado sobre Caballeros Medievales misteriosamente asesinados por una espada que todavia no habia sido construida.
+ Se nos han contado sobre Caballeros Medievales misteriosamente asesinados por una espada que todavía no habia sido construida.
 
  Se nos ha dicho que las cosas ocurren por una razon.
 

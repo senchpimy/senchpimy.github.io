@@ -15,13 +15,13 @@ date: "02 Aug 2023"
 
   
 
- Primero hay que tener la capa en la cual la maquina se quedo (si lograste ver la altura en la cual se quedo no hay porblema colo hay que tener este numero presente) y hay bastantes formas de hacerlo, podemos contar las capas que ya llevaba, pero cuando son muchas este no resulta practico, pero también podemos encontrar algun punto como una esquina o un borde de una capa anterior que ya este terminada
+ Primero hay que tener la capa en la cual la maquina se quedo (si lograste ver la altura en la cual se quedo no hay porblema colo hay que tener este numero presente) y hay bastantes formas de hacerlo, podemos contar las capas que ya llevaba, pero cuando son muchas este no resulta practico, pero también podemos encontrar algún punto como una esquina o un borde de una capa anterior que ya este terminada
  y desde ahí poder contar cuantas capas extra a la capa que se quedo atorada faltan.
    
 
   
 
- Tambien podriamos medir con una regla y a veces puede ser lo mas exacto que necesitamos pero también con la impresora podriamos mover el eje Z hasta que, el extrusor frio apenas este tocando la pieza, esto hay que hacerlo con mucho cuidado de que por mover alguno de los ejes, el extrusor termine empujando
+ Tambien podriamos medir con una regla y a veces puede ser lo más exacto que necesitamos pero también con la impresora podriamos mover el eje Z hasta que, el extrusor frio apenas este tocando la pieza, esto hay que hacerlo con mucho cuidado de que por mover alguno de los ejes, el extrusor termine empujando
  la pieza o la termine despegando de la cama, lo cual seria casi imposible de recuperar.
    
 

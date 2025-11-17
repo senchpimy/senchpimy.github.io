@@ -34,7 +34,7 @@ Y asi ya podemos acceder a las funciones que tenemos en nuestros archivos, pero 
 
 ```rs
 extern "C" {
-    fn funcion(arg: type) -> type;
+    fn función(arg: type) -> type;
 }
 ```
 
@@ -50,8 +50,8 @@ Y los tipos están llamados:
 - c_long
 - ...
 
-Algo que note fue que para pasar un *String* de rust a una funcion que necesité un *char se requiere de la siguiente funcion
-Donde si la funcion usa un **char \* ** en Rust se tiene que declarar como **\*const c_char** 
+Algo que note fue que para pasar un *String* de rust a una función que necesité un *char se requiere de la siguiente función
+Donde si la función usa un **char \* ** en Rust se tiene que declarar como **\*const c_char** 
 ```rs
 #[no_mangle]
 pub extern "C" fn create_string(val: Option<&str>) -> *const c_char {
@@ -86,9 +86,9 @@ typedef struct {
 }Raices;
 ```
 
-Y finalmente para ejecutar las funciones se requiere usar la funcion *unsafe*
+Y finalmente para ejecutar las funciones se requiere usar la función *unsafe*
 
 ```rs
-unsafe{funcion()}
+unsafe{función()}
 ```
 

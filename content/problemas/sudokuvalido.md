@@ -33,7 +33,7 @@ end
 
 Este programa los resolvi teniendo un hashmap para cada fila, columna y cuadro de 3x3, y preguntando si el elemento que se esta procesando actualmente se encuentra dentro de los valores de el hashmap que se esta evaluando.
 
-Este fue mi primer intento, pero ver las soluciones mas rapidas encontré una fórmula que mejora la memoria y velocidad de el que ya tenía con solo una linea, salva memoria al no guardar la llave de el hashmap de cuadrados 3x3 como un array con dos elementos y en su
+Este fue mi primer intento, pero ver las soluciones más rapidas encontré una fórmula que mejora la memoria y velocidad de el que ya tenía con solo una linea, salva memoria al no guardar la llave de el hashmap de cuadrados 3x3 como un array con dos elementos y en su
 lugar lo guarda como un solo indice, esta es la versión final:
 
 

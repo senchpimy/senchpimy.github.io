@@ -17,8 +17,8 @@ Un lenguaje formal consiste de palabras cuyas letras son tomadas de un alfabeto 
 
 ### Backus-Naur form
 
-Esta notación es usada para definir la sintaxis de cualquier lenguaje formal tal como un lenguaje de programación. Esta notación se forma de simbolos, simbolos terminales y reglas
-para reemplazar simbolos no-terminales con una sequencia de simbolos. la notación es la siguiente:
+Esta notación es usada para definir la sintaxis de cualquier lenguaje formal tal como un lenguaje de programación. Esta notación se forma de símbolos, símbolos terminales y reglas
+para reemplazar símbolos no-terminales con una secuencia de símbolos. la notación es la siguiente:
 
 ```
  <symbol> ::= __expression__
@@ -26,7 +26,7 @@ para reemplazar simbolos no-terminales con una sequencia de simbolos. la notaci�
 
 - **<symbol>**: Es una variable no terminal que siempre esta cerrada por los caracteres "<>"
 - **::=**: Significa que el simbolo de la izquierda debe ser remplazado por el simbolo de la derecha
-- **__expression__**: Consiste de una o varias sequencias de simbolos terminales o no-terminales donde cada sequencia es separado por un "**|**" indicando una opción para sustituir el simbolo en la derecha
+- **__expression__**: Consiste de una o varias sequencias de símbolos terminales o no-terminales donde cada secuencia es separado por un "**|**" indicando una opción para sustituir el simbolo en la derecha
 
 ### Ejemplos:
 ```
@@ -35,7 +35,7 @@ para reemplazar simbolos no-terminales con una sequencia de simbolos. la notaci�
  
 `diagnosis` `::=` `"arthritis"` `|` `"dengue"` `|` `"urinary` `tract` `infection"` `|` `"impetigo"` `|` `"cervical` `spondyl`
 ```
-Este ejemplo limita el lenguaje a una serie de diagnosticos de los cuales solo son validos esos y ninguno más.
+Este ejemplo limita el lenguaje a una serie de diagnósticos de los cuales solo son validos esos y ninguno más.
 
 ```
 `root`        `::=` `jp-char+` `([` `\t\n]` `jp-char+)*`
@@ -137,16 +137,16 @@ response = chain.invoke({"question": "Who is taller?", "context": context})
 print(response)
 ```
 
-Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con exito, pues de alguna o de otra forma estos se equivocaban estos fueron los modelos que probe y de 10 intento cuantos objetos de *Person* fueron serializados con exito:
+Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con éxito, pues de alguna o de otra forma estos se equivocaban estos fueron los modelos que probé y de 10 intento cuantos objetos de *Person* fueron serializados con éxito:
 
 >{'codellama:13b-code': 0, 'mistral': 0, 'phi3': 0, 'wizardlm2': 1, 'llama3':0}
 
 Un comportamiento extraño que note fue que *wizardlm2* siempre que terminaba el programa y lo volvia a ejecutar su primer intento era correcto sin importar cuantas veces lo ejecutara pero los demás resultaban en error, pero a pesar de que realizaba
-la tarea con exito sus resultados eran erroneos pues obtenia esta salida
+la tarea con éxito sus resultados eran erróneos pues obtenia esta salida
 
 >name='Claudia' height=5.0 hair_color='brunette'
 
-Aunque el modelo podia crear un json correcto no podia racionalizar que Claudia mide 6 pies. Aunque el modelo *codellama* no pudo serializar los obejtos pienso que su salida fue la más concisa y útil de todas pues en sus intentos este siempre respondia con:
+Aunque el modelo podía crear un json correcto no podía racionalizar que Claudia mide 6 pies. Aunque el modelo *codellama* no pudo serializar los objetos pienso que su salida fue la más concisa y útil de todas pues en sus intentos este siempre respondia con:
 
 >{"answer": "Claudia"}
 

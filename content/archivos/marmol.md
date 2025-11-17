@@ -6,7 +6,7 @@ date: "30 Jun 2023"
  Este es un programa inspirado en otro programa llamado obsidian, este primero es un interprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizaran después con las reglas de markdown correspondientes.
  
 
- Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos mas que por extenciones y solo por medio de **git**, entonces escribi este programa para corregir esto, ahora le faltan algunas cosas que me gustaria agregar asi,
+ Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos más que por extenciones y solo por medio de **git**, entonces escribi este programa para corregir esto, ahora le faltan algunas cosas que me gustaria agregar asi,
  pero también tiene otras caracteristicas que obsidian no tiene.
    
 
@@ -33,7 +33,7 @@ date: "30 Jun 2023"
 ![](/pro_img/marmol3.png)
 
 
- Algunas de las caracteristicas que obsidian no tiene son renderizar tablas por defecto e interfaces especiales para administrar cosas especificas, en este momento son actividades diarias y gastos e ingresos pero también pienso agregar mas
+ Algunas de las caracteristicas que obsidian no tiene son renderizar tablas por defecto e interfaces especiales para administrar cosas especificas, en este momento son actividades diarias y gastos e ingresos pero también pienso agregar más
    
 
   

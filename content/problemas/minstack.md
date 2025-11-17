@@ -7,7 +7,7 @@ date: "07 Dec 2023"
 Este problema consisten en tener un stack el cual siqmpre se le pueda requerir el menor elemento en el stack y este siempre lo puede regresar
 
 ### Solucion
-Esta fue mi por algun motivo parece que leetcode no puede aceptar resultado que usen mallor y realloc, pues en mi computadora si funciono hasta cierto punto este primer intento
+Esta fue mi por algún motivo parece que leetcode no puede aceptar resultado que usen mallor y realloc, pues en mi computadora si funciono hasta cierto punto este primer intento
 
 ```cpp
 #include <iostream>

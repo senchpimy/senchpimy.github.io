@@ -4,7 +4,7 @@ date: "06 Oct 2022"
 ---
 
 
-[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante mas rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una versión modificada de este, los patches que agregue en este fueron los siguientes:
+[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante más rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una versión modificada de este, los patches que agregue en este fueron los siguientes:
  
 ## CenteredMaster
 
@@ -106,7 +106,7 @@ date: "06 Oct 2022"
 
 
 
-[ResetNMaster](https://dwm.suckless.org/patches/resetnmaster/) ter permite regresar a 1 la cantidad de ventanas maestros con una sola funcion.
+[ResetNMaster](https://dwm.suckless.org/patches/resetnmaster/) ter permite regresar a 1 la cantidad de ventanas maestros con una sola función.
  
 ## Status 2D
 
@@ -124,7 +124,7 @@ date: "06 Oct 2022"
 
 
 
-[Fake Full Screen](https://dwm.suckless.org/patches/fakefullscreen/) permite definir un programa el cual cuando este se coloque en algun modo de pantalla completa que este programa tenga incorporado, dwm lo convertirá en pantalla completa solo en el espacio que tenía anteriormente.
+[Fake Full Screen](https://dwm.suckless.org/patches/fakefullscreen/) permite definir un programa el cual cuando este se coloque en algún modo de pantalla completa que este programa tenga incorporado, dwm lo convertirá en pantalla completa solo en el espacio que tenía anteriormente.
  
 
 

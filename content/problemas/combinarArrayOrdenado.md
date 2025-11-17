@@ -41,7 +41,7 @@ def merge(nums1, m, nums2, n)
     end
 end
 ```
-Esta funcion ingresa correctamente en orden creciente los elementos de nums2 en nums1 y funciona cuando m>=n,
+Esta función ingresa correctamente en orden creciente los elementos de nums2 en nums1 y funciona cuando m>=n,
 
 La respuesta correcta es la siguiente:
 

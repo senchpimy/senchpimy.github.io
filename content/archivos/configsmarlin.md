@@ -31,7 +31,7 @@ date: "29 Oct 2022"
 * **M303:** Este comando indica que haremos al prueba de calibración de los valores de PID
 * **E0:** Esto significa que llevaremos la prueba en el extrusor 0 pues como solo tiene uno mi impresora es el unico que hay que calibrar
 * **S205:** Significa que el hotend se calentará hasta los 205 grados para hacer la prueba
-* **C7:** Significa que la prueba se llevará a cabo 7 veces, esto es para tener unos valores mas exactos, también se pueden hacer menos pero podría llevar a inexactitudes o se podrian hacer mas pero llevaria mas tiempo y puede que las optimizaciones no valgan la pena
+* **C7:** Significa que la prueba se llevará a cabo 7 veces, esto es para tener unos valores más exactos, también se pueden hacer menos pero podría llevar a inexactitudes o se podrian hacer más pero llevaria más tiempo y puede que las optimizaciones no valgan la pena
 
 
 

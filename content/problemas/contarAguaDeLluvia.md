@@ -43,7 +43,7 @@ def trap(h)
 end
 ```
 
-Esta solucion usa dos apuntadores, busca por la izquierda un pilar hasta encontrar un pilar mas grande o igual por la derecha, cuando lo encuentra
+Esta solucion usa dos apuntadores, busca por la izquierda un pilar hasta encontrar un pilar más grande o igual por la derecha, cuando lo encuentra
 este toma el volumen que existe entre los dos y le resta el volumen, pero no contaba en cuenta algunos casos, asi que la modifique para 
 algunos casos que no tome en cuenta:
 

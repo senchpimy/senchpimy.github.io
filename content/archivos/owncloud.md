@@ -26,7 +26,7 @@ date: "08 Jun 2023"
  newgrp docker
  ```
 
- Y finalmente lo probe con el siguiente paquete.
+ Y finalmente lo probé con el siguiente paquete.
  
  ```sh
  docker run hello-world

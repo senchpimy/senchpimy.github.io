@@ -2,7 +2,7 @@
 title: "Configuración de Neovim"
 date: "10 Aug 2022"
 ---
-En esta entrada explicare todos los plugins que tengo en neovim y que funcion cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
+En esta entrada explicare todos los plugins que tengo en neovim y que función cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
  
 ## Indentline
 
@@ -18,7 +18,7 @@ autocmd FileType python IndentLinesToggle
 ```
  
 
- Lo que hacen es que conforme existan mas indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
+ Lo que hacen es que conforme existan más indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
  y la segunda configuracion hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
  La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive y la cuarta hace que cuando detecte un archivo de python se active automáticamente
  
@@ -34,7 +34,7 @@ nmap &ltspace&gtr &ltcmd&gtRnvimrToggle&ltCR>
 ```
  
 
- Esa unica linea de configuracion hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver mas opciones de su uso, se sale de la aplicacion con "q", si se ejecuta en la aplicacion de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuracion era la siguiente
+ Esa unica linea de configuracion hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver más opciones de su uso, se sale de la aplicación con "q", si se ejecuta en la aplicación de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuracion era la siguiente
  
 
 ```vim
@@ -56,7 +56,7 @@ let g:mkdp\_browser = 'qutebrowser'
 
 
 
-[Pywal](https://github.com/AlphaTechnolog/pywal.nvim) es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de [wal.vim](https://github.com/dylanaraps/wal.vim) aunque ambos cumplen la misma funcion pywal lo hace con la configuracion de neovim **"set termguicolors"**  que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuracion, para este plugin no existe cconfiguracion extra 
+[Pywal](https://github.com/AlphaTechnolog/pywal.nvim) es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de [wal.vim](https://github.com/dylanaraps/wal.vim) aunque ambos cumplen la misma función pywal lo hace con la configuracion de neovim **"set termguicolors"**  que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuracion, para este plugin no existe cconfiguracion extra 
  
 ## Telescope.nvim
 
@@ -78,7 +78,7 @@ nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR>
 
  
 
- Este plugin tiene muchas otras funciones, yo lo ocupo para moverme mas rápido entre mis archivos, este plugins requiere de otro plugin llamado plenary.nvim
+ Este plugin tiene muchas otras funciones, yo lo ocupo para moverme más rápido entre mis archivos, este plugins requiere de otro plugin llamado plenary.nvim
  
 ## coc.nvim
 
@@ -285,14 +285,14 @@ END
 
 
 
-[CHADtree](https://github.com/ms-jpq/chadtree) es un plugin que habre un arbol de archivos en la parte derecha de la pantalla, es un poco redundante tener **Rnvimr**, **Telescope** y Chadtree pues cumplen casi la misma funcion pero las pocas diferencias que tienen, hace que me sirvan para cosas distintas.
+[CHADtree](https://github.com/ms-jpq/chadtree) es un plugin que habre un arbol de archivos en la parte derecha de la pantalla, es un poco redundante tener **Rnvimr**, **Telescope** y Chadtree pues cumplen casi la misma función pero las pocas diferencias que tienen, hace que me sirvan para cosas distintas.
  CHADtree tiene varias configuraciones pero yo no ocupo ninguna
  
 ## Lualine.nvim
 
 
 
-[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar mas información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rápida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
+[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar más información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio más rápida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
  
 
 ```vim
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, además que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuracion similar a **gitsigns y lualine**
 
 
@@ -399,7 +399,7 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 ```
 
 
- Y para hacerlo funcionar solo tengo que escribir **descplug** en un documento html o css y luego en modo de comando escribir  **(control+y)**y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una funcion que todavia no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con **≶ C-y > ,**, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el último o el primero y apretamos **≶ C-y > u** temenos la opción de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
+ Y para hacerlo funcionar solo tengo que escribir **descplug** en un documento html o css y luego en modo de comando escribir  **(control+y)**y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una función que todavía no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con **≶ C-y > ,**, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el último o el primero y apretamos **≶ C-y > u** temenos la opción de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
 
 ## Bullets.vim
 
@@ -417,13 +417,13 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho mas sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separación de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automatica(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las lineas de separación de filas, etc.
 
 ## vim-matchup
 
 
 
-[Vim-matchup](https://github.com/andymass/vim-matchup) es un plugin que identifica todas las plabars que sean iguales en un mismo documento de texto y te ayuda a moverte mas rápido entre estas, yo no tengo ninga configuracion de este plugin
+[Vim-matchup](https://github.com/andymass/vim-matchup) es un plugin que identifica todas las plabars que sean iguales en un mismo documento de texto y te ayuda a moverte más rápido entre estas, yo no tengo ninga configuracion de este plugin
 
 ##Vim-cursorword
 
@@ -435,7 +435,7 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 
 
 
-[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen esta funcion incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma mas visual, tal ves en el futuro lo deje de usar, las configuraciones requeridas son las siguientes
+[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen esta función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo deje de usar, las configuraciones requeridas son las siguientes
 
 
 ```vim
@@ -463,7 +463,7 @@ let g:targets\_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 
 
 
-[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es mas legible que la linea por defecto, además de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
+[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es más legible que la linea por defecto, además de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
 
 
 ```vim
@@ -543,7 +543,7 @@ Hydra({
 })
 ```
 
- Lo que **window_hint** hace es una pequeña venta que mostrara que funcion tiene cada tecla y al pasarla a **Hydra** va a configurarla para mostar como un menu con las teclas y los comandos de cada una de las opciones que configuramos
+ Lo que **window_hint** hace es una pequeña venta que mostrara que función tiene cada tecla y al pasarla a **Hydra** va a configurarla para mostar como un menu con las teclas y los comandos de cada una de las opciones que configuramos
 ##Harpoon
 
 
@@ -560,7 +560,7 @@ nmap &ltleader&gt- &ltCmd&gtlua require("harpoon.mark").rm\_file()&ltCR> &ltbar>
 
 
 
-[Dracula](https://github.com/dracula/vim) es un tema de vim, es decir cambia los colores de el fondo, el resaltado de letras, etc. con este plugin remplaze a pywal, pues pywal al hacer una paleta de colores le misma imagen muchas veces los colores eran muy parecidos y asia que al editar texto por mucho tiempo perdiera de vista las declaraciones de variables, funciones, etc. Dracula es un tema que tiene mucho contraste entre colores y por eso me permite usar vim por mas tiempo sin que pierda el hilo
+[Dracula](https://github.com/dracula/vim) es un tema de vim, es decir cambia los colores de el fondo, el resaltado de letras, etc. con este plugin remplaze a pywal, pues pywal al hacer una paleta de colores le misma imagen muchas veces los colores eran muy parecidos y asia que al editar texto por mucho tiempo perdiera de vista las declaraciones de variables, funciones, etc. Dracula es un tema que tiene mucho contraste entre colores y por eso me permite usar vim por más tiempo sin que pierda el hilo
 
 
 ```vim
@@ -662,7 +662,7 @@ quoso
 
 
 
-[delimitMate](https://github.com/Raimondi/delimitMate) es un plugin que añade autocompletado para caracteres como **(),{},[],"",''**, estos caracteres pueden ser activados o desactivados e incluso agregar mas
+[delimitMate](https://github.com/Raimondi/delimitMate) es un plugin que añade autocompletado para caracteres como **(),{},[],"",''**, estos caracteres pueden ser activados o desactivados e incluso agregar más
 
 ## Fidget.nvim
 
@@ -679,7 +679,7 @@ quoso
 
 
 
-[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks) es un plugin que hace el manejo de las bookmarks de vim mas sencillo y mas visual, vim tiene esta funcion en donde en un documento se pueden marcar bookmarks, es decir una especie de marcador en una linea la cual con otro comando, no importa en que parte de el archivo estemos si presionamos ese comando nos mandara a la bookmark que marcamos, este plugin nos permite anotar notas en una bookmark, gurdar y cargar las bookmarks que hayamos creado mover una bookmark a otra linea, etc.
+[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks) es un plugin que hace el manejo de las bookmarks de vim más sencillo y más visual, vim tiene esta función en donde en un documento se pueden marcar bookmarks, es decir una especie de marcador en una linea la cual con otro comando, no importa en que parte de el archivo estemos si presionamos ese comando nos mandara a la bookmark que marcamos, este plugin nos permite anotar notas en una bookmark, gurdar y cargar las bookmarks que hayamos creado mover una bookmark a otra linea, etc.
 Este plugin no requiere configuracion
 
 ## Nvim-tressitter
@@ -716,7 +716,7 @@ require'nvim-treesitter.configs'.setup {
 
 
 
-[Winshift](https://github.com/sindrets/winshift.nvim) es un plugin que agreag mas funcionalidad y hace mas simpl eel manejo de diferentes ventanas 
+[Winshift](https://github.com/sindrets/winshift.nvim) es un plugin que agreag más funcionalidad y hace más simpl eel manejo de diferentes ventanas 
 
 
 ```lua
@@ -733,7 +733,7 @@ require'nvim-treesitter.configs'.setup {
 
 
 
- En la versión +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo [Winbar](https://github.com/senchpimy/winbar.nvim) hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con [Nvim-Navic](https://github.com/SmiteshP/nvim-navic) hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos código es un objeto, funcion, etc.
+ En la versión +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo [Winbar](https://github.com/senchpimy/winbar.nvim) hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con [Nvim-Navic](https://github.com/SmiteshP/nvim-navic) hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos código es un objeto, función, etc.
 
 
 ```lua

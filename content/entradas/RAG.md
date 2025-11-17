@@ -20,7 +20,7 @@ este vector es guardado en una base de vectores
 ### Retrieval
 
 Dado un prompt por el usuario, este prompt es analizado y marcado como un vector, después se buscan en la base de datos creada
-los vectores mas cercanos a el prompt y finalmente esta información que coincide es extraida. 
+los vectores más cercanos a el prompt y finalmente esta información que coincide es extraida. 
 
 Esta información se puede obtener de diferentes formas, una de ellas es una busqueda lexica, es decir contar cuantas palabras coinciden entre
 lo que se esta buscando y la información que se tiene. Tambien existe la busqueda semantica que es buscar por palabras/temas clave
@@ -50,13 +50,13 @@ va a tomar en cuenta la indentacion de los textos en comparación a uno de propo
 
 ### Generation
 
-Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar la información mas cercana en el espacio vectorial, si no retraer
+Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar la información más cercana en el espacio vectorial, si no retraer
 *K* elementos que sean relevantes, luego estos resultados son pasados por un LLM para clasificar que resultados son los más relevantes que podrian
 contestar la pregunta, y este modelo también puede ser modelado para ser especifico en un dominio.
 
 Tambien se puede aplciar tecnicas como dados *K* vectores relevantes eliminar resultados que no esten relacionados, este tecnica se llama **autocut**,
 O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si esta no pasa cierto limite,
-forza al modelo a generar una respuesta en la que dice que no posee información relevante en lugar de alucinar algun resultado.
+forza al modelo a generar una respuesta en la que dice que no posee información relevante en lugar de alucinar algún resultado.
 
 https://github.com/explodinggradients/ragas
 https://docs.llamaindex.ai/en/stable/examples/query_engine/knowledge_graph_rag_query_engine/

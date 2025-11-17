@@ -2,7 +2,7 @@
 title: "hyperland"
 date: 2024-06-08
 ---
-Hyperland es un compositor de wayland (osea un administrador de ventanas) y este al ser mas simple y minimalista
+Hyperland es un compositor de wayland (osea un administrador de ventanas) y este al ser más simple y minimalista
 para poder tener un sistema completo se necesita muchos otros programas diferentes
 
 ## Hyperland
@@ -254,8 +254,8 @@ window#waybar.empty {
 ```
 ## Swww
 
-Tambien se necesita un fondo de pantalla y el programa mas simple para cumplir cone sta tarea es swww el cual
-no requiere de configuracion mas que cuando se utiliza el comando y eso depende de la imagen, este inicia automáticamente
+Tambien se necesita un fondo de pantalla y el programa más simple para cumplir cone sta tarea es swww el cual
+no requiere de configuracion más que cuando se utiliza el comando y eso depende de la imagen, este inicia automáticamente
 cuando inicia Hyperland
 
 ## Rofi

@@ -4,10 +4,10 @@ date: "09 Jan 2023"
 ---
 
  Cuando tienes un servidor pero muchas ideas que hacer con el, tener un solo dominio no basta para todo, para esto sirven los subdominios y la forma de hacerlos es muy sencillo, para esto hay que tener ya un servidor, un dominio y **nginx**.
- Para esto necesitamos un servicio que se ejecute en algun puerto que este libre, [aquí](https://github.com/senchpimy/simple_firmas) hice una simple programa en go que se ejeuta en el puerto **3001**, por lo que si se ejecutara de forma local con escribir en el navegador **localhost:3001** podriamos ver esta página, este programa es bastante simple, genera una página web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma página web al comienzo.
+ Para esto necesitamos un servicio que se ejecute en algún puerto que este libre, [aquí](https://github.com/senchpimy/simple_firmas) hice una simple programa en go que se ejeuta en el puerto **3001**, por lo que si se ejecutara de forma local con escribir en el navegador **localhost:3001** podriamos ver esta página, este programa es bastante simple, genera una página web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma página web al comienzo.
 
  Ahora como podemos hacer que en nuestro dominio **example.com** el cual ya esta ocupado pueda mostrar algo diferente en **ejemplo.example.com**, esto se logra con **nginx**.
- Primero necesitamos actualizar los registros de **DNS** de nuestro dominio, por lo que si ya tenemos el dominio **example.com** apuntando a nuestro servidor, en la misma página que hicimos esto podremos agregar el subdominio **ejemplo**, yo lo compré desde la página de **epik** y no se si asi funcione en otras pero en esta solo es agregar el nombre de el subdominio y apuntar el servidor, que en este segundo paso no hay que hacer nada diferente a como es el dominio normal, es decir apuntamos el subdomino al mismo servidor sin especificar el puerto, pues es en realidad **nginx** el que se encargará de redirigir las peticiones al puerto especificado. Al final nuestro dominio con subdominio quedaria asi:
+ Primero necesitamos actualizar los registros de **DNS** de nuestro dominio, por lo que si ya tenemos el dominio **example.com** apuntando a nuestro servidor, en la misma página que hicimos esto podremos agregar el subdominio **ejemplo**, yo lo compré desde la página de **epik** y no se si asi funcione en otras pero en esta solo es agregar el nombre de el subdominio y apuntar el servidor, que en este segundo paso no hay que hacer nada diferente a como es el dominio normal, es decir apuntamos el subdomino al mismo servidor sin especificar el puerto, pues es en realidad **nginx** el que se encargará de redirigir las peticiones al puerto especificado. Al final nuestro dominio con subdominio quedaría asi:
  
 ![](/pro_img/subdominios.png)
 
@@ -36,7 +36,7 @@ server {
 
  Anque si ahora intentas acceder desde cualquier navegador te saldrá una advertencia diciendo que la página no es segura, y para que pase esto hay que tener una coneccion de tipo **https** que para obtener hay que conseguir un certificado SSL para poder tener una coneccion de tipo **https**, en lugar de la **http**, para poder hacer esto simplemente hay que tener instalado **python3-certbot-nginx** que en un servido tipo debian seria **apt install python3-certbot-nginx** y luego ejecutar **certbot --nginx**, después solo hay que seguir las instrucciones.
 
- Y recordar que si por algun motivo no la página que intentas visitar se queda cargando por mucho tiempo, y finalmente cuando carga recives un error hay que verificar que este puerto no este bloqueado por el firewall, usando **ufw** para permitir el acceso por este puerto hay que ejecutar el siguiente comando
+ Y recordar que si por algún motivo no la página que intentas visitar se queda cargando por mucho tiempo, y finalmente cuando carga recives un error hay que verificar que este puerto no este bloqueado por el firewall, usando **ufw** para permitir el acceso por este puerto hay que ejecutar el siguiente comando
  
  ```sh
  ufw allow 3001

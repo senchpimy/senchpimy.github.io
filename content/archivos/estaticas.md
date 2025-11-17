@@ -8,7 +8,7 @@ date: "03 Feb 2023"
 
   
 
- Hay que guardar estos archivos en una carpeta, en la cual no debe tener nada mas que lo que queremos mostrar en la página web, pues de lo contrario cualquier otro archivo extra que este en este directorio sera servido como los otros archivos.
+ Hay que guardar estos archivos en una carpeta, en la cual no debe tener nada más que lo que queremos mostrar en la página web, pues de lo contrario cualquier otro archivo extra que este en este directorio sera servido como los otros archivos.
    
 
   

@@ -27,7 +27,7 @@ date: "05 Sep 2023"
    
   
 
- Para poderlo utilizar en mi explorador de archivos de preferencia *Nautilus* tuve solo que hacer click en mas ubicaciones y en la parte inferior hay un espacio en donde se pueden agregar servidores con diferentes protocolos, y 
+ Para poderlo utilizar en mi explorador de archivos de preferencia *Nautilus* tuve solo que hacer click en más ubicaciones y en la parte inferior hay un espacio en donde se pueden agregar servidores con diferentes protocolos, y 
  para agregar el mio solo tuve que poner:
  
 ```sh

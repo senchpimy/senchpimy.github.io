@@ -32,4 +32,4 @@ end
 end
 ```
 Este programa funciona con tres apuntadores, uno que iterara por todo el array, uno para indicar el principio de el array, el cual avanzara cada que se el primero encuentre un cero, pues intercambiaran lugares y significara que desde 0 hasta su poscicion -1 
-todos los valores son 0, y el último, el cual cumple la misma funcion que el segundo pero de manera inversa, para el final de el array. 
+todos los valores son 0, y el último, el cual cumple la misma función que el segundo pero de manera inversa, para el final de el array. 

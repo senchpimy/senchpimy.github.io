@@ -29,5 +29,5 @@ def isValid(s: str) -> bool:
 
 ```
 
-Esta funcion primero añade a una lista los parentesis que abren y conforme la lista avanza el orden en en el que salen debe 
+Esta función primero añade a una lista los parentesis que abren y conforme la lista avanza el orden en en el que salen debe 
 ser el mismo con el que entran por lo que si esto no es asi entonces el parentesis no es valido y si al final la lista esta vacia se regresa *True*

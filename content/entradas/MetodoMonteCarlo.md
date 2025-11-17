@@ -16,7 +16,7 @@ Segun el **teorema de limite central**
 
 ### Teorema de limite central
 
-Indica que si S es la suma de n variables aleatorias (*una funcion que asigna un valor al resultado de un experimento aleatorio*), entonces la funcion de distribucion (*Una funcion que asigna un valor que representa que tan probable es que suceda*) se aproxima a una
+Indica que si S es la suma de n variables aleatorias (*una función que asigna un valor al resultado de un experimento aleatorio*), entonces la función de distribucion (*Una función que asigna un valor que representa que tan probable es que suceda*) se aproxima a una
 distribucion normal
 
 ### Ejemplo Python

@@ -1,5 +1,5 @@
 ---
-title: "Genericos En Go"
+title: "Genéricos En Go"
 date: "23 Jul 2024"
 ---
 
@@ -45,15 +45,15 @@ func main() {
         SumFloats(floats))
 }
 ```
-En donde para cada tipo de dato hay una funcion diferente
+En donde para cada tipo de dato hay una función diferente
 
 ## Sintaxis
 
-Para crear genericos se tiene que especificar que tipos de datos son soportados, para esto se crearon las funciones con parametros de tipos para que funcionen con parametros de diferentes tipos, y finalmente la funcion
+Para crear genericos se tiene que especificar que tipos de datos son soportados, para esto se crearon las funciones con parámetros de tipos para que funcionen con parámetros de diferentes tipos, y finalmente la función
 se llama con argumentos de tipo y argumentos normales.
 
-Cuando se define un tipo, cada parametro debe tener un *type constraint* (restricciones de tipo) cada type constraint limita que tipos pueden usar dicha funcion,
-al momento de la compilación se verifica que el tipo que pasa coincida con los limites que le fueron puestos
+Cuando se define un tipo, cada parametro debe tener un *type constraint* (restricciones de tipo) cada type constraint limita que tipos pueden usar dicha función,
+al momento de la compilación se verifica que el tipo que pasa coincida con los límites que le fueron puestos
 
 
 ```go
@@ -66,9 +66,9 @@ func SumIntsOrFloats[K comparable, V int64 | float64](m map[K]V) V {
 }
 ```
 
-En este caso se define que *K* debe tener la interfaz comparable y que  *V* sea o int o float, Y en los argumentos de la funcion se define de que tipo debe ser cada parametro
+En este caso se define que *K* debe tener la interfaz comparable y que  *V* sea o int o float, Y en los argumentos de la función se define de que tipo debe ser cada parametro
 
-Al final el código quedaria asi:
+Al final el código quedaría asi:
 
 ```go
     SumIntsOrFloats[string, int64](ints),

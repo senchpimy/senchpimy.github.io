@@ -11,7 +11,7 @@ el esp32. Ademas este usa los botones que el desperator ya traía para dar la ho
 
 Ademas le añadi una pantalla de e-ink, esto por que el despertador también traía una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
 
-Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
+Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algún motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña función 
 que se ejecuta cada que se quiera dibujar una linea, para cambiar las coordenadas para que estas tengan la rotacion correspondiente. El cambio especifico lo saque de el código fuente que se supone que lo haria desde la biblioteca.
 
 Pero esto significa que fucniones como la escritura no funcionaba, asi que tuve que crear una fuente, pasarla a bitmap depues pasarla a código de C y finalmente implementar la lectura y la forma en la que cada pixel es dibujado, en este caso tuve un problema, pues
@@ -24,7 +24,7 @@ Y los datos que se grafican son los precios de criptomonedas, en este caso escog
 
 Para obtener los datos de estos precios primero intente usar la API de *CoinMarketCap* pero el paquete gratuito de la API no me permitia acceder a datos historicos y como en este modelo quise tener los datos de el precio de cada criptomoneda en el periodo de un mes, pues 
 era inutil, luego use una página que se llama **rate.sx** la cual da los datos de estas criptomonedas y puedo acceder a los ultimos 3o dias por separado, pero tengo que obetner la fecha actual y luego generar las llamadas especificas para obtner las fechas anteriores, entonces
-tuve que primero obtener la fecha actual, lo intente mediante la página **http://worldclockapi.com/** pero esta página esta en constante reparacion y muchas veces durante las pruebas esta página estaba fuera de servicio. por lo que no podia seguir haciendo más pruebas si
+tuve que primero obtener la fecha actual, lo intente mediante la página **http://worldclockapi.com/** pero esta página esta en constante reparacion y muchas veces durante las pruebas esta página estaba fuera de servicio. por lo que no podía seguir haciendo más pruebas si
 esta página no funcionaba, por lo que termine usando la página **http://www.whattimeisit.com/**, la cual tenía que usar un poco más de memoria pues estaba parseando html en lugar de json que daba la otra página, pero finalmente esta logro ser más estable.
 
 Y después de obtener la fecha actual y poder hacer las solicitudes de los datos necesarios a la página **rate.sx** funcionaba correctamente.... Pero algunas veces yo creo que la página pensaba que estaba intentando atacarla por medio de DDOS pues algunas veces 
@@ -33,7 +33,7 @@ negaba las solicitudes y no era confiable.
 Finalmente intente usar la API de **CriptoCompare** pues esta tenía todo lo necesario, con usa sola solicitud tenía los datos de los 30 dias y no era necesarioobtener la fecha actual, lo unico malo y por lo que no puede usar esta API fue por que esta usaba el
 protocolo **https** y todas las páginas que use anteriormente usaban **http** este cambio hacía que se crasheara todo el programa pues la liberia de requests web de el ESP32 parece no soportar https, por lo que finalmente decidí mostrar en la gráfica datos estaticos.
 
-Me gustaria retomar este proyecto en algun momento y poder mejorarlo, para poder mostrar imagenes, pero tendria que impementar el algoritmo de floyd y un algoritmo para poder leer estos datos de imagen.
+Me gustaria retomar este proyecto en algún momento y poder mejorarlo, para poder mostrar imagenes, pero tendria que impementar el algoritmo de floyd y un algoritmo para poder leer estos datos de imagen.
 
 https://github.com/avishorp/TM1637/blob/master/examples/TM1637Test/TM1637Test.ino
 

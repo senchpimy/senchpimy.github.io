@@ -602,7 +602,7 @@ if __name__ == '__main__':
  OLED_ENABLE = yes
  
  Finalmente el código que utilice fue una versión modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veía y como funcionaban las pantallas, además que este es **tematico**
- de **Serial Experiments Lain** por lo que todavia me gusto más.
+ de **Serial Experiments Lain** por lo que todavía me gusto más.
  
 ![](/pro_img/teclado2_7.gif)
 ![](/pro_img/teclado2_8.gif)

@@ -5,7 +5,7 @@ date: "04 Jul 2024"
 
 ## Mamba
 
-Mamba es una nueva arquitectura de redes neuronales que es mejor que los transformers en el modelado de lenguaje, también es mas eficiente computacionalmente, pues para procesar una sequencia de n palabras
+Mamba es una nueva arquitectura de redes neuronales que es mejor que los transformers en el modelado de lenguaje, también es más eficiente computacionalmente, pues para procesar una secuencia de n palabras
 tiene una complejidad nlogn mientras que los transformers tienen n^2
 
 ## Modelos State-space 
@@ -22,11 +22,11 @@ Una red recurrente le aplica una red neuronal a un vector y a la salida previa a
 
 La desventaja de este acercamiento es que este proceso no se puede paralelizar pues cada salida depende de la anterior.
 
-Por que en la practica un transformer es mas rápido que una red recurrente, además que en una red convolucional aunque en teoria se puede tener información sobre cualquier vector anterior, en la practica son solo unos pocos los que son "recordados"
+Por que en la practica un transformer es más rápido que una red recurrente, además que en una red convolucional aunque en teoria se puede tener información sobre cualquier vector anterior, en la practica son solo unos pocos los que son "recordados"
 
 ## Red Neuronal Recurrente Lineal
 
-Esta arquietectura remueve la red neuronal por una funcion lineal, aunque esto por si solo no es suficiente para una red neural pues una funcion lineal solo pueden realizar transformaciones simples de sus datos de entrada pero para evitar estas limitaciones de la funcion lineal se
+Esta arquietectura remueve la red neuronal por una función lineal, aunque esto por si solo no es suficiente para una red neural pues una función lineal solo pueden realizar transformaciones simples de sus datos de entrada pero para evitar estas limitaciones de la función lineal se
 agrega una red neuronal a cada vector después de su transformacion
 
 ## Paralelizar RNN Lineales

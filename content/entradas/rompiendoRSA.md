@@ -11,7 +11,7 @@ RSA es un algoritmo de encriptacion que consiste en la factorizacion de dos nume
 
 Siendo valores publicos e y n, y siendo un valor privado d, n = p*q. El proceso para romper RSA consiste en encontrar algunos de los dos valor p o q.
 
-Para RSA se requiere también calcular la funcion de euler de n que se define como (p-1)*(q-1)
+Para RSA se requiere también calcular la función de euler de n que se define como (p-1)*(q-1)
 
 Y por el algoritmo de RSA también sabemos que:
 
