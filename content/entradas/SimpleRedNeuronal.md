@@ -6,7 +6,7 @@ katex: true
 
 ## Introducción
 
-Esta entrada habla sobre el algoritmo **NEAT** que no solo hace que la red aprenda los pesos si no tambien su arquitectura
+Esta entrada habla sobre el algoritmo **NEAT** que no solo hace que la red aprenda los pesos si no también su arquitectura
 
 ##  NeuroEvolution of Augmenting Topologies (NEAT)
 En una red NEAT se usa *dags* (directed acyclic graphs) para representar las redes neuronales, un dags en un grafo en el cual no hay ciclos, este tipos de redes no están totalmente conectadas, por lo que se usa ordenamiento topologico para determinar el orden en el que se llevarán a cabo las

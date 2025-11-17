@@ -7,7 +7,7 @@ date: "16 Jan 2023"
  
 ![](/pro_img/Dirpath.png)
 
- Este programa en C hace especificamente eso, lee el directorio actual y le el formato que queria
+ Este programa en C hace especificamente eso, lee el directorio actual y le el formato que quería
  
 
 

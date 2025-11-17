@@ -64,7 +64,7 @@ class Solution {
 Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algun elemento supera este minimo este se debe de insertar en su poscicion correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
 pero este código no funciono, solo logro pasar la mitad de los casos.
 
-Pero me encontre esta solucion que me parecio interesante.
+Pero me encontré esta solucion que me parecio interesante.
  
 
 ```cpp
@@ -93,7 +93,7 @@ class Solution {
  
 ```
 
- Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilación dentro del código, al buscarlo me encontre que "pragma" le permite al compilador cambiar las caracteristicas de la compilación por archivo.
+ Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilación dentro del código, al buscarlo me encontré que "pragma" le permite al compilador cambiar las caracteristicas de la compilación por archivo.
 
  Luego esta linea nucna la habia visto antes:
  
@@ -111,7 +111,7 @@ class Solution {
 
  Luego usa un **unordered_map** en lugar de un **map**, no se bien el por que de esta descicion, luego guarda la información de cuantas veces se repite un valor de la misma forma en que yo la hice. 
 
- Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino tambien se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porcion, por lo que es muy tardado.
+ Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino también se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porcion, por lo que es muy tardado.
 
  Finalmente crea un vector en el que agrega los primeros **K** elementos.
  

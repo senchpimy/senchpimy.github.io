@@ -265,5 +265,5 @@ para este use la configuracion por defecto que viene en hyde
 
 ## Dunst
 
-El progrma que se encarga de mostrar las notificaciones tambien use la modificación por defecto de hyde
+El progrma que se encarga de mostrar las notificaciones también use la modificación por defecto de hyde
 

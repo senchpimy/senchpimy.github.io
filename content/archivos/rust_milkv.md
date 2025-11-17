@@ -61,7 +61,7 @@ Y para compilarlo para la arquitectura que queremos usamos el siguiente comando:
 cargo +nightly build --target riscv64gc-unknown-linux-musl -Zbuild-std --release
 ```
 
-En el tutorial dice que hay que usar la version nightly pero la version base tambien me ha funcionado
+En el tutorial dice que hay que usar la version nightly pero la version base también me ha funcionado
 
 Y finalmente lo movemos a nuestro milkv con el comando **scp**
 

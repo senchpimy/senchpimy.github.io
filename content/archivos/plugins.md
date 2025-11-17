@@ -34,7 +34,7 @@ nmap &ltspace&gtr &ltcmd&gtRnvimrToggle&ltCR>
 ```
  
 
- Esa unica linea de configuracion hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver mas opciones de su uso, se sale de la aplicacion con "q", si se ejecuta en la aplicacion de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso tambien cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuracion era la siguiente
+ Esa unica linea de configuracion hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver mas opciones de su uso, se sale de la aplicacion con "q", si se ejecuta en la aplicacion de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuracion era la siguiente
  
 
 ```vim
@@ -377,8 +377,8 @@ require'hop'.setup()
 
 
 
-[Emmet-vim](https://github.com/mattn/emmet-vim) es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin tambien tiene un autocompletado de html basado en la selección y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
-Mi configuracion para tener un snippet de la descripcion de estos plugins es lo siguiente 
+[Emmet-vim](https://github.com/mattn/emmet-vim) es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin también tiene un autocompletado de html basado en la selección y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
+Mi configuracion para tener un snippet de la descripción de estos plugins es lo siguiente 
 
 
 ```vim
@@ -405,7 +405,7 @@ Mi configuracion para tener un snippet de la descripcion de estos plugins es lo 
 
 
 
-[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automaticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automaticamente agregara "2. " y me pondra un espacio después para escribir directamente, tambien funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
+[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automaticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automaticamente agregara "2. " y me pondra un espacio después para escribir directamente, también funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
 
 ## Impatient.nvim
 
@@ -463,7 +463,7 @@ let g:targets\_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 
 
 
-[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es mas legible que la linea por defecto, ademas de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que esoty acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene tambien muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
+[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es mas legible que la linea por defecto, ademas de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que esoty acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuracion de vimscript, est eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
 
 
 ```vim

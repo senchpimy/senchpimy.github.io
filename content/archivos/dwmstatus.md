@@ -20,7 +20,7 @@ date: "09 Nov 2022"
 ``` 
   
 
- Podemos ver que lo unico que hay en esta lista son dos comandos **de shell** que son ejecutados, los comentarios son muy explicativos en esto, hay un icno, este es opcional y este saldra enfrente de la salida de su respectivo comando, luego sigue el comando que se va a ejecutar y finalmente esta el intervalo que es cada cuanto este comando se volvera a ejecutar y el valo que presenta se reiniciara.
+ Podemos ver que lo unico que hay en esta lista son dos comandos **de shell** que son ejecutados, los comentarios son muy explicativos en esto, hay un icno, este es opcional y este saldra enfrente de la salida de su respectivo comando, luego sigue el comando que se va a ejecutar y finalmente esta el intervalo que es cada cuanto este comando se volvera a ejecutar y el valor que presenta se reiniciara.
  
 
 ![](https://dwm.suckless.org/patches/status2d/status2d.png)
@@ -56,7 +56,7 @@ date: "09 Nov 2022"
  
 ![](/pro_img/dwmstatus2.png)
 
- Para recapitular, usando unos patches de dwm, un programa llamado dwmblocks y unos scrpits en python se puede lograr este efecto, tambien se pude mostrar la bateria y hacer cada uno de estos unos botones que reacciones a los clicks, pero esto ultimo me causa crasheos en dwm y actualmente no lo he podido implementar, todo lo necesario para reproducir esto se encuentra [aqui](https://github.com/senchpimy/dwmstatus)
+ Para recapitular, usando unos patches de dwm, un programa llamado dwmblocks y unos scrpits en python se puede lograr este efecto, también se pude mostrar la bateria y hacer cada uno de estos unos botones que reacciones a los clicks, pero esto ultimo me causa crasheos en dwm y actualmente no lo he podido implementar, todo lo necesario para reproducir esto se encuentra [aqui](https://github.com/senchpimy/dwmstatus)
 
 
 

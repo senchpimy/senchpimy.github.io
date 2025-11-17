@@ -316,7 +316,7 @@ call plug#end()
 ```
  
 
- Algunos plugins necesitan especificaciones extras para funcionar correctamente, generalmente los creadores de los plugins lo especifican en sus **README.md**  por eso, lo que hay después de la coma son esas especificaciones de los plugins, tambien por lo general los creadores dan instrucciones de como instalar el plugin con vim-plug, y por lo general si no dan mas especificaciones es por que no hay que hacer nada.
+ Algunos plugins necesitan especificaciones extras para funcionar correctamente, generalmente los creadores de los plugins lo especifican en sus **README.md**  por eso, lo que hay después de la coma son esas especificaciones de los plugins, también por lo general los creadores dan instrucciones de como instalar el plugin con vim-plug, y por lo general si no dan mas especificaciones es por que no hay que hacer nada.
  
 
  Para instalar los plugins, con todo y las especificaciones hay que ejecutar el comando:

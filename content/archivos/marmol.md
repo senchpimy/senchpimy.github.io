@@ -7,7 +7,7 @@ date: "30 Jun 2023"
  
 
  Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos mas que por extenciones y solo por medio de **git**, entonces escribi este programa para corregir esto, ahora le faltan algunas cosas que me gustaria agregar asi,
- pero tambien tiene otras caracteristicas que obsidian no tiene.
+ pero también tiene otras caracteristicas que obsidian no tiene.
    
 
   
@@ -20,20 +20,20 @@ date: "30 Jun 2023"
 ![](/pro_img/marmol1.png)
 
 
- Pero debo de mejorar lo de crear un nuevo vault pues se necesita que se ingrese el path completo para poder crear un directorio ahí, tambien tiene la opcion de crear una nota diaria, hay plugins en obsidian que permiten crear una nota semanal y mensual, asi que tal vez agregue eso,
- al igual que obsidian tambien tiene un modo de edicion y de vista
+ Pero debo de mejorar lo de crear un nuevo vault pues se necesita que se ingrese el path completo para poder crear un directorio ahí, también tiene la opcion de crear una nota diaria, hay plugins en obsidian que permiten crear una nota semanal y mensual, asi que tal vez agregue eso,
+ al igual que obsidian también tiene un modo de edicion y de vista
  
 
 ![](/pro_img/marmol2.png)
 
 
- Tambien como obsidian se pueden mostrar los archivos que hay en un vault, buscar por algo en todos los archivos, y tambien soporta busqueda con **regex**, ademas de mostrar los documentos favoritos, se puede hacer un documento favorito con click derecho.
+ Tambien como obsidian se pueden mostrar los archivos que hay en un vault, buscar por algo en todos los archivos, y también soporta busqueda con **regex**, ademas de mostrar los documentos favoritos, se puede hacer un documento favorito con click derecho.
  
 
 ![](/pro_img/marmol3.png)
 
 
- Algunas de las caracteristicas que obsidian no tiene son renderizar tablas por defecto e interfaces especiales para administrar cosas especificas, en este momento son actividades diarias y gastos e ingresos pero tambien pienso agregar mas
+ Algunas de las caracteristicas que obsidian no tiene son renderizar tablas por defecto e interfaces especiales para administrar cosas especificas, en este momento son actividades diarias y gastos e ingresos pero también pienso agregar mas
    
 
   

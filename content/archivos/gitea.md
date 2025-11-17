@@ -99,7 +99,7 @@ date: "21 Jan 2023"
 ``` 
  
  
- Yo borre algunos campos pues estos tenian información delicada pero esos son los que hay que cambiar, y lo que configure en mi caso, fue para mi dominio que ya tenia.
+ Yo borre algunos campos pues estos tenian información delicada pero esos son los que hay que cambiar, y lo que configure en mi caso, fue para mi dominio que ya tenía.
    
 
  Y si todo esta bien configurado solo hay que ejecutar los siguientes comandos.

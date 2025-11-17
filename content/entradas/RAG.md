@@ -45,17 +45,17 @@ Uno de los puntos encontra de esta tecnica es que ahora existen muchos más posi
 
 Actualmente para generar los vectores en espacios de información en lugar de usar un LLM para divir la información de forma semantica, un 
 **Trainable Embedded Model** puede ser usado para convertir el texto a vectores, de tal forma que un modelo entrenado para programar
-va a tomar en cuenta la indentacion de los textos en comparacion a uno de proposito general.
+va a tomar en cuenta la indentacion de los textos en comparación a uno de proposito general.
 
 
 ### Generation
 
 Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar la información mas cercana en el espacio vectorial, si no retraer
 *K* elementos que sean relevantes, luego estos resultados son pasados por un LLM para clasificar que resultados son los más relevantes que podrian
-contestar la pregunta, y este modelo tambien puede ser modelado para ser especifico en un dominio.
+contestar la pregunta, y este modelo también puede ser modelado para ser especifico en un dominio.
 
 Tambien se puede aplciar tecnicas como dados *K* vectores relevantes eliminar resultados que no esten relacionados, este tecnica se llama **autocut**,
-O tambien se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si esta no pasa cierto limite,
+O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si esta no pasa cierto limite,
 forza al modelo a generar una respuesta en la que dice que no posee información relevante en lugar de alucinar algun resultado.
 
 https://github.com/explodinggradients/ragas

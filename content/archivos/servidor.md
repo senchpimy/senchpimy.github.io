@@ -8,7 +8,7 @@ title: "Preparar un Servidor"
 
 ### Actualizar el sistema
 
- Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto esta puede que no tenga los ultimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero seria actualizar el sistema, como hacer esto varia en cada distribución, por lo que tambien es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
+ Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto esta puede que no tenga los ultimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero seria actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
   
 
 ### Ejecutar servicios
@@ -27,7 +27,7 @@ title: "Preparar un Servidor"
  ssh root@<IP>
 ```
 
- El cual nos pedira la contraseña, y la ingresamos y con eso deberiamos tener acceso a el servidor como root, lo primero que se debe hacer es cambiar la contraseña, yo uso el programa **keepassxc** para administrar y generar contraseñas, yo no usaria una contraseña que pudiera recordar facilmente como **c0ntr4s3ñ4** ó **Cu4lqU13r.C0ntr4s3ñ45786**, pues cualquiera que sea facil para nosotros recordar tambien es facil de crackear [**ejemplo**](https://www.youtube.com/watch?v=BiStxSaLs7U)
+ El cual nos pedira la contraseña, y la ingresamos y con eso deberiamos tener acceso a el servidor como root, lo primero que se debe hacer es cambiar la contraseña, yo uso el programa **keepassxc** para administrar y generar contraseñas, yo no usaria una contraseña que pudiera recordar facilmente como **c0ntr4s3ñ4** ó **Cu4lqU13r.C0ntr4s3ñ45786**, pues cualquiera que sea facil para nosotros recordar también es facil de crackear [**ejemplo**](https://www.youtube.com/watch?v=BiStxSaLs7U)
   
 
 ### Conectarse al Servidor

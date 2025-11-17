@@ -17,7 +17,7 @@ date: "30 Jun 2023"
 ```
  
 
- Pero fallaba cuando el documento no tenia mas de 10 lineas, entonces con **awk** tienen la varibale **NR** que practicamente un contador de lineas,etonces
+ Pero fallaba cuando el documento no tenía mas de 10 lineas, entonces con **awk** tienen la varibale **NR** que practicamente un contador de lineas,etonces
  se puede usar de la siguiente manera
  
 
@@ -26,7 +26,7 @@ date: "30 Jun 2023"
 ```
  
 
- Pero esta solucion tardaba mucho entonces con **sed** tambien se puede con
+ Pero esta solucion tardaba mucho entonces con **sed** también se puede con
  
 
 ```sh

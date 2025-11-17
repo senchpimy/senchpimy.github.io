@@ -15,23 +15,23 @@ date: "29 Oct 2022"
 ![](./copland.jpg)
 
 
- Para hacerlo solo subí la imagen <https://marlinfw.org/tools/u8glib/converter.html> Asegurándome que la imagen cumpliera con las dimensiones y seleccioné que la queria para status, copie la salida y la pegue en \_Statusscreen.h
+ Para hacerlo solo subí la imagen <https://marlinfw.org/tools/u8glib/converter.html> Asegurándome que la imagen cumpliera con las dimensiones y seleccioné que la quería para status, copie la salida y la pegue en \_Statusscreen.h
  
 ## PID
 
 
 
- Al cambiarle el hotend necesitamos cambiarle el PID que es una formula que controla como el hotend se calienta, evitando que este varie mucho en el tiempo para poder hacer esto el firmware necesita de tres valores, estos valores se obtiene al hacer una serie de pruebas al calentarse y enfriarse, para poder hacer estas pruebas necesitamos de un programa que pueda enviar Gcode a la placa de la impresora, el programa que utilice se llama **pronterface**
+ Al cambiarle el hotend necesitamos cambiarle el PID que es una fórmula que controla como el hotend se calienta, evitando que este varie mucho en el tiempo para poder hacer esto el firmware necesita de tres valores, estos valores se obtiene al hacer una serie de pruebas al calentarse y enfriarse, para poder hacer estas pruebas necesitamos de un programa que pueda enviar Gcode a la placa de la impresora, el programa que utilice se llama **pronterface**
 
 
- Para poder hacer esta prueba la placa debe estar conectada a la computadora y a la corriente, luego para conectarse a la impresora desde la computadora solo hay que abrir el programa y este va a detectar el puerto, y solo hay que seleccionarlo, probablemente tambien selección de forma correcta los demás valores para conectarse si todo esta correcto al momento de dar click en conectar se debera conectar sin errores.
+ Para poder hacer esta prueba la placa debe estar conectada a la computadora y a la corriente, luego para conectarse a la impresora desde la computadora solo hay que abrir el programa y este va a detectar el puerto, y solo hay que seleccionarlo, probablemente también selección de forma correcta los demás valores para conectarse si todo esta correcto al momento de dar click en conectar se debera conectar sin errores.
  
 
  Al ya estar conectado enviaremos el siguiente texto a la computadora **M303 E0 S205 C7**, lo que este comando de g code significa es lo siguiente
 * **M303:** Este comando indica que haremos al prueba de calibración de los valores de PID
 * **E0:** Esto significa que llevaremos la prueba en el extrusor 0 pues como solo tiene uno mi impresora es el unico que hay que calibrar
 * **S205:** Significa que el hotend se calentará hasta los 205 grados para hacer la prueba
-* **C7:** Significa que la prueba se llevará a cabo 7 veces, esto es para tener unos valores mas exactos, tambien se pueden hacer menos pero podría llevar a inexactitudes o se podrian hacer mas pero llevaria mas tiempo y puede que las optimizaciones no valgan la pena
+* **C7:** Significa que la prueba se llevará a cabo 7 veces, esto es para tener unos valores mas exactos, también se pueden hacer menos pero podría llevar a inexactitudes o se podrian hacer mas pero llevaria mas tiempo y puede que las optimizaciones no valgan la pena
 
 
 
@@ -107,15 +107,15 @@ date: "29 Oct 2022"
 
 
 
- Cuando cambie de hotend este traía un termistor aparte y como era diferente tenia una resistencia diferente que necesita
- ser especificada en el firmware de Marlin, lo que hice fue que en la descripcion de el hotend que compre, este tenia una
- descripcion de el termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la busqueda "Marlin" y encotre que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valo es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
+ Cuando cambie de hotend este traía un termistor aparte y como era diferente tenía una resistencia diferente que necesita
+ ser especificada en el firmware de Marlin, lo que hice fue que en la descripción de el hotend que compre, este tenía una
+ descripción de el termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la busqueda "Marlin" y encontré que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valor es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
  
 ## Extrusor
 
 
 
- Como cambie el extrusor por defecto a el extrusor BondtechBMG el cual es de extrucion directa, este extrusor necesita una cantidad diferente de pasos para poder extruir la misma cantidad de material, existe una formula para poder tener la cantidad de pasos exactos que especificar, pero al buscar en internet me econtre que para este extrusor la cantidad de pasos son **415** en comparacion a los **93** que tiene por defecto, en este caso no se necesita editar el marlin (aunque se puede) para modificar este valor, en la pantalla de mi ender 3, en **Configuration> AdvancedConfiguration> Steps> Extruder** e ingresamos el valor y lo guardamos, para finalizar solo hay que guardar los cambios para que estos permanezcan después de que se apague la impresora
+ Como cambie el extrusor por defecto a el extrusor BondtechBMG el cual es de extrusión directa, este extrusor necesita una cantidad diferente de pasos para poder extruir la misma cantidad de material, existe una fórmula para poder tener la cantidad de pasos exactos que especificar, pero al buscar en internet me encontré que para este extrusor la cantidad de pasos son **415** en comparación a los **93** que tiene por defecto, en este caso no se necesita editar el marlin (aunque se puede) para modificar este valor, en la pantalla de mi ender 3, en **Configuration> AdvancedConfiguration> Steps> Extruder** e ingresamos el valor y lo guardamos, para finalizar solo hay que guardar los cambios para que estos permanezcan después de que se apague la impresora
  
 
 

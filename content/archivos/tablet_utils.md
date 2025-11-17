@@ -3,9 +3,9 @@ title: "Funcionalidades Extra de Tablet"
 date: "18 Sep 2024"
 ---
 
-## Introduccion
+## Introducción
 
-Compre una computadora la cual tiene la capacidad de doblarse como tablet y leer la entrada de dispositivos touch y en este caso tambien de una pluma
+Compre una computadora la cual tiene la capacidad de doblarse como tablet y leer la entrada de dispositivos touch y en este caso también de una pluma
 pero en mi caso me gusta la experiencia de un administrador de ventanas, y aunque gnome por defecto tengo una buena experiencia con las diferentes
 funcionalidades de el hardware me gusta mas un sistema ligero, por lo que quise crear un programa con el cual pueda agregar diferentes funcionalidades
 usando esta pluma.

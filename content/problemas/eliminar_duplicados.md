@@ -6,7 +6,7 @@ title: "Eliminar Duplicados"
 
 
 
- Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuanto elementos unicos este tenia
+ Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuanto elementos unicos este tenía
  
 ### Solucion
 

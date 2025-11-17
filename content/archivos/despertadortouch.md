@@ -3,10 +3,10 @@ title: "Reloj Calendario"
 date : "2024-03-31"
 ---
 
-## Introduccion
+## Introducción
 
-Quise usar un reloj inteligente, pero queria que tambien mostrara mis pendientes y un calendario y encontre varios como el Amazon Echo Show
-pero no se veia como queria, seria muy aburrido solo comprarlo y no funcionaria como querria
+Quise usar un reloj inteligente, pero quería que también mostrara mis pendientes y un calendario y encontré varios como el Amazon Echo Show
+pero no se veia como quería, seria muy aburrido solo comprarlo y no funcionaria como querria
 
 ## Pantalla
 Compre una pantalla touch de aliexpres y un raspberry pi zero 2w
@@ -22,7 +22,7 @@ mi despertador.
 
 ## Creado el Programa
 
-Hay varias opciones para crear una interfaz grafica de la forma en la que queria, pero quise probar con JS pero sin tener un navegador abierto por 
+Hay varias opciones para crear una interfaz grafica de la forma en la que quería, pero quise probar con JS pero sin tener un navegador abierto por 
 las limitaciones de la raspberry asi que utilice **tauri** que me deja crear programas usando JS para el frontend y rust para el backend.
 
 
@@ -44,7 +44,7 @@ tuve que compilarlo desde la raspberry pi pues linkeaba las librerias de mi comp
 encotraba las librerias, después tuve que compilarlo desde un commit del 2020 pues **wlroots** la librería que usa tinywl se encuentra
 en la version 0.11 en debian.
 
-Pero esto fue inutil ya que este Tinywl no tenia soporte para la pantalla touch, es decir no detectaba el touch.
+Pero esto fue inutil ya que este Tinywl no tenía soporte para la pantalla touch, es decir no detectaba el touch.
 
 Entonces tuve que cambiar a usar Xorg y use una version modificada de dwm para que solo muestre este unico programa y compilarlo para esta
 aquitectura

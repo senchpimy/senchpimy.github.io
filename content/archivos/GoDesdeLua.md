@@ -13,7 +13,7 @@ func add(x int, y int) int{
 }
 ```
 
-luego hay que importar la librería necesaria para convertirlo a código de C y tambien indicar que dicha funcion va a ser exportada
+luego hay que importar la librería necesaria para convertirlo a código de C y también indicar que dicha funcion va a ser exportada
 
 ```go
 import "C"

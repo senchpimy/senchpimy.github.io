@@ -124,7 +124,7 @@ date: "06 Oct 2022"
 
 
 
-[Fake Full Screen](https://dwm.suckless.org/patches/fakefullscreen/) permite definir un programa el cual cuando este se coloque en algun modo de pantalla completa que este programa tenga incorporado, dwm lo convertira en patalla completa solo en el espacio que tenia anteriormente.
+[Fake Full Screen](https://dwm.suckless.org/patches/fakefullscreen/) permite definir un programa el cual cuando este se coloque en algun modo de pantalla completa que este programa tenga incorporado, dwm lo convertira en patalla completa solo en el espacio que tenía anteriormente.
  
 
 

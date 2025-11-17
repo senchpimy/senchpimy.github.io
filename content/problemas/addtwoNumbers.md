@@ -60,7 +60,7 @@ este es multiplicado por un multiplicador y sumado al valor total, este multipli
 
 Luego suma los numeros de forma normal y hace el proceso inverso
 
-Pero encontre estas dos soluciones
+Pero encontré estas dos soluciones
 
 ```rb
 # Definition for singly-linked list.

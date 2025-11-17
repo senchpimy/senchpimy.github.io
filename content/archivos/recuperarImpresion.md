@@ -3,25 +3,25 @@ title: "recuperarImpresion"
 date: "02 Aug 2023"
 ---
 
- Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no queria volver a imprimir todo otra vez, asi que tuve que buscar como poder recuperar una impresion.
+ Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no quería volver a imprimir todo otra vez, asi que tuve que buscar como poder recuperar una impresion.
  Este metodo funciona editando el Gcode de la pieza, puede haber otros metodos como imprimir por separado la pieza faltante
    
 
   
 
  Lo primero y lo más importante que hay que hacer es no mover la pieza, intentar si es posible tener la cama caliente para evitar que la pieza de despegue de esta, y si esta en una cama con removible, no moverla ni un poco, pues esto puede causar movimientos en la figura final que no solo 
- se notara el cambio de capa, sino tambien puede hacer que la pieza tenga un punto de quiebre en esa capa.
+ se notara el cambio de capa, sino también puede hacer que la pieza tenga un punto de quiebre en esa capa.
    
 
   
 
- Primero hay que tener la capa en la cual la maquina se quedo (si lograste ver la altura en la cual se quedo no hay porblema colo hay que tener este numero presente) y hay bastantes formas de hacerlo, podemos contar las capas que ya llevaba, pero cuando son muchas este no resulta practico, pero tambien podemos encontrar algun punto como una esquina o un borde de una capa anterior que ya este terminada
+ Primero hay que tener la capa en la cual la maquina se quedo (si lograste ver la altura en la cual se quedo no hay porblema colo hay que tener este numero presente) y hay bastantes formas de hacerlo, podemos contar las capas que ya llevaba, pero cuando son muchas este no resulta practico, pero también podemos encontrar algun punto como una esquina o un borde de una capa anterior que ya este terminada
  y desde ahi poder contar cuantas capas extra a la capa que se quedo atorada faltan.
    
 
   
 
- Tambien podriamos medir con una regla y a veces puede ser lo mas exacto que necesitamos pero tambien con la impresora podriamos mover el eje Z hasta que, el extrusor frio apenas este tocando la pieza, esto hay que hacerlo con mucho cuidado de que por mover alguno de los ejes, el extrusor termine empujando
+ Tambien podriamos medir con una regla y a veces puede ser lo mas exacto que necesitamos pero también con la impresora podriamos mover el eje Z hasta que, el extrusor frio apenas este tocando la pieza, esto hay que hacerlo con mucho cuidado de que por mover alguno de los ejes, el extrusor termine empujando
  la pieza o la termine despegando de la cama, lo cual seria casi imposible de recuperar.
    
 

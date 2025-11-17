@@ -5,8 +5,8 @@ date: "28 Jul 2023"
 El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
 bonotes y no se pueden mover tan facil, etc.
 
-Entonces mejor decidi hacer una nueva version de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo tambien consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
-de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontre con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
+Entonces mejor decidi hacer una nueva version de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresion 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
+de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estandar de crear estos teclados y es muy facil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
 que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opcion de generar los modelos con un espacio para una pantalla oled de 128x32 con 
 varios metodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opcion de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
 puede usar.
@@ -39,14 +39,14 @@ Para construir esta versión del teclado, necesitarás los siguientes componente
 
 ### El modelo
 
- Lo unico malo que le encontre a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los pude encontrar en la **Wayback machine** [aqui](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
+ Lo unico malo que le encontré a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los pude encontrar en la **Wayback machine** [aqui](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
  [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si están usando el mismo microprocesador
  
 ![](/pro_img/teclado2_1.png)
 ![](/pro_img/teclado2_2.png)
 
- Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripcion de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generara un 
- archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenia, mantuve la corvatura por defecto pues pense que seria la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
+ Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripción de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generara un 
+ archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenía, mantuve la corvatura por defecto pues pense que seria la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
  y finalmete seleccioné el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedo asi:
  
 ```py
@@ -581,7 +581,7 @@ if __name__ == '__main__':
 
  # Firmware
 
- El programa que se encarga de programar al microcontrolador para que funcione como teclado en conjunto con otro microcontrolador se llama **QMK** en el cual hay una gran cantidad de firmwares para diferentes teclados, al descarga la utilidad para terminal tambien se va a clonar el repositorio con 
+ El programa que se encarga de programar al microcontrolador para que funcione como teclado en conjunto con otro microcontrolador se llama **QMK** en el cual hay una gran cantidad de firmwares para diferentes teclados, al descarga la utilidad para terminal también se va a clonar el repositorio con 
  todos los teclados. En la carpeta *keyboards/handwired/dactyl_manuform* encontraremos la carpeta de *5x6_68* que hace referencia al teclado que tengo, pues de 5x6 y con las 6 teclas para los pulgares hacen un total de 68 teclas entre los dos teclados.
    
   
@@ -651,7 +651,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 ```
 
- Que es el keymap del teclado el cual queremos ocupar, pero tambien hay que eliminar o comentar estas otras lineas, las cuales son el keymap del teclado anterior.
+ Que es el keymap del teclado el cual queremos ocupar, pero también hay que eliminar o comentar estas otras lineas, las cuales son el keymap del teclado anterior.
  
  Y finalmente en el archivo **rules.mk** ***(PERO SOLO EL QUE ESTA DENTRO DE LA CARPETA DE DRUOTONI)*** hay que eliminar dos lineas, pero yo lo borraria todo y lo remplazaria por esto
  
@@ -698,7 +698,7 @@ SRC += ./burst.c \
 # Conecciones
 
 
- Cuando estaba buscando instrucciones de como armar este teclado no encontre ninguna que hablara sobre las conecciones, asi que las tuve que redescubrir, finalmente estas fueron las conecciones:
+ Cuando estaba buscando instrucciones de como armar este teclado no encontré ninguna que hablara sobre las conecciones, asi que las tuve que redescubrir, finalmente estas fueron las conecciones:
  
 ![](/pro_img/teclado2_10.png)
 

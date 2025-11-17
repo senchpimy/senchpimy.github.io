@@ -48,7 +48,7 @@ date: "14 Jun 2023"
 
  Mi solucion fue restarle a el numero objetivo el valor del primer elemento de la lista, asi ya sabriamos que numero debemos encontrar, después como la lista esta ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer numero, por lo tanto repetimos el proceso con el segundo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.
 
- Este metodo fue el mas tardado pues termino al ultimo, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pense que esta era la respuesta correcta asi que busque otra soluciones y me encontre con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
+ Este metodo fue el mas tardado pues termino al ultimo, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pense que esta era la respuesta correcta asi que busque otra soluciones y me encontré con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
  
 
 ```cpp

@@ -5,7 +5,7 @@ date: "04 Jul 2024"
 
 ## Mamba
 
-Mamba es una nueva arquitectura de redes neuronales que es mejor que los transformers en el modelado de lenguaje, tambien es mas eficiente computacionalmente, pues para procesar una sequencia de n palabras
+Mamba es una nueva arquitectura de redes neuronales que es mejor que los transformers en el modelado de lenguaje, también es mas eficiente computacionalmente, pues para procesar una sequencia de n palabras
 tiene una complejidad nlogn mientras que los transformers tienen n^2
 
 ## Modelos State-space 
@@ -13,7 +13,7 @@ Estos son una alternativa a modelos sequenciales tales como HiPPO, Discretizatio
 
 ## Redes Neuronales Recurrentes
 
-Una red convolucional aplica una red neuronal a una serie de vectores al mismo tiempo, en comparacion a una tradicional en donde se analiza toda la información como un solo vector, este cambio en arquitectura logra que la información que se transmite entre capas
+Una red convolucional aplica una red neuronal a una serie de vectores al mismo tiempo, en comparación a una tradicional en donde se analiza toda la información como un solo vector, este cambio en arquitectura logra que la información que se transmite entre capas
 pueda tener un cierto "contexto" con la información a su alrededor, que funciono muy bien para el analisis de imagenes y aplicando este mismo conecpto al texto, puede añadir conexto a las palabras segun las otras palabras que esten a su alrededor.
 
 Una arquietectura transofrmer hace que se combinen la información de varios vectores sin importar su proximidad, la desventaja es que la complejidad computacional de este algortimo es de n^2

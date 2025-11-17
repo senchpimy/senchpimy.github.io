@@ -7,8 +7,8 @@ date: "20 Jul 2023"
  y por el hardware que tengo tuve que hacer unos pasos extras.
 
  Al intentar ejecutar el script por primera vez, este no descaragba la version de **ROCm** necesaria para funcionar, luego de tiempo de investigar me di cuenta que mi tarjeta grafica todavia no estaba soportada por este software, asi que deje de intentarlo por un tiempo hasta que vi la noticia
- que la nueva version ya funcionaba con la tarjeta que tenia, entonces intente seguir los pasos anteriores otra vez, pero seguia teniendo el mismo error, entonces intente unos forks de **stable-diffusion-webui**, y uno logro funcionar pero este usaba el cpu en lugar de la gpu, segui revisando 
- los reportes de problemas en el github de **stable-diffusion-webui** y vi que el soporte para mi tarjeta ya estaba agregado, pero aun asi los cambio que vi no estaban en la version que descargue, entonces vi que **stable-diffusion-webui** tenia varias **branches** y estaba descargando la 
+ que la nueva version ya funcionaba con la tarjeta que tenía, entonces intente seguir los pasos anteriores otra vez, pero seguia teniendo el mismo error, entonces intente unos forks de **stable-diffusion-webui**, y uno logro funcionar pero este usaba el cpu en lugar de la gpu, segui revisando 
+ los reportes de problemas en el github de **stable-diffusion-webui** y vi que el soporte para mi tarjeta ya estaba agregado, pero aun asi los cambio que vi no estaban en la version que descargue, entonces vi que **stable-diffusion-webui** tenía varias **branches** y estaba descargando la 
  version estable, cuando los cambio para poder soportar la version nueva estaban en la rama de desarrollo (*dev*), entonces elimine el repositorio que habia descargado y use este comando para descargar la rama que necesitaba:
 
 ```sh
@@ -17,7 +17,7 @@ date: "20 Jul 2023"
  
 
  Con esto descargue la version correcta, la cual descargaba la version más nueva de **pytorch** y la version **5.5** de **ROCm** en lugar de la estable **5.4**, con esto elscript ya funciono y avanzo, pero justo en la ultima linea del script después de ejecutarlo me daba un error de 
- **segmentation fault**, que al buscar este error, era por que por algun motivo tambien detectaba la grafica dentro de mi cpu y no funciona bien, por lo que hay que exportar la siguiente variables:
+ **segmentation fault**, que al buscar este error, era por que por algun motivo también detectaba la grafica dentro de mi cpu y no funciona bien, por lo que hay que exportar la siguiente variables:
  
 ``` sh
  export ROCR_VISIBLE_DEVICES=0 

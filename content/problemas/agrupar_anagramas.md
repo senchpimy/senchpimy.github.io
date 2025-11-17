@@ -36,8 +36,8 @@ def group_anagrams(strs)
 end
 ```
 
-Pero era muy lenta en comparacion a otras soluciones, que al revisarlas note que lo unico que cambiaban era en los metodos que usaban, no en el algoritmo,
-primero note que usaban **<<** como forma de ingresar datos en una lista en lugar de **.push(x)** al cambiarlo fue un poco mas lento, tambien note que en el
+Pero era muy lenta en comparación a otras soluciones, que al revisarlas note que lo unico que cambiaban era en los metodos que usaban, no en el algoritmo,
+primero note que usaban **<<** como forma de ingresar datos en una lista en lugar de **.push(x)** al cambiarlo fue un poco mas lento, también note que en el
 ultimo punto, en el momento de insertar los datos en una nueva lista, estos iteraban sobre las llaves y accedian a los valores en lugar de iterar entre los
 valores directamente, asi que lo cambie
 
@@ -63,7 +63,7 @@ def group_anagrams(strs)
 end
 ```
 
-Esta solucion esta en el top 5% en velocidad y 50% en la memoria, lo que mie hizo revisar las mejores soluciones en memoria y me encontre con la siguiente:
+Esta solucion esta en el top 5% en velocidad y 50% en la memoria, lo que mie hizo revisar las mejores soluciones en memoria y me encontré con la siguiente:
 
 ```rb
 # @param {String[]} strs
