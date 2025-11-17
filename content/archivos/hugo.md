@@ -8,7 +8,7 @@ title: "Hugo"
 
 Yo decidí reescribir mi página en markdown con ayuda de unos programas que hice para poder tener mayor flexibilidad y velocidad al agregar una nueva característica, asi como escribir el estándar para la página una sola vez y que este funcione en globalmente sin tener que actualizarlo archivo por archivo.
 
- Las páginas primero siguen la plantilla definida en la carpeta **layout**, en la cual segun la jerarquía del archivo y su nombre se puede definir una plantilla u otra. Cada archivo tiene metadatos que se definen en el archivo y estas variables se pueden renderizar en la página html segun hayamos creado la plantilla.
+ Las páginas primero siguen la plantilla definida en la carpeta **layout**, en la cual según la jerarquía del archivo y su nombre se puede definir una plantilla u otra. Cada archivo tiene metadatos que se definen en el archivo y estas variables se pueden renderizar en la página html según hayamos creado la plantilla.
 
  Luego en la carpeta **static** es donde se guardan todos los archivos que sean estáticos como imágenes, estilos y scripts.
 

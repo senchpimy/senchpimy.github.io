@@ -56,11 +56,11 @@ end
 end
 ```
 Este programa conciste primero en encontrar los dos numeros que debemos sumar, itera la lista en su orden normal y cada vez que encuentra un numero
-este es multiplicado por un multiplicador y sumado al valor total, este multiplicador aumenta en 10 con cada iteracion.
+este es multiplicado por un multiplicador y sumado al valor total, este multiplicador aumenta en 10 con cada iteración.
 
 Luego suma los numeros de forma normal y hace el proceso inverso
 
-Pero encontré estas dos soluciones
+Pero encontré estas dos soluciónes
 
 ```rb
 # Definition for singly-linked list.

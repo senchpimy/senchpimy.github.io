@@ -61,7 +61,7 @@ date: "04 Aug 2023"
    
   
  
- El primero, puede no se muy importante, pues al final de cuentas, en cualquier modo se pueden crear divisiones verticales y horizontales, el segundo es el que considero más importante, pues en este es como vamos a dividir la imagen, por defecto tenemos el siguiente texto: ***1,1***.
+ El primero, puede no se muy importante, pues al final de cuentas, en cualquier modo se pueden crear divisiones verticales y horizontales, el segúndo es el que considero más importante, pues en este es como vamos a dividir la imagen, por defecto tenemos el siguiente texto: ***1,1***.
  Este texto simboliza que la imagen se va a dividir en dos partes, y ambas del mismo tamaño
  ## Split Mode Horizontal
 
@@ -92,7 +92,7 @@ date: "04 Aug 2023"
   
  
  Al darle click en el boton de **Visualize and make template** dos cosas pasan, primero se generará una imagen en donde con colores diferentes se mostrara com quedara dividida la imagen, este rectangulo siempre es del mismo tamaño pero se respetan las proporciones cuando se tiene un rectangulo como 
- imagen por ejemplo, y la segunda cosa es que se generará la template, que es lo que necesitamos colocar en el prompt para poder generar en lugares especificos, por ejemplo si queremos generar una imagen con un dinosaurio de un lado y un auto del otro, con la configuración de **1,1** en **horizontal**
+ imagen por ejemplo, y la segúnda cosa es que se generará la template, que es lo que necesitamos colocar en el prompt para poder generar en lugares especificos, por ejemplo si queremos generar una imagen con un dinosaurio de un lado y un auto del otro, con la configuración de **1,1** en **horizontal**
  tendremos el sigueinte template:
  
  ADDBASE 

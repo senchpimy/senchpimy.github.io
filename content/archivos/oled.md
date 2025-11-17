@@ -133,7 +133,7 @@ while True:
 ![](/wallpapers/lainentrada0.png)
 
 
- Para mi caso opté por ponerle el texto de ***Copland Os*** en los primeros 16 pixeles pues en el modelo de la pantalla que ocupé los primeros 16 pixeles son de color amarillo, para esto solo tuve que convertir la imagen en formato ppm.
+ Para mi caso opté por ponerle el texto de ***Copland Os*** en los primeros 16 píxeles pues en el modelo de la pantalla que ocupé los primeros 16 píxeles son de color amarillo, para esto solo tuve que convertir la imagen en formato ppm.
  Entonces para el código final solo le tuve que agregar la parte en negritas para que usara la imagen.
 
 

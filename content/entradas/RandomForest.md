@@ -6,7 +6,7 @@ date: "08 Sep 2024"
 ### Conceptos
 
 **Metodo de Ensamble**: Es un metodo que combina multiples modelos de aprendizaje para mejorar la generalizacion y la robustez sobre un único modelo.
-El metodo de ensamble entrena dos o más modelos de aprendizaje en una tarea específica de regresion o clasificacion.
+El metodo de ensamble entrena dos o más modelos de aprendizaje en una tarea específica de regresión o clasificacion.
 
 **Arbol de Decision**: Es un modelo de aprendizaje supervisado que se utiliza para la toma de decisiones. Es un arbol que se compone de nodos y ramas.
 los nodos representan las características de un conjunto de datos y las ramas representan las reglas (conjunciones) de decision que se toman para llegar
@@ -14,7 +14,7 @@ los nodos representan las características de un conjunto de datos y las ramas r
 ## Random Forest
 
 Random Forest es un algoritmo de aprendizaje supervisado, creado por Leo Breiman y Adele Cutler, su funcionamiento principal consiste en
-ombinar la salida de varias desciciones para alcanzar un solo resultado. Es un metodo de ensamble que se usa para clasificacion y regresion.
+ombinar la salida de varias desciciones para alcanzar un solo resultado. Es un metodo de ensamble que se usa para clasificacion y regresión.
 Consiste en la creacion de multiples arboles de decision durante el entrenamiento. A diferencia de los arboles de decision, Random Forest
 al utilizar la aleatoriedad en la selección de las características, evita el sobreajuste y aumenta la precision del modelo. Y a diferencia de
 los arboles de decision, Random Forest no utiliza todos los datos para entrenar cada arbol, sino que utiliza una muestra aleatoria de los datos lo que

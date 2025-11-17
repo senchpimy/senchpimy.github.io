@@ -9,7 +9,7 @@ Este problema consisten en dado un array en donde cada elemento representa la te
 
 ### Solucion
 
-My primera solucion O(n^2) fue la siguiente
+My primera solución O(n^2) fue la siguiente
 ```rb
 # @param {Integer[]} temperatures
 # @return {Integer[]}
@@ -31,7 +31,7 @@ def daily_temperatures(temp)
 end
 ```
 
-Pero era muy tardada, entonces la solucion es la siguiente
+Pero era muy tardada, entonces la solución es la siguiente
 
 ```rb
 # @param {Integer[]} temperatures
@@ -52,5 +52,5 @@ def daily_temperatures(temp)
 end
 ```
 
-Esta solucion solo crea nueva memoria para un stack el cual guarda la información de el indice el cual todavía no se encuentra un dia con una temperatura mayor, automáticamente
+Esta solución solo crea nueva memoria para un stack el cual guarda la información de el indice el cual todavía no se encuentra un dia con una temperatura mayor, automáticamente
 el array se va a ordenar de forma descendiente y cuando se encuentra un valor que es mayor se hace la resta de los indices y se agrega al array de temperaturas para evitar crear un nuevo array

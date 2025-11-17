@@ -3,7 +3,7 @@ title: "Maquina De Estados Determinista Finita"
 date: "10 Sep 2024"
 ---
 
-Una Mquina de estados finita consiste en un sistema el cual posee una serie de estados determinados y finitos, los cuales segun la entrada que
+Una Mquina de estados finita consiste en un sistema el cual posee una serie de estados determinados y finitos, los cuales según la entrada que
 entre al sistema, este tomara una desciocion y cambiara de estado. EL cambio de estado se llama transcicion de estado.
 
 ## Ejemplo

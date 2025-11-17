@@ -22,7 +22,7 @@ date: "18 Jan 2023"
 ![](/pro_img/pantallaenmedio1.png)
 ![](/pro_img/pantallaenmedio2.png)
 
- Finalmente la tapa que va encima de estos otros componentes, esta tiene una forma específica en la cual la segunda placa debe pasar a través, esto para que todo al final se vea de el color de la ultima tapa, además de que debía de tener espacio para la salida de todos los conectores de la placa grande y además una entrada que trate de hacer "estándar" para que este monitor luego pueda ser montado en cualquier parte con la montura correcta, esta parte consiste en 4 hoyos de 1/8 de pulgada formando un cuadrado de 5cm por lado, asi si quisiera hacer un soporte solo necesito diseñar el soporte y luego esta entrada para finalmente tener un soporte funcional, que fue luego lo que hice
+ Finalmente la tapa que va encima de estos otros componentes, esta tiene una forma específica en la cual la segúnda placa debe pasar a través, esto para que todo al final se vea de el color de la ultima tapa, además de que debía de tener espacio para la salida de todos los conectores de la placa grande y además una entrada que trate de hacer "estándar" para que este monitor luego pueda ser montado en cualquier parte con la montura correcta, esta parte consiste en 4 hoyos de 1/8 de pulgada formando un cuadrado de 5cm por lado, asi si quisiera hacer un soporte solo necesito diseñar el soporte y luego esta entrada para finalmente tener un soporte funcional, que fue luego lo que hice
  
 ![](/pro_img/pantallafinal1.png)
 ![](/pro_img/pantallafinal2.png)

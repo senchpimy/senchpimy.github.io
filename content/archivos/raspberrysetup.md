@@ -25,7 +25,7 @@ date: "31 Jul 2022"
 ```
 
 
-Este es un código simple que solo toma el pin 27 GPIO (BCM MODE) de la raspberry y lee una entrada simple LOW, el proceso se ejecuta cada 0.5 segundos y si el pin 27 se encuentra en LOW, entonces se suma 1 a la variable que "cuenta" el tiempo que estuvo presionado, al esta llegar a 6 se ejecuta un apagado del dispositivo de forma segura, en caso contrario el contador se reinicia
+Este es un código simple que solo toma el pin 27 GPIO (BCM MODE) de la raspberry y lee una entrada simple LOW, el proceso se ejecuta cada 0.5 segúndos y si el pin 27 se encuentra en LOW, entonces se suma 1 a la variable que "cuenta" el tiempo que estuvo presionado, al esta llegar a 6 se ejecuta un apagado del dispositivo de forma segura, en caso contrario el contador se reinicia
 
 
  Para el ventilador tuve problemas pues mi ventilador de 3 pines en la mayoria del tiempo fallaba el control pwm y no lo seguia, la programación funciona (en teoria) pero en mi caso personal las fallas del ventilador no me permitían hacer nas pruebas y mejorar mi código.

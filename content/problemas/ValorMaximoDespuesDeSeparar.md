@@ -40,4 +40,4 @@ s.pop()
 end
 ```
 
-La solucion consiste en buscar el valor total de los caracteres en un lado y después volver a iterar en el string actualizando las posibles soluciones y solo tenemos que encontrar el valor máximo
+La solución consiste en buscar el valor total de los caracteres en un lado y después volver a iterar en el string actualizando las posibles soluciónes y solo tenemos que encontrar el valor máximo

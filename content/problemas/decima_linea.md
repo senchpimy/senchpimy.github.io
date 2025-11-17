@@ -7,7 +7,7 @@ date: "30 Jun 2023"
 
 
 
- Este problema consisten en imprimir la demcima linea de un archivo usando comando de shell, mi primera solucion fue la siguiente:
+ Este problema consisten en imprimir la demcima linea de un archivo usando comando de shell, mi primera solución fue la siguiente:
  
 ### Solucion
 
@@ -26,7 +26,7 @@ date: "30 Jun 2023"
 ```
  
 
- Pero esta solucion tardaba mucho entonces con **sed** también se puede con
+ Pero esta solución tardaba mucho entonces con **sed** también se puede con
  
 
 ```sh

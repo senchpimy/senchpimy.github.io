@@ -19,7 +19,7 @@ autocmd FileType python IndentLinesToggle
  
 
  Lo que hacen es que conforme existan más indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
- y la segunda configuración hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
+ y la segúnda configuración hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
  La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive y la cuarta hace que cuando detecte un archivo de python se active automáticamente
  
 ## Rnvimr
@@ -56,7 +56,7 @@ let g:mkdp\_browser = 'qutebrowser'
 
 
 
-[Pywal](https://github.com/AlphaTechnolog/pywal.nvim) es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de [wal.vim](https://github.com/dylanaraps/wal.vim) aunque ambos cumplen la misma función pywal lo hace con la configuración de neovim **"set termguicolors"**  que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuración, para este plugin no existe cconfiguracion extra 
+[Pywal](https://github.com/AlphaTechnolog/pywal.nvim) es un plugin que cambia el tema de neovim según los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de [wal.vim](https://github.com/dylanaraps/wal.vim) aunque ambos cumplen la misma función pywal lo hace con la configuración de neovim **"set termguicolors"**  que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuración, para este plugin no existe cconfiguracion extra 
  
 ## Telescope.nvim
 
@@ -273,7 +273,7 @@ END
 
 
 
-[Suda.vim](https://github.com/lambdalisue/suda.vim) es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, este eplugin tiene 2 configuraciones, una es para que automáticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
+[Suda.vim](https://github.com/lambdalisue/suda.vim) es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, este eplugin tiene 2 configuraciones, una es para que automáticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segúnda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
  
 ## Vim-Lastplace
 
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segúndos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuración similar a **gitsigns y lualine**
 
 
@@ -417,7 +417,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segunda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segúnda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro de el espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
 
 ## vim-matchup
 
@@ -444,7 +444,7 @@ let g:choosewin_overlay_enable = 1
 ```
 
 
-La primera linea hace que cuando se apriete "-" el plugin se active y la segunda es para poner numeros en cada tab/division al momento de cambiar
+La primera linea hace que cuando se apriete "-" el plugin se active y la segúnda es para poner numeros en cada tab/division al momento de cambiar
 
 ##Targets.vim
 
@@ -790,7 +790,7 @@ require('lspconfig')['tsserver'].setup{
 
 
 
-**Cmp**, abreviacion de completion son varios plugins que se combinan con el lsp de neovim y proveen diferente tipos de autocopletado segun el plugin que que sea instalado, los que yo tengo son los siguientes
+**Cmp**, abreviacion de completion son varios plugins que se combinan con el lsp de neovim y proveen diferente tipos de autocopletado según el plugin que que sea instalado, los que yo tengo son los siguientes
 
 
 ```

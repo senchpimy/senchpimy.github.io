@@ -33,9 +33,9 @@ def str_str(haystack, needle)
 end
 ```
 Este programa primero calcula hasta dode sería posible encontrar el string encontrar por su longitud dentro de el string en cual buscar, luego lo recorre e intenta comparar cada uno de los caracteres, si se han logrado comparar todos los caracteres de el
-segundo string entonces se ha encontrado el segundo string y se regresa el indice
+segúndo string entonces se ha encontrado el segúndo string y se regresa el indice
 
-Esta solucion funciona pero en comparación a las demás respuestas enviadas es muy lenta y ocupa mucha memoria asi que usando la función ya integrada en el lenguaje para hacer esto se obtiene el siguiente código
+Esta solución funciona pero en comparación a las demás respuestas enviadas es muy lenta y ocupa mucha memoria asi que usando la función ya integrada en el lenguaje para hacer esto se obtiene el siguiente código
 
 ```rb
 # @param {String} haystack

@@ -64,7 +64,7 @@ class Solution {
 Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algún elemento supera este mínimo este se debe de insertar en su posición correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
 pero este código no funciono, solo logro pasar la mitad de los casos.
 
-Pero me encontré esta solucion que me parecio interesante.
+Pero me encontré esta solución que me parecio interesante.
  
 
 ```cpp

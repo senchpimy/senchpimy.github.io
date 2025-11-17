@@ -82,7 +82,7 @@ date: "06 Oct 2022"
 
 
 
-[ShowSelMon](https://dwm.suckless.org/patches/showselmon/) es un patch que cambia el color de la barra de dwm segun que monitor este seleccionado
+[ShowSelMon](https://dwm.suckless.org/patches/showselmon/) es un patch que cambia el color de la barra de dwm según que monitor este seleccionado
  
 ## SaveFloats
 

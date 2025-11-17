@@ -69,7 +69,7 @@ func romanToInt(s string) int {
 }
 ```
 
-Y es exactamente el mismo código, pero esta solucion salió como muy lenta, entonces vi la siguiente solucion, la cual se supone era 87% más rápida:
+Y es exactamente el mismo código, pero esta solución salió como muy lenta, entonces vi la siguiente solución, la cual se supone era 87% más rápida:
 
 ```go
 func romanToInt(s string) int {

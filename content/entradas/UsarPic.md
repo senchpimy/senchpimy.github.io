@@ -17,7 +17,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 ## Instalación de herramientas necesarias
 Primero, necesitamos instalar las herramientas necesarias para detectar el PIC y para cargar el programa en él. Para esto usaremos el paquete del AUR pk2cmd, pues estamos usando un PICkit 2.
 Existe un problema conocido con el paquete `pk2cmd` en el AUR, lo que pasa que es que el enlace de descarga ya es obsoleto, y esto es conocido desde 2023, pues en el sitio
-web del paquete tmb nos dice la solucion, y es descargar el archivo desde otro enlace. 
+web del paquete tmb nos dice la solución, y es descargar el archivo desde otro enlace. 
 
 ![Error de descarga del paquete pk2cmd](/pk2cmd_error.png)
 

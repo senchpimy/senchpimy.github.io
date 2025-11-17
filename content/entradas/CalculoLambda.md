@@ -74,7 +74,7 @@ $${\textstyle ((\lambda x.M)\ N)\rightarrow (M[x:=N]) = (M[N/x])}$$
 ## Booleanos Y condicionales
 
 Ejemplo:
-Esta función va a regresar el primer termino si el booleano es verdadero y el segundo si es falso
+Esta función va a regresar el primer termino si el booleano es verdadero y el segúndo si es falso
 $$ True = \lambda x.\lambda y.x$$
 $$ False = \lambda x.\lambda y.y$$
 $$ ifthen = \lambda b.\lambda x.\lambda y.b x y $$

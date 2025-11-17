@@ -11,7 +11,7 @@ En llama.cpp existe la opción de crear una **gramática formal** mediante el fo
 
 ### Gramática Formal
 
-Describe que cadenas de un **alfabeto** de un **Lenguaje formal** son válidas segun la sintaxis de el lenguaje.
+Describe que cadenas de un **alfabeto** de un **Lenguaje formal** son válidas según la sintaxis de el lenguaje.
 
 Un lenguaje formal consiste de palabras cuyas letras son tomadas de un alfabeto y estas siguen una serie de reglas definidas por su gramática.
 

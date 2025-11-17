@@ -34,11 +34,11 @@ date: "09 Nov 2022"
  
  **^r3,3,14,14^**
  
- El texto de arriba generará un cuadrado de 14x14 pixeles comenzando desde la coordenada 3,3
+ El texto de arriba generará un cuadrado de 14x14 píxeles comenzando desde la coordenada 3,3
  
  **^f20^**
  
- Este texto creará un espacio de 20 pixeles entre el último gráfico dibujado y en donde empezara a dibujar, de no colocar esto las letras o los siguientes graficos que se quieran dibujar.
+ Este texto creará un espacio de 20 píxeles entre el último gráfico dibujado y en donde empezara a dibujar, de no colocar esto las letras o los siguientes graficos que se quieran dibujar.
  
 **^b#XXXXXX^**
  

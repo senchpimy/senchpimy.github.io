@@ -177,7 +177,7 @@ class hand():
  self.ard.close()
  
  ```
- Que segun el dedo que se quiere mover, este enviará el comando necesario al arduino.
+ Que según el dedo que se quiere mover, este enviará el comando necesario al arduino.
 
  y finalmente con el esto el código de python quedaría como:
 

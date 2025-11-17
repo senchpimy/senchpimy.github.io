@@ -14,7 +14,7 @@ Estos son una alternativa a modelos sequenciales tales como HiPPO, Discretizatio
 ## Redes Neuronales Recurrentes
 
 Una red convolucional aplica una red neuronal a una serie de vectores al mismo tiempo, en comparación a una tradicional en donde se analiza toda la información como un solo vector, este cambio en arquitectura logra que la información que se transmite entre capas
-pueda tener un cierto "contexto" con la información a su alrededor, que funciono muy bien para el analisis de imágenes y aplicando este mismo conecpto al texto, puede añadir conexto a las palabras segun las otras palabras que estén a su alrededor.
+pueda tener un cierto "contexto" con la información a su alrededor, que funciono muy bien para el analisis de imágenes y aplicando este mismo conecpto al texto, puede añadir conexto a las palabras según las otras palabras que estén a su alrededor.
 
 Una arquietectura transofrmer hace que se combinen la información de varios vectores sin importar su proximidad, la desventaja es que la complejidad computacional de este algortimo es de n^2
 

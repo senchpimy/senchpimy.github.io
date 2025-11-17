@@ -55,7 +55,7 @@ Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar 
 contestar la pregunta, y este modelo también puede ser modelado para ser especifico en un dominio.
 
 También se puede aplciar tecnicas como dados *K* vectores relevantes eliminar resultados que no estén relacionados, este tecnica se llama **autocut**,
-O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si esta no pasa cierto limite,
+O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si esta no pasa cierto límite,
 forza al modelo a generar una respuesta en la que dice que no posee información relevante en lugar de alucinar algún resultado.
 
 https://github.com/explodinggradients/ragas
