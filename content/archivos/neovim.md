@@ -253,7 +253,7 @@ endif
  Si no encuentra el comando no fue instalado correctamente, cuando si se logro instalar habrira un buffer donde mostrara que todo esta en orden
  
 
- Los plugins son lo extentienden las funciones de vim/nvim, para instalarlas hay que poner lo siguiente dentro de [esta seccion](#plug) en lugar de los***#***
+ Los plugins son lo extentienden las funciones de vim/nvim, para instalarlas hay que poner lo siguiente dentro de [esta sección](#plug) en lugar de los***#***
 
 
 ```vim

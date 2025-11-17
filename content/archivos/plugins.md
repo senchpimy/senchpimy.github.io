@@ -571,7 +571,7 @@ colorscheme dracula
 
 
 
-[Vim-illuminate](https://github.com/RRethy/vim-illuminate) es un plugin que marca con un gran contraste palabras que involucren un inicio y un final, muchas veces puedo tener un archivo de html en el cual no puedo saber donde es el final de un div, al poner el cursor ya sea en modo nomal o en modo de insertar este plugin marcara el comienzo y el final de esa seccion, este plugin obtiene esta informacion ya sea por medio lsp, regex o tressitter, por lo que funciona practicamente en cualquier tipo de archivo
+[Vim-illuminate](https://github.com/RRethy/vim-illuminate) es un plugin que marca con un gran contraste palabras que involucren un inicio y un final, muchas veces puedo tener un archivo de html en el cual no puedo saber donde es el final de un div, al poner el cursor ya sea en modo nomal o en modo de insertar este plugin marcara el comienzo y el final de esa sección, este plugin obtiene esta informacion ya sea por medio lsp, regex o tressitter, por lo que funciona practicamente en cualquier tipo de archivo
 
 
 ```lua
