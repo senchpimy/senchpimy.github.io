@@ -13,7 +13,7 @@ date: "04 Aug 2023"
    
   
 
- Para poder utilizarlo hay que instalarlos con la pestaña de extensiones **AUTOMATIC1111**, después de instalarlo y de reiniciar el programa, en la pestaña de **txt2img** tendremos la opcion de **Regional Prompter:**
+ Para poder utilizarlo hay que instalarlos con la pestaña de extensiones **AUTOMATIC1111**, después de instalarlo y de reiniciar el programa, en la pestaña de **txt2img** tendremos la opción de **Regional Prompter:**
   
 
   

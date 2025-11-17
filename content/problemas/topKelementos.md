@@ -41,17 +41,17 @@ class Solution {
         vals[l]=i.first;
         l++;
     }
-    int minimo=0;
+    int mínimo=0;
     int pos = 0;
     for (auto i:mapa){
-        if (i.second>=minimo){
+        if (i.second>=mínimo){
             if (pos<k){
                vals[pos]=i.first;
                 pos++;
             }else{
                 insertar(i.first,k,vals);
             }
-            minimo=mapa[vals[0]];
+            mínimo=mapa[vals[0]];
         }
     }
     std::vector<int> dest(vals, vals + k);
@@ -61,7 +61,7 @@ class Solution {
  
 ```
 
-Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algun elemento supera este minimo este se debe de insertar en su poscicion correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
+Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algun elemento supera este mínimo este se debe de insertar en su poscicion correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
 pero este código no funciono, solo logro pasar la mitad de los casos.
 
 Pero me encontré esta solucion que me parecio interesante.

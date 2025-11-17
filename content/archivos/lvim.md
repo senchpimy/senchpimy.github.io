@@ -62,7 +62,7 @@ lvim.plugins = {
 
 ```
 
- Con esta configuracion ya puedo recrear lo que tenía con mi configuracion, pero con algo que tuve problemas es configurando el **LSP**, el cual con Lunar nvim, funciona automaticamente y los servidores se instalan automaticamente segun el archivo que se abre
+ Con esta configuracion ya puedo recrear lo que tenía con mi configuracion, pero con algo que tuve problemas es configurando el **LSP**, el cual con Lunar nvim, funciona automáticamente y los servidores se instalan automáticamente segun el archivo que se abre
  
 
 

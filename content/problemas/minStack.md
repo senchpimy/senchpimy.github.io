@@ -7,7 +7,7 @@ date: "07 Dec 2023"
 Este problema consisten en tener un stack el cual siqmpre se le pueda requerir el menor elemento en el stack y este siempre lo puede regresar
 
 ### Solucion
-Esta solucion tiene dos arrays uno para el valor minimo en ese momento de el array y otro para almacenar los valores, estos se actualizan al mismo tiempo
+Esta solucion tiene dos arrays uno para el valor mínimo en ese momento de el array y otro para almacenar los valores, estos se actualizan al mismo tiempo
 
 ```rb
 class MinStack

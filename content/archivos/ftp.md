@@ -34,7 +34,7 @@ date: "05 Sep 2023"
  ftp://192.168.XXX.XXX
 ``` 
  
- Y se conecto automaticamente, me pidio contraseña y usuario pero fue todo lo que necesite.
+ Y se conecto automáticamente, me pidio contraseña y usuario pero fue todo lo que necesite.
    
   
 

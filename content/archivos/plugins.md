@@ -20,7 +20,7 @@ autocmd FileType python IndentLinesToggle
 
  Lo que hacen es que conforme existan mas indentLines el plugin mostrara la linea correspondiente en alguno de esos 4 posibles estilos,
  y la segunda configuracion hace que el plugin este apagado por defecto pues yo solo lo ocupo para python.
- La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive y la cuarta hace que cuando detecte un archivo de python se active automaticamente
+ La tercera linea hace cuando se apreite "Espacio+ l" el plugin se active o se desactive y la cuarta hace que cuando detecte un archivo de python se active automáticamente
  
 ## Rnvimr
 
@@ -78,7 +78,7 @@ nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR>
 
  
 
- Este plugin tiene muchas otras funciones, yo lo ocupo para moverme mas rapido entre mis archivos, este plugins requiere de otro plugin llamado plenary.nvim
+ Este plugin tiene muchas otras funciones, yo lo ocupo para moverme mas rápido entre mis archivos, este plugins requiere de otro plugin llamado plenary.nvim
  
 ## coc.nvim
 
@@ -273,7 +273,7 @@ END
 
 
 
-[Suda.vim](https://github.com/lambdalisue/suda.vim) es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, est eplugin tiene 2 configuraciones, una es para que automaticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
+[Suda.vim](https://github.com/lambdalisue/suda.vim) es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, est eplugin tiene 2 configuraciones, una es para que automáticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
  
 ## Vim-Lastplace
 
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rapido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, ademas que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo mas rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es mas lento que lf, ademas que con este plugin puedo ver imagenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imagenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuracion del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuracion similar a **gitsigns y lualine**
 
 
@@ -399,13 +399,13 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 ```
 
 
- Y para hacerlo funcionar solo tengo que escribir **descplug** en un documento html o css y luego en modo de comando escribir  **(control+y)**y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una funcion que todavia no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con **≶ C-y > ,**, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el ultimo o el primero y apretamos **≶ C-y > u** temenos la opcion de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
+ Y para hacerlo funcionar solo tengo que escribir **descplug** en un documento html o css y luego en modo de comando escribir  **(control+y)**y lugo coma con el cursor posicionado en la ultima letra, y el plugin se va aencargar de autocompletar, existe una funcion que todavia no se como usar que es la de autocompletar html solo escribiendo llos nombres de las tags, la mayoria de comando de este plugin funcionan con **≶ C-y > ,**, pero por ejemplo si seleccionamos un caracter de un elemento de html que no sea el ultimo o el primero y apretamos **≶ C-y > u** temenos la opción de agregar clase o id al elemento html, este plugin contiene muchas otras funciones de html
 
 ## Bullets.vim
 
 
 
-[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automaticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automaticamente agregara "2. " y me pondra un espacio después para escribir directamente, también funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
+[Bullets.vim](https://github.com/dkarter/bullets.vim) es un plugin que ocupo principalmente para documentos de markdown, lo unico que hace es agregar automáticamente los numeros y casillas de las listas que se ocupan en Markdown, es decir que si escribo algo inicando con "1. " y termino de escribir el plugin automáticamente agregara "2. " y me pondra un espacio después para escribir directamente, también funciona con "+", "-", "\*", "[]", este tiene varias configuraciones pero yo ocupo el default
 
 ## Impatient.nvim
 
@@ -423,7 +423,7 @@ Mi configuracion para tener un snippet de la descripción de estos plugins es lo
 
 
 
-[Vim-matchup](https://github.com/andymass/vim-matchup) es un plugin que identifica todas las plabars que sean iguales en un mismo documento de texto y te ayuda a moverte mas rapido entre estas, yo no tengo ninga configuracion de este plugin
+[Vim-matchup](https://github.com/andymass/vim-matchup) es un plugin que identifica todas las plabars que sean iguales en un mismo documento de texto y te ayuda a moverte mas rápido entre estas, yo no tengo ninga configuracion de este plugin
 
 ##Vim-cursorword
 
@@ -472,7 +472,7 @@ require("bufferline").setup{}
 END
 ```
 
-Para poder moverme entre tabs use la siguiente configuracion, en modo normal Tab me mueve una tab hacia delante y Shift+Tab una tab hacia atras
+Para poder moverme entre tabs use la siguiente configuracion, en modo normal Tab me mueve una tab hacía delante y Shift+Tab una tab hacía atras
 
 ```vim
 noremap &ltsilent>&ltTAB> :BufferLineCycleNext&ltCR>
@@ -548,7 +548,7 @@ Hydra({
 
 
 
-[Harpoon](https://github.com/ThePrimeagen/harpoon) es un plugin que nos deja marcar archivos y tenerlos en un una pequeña ventana de acceso rapido
+[Harpoon](https://github.com/ThePrimeagen/harpoon) es un plugin que nos deja marcar archivos y tenerlos en un una pequeña ventana de acceso rápido
 
 
 ```vim

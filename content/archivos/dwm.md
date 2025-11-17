@@ -4,7 +4,7 @@ date: "06 Oct 2022"
 ---
 
 
-[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante mas rapido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utlizo es una version modificada de este, los patches que agregue en este fueron los siguientes:
+[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante mas rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una version modificada de este, los patches que agregue en este fueron los siguientes:
  
 ## CenteredMaster
 
@@ -28,13 +28,13 @@ date: "06 Oct 2022"
 
 
 
-[Dragmfact](https://dwm.suckless.org/patches/dragmfact/) nos permite modificar el tamaño de ls divisiones en el layout de tiled con el mouse
+[Dragmfact](https://dwm.suckless.org/patches/dragmfact/) nos permite modificar el tamaño de las divisiones en el layout de tiled con el mouse
  
 ## Systray
 
 
 
-[Systray](https://dwm.suckless.org/patches/systray/) agrega una implementacion de "system tray"
+[Systray](https://dwm.suckless.org/patches/systray/) agrega una implementación de "system tray"
  
 ## Cfacts
 
@@ -46,13 +46,13 @@ date: "06 Oct 2022"
 
 
 
-[Fibonnaci](https://dwm.suckless.org/patches/fibonacci/) agrega dos diferentes layouts para DWM
+[Fibonacci](https://dwm.suckless.org/patches/fibonacci/) agrega dos diferentes layouts para DWM
  
 ## Gaplessgrid
 
 
 
-[Gaplessgrid](https://dwm.suckless.org/patches/gaplessgrid/) agrega un nuevo modo parecido a **gridmode** pero gridmode puede dejar espacios vacios cuando no hay suficiente celdas vacias para llenar el espacio de una ventana, este modo es lo mismo pero arregla esta caracteristica.
+[Gaplessgrid](https://dwm.suckless.org/patches/gaplessgrid/) agrega un nuevo modo parecido a **gridmode** pero gridmode puede dejar espacios vacios cuando no hay suficiente celdas vacías para llenar el espacio de una ventana, este modo es lo mismo pero arregla esta característica.
  
 ## GoBack
 
@@ -70,7 +70,7 @@ date: "06 Oct 2022"
 
 
 
-[TileWide](https://dwm.suckless.org/patches/tilewide/) agrega un layout en donde se tienen dos maestros y las desmas ventanas se organizan como el modo tile.
+[TileWide](https://dwm.suckless.org/patches/tilewide/) agrega un layout en donde se tienen dos maestros y las demás ventanas se organizan como el modo tile.
  
 ## Tatami
 
@@ -124,7 +124,7 @@ date: "06 Oct 2022"
 
 
 
-[Fake Full Screen](https://dwm.suckless.org/patches/fakefullscreen/) permite definir un programa el cual cuando este se coloque en algun modo de pantalla completa que este programa tenga incorporado, dwm lo convertira en patalla completa solo en el espacio que tenía anteriormente.
+[Fake Full Screen](https://dwm.suckless.org/patches/fakefullscreen/) permite definir un programa el cual cuando este se coloque en algun modo de pantalla completa que este programa tenga incorporado, dwm lo convertirá en pantalla completa solo en el espacio que tenía anteriormente.
  
 
 

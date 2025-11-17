@@ -64,7 +64,7 @@ date: "26 Oct 2022"
  
 ### 27/10/2022
  
- Ya agregue el deslizador que cambia el tiempo de la cancion, me gusataria después reescribir el programa en **c++** para hacerlo mas rapido
+ Ya agregue el deslizador que cambia el tiempo de la cancion, me gusataria después reescribir el programa en **c++** para hacerlo mas rápido
  
 ### 9/1/2023
  

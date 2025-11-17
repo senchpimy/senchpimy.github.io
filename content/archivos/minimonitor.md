@@ -3,7 +3,7 @@ title: "Minimonitor"
 date: "18 Jan 2023"
 ---
 
- Compre el siguiente monitor para poder usarlo con mi raspberry pi el monitor que compre fue el siguiente
+ Compré el siguiente monitor para poder usarlo con mi raspberry pi el monitor que compre fue el siguiente
    
 
   

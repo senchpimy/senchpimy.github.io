@@ -7,7 +7,7 @@ date: "19 Jul 2024"
 
 En un modelo de lenguaje es aveces util poder estructurar la salida, es decir dado un prompt poder limitar la salida de tal forma que cumpla ciertas normas o formatos tal como json.
 
-En llama.cpp existe la opcion de crear una **gramatica formal** mediante el formato de **GBNF**.
+En llama.cpp existe la opción de crear una **gramatica formal** mediante el formato de **GBNF**.
 
 ### Gramatica Formal
 
@@ -26,7 +26,7 @@ para reemplazar simbolos no-terminales con una sequencia de simbolos. la notacio
 
 - **<symbol>**: Es una variable no terminal que siempre esta cerrada por los caracteres "<>"
 - **::=**: Significa que el simbolo de la izquierda debe ser remplazado por el simbolo de la derecha
-- **__expression__**: Consiste de una o varias sequencias de simbolos terminales o no-terminales donde cada sequencia es separado por un "**|**" indicando una opcion para sustituir el simbolo en la derecha
+- **__expression__**: Consiste de una o varias sequencias de simbolos terminales o no-terminales donde cada sequencia es separado por un "**|**" indicando una opción para sustituir el simbolo en la derecha
 
 ### Ejemplos:
 ```

@@ -33,7 +33,7 @@ title: "Preparar un Servidor"
 ### Conectarse al Servidor
 
 
- Siempre se va a necesitar una coneccion al servidor, pero ssh nos pedira introducir la contraseña, lo que podría mostrar en que puerto esta esuchando el servidor ssh, lo cual si este no esta actualizado podría ser una falla de seguridad, por lo que para evitar esto lo ideal seria bloquear el acceso a ssh con contraseña, es decir que se requiera una llave ssh para poder aacceder al servidor, de esta forma se la validacion se hara automaticamente, y podría evitar la posibilidad de un ataque de fuerza bruta
+ Siempre se va a necesitar una coneccion al servidor, pero ssh nos pedira introducir la contraseña, lo que podría mostrar en que puerto esta esuchando el servidor ssh, lo cual si este no esta actualizado podría ser una falla de seguridad, por lo que para evitar esto lo ideal seria bloquear el acceso a ssh con contraseña, es decir que se requiera una llave ssh para poder aacceder al servidor, de esta forma se la validacion se hara automáticamente, y podría evitar la posibilidad de un ataque de fuerza bruta
  
 ```sh
  ssh-keygen

@@ -20,7 +20,7 @@ date: "30 Jun 2023"
 ![](/pro_img/marmol1.png)
 
 
- Pero debo de mejorar lo de crear un nuevo vault pues se necesita que se ingrese el path completo para poder crear un directorio ahí, también tiene la opcion de crear una nota diaria, hay plugins en obsidian que permiten crear una nota semanal y mensual, asi que tal vez agregue eso,
+ Pero debo de mejorar lo de crear un nuevo vault pues se necesita que se ingrese el path completo para poder crear un directorio ahí, también tiene la opción de crear una nota diaria, hay plugins en obsidian que permiten crear una nota semanal y mensual, asi que tal vez agregue eso,
  al igual que obsidian también tiene un modo de edicion y de vista
  
 

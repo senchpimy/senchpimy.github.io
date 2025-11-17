@@ -12,7 +12,7 @@ El método tradicional implicaría configurar un servidor público, gestionar un
 
 Una solución mucho más sencilla y rápida es usar una herramienta de túneling como ngrok.
 Esta utilidad crea un túnel seguro desde un servidor público de ngrok directamente a un puerto específico de nuestra computadora.
-En esencia, nos proporciona una URL pública que redirige todo el tráfico hacia nuestra aplicación local, sin necesidad de modificar nuestro router o firewall.
+En esencia, nos proporciona una URL pública que redirige todo el tráfico hacía nuestra aplicación local, sin necesidad de modificar nuestro router o firewall.
 
 Para empezar a usar ngrok, primero debemos instalarlo en nuestro sistema. La pagina oficial proporciona el siguiente comando para sistemas basados en Debian/Ubuntu:
 
@@ -45,7 +45,7 @@ Y finalmente para poder usar ngrok (empezar a servir la pagina), simplemente eje
 ngrok http --url=URL 80
 ```
 
-Esto creará un túnel desde la URL pública proporcionada por ngrok hacia el puerto 80 de nuestra máquina local. Ahora, cualquier persona que acceda a esa URL podrá interactuar con nuestra aplicación local como si estuviera en un servidor público.
+Esto creará un túnel desde la URL pública proporcionada por ngrok hacía el puerto 80 de nuestra máquina local. Ahora, cualquier persona que acceda a esa URL podrá interactuar con nuestra aplicación local como si estuviera en un servidor público.
 
 Y por ultimo yo tuve que configurar mi archivo de hosts para que la URL proporcionada por ngrok apunte a mi localhost.
 

@@ -117,7 +117,7 @@ bindkey -s '^o' 'lfcd\n'
 #&&&&&&&&&&&&&&&&& Edit Line &&&&&&&&&&&&&&&&&&&&&&&&&&
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-* **Sugestiones:** Cuando quiero escribir un comando con un archivo si presiono **tab** zsh va a tratar de autocompletar lo que estaba tratando de escribir con una sugerencia, el motor es bastante inteligente y puede automaticamente seleccionar archivos del tipo especifico del cual el comando requiere, pero para mejorar esto le puse dos configuraciones, la cual le permite buscar en los archivo que comiencen con un "." y que no distinga entre mayusculas y minusculas, asi mismo que coloree las tipos de los archivos y que muestre el bloque blanco cuando se esta en el modo de selección.
+* **Sugestiones:** Cuando quiero escribir un comando con un archivo si presiono **tab** zsh va a tratar de autocompletar lo que estaba tratando de escribir con una sugerencia, el motor es bastante inteligente y puede automáticamente seleccionar archivos del tipo especifico del cual el comando requiere, pero para mejorar esto le puse dos configuraciones, la cual le permite buscar en los archivo que comiencen con un "." y que no distinga entre mayusculas y minusculas, asi mismo que coloree las tipos de los archivos y que muestre el bloque blanco cuando se esta en el modo de selección.
  
 autoload -U compinit
 zstyle ':completion:\*' menu select

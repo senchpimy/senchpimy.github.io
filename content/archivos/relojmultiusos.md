@@ -6,7 +6,7 @@ date: "21 Oct 2023"
 En este proyecto use un despertador antiguo que no servia y lo "repare" y ademas añadi más fucnionalidades.
 
 
-Primero use un **esp32** como microcontrolador para el proyecto, pues este ya tiene coneccion a wifi y bluetooth, use un display de 7 segmentos para matener el formato de la hora, especificamente use el TM1637, y el programa de la hora se ejecuta en el sgundo core de
+Primero use un **esp32** como microcontrolador para el proyecto, pues este ya tiene coneccion a wifi y bluetooth, use un display de 7 segmentos para matener el formato de la hora, específicamente use el TM1637, y el programa de la hora se ejecuta en el sgundo core de
 el esp32. Ademas este usa los botones que el desperator ya traía para dar la hora.
 
 Ademas le añadi una pantalla de e-ink, esto por que el despertador también traía una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
@@ -18,7 +18,7 @@ Pero esto significa que fucniones como la escritura no funcionaba, asi que tuve 
 dibuje dos fuentes de diferentes tamaños, la grande funciono sin problemas, pero a pesar de ser el mismo código de C y estar en el mismo formato la fuente pequeña no se dibujaba de forma correcta, por lo que el formato en el que la fuente pequeña se guardo fue de 1 byte 
 por pixel a diferencia de 1 bit por pixel que fue la grande, pues asi era solamente como la fuente pequeña se pudo dibujar correctamente.
 
-Implemente también un mmodelador de graficas que grafica las lineas solo con un array de numeros.
+Implemente también un mmodelador de graficas que gráfica las lineas solo con un array de numeros.
 
 Y los datos que se grafican son los precios de criptomonedas, en este caso escogi *dogecoin*, *monero* y *etherum*.
 
@@ -31,7 +31,7 @@ Y después de obtener la fecha actual y poder hacer las solicitudes de los datos
 negaba las solicitudes y no era confiable.
 
 Finalmente intente usar la API de **CriptoCompare** pues esta tenía todo lo necesario, con usa sola solicitud tenía los datos de los 30 dias y no era necesarioobtener la fecha actual, lo unico malo y por lo que no pude usar esta API fue por que esta usaba el
-protocolo **https** y todas las paginas que use anteriormente usaban **http** este cambio hacia que se crasheara todo el programa pues la liberia de requests web de el ESP32 parece no soportar https, por lo que finalmente decidi mostrar en la grafica datos estaticos.
+protocolo **https** y todas las paginas que use anteriormente usaban **http** este cambio hacía que se crasheara todo el programa pues la liberia de requests web de el ESP32 parece no soportar https, por lo que finalmente decidi mostrar en la gráfica datos estaticos.
 
 Me gustaria retomar este proyecto en algun momento y poder mejorarlo, para poder mostrar imagenes, pero tendria que impementar el algoritmo de floyd y un algoritmo para poder leer estos datos de imagen.
 

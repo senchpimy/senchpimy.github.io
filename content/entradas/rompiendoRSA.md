@@ -30,7 +30,7 @@ Se puede obtener la siguiente equcacion:
 
 b^2=a^2 - N
 
-Esta ecuacion es más facil de hacer por fuerza bruta pues al intentar obtener un valor de a se tiene que hacer de tal forma que el resultado de a^2-N sea un numero que tenga una raiz cuadrada. Ejemplo de implementacion:
+Esta ecuacion es más facil de hacer por fuerza bruta pues al intentar obtener un valor de a se tiene que hacer de tal forma que el resultado de a^2-N sea un numero que tenga una raiz cuadrada. Ejemplo de implementación:
 
 ```py
 n = 3747883... #Valor publico

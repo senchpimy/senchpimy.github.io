@@ -75,10 +75,10 @@ cv2.destroyAllWindows()
 
   
 
- Como se puede ver, no hay mucho control en el modelo mas que hacia delante y hacia atras, por lo que el programa solo toma en cuenta la distancia desde la punta del dedo hasta la base de este, luego toma como referencia la distancia de la base del dedo medio hasta la muñeca para saber que tanto
+ Como se puede ver, no hay mucho control en el modelo mas que hacía delante y hacía atras, por lo que el programa solo toma en cuenta la distancia desde la punta del dedo hasta la base de este, luego toma como referencia la distancia de la base del dedo medio hasta la muñeca para saber que tanto
  se movio cada dedo, esto para tener una aproximacion y siempre se mueva lo mismo sin importar que tan lejos este la mano de la calamara y el tamaño de la mano.
 
- Con estos datos saca una regla de tres para poder mapear el punto maximo a 180 y el minimo a 0 que son que tanto se puede mover un servomotor.
+ Con estos datos saca una regla de tres para poder mapear el punto maximo a 180 y el mínimo a 0 que son que tanto se puede mover un servomotor.
    
 
   

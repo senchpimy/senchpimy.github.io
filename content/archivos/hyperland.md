@@ -101,7 +101,7 @@ Diferencias entre el que esta por defecto y el mio
 
 ## Waybar
 
-Al ser muy minimalista hay que instalar una barra superior y en este utlizo waybar pero luego me gustaria cambiarla a **eww**, esta es la configuracion
+Al ser muy minimalista hay que instalar una barra superior y en este utilizo waybar pero luego me gustaria cambiarla a **eww**, esta es la configuracion
 
 config
 ```
@@ -255,7 +255,7 @@ window#waybar.empty {
 ## Swww
 
 Tambien se necesita un fondo de pantalla y el programa mas simple para cumplir cone sta tarea es swww el cual
-no requiere de configuracion mas que cuando se utiliza el comando y eso depende de la imagen, este inicia automaticamente
+no requiere de configuracion mas que cuando se utiliza el comando y eso depende de la imagen, este inicia automáticamente
 cuando inicia Hyperland
 
 ## Rofi

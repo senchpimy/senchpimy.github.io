@@ -15,7 +15,7 @@ date: "23 Jun 2023"
  van a necesitar dos de estos elementos, uno para cada mitad del teclado
 
  Y finalmente use unas pantallas Oled que se pueden comunicar con arduino por el protocolo i2c, usar estas fue un error, pues aunque ya hay diseños con otras pantallas,
- usar las que yo tenía hizo que rediseñara el modelo 3d y la programacion para poder usarlas correctamente, especificamente el modelo que yo ya tenía era el 
+ usar las que yo tenía hizo que rediseñara el modelo 3d y la programacion para poder usarlas correctamente, específicamente el modelo que yo ya tenía era el 
  **SSD1306** de **128x64** y el requerido era el de **128x32**
 
 ![](/pro_img/teclado_con_pantalla.jpg)

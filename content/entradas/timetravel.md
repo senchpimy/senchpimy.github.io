@@ -123,7 +123,7 @@ date: "26 Oct 2022"
 
  El Muerto Manipulado pondra una trampa de seguridad para el receptor viviente, esto para asegurarse que el artefacto sea regresado a salvo a el universo primario.
 
- Si la trampa de seguridad es exitosas, el Receptor viviente no tiene opcion mas que usar sus poderes de la cuarta dimension para enviar de regreso el Artefacto a el universo primario antes de que el agujero negro colapse sobre si mismo
+ Si la trampa de seguridad es exitosas, el Receptor viviente no tiene opción mas que usar sus poderes de la cuarta dimension para enviar de regreso el Artefacto a el universo primario antes de que el agujero negro colapse sobre si mismo
 
 ## Capitulo Doce: Sueños
 

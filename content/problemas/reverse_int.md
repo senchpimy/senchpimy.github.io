@@ -46,7 +46,7 @@ Luego guardamos como constante el valor de 2**31 y lo asignamos a unas variables
 
 Este programa fue más o menos como lo habia pensado, la parte de verificar que el numero no pase los limites de los 32 bits fue la que tuve que buscar.
 
-Note que también tenía unas divisiones que seguramente ruby recomptaba en cada iteracion y las asigne a unas variables antes de emepzar el ciclo para ver si esto lo hacia más rapido y asi fue:
+Note que también tenía unas divisiones que seguramente ruby recomptaba en cada iteracion y las asigne a unas variables antes de emepzar el ciclo para ver si esto lo hacía más rápido y asi fue:
 
 
 ```rb
