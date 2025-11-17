@@ -39,8 +39,8 @@ Para construir esta versión del teclado, necesitarás los siguientes componente
 
 ### El modelo
 
- Lo unico malo que le encontre a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** estan caidos, por lo que hay que buscar un poco, pero los pude encontrar en la **Wayback machine** [aqui](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
- [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si estan usando el mismo microprocesador
+ Lo unico malo que le encontre a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los pude encontrar en la **Wayback machine** [aqui](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
+ [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si están usando el mismo microprocesador
  
 ![](/pro_img/teclado2_1.png)
 ![](/pro_img/teclado2_2.png)

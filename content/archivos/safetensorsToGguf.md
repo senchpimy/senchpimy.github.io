@@ -14,7 +14,7 @@ El formato GGUF fue introducido como sucesor de GGML en agosto de 2023
 
 ## Safetensors
 
-Los Safetensors son un formato creado por *HuggingFace*, los safetensors son más flexibles pues no solo estan limitados a modelos de lenguaje, se pueden guardar cualquier tipo de tensores, pero en especifico se guardan 
+Los Safetensors son un formato creado por *HuggingFace*, los safetensors son más flexibles pues no solo están limitados a modelos de lenguaje, se pueden guardar cualquier tipo de tensores, pero en especifico se guardan 
 tensores de pytorch
 
 ## Safetensors A GGUF

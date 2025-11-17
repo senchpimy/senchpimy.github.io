@@ -5,7 +5,7 @@ date: "03 Jul 2023"
 
 ## Conbinar Array Ordenado
 
-Este problema consisten en combinar dos arrays que estan ordenados
+Este problema consisten en combinar dos arrays que están ordenados
 
 ### Solucion
 

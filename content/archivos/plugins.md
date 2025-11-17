@@ -2,7 +2,7 @@
 title: "Configuracion de Neovim"
 date: "10 Aug 2022"
 ---
-En esta entrada explicare todos los plugins que tengo en neovim y que funcion cumplen, asi sobre como estan configurados en mi init.vim y por que esos y no otros
+En esta entrada explicare todos los plugins que tengo en neovim y que funcion cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
  
 ## Indentline
 

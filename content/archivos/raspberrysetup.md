@@ -10,7 +10,7 @@ date: "31 Jul 2022"
  Para el boton intente utilizar [este script](https://github.com/Howchoo/pi-power-button) debido a que tiene la funcionalidad de apagar y prender la raspberry pi desde el mismo boton, este no fue implementado debido a que interferia con la comunicacion I2C de la pantalla por lo que escribi mi porpio programa, con antirebote y con un delay para que la Raspberry no se apague con movientos o con presiones accidentales, este es el código (Python) 
 
 ```py
- #Aqui no estan incluidas las librerias
+ #Aqui no están incluidas las librerias
  pin=27
  i=0
  GPIO.setup(pin,GPIO.IN,pull\_up\_down=GPIO.PUD\_UP)

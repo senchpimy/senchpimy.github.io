@@ -86,7 +86,7 @@ style="bg:blue bold"
  Lo que me da el siguiente prompt:
  
 ![](/pro_img/prompt.png)
-* **Alias:** Los alias es un texto definido para que la shell lo interprete como uno o varios comandos juntos con una o varias opciones, segun lo que sea definido, todos mis alias estan en mi archvio **.zshrc** pero aqui hay algunos
+* **Alias:** Los alias es un texto definido para que la shell lo interprete como uno o varios comandos juntos con una o varias opciones, segun lo que sea definido, todos mis alias están en mi archvio **.zshrc** pero aqui hay algunos
  ```sh
  alias ls="ls --color=auto" 
  alias diff='diff --color'

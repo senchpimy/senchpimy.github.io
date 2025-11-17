@@ -37,7 +37,7 @@ date: "23 Jun 2023"
 ![](/pro_img/conecciones.png)
 
  en donde cada columna y fila tiene un diodo, esto es para evitar el efecto de ghosting, el cual consiste en que cuando varias teclas en el teclado son presionadas al
- mismo tiempo el teclado detecta tambien que otras teclas estan siendo presionadas, cuales teclas producen este efecto depende de las conecciones de cada teclado.
+ mismo tiempo el teclado detecta tambien que otras teclas están siendo presionadas, cuales teclas producen este efecto depende de las conecciones de cada teclado.
 
 
  Y finalmente en la programacion del arduino use una librería que rescate de uno de los ejemplos, parece ser que el creador la uso para su propio diseño, el cual incorppraba

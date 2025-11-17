@@ -38,11 +38,11 @@ extern "C" {
 }
 ```
 
-Donde para acceder a los tipos de c se tiene que usar la siguiente importacion:
+Donde para acceder a los tipos de c se tiene que usar la siguiente importación:
 ```rs
 use std::ffi::{tipo};
 ```
-Y los tipos estan llamados:
+Y los tipos están llamados:
 
 - c_int
 - c_char
@@ -50,7 +50,7 @@ Y los tipos estan llamados:
 - c_long
 - ...
 
-Algo que note fue que para pasar un *String* de rust a una funcion que necesecite un *char se requiere de la siquiente funcion
+Algo que note fue que para pasar un *String* de rust a una funcion que necesite un *char se requiere de la siguiente funcion
 Donde si la funcion usa un **char \* ** en Rust se tiene que declarar como **\*const c_char** 
 ```rs
 #[no_mangle]
@@ -67,7 +67,7 @@ pub extern "C" fn create_string(val: Option<&str>) -> *const c_char {
 }
 ```
 
-Si se tienen funciones que requieren structuras especificas estas se tienen que declarar tanto en C como en Rust
+Si se tienen funciones que requieren estructuras especificas estas se tienen que declarar tanto en C como en Rust
 
 *Rust*
 ```rs

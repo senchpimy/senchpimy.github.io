@@ -11,7 +11,7 @@ Primero hay que descargar o compilar el toolchain para compilar rust en riscv, y
 
 ## Compilacion
 
-Primero hay que descargar la toolchain [desde aqui](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar estan en el reademe de el repositorio 
+Primero hay que descargar la toolchain [desde aqui](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe de el repositorio 
 en donde después de 20 min de compilación obtuve una carpeta llamada *build* en donde se encuentran los compiladores y el linker de esta arquitectura
 
 ## Compilar en Rust

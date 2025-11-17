@@ -19,7 +19,7 @@ genero el modelo.
 
 -   Si se intentan generar muchos pixeles por cada ejecucion el modelo generara un promedio de todas las posibildades que esos pixeles puedan ser, por lo que existe un limite en que tan grande cada generacion puede ser. Para solucionar esto se aplica Auto Regresion Generalizada,
 que consiste en lugar de generar un solo pixel se generan nxn mallas de pixeles, Pero la n no puede ser demasiado grande, pues al ser un modelo de prediccion, entre mayor sea la cantidad de información que se tenga que generar en una sola regresion hay una mayor cantidad de
-probabilidades que pueden ser congruentes con la informacion anterior por lo que el modelo toma el promedio de todas las posibles probabilidades, creando un mal resultado. Pero este problema solo surge si los pixeles que se estan generando estan relacionados unos de los otros.
+probabilidades que pueden ser congruentes con la informacion anterior por lo que el modelo toma el promedio de todas las posibles probabilidades, creando un mal resultado. Pero este problema solo surge si los pixeles que se están generando están relacionados unos de los otros.
 Una forma de contrarestar esto es si generamos n pixels que no sean dependientes unos de los otros, es decir que no sean espacialmente cercanos.
 
 ## Diffusion

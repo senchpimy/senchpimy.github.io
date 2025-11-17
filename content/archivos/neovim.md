@@ -273,7 +273,7 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
  
 ```
 
- Entonces el archivo en donde estan los plugins que ocupo quedaria como:
+ Entonces el archivo en donde están los plugins que ocupo quedaria como:
  
 
 ```vim

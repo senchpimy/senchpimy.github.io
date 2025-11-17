@@ -11,7 +11,7 @@ el esp32. Ademas este usa los botones que el desperator ya traia para dar la hor
 
 Ademas le añadi una pantalla de e-ink, esto por que el despertador tambien traia una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
 
-Por ejemplo en la librería hay unos headers que estan mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
+Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
 que se ejecuta cada que se quiera dibujar una linea, para cambiar las coordenadas para que estas tengan la rotacion correspondiente. El cambio especifico lo saque de el código fuente que se supone que lo haria desde la biblioteca.
 
 Pero esto significa que fucniones como la escritura no funcionaba, asi que tuve que crear una fuente, pasarla a bitmap depues pasarla a código de C y finalmente implementar la lectura y la forma en la que cada pixel es dibujado, en este caso tuve un problema, pues
