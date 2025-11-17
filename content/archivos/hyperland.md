@@ -7,7 +7,7 @@ para poder tener un sistema completo se necesita muchos otros programas diferent
 
 ## Hyperland
 
-Para la configuración de este use la configuración ya existente de [Hyde](https://github.com/prasanthrangan/hyprdots) ya que está contiene scripts
+Para la configuración de este use la configuración ya existente de [Hyde](https://github.com/prasanthrangan/hyprdots) ya que esta contiene scripts
 que configuran y declaran ciertas variables en el sistema para tener la menor cantidad de problemas de compatibilidad con otros programas, lo que
 modifiqué en este caso fue el teclado y algunas configuraciones de la teclas:
 
@@ -24,7 +24,7 @@ input {
     force_no_accel = 1
 }
 ```
-Diferencias entre el que está por defecto y el mio
+Diferencias entre el que esta por defecto y el mio
 
 ```
 12,14c12,14
@@ -101,7 +101,7 @@ Diferencias entre el que está por defecto y el mio
 
 ## Waybar
 
-Al ser muy minimalista hay que instalar una barra superior y en este utilizo waybar pero luego me gustaría cambiarla a **eww**, está es la configuración
+Al ser muy minimalista hay que instalar una barra superior y en este utilizo waybar pero luego me gustaría cambiarla a **eww**, esta es la configuración
 
 config
 ```

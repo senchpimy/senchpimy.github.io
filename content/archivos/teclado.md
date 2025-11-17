@@ -42,6 +42,6 @@ date: "23 Jun 2023"
 
  Y finalmente en la programación del arduino use una librería que rescate de uno de los ejemplos, parece ser que el creador la uso para su propio diseño, el cual incorppraba
  animaciones y efectos muy interesantes, yo la use para mostrar una barra mostrando el porcentaje del brillo y del volumen el cual habia enviado el teclado, en ese momento
- no sabia si era posible recibir está información desde la computadora, asi que solo tomaba en cuanta la del teclado.
+ no sabia si era posible recibir esta información desde la computadora, asi que solo tomaba en cuanta la del teclado.
  
 

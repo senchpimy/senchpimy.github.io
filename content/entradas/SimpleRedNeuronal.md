@@ -15,7 +15,7 @@ operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera q
 ![Ordenamiento Topologico](/ejemplo_ordenamiento_topologico.png)
 ![Grafo Ordenado](/grafo-ordenado.png)
 
-La justificacion para este acercamiento surge de el analisis de como la estructura de una red neuronal afecta el comportamiento de está y aunque una red neural totalmente conectada puede aproximar cualquier función, la topologia afecta en la rapidez y prescicion de está
+La justificacion para este acercamiento surge de el analisis de como la estructura de una red neuronal afecta el comportamiento de esta y aunque una red neural totalmente conectada puede aproximar cualquier función, la topologia afecta en la rapidez y prescicion de esta
 
 Luego las operaciones son las normales, siguiendo el orden definido a cada nodo de entrada se le asigna un valor segun el valor de entrada, se le suma un sesgo y luego se le es aplicado una función de activacion, luego a cada valor de cada nodo es multiplicado por el peso de su 
 connecion con el siguiente nodo correspondiente y este valor es sumado a el valor de entrada de el siguiente nodo

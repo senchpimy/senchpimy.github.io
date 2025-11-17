@@ -52,13 +52,13 @@ date: "06 Oct 2022"
 
 
 
-[Gaplessgrid](https://dwm.suckless.org/patches/gaplessgrid/) agrega un nuevo modo parecido a **gridmode** pero gridmode puede dejar espacios vacios cuando no hay suficiente celdas vacías para llenar el espacio de una ventana, este modo es lo mismo pero arregla está característica.
+[Gaplessgrid](https://dwm.suckless.org/patches/gaplessgrid/) agrega un nuevo modo parecido a **gridmode** pero gridmode puede dejar espacios vacios cuando no hay suficiente celdas vacías para llenar el espacio de una ventana, este modo es lo mismo pero arregla esta característica.
  
 ## GoBack
 
 
 
-[Goback](https://dwm.suckless.org/patches/goback/) nos permite regresar a la ventana que hayamos seleccionado anteriormente incluso cuando está este en otra pantalla. 
+[Goback](https://dwm.suckless.org/patches/goback/) nos permite regresar a la ventana que hayamos seleccionado anteriormente incluso cuando esta este en otra pantalla. 
  
 ## GridMode
 
@@ -88,7 +88,7 @@ date: "06 Oct 2022"
 
 
 
-[Savefloats](https://dwm.suckless.org/patches/save_floats/) nos permite guardar las dimensiones una ventana cuando está se encuentra flotante.
+[Savefloats](https://dwm.suckless.org/patches/save_floats/) nos permite guardar las dimensiones una ventana cuando esta se encuentra flotante.
  
 ## HorizGrid
 

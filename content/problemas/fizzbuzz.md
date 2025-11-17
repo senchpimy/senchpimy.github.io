@@ -21,7 +21,7 @@ class Solution(object):
  
 ```
 
- La logica de este código consiste en solo una linea que regresa una lista de strings, la parte **("Fizz"\*(i%3==1)+"Buzz"\*(i%5==1)or str(i))** está entre parentesis y está adelante del for pues esto hace que se agregue el valor entre parentesis la cantidad de veces que llama el for, el cual va desde 1 hasta n+1 pues la función **range** toma el primer argumento hasta el segundo menos uno, por eso se necesita agregar uno.
+ La logica de este código consiste en solo una linea que regresa una lista de strings, la parte **("Fizz"\*(i%3==1)+"Buzz"\*(i%5==1)or str(i))** esta entre parentesis y esta adelante del for pues esto hace que se agregue el valor entre parentesis la cantidad de veces que llama el for, el cual va desde 1 hasta n+1 pues la función **range** toma el primer argumento hasta el segundo menos uno, por eso se necesita agregar uno.
 
  El valor que se evalua es el siguiente:
 
@@ -31,7 +31,7 @@ class Solution(object):
 
  **(i%x==1)**
 
- En donde x es 3 y 5, está expresion evalua si el valor **i** es divisible entre **x**, el resultado es un Booleano o sea cierto o falso, estos valores también se representan como 0 o 1, por lo que cuando se evalua la expresion si no es verdad el resultado sería 0 y por lo tanto el string se multiplicaria por 0 y por lo tanto dicho string no existiria, se evalua con **"Fizz"** y luego se concatena el resultado de la segunda evaluacion con **"Buzz"**, en caso de que ninguno se a multiplicado por uno entonces el valor sera 0 y por lo tanto se evalua como falso, por lo que es cuando el valor que está después de **or** es el que se guarda en la lista.
+ En donde x es 3 y 5, esta expresion evalua si el valor **i** es divisible entre **x**, el resultado es un Booleano o sea cierto o falso, estos valores también se representan como 0 o 1, por lo que cuando se evalua la expresion si no es verdad el resultado sería 0 y por lo tanto el string se multiplicaria por 0 y por lo tanto dicho string no existiria, se evalua con **"Fizz"** y luego se concatena el resultado de la segunda evaluacion con **"Buzz"**, en caso de que ninguno se a multiplicado por uno entonces el valor sera 0 y por lo tanto se evalua como falso, por lo que es cuando el valor que esta después de **or** es el que se guarda en la lista.
 
  Esto se evalua por todos los elementos del for y termina, por lo tanto resolviendo el problema
  

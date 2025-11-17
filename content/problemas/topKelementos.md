@@ -64,7 +64,7 @@ class Solution {
 Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algún elemento supera este mínimo este se debe de insertar en su posición correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
 pero este código no funciono, solo logro pasar la mitad de los casos.
 
-Pero me encontré está solucion que me parecio interesante.
+Pero me encontré esta solucion que me parecio interesante.
  
 
 ```cpp
@@ -95,21 +95,21 @@ class Solution {
 
  Primero yo no sabia que con GCC se podía modificar las características de la compilación dentro del código, al buscarlo me encontré que "pragma" le permite al compilador cambiar las características de la compilación por archivo.
 
- Luego está linea nucna la habia visto antes:
+ Luego esta linea nucna la habia visto antes:
  
 ```cpp
  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 ```
  
- Lo que hace está parte es primero es evitar la sincronización entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del código.
+ Lo que hace esta parte es primero es evitar la sincronización entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del código.
  
 ```cpp
  cin.tie(NULL); cout.tie(NULL);
 ```
  
- Y estas dos instrucciones hacen que cada vez que una es escrita, la otra es limpiada y está parte hace que este comportamiento ya no suceda.
+ Y estas dos instrucciones hacen que cada vez que una es escrita, la otra es limpiada y esta parte hace que este comportamiento ya no suceda.
 
- Luego usa un **unordered_map** en lugar de un **map**, no se bien el por que de está descicion, luego guarda la información de cuantas veces se repite un valor de la misma forma en que yo la hice. 
+ Luego usa un **unordered_map** en lugar de un **map**, no se bien el por que de esta descicion, luego guarda la información de cuantas veces se repite un valor de la misma forma en que yo la hice. 
 
  Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino también se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porcion, por lo que es muy tardado.
 

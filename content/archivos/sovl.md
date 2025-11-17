@@ -3,7 +3,7 @@ title: "sovl"
 date: "26 Oct 2022"
 ---
 
- Sovl es una aplicación que funciona como frontend para mpc y pamixer, este programa lee un archivo de configuración que está **"~/.config/sovl/"** y se llama **config.ini**, este archivo debe comfigurarse como un archivo .toml, y debe contener la configuración de la aplicación, está configuración debe tener la configuración de las ventanas, botones y deslizadores, está configuración debe incluir el tamaño, posición, función y estilo de cada uno de los elementos, cuando se ejecuta el programa este lee la configuración y se modifica en base a esto, por lo que cada vez que se quieran ver los cambios se necesita terminar y volver a ejecutar la aplicación, un ejemplo de está configuración es el siguiente:
+ Sovl es una aplicación que funciona como frontend para mpc y pamixer, este programa lee un archivo de configuración que esta **"~/.config/sovl/"** y se llama **config.ini**, este archivo debe comfigurarse como un archivo .toml, y debe contener la configuración de la aplicación, esta configuración debe tener la configuración de las ventanas, botones y deslizadores, esta configuración debe incluir el tamaño, posición, función y estilo de cada uno de los elementos, cuando se ejecuta el programa este lee la configuración y se modifica en base a esto, por lo que cada vez que se quieran ver los cambios se necesita terminar y volver a ejecutar la aplicación, un ejemplo de esta configuración es el siguiente:
  
 ```toml
  [Button]
@@ -68,7 +68,7 @@ date: "26 Oct 2022"
  
 ### 9/1/2023
  
- Ya está el control de la cancion, botones redondos que funcionan y poder cambiar el color de el slider, hay que mejorar las imágenes en los botones
+ Ya esta el control de la cancion, botones redondos que funcionan y poder cambiar el color de el slider, hay que mejorar las imágenes en los botones
  
 
 ![](/pro_img/sovl.png)

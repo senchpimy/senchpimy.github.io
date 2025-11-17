@@ -18,10 +18,10 @@ syntaxis y regresa una conclusion
 El calculo Lambda es un sistema formal en la logica matematica, inventado por Alonzo Church, lo creo para represntar la notación una función desde 
 una prespectiva de la computacion, Alonzo fue el supervisor de phD de Alan Turing, el cual cuando desarrollo las maquinas de Turing, estas
 plantean un modelo de computacion basado en estados, mientras que Alonzo con el calculo lambda planteo un modelo de computacion basado en
-función, ambos son equivalentes y a está equivalencia se le llama la hipotesis Church-Turing.
+función, ambos son equivalentes y a esta equivalencia se le llama la hipotesis Church-Turing.
 
 En el calculo lambda solo existen funciones, y estas funciones son "puras" es decir no existe un estado interno que altere las salidas
-de está función, es decir que para un input y una función siempre sera igual el output.
+de esta función, es decir que para un input y una función siempre sera igual el output.
 
 ## Funciones
 
@@ -45,8 +45,8 @@ Y una función que toma dos numeros y regresa su suma:
 
 $$\lambda x.\lambda y.x+y$$
 
-En realidad está función se aprovecha de la capacidad de las funciones de ser de alto orden, es decir que pueden ser pasadas como argumentos y regresadas como
-salidas. En realidad está función son dos funciones y la primera está regresando otra la cual toma ambas entradas y las suma, por lo que el desarrollo de está función quedaría de la siguiente manera
+En realidad esta función se aprovecha de la capacidad de las funciones de ser de alto orden, es decir que pueden ser pasadas como argumentos y regresadas como
+salidas. En realidad esta función son dos funciones y la primera esta regresando otra la cual toma ambas entradas y las suma, por lo que el desarrollo de esta función quedaría de la siguiente manera
 $$(\lambda x.\lambda y.x+y) \textrm{1 2} \rightarrow  (\lambda y.1+y) 2 \rightarrow (\lambda 2.1+2) \rightarrow 1+2$$
 
 De manera formal quedaría como :

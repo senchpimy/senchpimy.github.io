@@ -5,7 +5,7 @@ date: "04 Jul 2024"
 
 ## Buscar en Matriz 2d
 
-Este problema consisten en regresar un booleano dependiendo si un elemento se encuentra en una matriz de m*n en la cual está ordenada de forma creciente
+Este problema consisten en regresar un booleano dependiendo si un elemento se encuentra en una matriz de m*n en la cual esta ordenada de forma creciente
 
 ### Solucion
 

@@ -2,7 +2,7 @@
 title: "Raspberry Pi Oled"
 date: "31 Jul 2022"
 ---
- Inspirado en este video decidí comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribí el siguiente script de bash que atomatiza la instalación de las librerías y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando
+ Inspirado en este video decidí comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribí el siguiente script de bash que automatiza la instalación de las librerías y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando
 
 
 ```sh
@@ -18,7 +18,7 @@ echo #############i2c enabled#############
 sudo raspi-config nonint do\_spi 0
 echo #############spi enabled#############
 sudo raspi-config nonint do\_serial 0
-echo #############serial comunication enabled#############
+echo #############serial communication enabled#############
 sudo raspi-config nonint do\_ssh 0
 echo #############ssh enabled#############
 sudo raspi-config nonint do\_camera 0
@@ -39,7 +39,7 @@ echo #############python-pil installed#############
 ```
 
 
- También modifiqué el código del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi código se apaga a los dos minutos, para cambier este tiempo solo hay que modificar la variable **Tiempo**
+ También modifiqué el código del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi código se apaga a los dos minutos, para cambiar este tiempo solo hay que modificar la variable **Tiempo**
 
 
 ```py
@@ -126,14 +126,14 @@ while True:
 
 ```
 
- Para finalizar le quise poner a la pantalla el logo de ***Copland Os*** pues este script se ejecuta al prenderse y se veria como si la computadora fuera de esa marca, para eso cree una imagen en png de 128x64 para ajustarse a el tamaño de la pantalla oled, asi fue como quedó 
+ Para finalizar le quise poner a la pantalla el logo de ***Copland Os*** pues este script se ejecuta al prenderse y se vería como si la computadora fuera de esa marca, para eso cree una imagen en png de 128x64 para ajustarse a el tamaño de la pantalla oled, asi fue como quedó 
 
 
 ![](/wallpapers/copland.png)
 ![](/wallpapers/lainentrada0.png)
 
 
- Para mi caso opte por ponerle el texto de ***Copland Os*** en los primeros 16 pixeles pues en el modelo de la pantalla que ocupe los primeros 16 pixeles son de color amarillo, para esto solo tuve que convertir la imagen en formato ppm.
+ Para mi caso opté por ponerle el texto de ***Copland Os*** en los primeros 16 pixeles pues en el modelo de la pantalla que ocupé los primeros 16 pixeles son de color amarillo, para esto solo tuve que convertir la imagen en formato ppm.
  Entonces para el código final solo le tuve que agregar la parte en negritas para que usara la imagen.
 
 

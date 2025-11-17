@@ -5,7 +5,7 @@ date: "21 Jun 2024"
 
 ## Anagrama
 
-Este problema consisten en dado un sudoku regresar si el sudoku es valido, es decir no existe ningún numero repetido en las columnas, filas y cuadrados de 3x3
+Este problema consisten en dado un sudoku regresar si el sudoku es válido, es decir no existe ningún numero repetido en las columnas, filas y cuadrados de 3x3
 
 ### Solucion
 
@@ -31,10 +31,10 @@ def is_valid_sudoku(board)
 end
 ```
 
-Este programa los resolvi teniendo un hashmap para cada fila, columna y cuadro de 3x3, y preguntando si el elemento que se está procesando actualmente se encuentra dentro de los valores de el hashmap que se está evaluando.
+Este programa los resolvi teniendo un hashmap para cada fila, columna y cuadro de 3x3, y preguntando si el elemento que se esta procesando actualmente se encuentra dentro de los valores de el hashmap que se esta evaluando.
 
 Este fue mi primer intento, pero ver las soluciones más rapidas encontré una fórmula que mejora la memoria y velocidad de el que ya tenía con solo una linea, salva memoria al no guardar la llave de el hashmap de cuadrados 3x3 como un array con dos elementos y en su
-lugar lo guarda como un solo indice, está es la versión final:
+lugar lo guarda como un solo indice, esta es la versión final:
 
 
 ```rb

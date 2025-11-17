@@ -84,7 +84,7 @@ def trap(h)
 end
 ```
 
-Pero aun asi está muy parchado y está mal, la correcta solucion que supera al 99% de las soluciones es la siguiente:
+Pero aun asi esta muy parchado y esta mal, la correcta solucion que supera al 99% de las soluciones es la siguiente:
 
 ```rb
 def min(a, b)

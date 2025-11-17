@@ -27,7 +27,7 @@ end
 Los límites dados son que ningún numero superara los 3999.
 
 Este programa crea un hashmap para los unidades, decenas, centenas y milesimas, luego divide el numero por el indice de su equivalente en el hashmap.
-Esta versión está en el top ~50% en cuanto a velocidad y ~70% en cuanto a memoria, luego me di cuenta que no era necesario un hashmap y se podía usar
+Esta versión esta en el top ~50% en cuanto a velocidad y ~70% en cuanto a memoria, luego me di cuenta que no era necesario un hashmap y se podía usar
 una lista cualquiera, pues al final cada numero es equivalente a su posición.
 
 ```rb
@@ -45,7 +45,7 @@ def int_to_roman(num)
     return m[mm]+c[cc]+d[dd]+u[uu]
 end
 ```
-Esta versión está en el top 70% de velocidad y 60% en memoria. Aunque está solucion es correcta la solucion que se debía dar es más o menos la siguiente:
+Esta versión esta en el top 70% de velocidad y 60% en memoria. Aunque esta solucion es correcta la solucion que se debía dar es más o menos la siguiente:
 
 
 ```rb

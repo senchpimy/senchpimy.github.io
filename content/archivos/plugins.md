@@ -2,7 +2,7 @@
 title: "Configuración de Neovim"
 date: "10 Aug 2022"
 ---
-En está entrada explicaré todos los plugins que tengo en neovim y que función cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
+En esta entrada explicaré todos los plugins que tengo en neovim y que función cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
  
 ## Indentline
 
@@ -56,7 +56,7 @@ let g:mkdp\_browser = 'qutebrowser'
 
 
 
-[Pywal](https://github.com/AlphaTechnolog/pywal.nvim) es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de [wal.vim](https://github.com/dylanaraps/wal.vim) aunque ambos cumplen la misma función pywal lo hace con la configuración de neovim **"set termguicolors"**  que es necesaria para otros plugins mientras que wal.vim es incompatible con está configuración, para este plugin no existe cconfiguracion extra 
+[Pywal](https://github.com/AlphaTechnolog/pywal.nvim) es un plugin que cambia el tema de neovim segun los colores que lee de Pywal, que es una programa que extrae la paleta de colores de una imagen, este plugin lee uno de los varios archivos que este produce (pues pywal puede obtener los colores en diferentes formatos) y lo utiliza para generar el tema de nvim, prefiero este plugin en lugar de [wal.vim](https://github.com/dylanaraps/wal.vim) aunque ambos cumplen la misma función pywal lo hace con la configuración de neovim **"set termguicolors"**  que es necesaria para otros plugins mientras que wal.vim es incompatible con esta configuración, para este plugin no existe cconfiguracion extra 
  
 ## Telescope.nvim
 
@@ -84,7 +84,7 @@ nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR>
 
 
 
-[Coc.nvim](https://github.com/neoclide/coc.nvim) Es un plugin que funciona para atuocompletar código en diferentes lenguajes de programación, se requiere mucha configuración pero, existe una configuración por defecto que está disponible en la página de github del el programa, esa misma configuración es la que uso y la que me funciona bien
+[Coc.nvim](https://github.com/neoclide/coc.nvim) Es un plugin que funciona para atuocompletar código en diferentes lenguajes de programación, se requiere mucha configuración pero, existe una configuración por defecto que esta disponible en la página de github del el programa, esa misma configuración es la que uso y la que me funciona bien
  
 
 ```vim
@@ -251,7 +251,7 @@ nnoremap <silent><nowait> <space>p :<C-u>CocListResume<CR>
 
 
 
-[Gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) es un plugin que nos deja usar y ver muchas funciones relacionadas el programa git (control y manejo de versiones de software) para poder ver en un archivo que líneas fueron eliminadas, en que commits y cuando se agreagron otras líneas, entre mucas otras funciones, está escrito en lua y para poder ocuparlo es necesario que neovim lo llame, en un archivo de configuración de vimscript para neovim (init.vim) se necesitan las siguietes tres líneas
+[Gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) es un plugin que nos deja usar y ver muchas funciones relacionadas el programa git (control y manejo de versiones de software) para poder ver en un archivo que líneas fueron eliminadas, en que commits y cuando se agreagron otras líneas, entre mucas otras funciones, esta escrito en lua y para poder ocuparlo es necesario que neovim lo llame, en un archivo de configuración de vimscript para neovim (init.vim) se necesitan las siguietes tres líneas
  
 
 ```vim
@@ -292,7 +292,7 @@ END
 
 
 
-[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar más información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuración por default pero existen muchos temas que luego probare, está es en promedio más rápida que lightline y airline, dos plugins hechos para cumplir el mismo propósito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuración de gitsigns
+[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar más información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuración por default pero existen muchos temas que luego probare, esta es en promedio más rápida que lightline y airline, dos plugins hechos para cumplir el mismo propósito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuración de gitsigns
  
 
 ```vim
@@ -334,7 +334,7 @@ END
 
 
 
-[Vim-hexokinase](https://github.com/RRethy/vim-hexokinase) vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que está escribiendo, en mi caso está configurado para colorear las letras de el color que representan, la única configuración que tengo es para poder lograr este efecto
+[Vim-hexokinase](https://github.com/RRethy/vim-hexokinase) vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que esta escribiendo, en mi caso esta configurado para colorear las letras de el color que representan, la única configuración que tengo es para poder lograr este efecto
  
 
 ```vim
@@ -345,7 +345,7 @@ let g:Hexokinase\_highlighters = ['backgroundfull']
 
 
 
-[Hop.nvim](https://github.com/phaazon/hop.nvim) es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar está letra el programa nos llevará al inicio de la letra que seleccionamos
+[Hop.nvim](https://github.com/phaazon/hop.nvim) es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar esta letra el programa nos llevará al inicio de la letra que seleccionamos
  Este programa tiene una configuración similar a **gitsigns y lualine**
 
 
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger está escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segundos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuración similar a **gitsigns y lualine**
 
 
@@ -429,13 +429,13 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-cursorword](https://github.com/itchyny/vim-cursorword) es un plugin simple y lo único que hace es que cuando el cursor (sin omportar el modo) este en una palabra el plugin va a subrayar la palabra en la que está el cursor y todas las palabras iguales. Este plugin no tiene configuración
+[Vim-cursorword](https://github.com/itchyny/vim-cursorword) es un plugin simple y lo único que hace es que cuando el cursor (sin omportar el modo) este en una palabra el plugin va a subrayar la palabra en la que esta el cursor y todas las palabras iguales. Este plugin no tiene configuración
 
 ## Vim-choosewin
 
 
 
-[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen está función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo dejé de usar, las configuraciones requeridas son las siguientes
+[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen esta función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo dejé de usar, las configuraciones requeridas son las siguientes
 
 
 ```vim
@@ -450,7 +450,7 @@ La primera linea hace que cuando se apriete "-" el plugin se active y la segunda
 
 
 
-[Targets.vim](https://github.com/wellle/targets.vim) es un plugin que expande la cantidad de objetos de vim, asi como los objetos pueden ser palabras, caracteres, parrafos. Pero este plugin agrega a está lista de objetos todos lo que se encuentre dentro de los siguientes caracteres **(),[],{},"",'',`` , . ; : + - = ~ \_ \* ## | \ & $**  permitiendonos borrar (da$Caracter), eliminar e insertar (cin$caracter)
+[Targets.vim](https://github.com/wellle/targets.vim) es un plugin que expande la cantidad de objetos de vim, asi como los objetos pueden ser palabras, caracteres, parrafos. Pero este plugin agrega a esta lista de objetos todos lo que se encuentre dentro de los siguientes caracteres **(),[],{},"",'',`` , . ; : + - = ~ \_ \* ## | \ & $**  permitiendonos borrar (da$Caracter), eliminar e insertar (cin$caracter)
  Este plugin necesita de configuración ya que por defecto las teclas necesarias para hacerlos funcionar son **"aiAI"** que son las teclas de insetar y agregar en vim y neovim, por lo que la configuración que agregue para evitar esto es la siguiente
  TEST NO TERMINADO
 
@@ -463,7 +463,7 @@ let g:targets\_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 
 
 
-[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es más legible que la linea por defecto, además de que agrega otras funciones a la que está por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuración de vimscript, este eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
+[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es más legible que la linea por defecto, además de que agrega otras funciones a la que esta por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuración de vimscript, este eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
 
 
 ```vim
@@ -503,7 +503,7 @@ EOF
 > La hydra es vencida una vez que hercules o cualquier otra tecla que no sea una cabeza de la Hydra intervenga
 
 
-Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en común, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un ventana etc, pero si queremos repetir un comando tendríamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de está interfaz
+Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en común, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un ventana etc, pero si queremos repetir un comando tendríamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de esta interfaz
  Mi configuración para la manipulacion de ventanas es la siguiente:
 
 
@@ -571,7 +571,7 @@ colorscheme dracula
 
 
 
-[Vim-illuminate](https://github.com/RRethy/vim-illuminate) es un plugin que marca con un gran contraste palabras que involucren un inicio y un final, muchas veces puedo tener un archivo de html en el cual no puedo saber donde es el final de un div, al poner el cursor ya sea en modo nomal o en modo de insertar este plugin marcara el comienzo y el final de esa sección, este plugin obtiene está información ya sea por medio lsp, regex o tressitter, por lo que funciona practicamente en cualquier tipo de archivo
+[Vim-illuminate](https://github.com/RRethy/vim-illuminate) es un plugin que marca con un gran contraste palabras que involucren un inicio y un final, muchas veces puedo tener un archivo de html en el cual no puedo saber donde es el final de un div, al poner el cursor ya sea en modo nomal o en modo de insertar este plugin marcara el comienzo y el final de esa sección, este plugin obtiene esta información ya sea por medio lsp, regex o tressitter, por lo que funciona practicamente en cualquier tipo de archivo
 
 
 ```lua
@@ -582,7 +582,7 @@ require('illuminate').configuré()
 
 
 
-[Jaq,nvim](https://github.com//is0n/jaq-nvim) Como su nombre lo indica es un plugin para poder ejecutar código dentro de vim/neovim, este plugin necesita una configuración pues necesita saber que comando de shell ejecutar con cierto tipo de archivos, la configuración que está en su página de github funciona muy bien, y para ejecutarlo solo necesitamos ejecutar como comando de vim **Jaq** y esto lo empezara a ejecutar
+[Jaq,nvim](https://github.com//is0n/jaq-nvim) Como su nombre lo indica es un plugin para poder ejecutar código dentro de vim/neovim, este plugin necesita una configuración pues necesita saber que comando de shell ejecutar con cierto tipo de archivos, la configuración que esta en su página de github funciona muy bien, y para ejecutarlo solo necesitamos ejecutar como comando de vim **Jaq** y esto lo empezara a ejecutar
 quoso
 
 
@@ -679,7 +679,7 @@ quoso
 
 
 
-[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks) es un plugin que hace el manejo de las bookmarks de vim más sencillo y más visual, vim tiene está función en donde en un documento se pueden marcar bookmarks, es decir una especie de marcador en una linea la cual con otro comando, no importa en que parte de el archivo estemos si presionamos ese comando nos mandara a la bookmark que marcamos, este plugin nos permite anotar notas en una bookmark, gurdar y cargar las bookmarks que hayamos creado mover una bookmark a otra linea, etc.
+[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks) es un plugin que hace el manejo de las bookmarks de vim más sencillo y más visual, vim tiene esta función en donde en un documento se pueden marcar bookmarks, es decir una especie de marcador en una linea la cual con otro comando, no importa en que parte de el archivo estemos si presionamos ese comando nos mandara a la bookmark que marcamos, este plugin nos permite anotar notas en una bookmark, gurdar y cargar las bookmarks que hayamos creado mover una bookmark a otra linea, etc.
 Este plugin no requiere configuración
 
 ## Nvim-tressitter
@@ -749,7 +749,7 @@ require'nvim-treesitter.configs'.setup {
 ```
 
 
- Y este navic agregarlo a la configuración **on\_attach** o configurarlo como está misma en cada configuración de cada lsp
+ Y este navic agregarlo a la configuración **on\_attach** o configurarlo como esta misma en cada configuración de cada lsp
 
 
 ```lua

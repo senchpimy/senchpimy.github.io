@@ -7,7 +7,7 @@ date: "29 Jun 2023"
 
 
 
- Este problema consisten en regresar todos los numeros en un texto que cumpla con una serie de características que lo verifican como un numero de telefono valido, ejemplos podiran ser los siguientes
+ Este problema consisten en regresar todos los numeros en un texto que cumpla con una serie de características que lo verifican como un numero de telefono válido, ejemplos podiran ser los siguientes
    
 
   

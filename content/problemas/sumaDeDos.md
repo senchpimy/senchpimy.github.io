@@ -46,9 +46,9 @@ date: "14 Jun 2023"
 ```
  
 
- Mi solucion fue restarle a el numero objetivo el valor del primer elemento de la lista, asi ya sabriamos que numero debemos encontrar, después como la lista está ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer numero, por lo tanto repetimos el proceso con el segundo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.
+ Mi solucion fue restarle a el numero objetivo el valor del primer elemento de la lista, asi ya sabriamos que numero debemos encontrar, después como la lista esta ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer numero, por lo tanto repetimos el proceso con el segundo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.
 
- Este metodo fue el más tardado pues termino al último, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pensé que está era la respuesta correcta asi que busque otra soluciones y me encontré con está que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
+ Este metodo fue el más tardado pues termino al último, pero en memoria supero al 95% de las otras soluciones, me sorprendio pues pensé que esta era la respuesta correcta asi que busque otra soluciones y me encontré con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
  
 
 ```cpp
@@ -73,7 +73,7 @@ date: "14 Jun 2023"
 ```
  
 
- Este metodo usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista está ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dará un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del último valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.
+ Este metodo usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dará un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del último valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.
  
 
 

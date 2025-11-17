@@ -12,7 +12,7 @@ de un modelo ya existente sin la necesidad de volver a entrena o de fintunear.
 ## Funcionamiento
 Este metodo se puede dividir en tres partes:
 ### Index
-En está parte la información que le hes dada al modelo es dividida en n partes, cada parte después es procesada y le hes asignado un vector,
+En esta parte la información que le hes dada al modelo es dividida en n partes, cada parte después es procesada y le hes asignado un vector,
 el proceso de crear el vector puede variar dependiendo la implementación, es guardado en una forma de vector para que pueda ser buscado 
 de forma fácil después.
 este vector es guardado en una base de vectores
@@ -20,10 +20,10 @@ este vector es guardado en una base de vectores
 ### Retrieval
 
 Dado un prompt por el usuario, este prompt es analizado y marcado como un vector, después se buscan en la base de datos creada
-los vectores más cercanos a el prompt y finalmente está información que coincide es extraida. 
+los vectores más cercanos a el prompt y finalmente esta información que coincide es extraida. 
 
 Esta información se puede obtener de diferentes formas, una de ellas es una búsqueda lexica, es decir contar cuantas palabras coinciden entre
-lo que se está buscando y la información que se tiene. También existe la búsqueda semantica que es buscar por palabras/temas clave
+lo que se esta buscando y la información que se tiene. También existe la búsqueda semantica que es buscar por palabras/temas clave
 
 Por lo que un modelo **BERT** que es un transformer que solo es un encoder, es capaz de codificar y encontrar similaridades semanticas entre 
 los documentos/información y lo que se busca. Por lo que midiendo las distancias vectoriales podemos encontrar los documentos más relevantes
@@ -37,7 +37,7 @@ generar una respuesta consistente, clara y prescisa.
 
 ### Contras
 
-Uno de los puntos encontra de está tecnica es que ahora existen muchos más posibles puntos de fallo en está arquictectura.
+Uno de los puntos encontra de esta tecnica es que ahora existen muchos más posibles puntos de fallo en esta arquictectura.
 
 ## Meta actual
 
@@ -55,7 +55,7 @@ Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar 
 contestar la pregunta, y este modelo también puede ser modelado para ser especifico en un dominio.
 
 También se puede aplciar tecnicas como dados *K* vectores relevantes eliminar resultados que no estén relacionados, este tecnica se llama **autocut**,
-O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si está no pasa cierto limite,
+O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si esta no pasa cierto limite,
 forza al modelo a generar una respuesta en la que dice que no posee información relevante en lugar de alucinar algún resultado.
 
 https://github.com/explodinggradients/ragas

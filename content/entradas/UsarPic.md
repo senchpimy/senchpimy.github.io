@@ -21,7 +21,7 @@ web del paquete tmb nos dice la solucion, y es descargar el archivo desde otro e
 
 ![Error de descarga del paquete pk2cmd](/pk2cmd_error.png)
 
-Aplicando está correcion, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
+Aplicando esta correcion, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
 ```bash
 # Maintainer: BxS <bxsbxs at gmail dot com>
 
@@ -77,7 +77,7 @@ Después para saber si se instalo y detecta el programador, conectamos el PICkit
 pk2cmd -P
 ```
 
-Si todo está bien, deberia salir algo como esto:
+Si todo esta bien, deberia salir algo como esto:
 
 
 ```bash

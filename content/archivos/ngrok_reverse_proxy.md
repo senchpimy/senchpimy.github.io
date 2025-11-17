@@ -33,7 +33,7 @@ Como yo estoy en un sistema basado en Arch Linux, usaré el siguiente comando:
 paru -S ngrok
 ```
 
-Tenemos que registrarnos en la página oficial de ngrok para obtener un token de autenticación. Ya con el token deberemos ejecutar el siguiente comando para autenticar nuestra instalación:
+Tenemos que registrarnos en la página oficial de ngrok para obtener un token de autenticación. Ya con el token debemos ejecutar el siguiente comando para autenticar nuestra instalación:
 
 ```bash
 ngrok config add-authtoken TU_TOKEN_AQUI

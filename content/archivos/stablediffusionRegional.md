@@ -41,7 +41,7 @@ date: "04 Aug 2023"
    
   
 
- En está parte, en la de matrix, Podemos ver solo dos cosas que nos interesan:  
+ En esta parte, en la de matrix, Podemos ver solo dos cosas que nos interesan:  
 
   
 
@@ -108,7 +108,7 @@ date: "04 Aug 2023"
 ![](/pro_img/regional_propmpter6.png)
 ![](/pro_img/regional_propmpter7.png)
 
- Hay que tener cuidado de darle el suficiente tamaño a la imagen para ppoder generar lo que queremos, pues si es muy pequeña podemos no tener lo que especificamos, como por ejemplo está imagen, que fue hecha con las mismas configuraciones de la anterior pero solo con tamaño menor:
+ Hay que tener cuidado de darle el suficiente tamaño a la imagen para ppoder generar lo que queremos, pues si es muy pequeña podemos no tener lo que especificamos, como por ejemplo esta imagen, que fue hecha con las mismas configuraciones de la anterior pero solo con tamaño menor:
    
 
 ![](/pro_img/regional_propmpter8.png)

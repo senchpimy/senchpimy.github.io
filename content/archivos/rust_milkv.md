@@ -3,7 +3,7 @@ title: "Rust en RiscV"
 date: "05 Dec 2023"
 ---
 
-Este es una guia basada en [está guia](https://barretts.club/posts/i-got-a-milkv-duo/).
+Este es una guia basada en [esta guia](https://barretts.club/posts/i-got-a-milkv-duo/).
 
 Suponiendo que ya se tiene el *milk V* con linux instalado y acceso a una terminal.
 
@@ -12,7 +12,7 @@ Primero hay que descargar o compilar el toolchain para compilar rust en riscv, y
 ## Compilacion
 
 Primero hay que descargar la toolchain [desde aquí](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe de el repositorio 
-en donde después de 20 min de compilación obtuve una carpeta llamada *build* en donde se encuentran los compiladores y el linker de está arquitectura
+en donde después de 20 min de compilación obtuve una carpeta llamada *build* en donde se encuentran los compiladores y el linker de esta arquitectura
 
 ## Compilar en Rust
 

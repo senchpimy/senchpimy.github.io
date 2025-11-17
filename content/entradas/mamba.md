@@ -18,7 +18,7 @@ pueda tener un cierto "contexto" con la información a su alrededor, que funcion
 
 Una arquietectura transofrmer hace que se combinen la información de varios vectores sin importar su proximidad, la desventaja es que la complejidad computacional de este algortimo es de n^2
 
-Una red recurrente le aplica una red neuronal a un vector y a la salida previa a esa red neuronal, este cambio hace que cada salida tenga información sobre todas las salidas anteriores a está.
+Una red recurrente le aplica una red neuronal a un vector y a la salida previa a esa red neuronal, este cambio hace que cada salida tenga información sobre todas las salidas anteriores a esta.
 
 La desventaja de este acercamiento es que este proceso no se puede paralelizar pues cada salida depende de la anterior.
 

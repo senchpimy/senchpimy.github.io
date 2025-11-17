@@ -4,7 +4,7 @@ date: "15 Sep 2023"
 ---
 
 
- Este es un proyecto que vi en internet, un arduino siendo usado como un osciloscopio, usando una pantalla oled de 64x128, [en este enlace está el blog](http://radiopench.blog96.fc2.com/blog-entry-893.html) y el video del que me guie fue el siguiente:
+ Este es un proyecto que vi en internet, un arduino siendo usado como un osciloscopio, usando una pantalla oled de 64x128, [en este enlace esta el blog](http://radiopench.blog96.fc2.com/blog-entry-893.html) y el video del que me guie fue el siguiente:
  
   
 

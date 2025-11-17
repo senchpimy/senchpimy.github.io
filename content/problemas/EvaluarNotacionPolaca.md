@@ -5,7 +5,7 @@ date: "14 Jul 2024"
 
 ## Evaluar Notación Polaca Inversa
 
-Este problema consisten en dada una lista de numeros y símbolos evaluar está lista como si fuiera una notación polaca
+Este problema consisten en dada una lista de numeros y símbolos evaluar esta lista como si fuiera una notación polaca
 
 ### Solucion
 

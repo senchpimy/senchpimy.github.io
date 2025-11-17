@@ -3,12 +3,12 @@ date: "09 Jun 2023"
 title: "Preparar un Servidor"
 ---
 
- Cuando se tiene un nuevo servidor el cual uno está rentando, hay algunas configuraciones que se tienen que llevar a cabo en el servidor para poder hacerlo más seguro. Esta guia está enfocada a servidores Linux
+ Cuando se tiene un nuevo servidor el cual uno esta rentando, hay algunas configuraciones que se tienen que llevar a cabo en el servidor para poder hacerlo más seguro. Esta guia esta enfocada a servidores Linux
   
 
 ### Actualizar el sistema
 
- Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto está puede que no tenga los últimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
+ Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto esta puede que no tenga los últimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
   
 
 ### Ejecutar servicios
@@ -33,14 +33,14 @@ title: "Preparar un Servidor"
 ### Conectarse al Servidor
 
 
- Siempre se va a necesitar una coneccion al servidor, pero ssh nos pedira introducir la contraseña, lo que podría mostrar en que puerto está esuchando el servidor ssh, lo cual si este no está actualizado podría ser una falla de seguridad, por lo que para evitar esto lo ideal sería bloquear el acceso a ssh con contraseña, es decir que se requiera una llave ssh para poder aacceder al servidor, de está forma se la validacion se hara automáticamente, y podría evitar la posibilidad de un ataque de fuerza bruta
+ Siempre se va a necesitar una coneccion al servidor, pero ssh nos pedira introducir la contraseña, lo que podría mostrar en que puerto esta esuchando el servidor ssh, lo cual si este no esta actualizado podría ser una falla de seguridad, por lo que para evitar esto lo ideal sería bloquear el acceso a ssh con contraseña, es decir que se requiera una llave ssh para poder aacceder al servidor, de esta forma se la validacion se hara automáticamente, y podría evitar la posibilidad de un ataque de fuerza bruta
  
 ```sh
  ssh-keygen
  ssh-copy-id root@<IP>
 ```
 
- Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con está misma, para evitar esto hay que modificar el archivo **/etc/ssh/sshd\_config** y modificar la linea que dice **PasswordAuthentication** y **USEPam** a **no**, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. También estaría bien cambier el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto último puede ser considerado inutil.
+ Con esto ya no es necesario ingresar la contraseña pero aun es posible ingresar con esta misma, para evitar esto hay que modificar el archivo **/etc/ssh/sshd\_config** y modificar la linea que dice **PasswordAuthentication** y **USEPam** a **no**, esto hace que aunque se ingrese la contraseña correcta no se pueda acceder al servidor y solo se puede acceder con la llave, con lo que estariamos eliminando un posible punto debil. También estaría bien cambiar el puerto por defecto de ssh, pues esto ayuda a defender de ataques muy simples, aunque ataques que escaneen todos los puertos pueden detectar en cual de todos se ejecuta ssh, esto último puede ser considerado inutil.
 
 
 ### Firewall

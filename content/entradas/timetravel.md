@@ -117,7 +117,7 @@ date: "26 Oct 2022"
 
  El Muerto Manipulado es más poderoso que el Receptor viviente. Si una persona muere en la dimension tangente, ellos son capaces de contactar con el Receptor Viviente a través de una construccion en la Cuarta Dimension.
 
- La construccion en cuarta dimension está hecha de agua.
+ La construccion en cuarta dimension esta hecha de agua.
 
  El muerto manipulado manipulara a el Receptor viviente usando el constructo en la cuarta dimension (Ver apendice A y B)
 

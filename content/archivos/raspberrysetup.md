@@ -25,7 +25,7 @@ date: "31 Jul 2022"
 ```
 
 
-Este es un código simple que solo toma el pin 27 GPIO (BCM MODE) de la raspberry y lee una entrada simple LOW, el proceso se ejecuta cada 0.5 segundos y si el pin 27 se encuentra en LOW, entonces se suma 1 a la variable que "cuenta" el tiempo que estuvo presionado, al está llegar a 6 se ejecuta un apagado del dispositivo de forma segura, en caso contrario el contador se reinicia
+Este es un código simple que solo toma el pin 27 GPIO (BCM MODE) de la raspberry y lee una entrada simple LOW, el proceso se ejecuta cada 0.5 segundos y si el pin 27 se encuentra en LOW, entonces se suma 1 a la variable que "cuenta" el tiempo que estuvo presionado, al esta llegar a 6 se ejecuta un apagado del dispositivo de forma segura, en caso contrario el contador se reinicia
 
 
  Para el ventilador tuve problemas pues mi ventilador de 3 pines en la mayoria del tiempo fallaba el control pwm y no lo seguia, la programación funciona (en teoria) pero en mi caso personal las fallas del ventilador no me permitían hacer nas pruebas y mejorar mi código.
@@ -47,10 +47,10 @@ Este es un código simple que solo toma el pin 27 GPIO (BCM MODE) de la raspberr
 
 
 
-Este script toma la temperatura de la cpu desde un comando ya incorporado y la utiliza para activar, dasctivar o variar la velocidad de un ventilador, subiendo las revoluciones si tiene una tempreatura elevada o bajandolas o apagandose si está a una temperatura aceptable 
+Este script toma la temperatura de la cpu desde un comando ya incorporado y la utiliza para activar, dasctivar o variar la velocidad de un ventilador, subiendo las revoluciones si tiene una tempreatura elevada o bajandolas o apagandose si esta a una temperatura aceptable 
 
 
-Para poder ejecutar todo al mismo tiempo sin tener que hacer muchos malabares el programa principal (con el programa de la pantalla incluido), es un script que ejecuta estos 3 diferentes programas como procesos hijos, el del boton y el del ventilador nunca terminan de ejecutarse pero el de la pantalla si, esto fue una de las raxones por lo cual lo hice de está forma, el rpograma final quedaría asi: 
+Para poder ejecutar todo al mismo tiempo sin tener que hacer muchos malabares el programa principal (con el programa de la pantalla incluido), es un script que ejecuta estos 3 diferentes programas como procesos hijos, el del boton y el del ventilador nunca terminan de ejecutarse pero el de la pantalla si, esto fue una de las raxones por lo cual lo hice de esta forma, el rpograma final quedaría asi: 
 
 
 ```py
