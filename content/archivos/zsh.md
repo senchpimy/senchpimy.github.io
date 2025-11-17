@@ -8,7 +8,7 @@ date: "15 Jan 2023"
   
   
 
-* **Cuztomizar el prompt:** El prompt es el texto que aparece antes de el cursor en el terminal, y en este aparece información como el directorio, el estado de el proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Asi como modificar los colores y símbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización esta en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
+* **Cuztomizar el prompt:** El prompt es el texto que aparece antes de el cursor en el terminal, y en este aparece información como el directorio, el estado de el proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Asi como modificar los colores y símbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización está en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
 
 ```toml
 
@@ -117,7 +117,7 @@ bindkey -s '^o' 'lfcd\n'
 #&&&&&&&&&&&&&&&&& Edit Line &&&&&&&&&&&&&&&&&&&&&&&&&&
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-* **Sugestiones:** Cuando quiero escribir un comando con un archivo si presiono **tab** zsh va a tratar de autocompletar lo que estaba tratando de escribir con una sugerencia, el motor es bastante inteligente y puede automáticamente seleccionar archivos del tipo especifico del cual el comando requiere, pero para mejorar esto le puse dos configuraciones, la cual le permite buscar en los archivo que comiencen con un "." y que no distinga entre mayusculas y minusculas, asi mismo que coloree las tipos de los archivos y que muestre el bloque blanco cuando se esta en el modo de selección.
+* **Sugestiones:** Cuando quiero escribir un comando con un archivo si presiono **tab** zsh va a tratar de autocompletar lo que estaba tratando de escribir con una sugerencia, el motor es bastante inteligente y puede automáticamente seleccionar archivos del tipo especifico del cual el comando requiere, pero para mejorar esto le puse dos configuraciones, la cual le permite buscar en los archivo que comiencen con un "." y que no distinga entre mayusculas y minusculas, asi mismo que coloree las tipos de los archivos y que muestre el bloque blanco cuando se está en el modo de selección.
  
 autoload -U compinit
 zstyle ':completion:\*' menu select

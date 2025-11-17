@@ -6,7 +6,7 @@ date: "30 Jun 2023"
  Este es un programa inspirado en otro programa llamado obsidian, este primero es un interprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizaran después con las reglas de markdown correspondientes.
  
 
- Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos más que por extenciones y solo por medio de **git**, entonces escribi este programa para corregir esto, ahora le faltan algunas cosas que me gustaria agregar asi,
+ Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos más que por extenciones y solo por medio de **git**, entonces escribi este programa para corregir esto, ahora le faltan algunas cosas que me gustaría agregar asi,
  pero también tiene otras caracteristicas que obsidian no tiene.
    
 
@@ -40,7 +40,7 @@ date: "30 Jun 2023"
 
   
 
- Algunas cosas que obsidian tiene y que megustaria agregar es la sincronizacion de archivos a un servidor remoto y varios detalles en como se ve, y el plugin de Excalidraw, además de que me gustaria reescribir el renderizador de Markdown y poder crear un deamon para que de notificaciones.
+ Algunas cosas que obsidian tiene y que megustaria agregar es la sincronizacion de archivos a un servidor remoto y varios detalles en como se ve, y el plugin de Excalidraw, además de que me gustaría reescribir el renderizador de Markdown y poder crear un deamon para que de notificaciones.
  
 
 

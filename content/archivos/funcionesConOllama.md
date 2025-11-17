@@ -24,7 +24,7 @@ para reemplazar símbolos no-terminales con una secuencia de símbolos. la notac
  <symbol> ::= __expression__
 ```
 
-- **<symbol>**: Es una variable no terminal que siempre esta cerrada por los caracteres "<>"
+- **<symbol>**: Es una variable no terminal que siempre está cerrada por los caracteres "<>"
 - **::=**: Significa que el simbolo de la izquierda debe ser remplazado por el simbolo de la derecha
 - **__expression__**: Consiste de una o varias sequencias de símbolos terminales o no-terminales donde cada secuencia es separado por un "**|**" indicando una opción para sustituir el simbolo en la derecha
 
@@ -142,7 +142,7 @@ Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con �
 >{'codellama:13b-code': 0, 'mistral': 0, 'phi3': 0, 'wizardlm2': 1, 'llama3':0}
 
 Un comportamiento extraño que note fue que *wizardlm2* siempre que terminaba el programa y lo volvia a ejecutar su primer intento era correcto sin importar cuantas veces lo ejecutara pero los demás resultaban en error, pero a pesar de que realizaba
-la tarea con éxito sus resultados eran erróneos pues obtenia esta salida
+la tarea con éxito sus resultados eran erróneos pues obtenia está salida
 
 >name='Claudia' height=5.0 hair_color='brunette'
 

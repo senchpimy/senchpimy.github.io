@@ -4,8 +4,8 @@ date: "29 Jun 2023"
 ---
 
 
- Lunar Nvim es una configuracion de Neovim que incluye muchas cosas por default que son bastante utiles y que personalmente yo no puede configurar bien en mi configuracion,
- aunque funciona muy bien aun asi lo tuve que configurar en algunas cosas y este es el archivo de configuracion que agregue
+ Lunar Nvim es una configuración de Neovim que incluye muchas cosas por default que son bastante utiles y que personalmente yo no puede configurar bien en mi configuración,
+ aunque funciona muy bien aun asi lo tuve que configurar en algunas cosas y este es el archivo de configuración que agregue
  
 ```lua
 vim.keymap.set("n", "nh", ":HopWord")
@@ -62,7 +62,7 @@ lvim.plugins = {
 
 ```
 
- Con esta configuracion ya puedo recrear lo que tenía con mi configuracion, pero con algo que tuve problemas es configurando el **LSP**, el cual con Lunar nvim, funciona automáticamente y los servidores se instalan automáticamente segun el archivo que se abre
+ Con está configuración ya puedo recrear lo que tenía con mi configuración, pero con algo que tuve problemas es configurando el **LSP**, el cual con Lunar nvim, funciona automáticamente y los servidores se instalan automáticamente segun el archivo que se abre
  
 
 

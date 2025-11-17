@@ -13,7 +13,7 @@ date: "26 Oct 2022"
 
 
 
- Me gustaria agradecer a las hermanas de la capilla de San John en Alexandria, Virginia por su apoyo en mi descicion, Por la gracia de Dios, ellas son:
+ Me gustaría agradecer a las hermanas de la capilla de San John en Alexandria, Virginia por su apoyo en mi descicion, Por la gracia de Dios, ellas son:
 
  * Hermana Eleanor Lewis
 * Hermana Francesca Godiani
@@ -45,7 +45,7 @@ date: "26 Oct 2022"
 
  Incidentes como la corrupcion de la cuarta dimension son increiblemente raros.
 
- Si un Universo Tangente Ocurre, seria extremadamente insostenible, sosteniendose a si mismo por no más que unas cuantas semanas.
+ Si un Universo Tangente Ocurre, sería extremadamente insostenible, sosteniendose a si mismo por no más que unas cuantas semanas.
 
  Eventualmente colapsara en si mismo, formando un agujero negro dentro de el Universo Primario capaz de destruir toda la existencia.
 
@@ -117,7 +117,7 @@ date: "26 Oct 2022"
 
  El Muerto Manipulado es más poderoso que el Receptor viviente. Si una persona muere en la dimension tangente, ellos son capaces de contactar con el Receptor Viviente a traves de una construccion en la Cuarta Dimension.
 
- La construccion en cuarta dimension esta hecha de agua.
+ La construccion en cuarta dimension está hecha de agua.
 
  El muerto manipulado manipulara a el Receptor viviente usando el constructo en la cuarta dimension (Ver apendice A y B)
 

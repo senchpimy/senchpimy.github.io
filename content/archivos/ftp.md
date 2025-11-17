@@ -5,7 +5,7 @@ date: "05 Sep 2023"
 
 
  FTP es un protocolo para transmitir archivos, desde hace tiempo he intentado tener un servidor dentro de mi red local el cual funcione con unos discos que tengo, e intentado usar **OpenMediaVault**, pero tiene algunos bugs y no me gusto, también intente usar **Owncloud**, pero parece que no
- que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalación debian desde apt no funciona pues la versión de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuracion del servidor, entonces mejor decidí usar
+ que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalación debian desde apt no funciona pues la versión de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuración del servidor, entonces mejor decidí usar
  un simple servidor ftp
    
   
@@ -46,7 +46,7 @@ date: "05 Sep 2023"
  echo $str >> /etc/fstab
 ``` 
  
- Solo hay que cambiar en estos pequeños comandos el nombre del disco y la dirección en la cual se van a montar, y verificar que la configuracion fue correcta con el siguiente comando
+ Solo hay que cambiar en estos pequeños comandos el nombre del disco y la dirección en la cual se van a montar, y verificar que la configuración fue correcta con el siguiente comando
  
 ``` sh
  findmnt --verify

@@ -4,7 +4,7 @@ date: "19 Jun 2024"
 ---
 
 ## Más uno
-El problema consiste que dado una lista que consiste en enteros y se supone que esta lista representa un entero en total, y el problema consiste en sumarle uno a este gran numero
+El problema consiste que dado una lista que consiste en enteros y se supone que está lista representa un entero en total, y el problema consiste en sumarle uno a este gran numero
 
 ## Solucion
 

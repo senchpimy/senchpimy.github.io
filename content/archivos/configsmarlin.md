@@ -3,13 +3,13 @@ title: "Configuración de Marlin Para la Ender3"
 date: "29 Oct 2022"
 ---
 
- Con los 4 archivos de configuracion tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifique mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
+ Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifique mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
  
 ## _Statusscreen.h
 
 
 
-**_statusscreen.h** es un archivo que contiene un bitmap de la pantalla de status que contiene el logo de Marlin, pero como me gusta Serial Experiments Lain se lo voy a cambiar a esta imagen:
+**_statusscreen.h** es un archivo que contiene un bitmap de la pantalla de status que contiene el logo de Marlin, pero como me gusta Serial Experiments Lain se lo voy a cambiar a está imagen:
  
 
 ![](./copland.jpg)
@@ -24,7 +24,7 @@ date: "29 Oct 2022"
  Al cambiarle el hotend necesitamos cambiarle el PID que es una fórmula que controla como el hotend se calienta, evitando que este varie mucho en el tiempo para poder hacer esto el firmware necesita de tres valores, estos valores se obtiene al hacer una serie de pruebas al calentarse y enfriarse, para poder hacer estas pruebas necesitamos de un programa que pueda enviar Gcode a la placa de la impresora, el programa que utilice se llama **pronterface**
 
 
- Para poder hacer esta prueba la placa debe estar conectada a la computadora y a la corriente, luego para conectarse a la impresora desde la computadora solo hay que abrir el programa y este va a detectar el puerto, y solo hay que seleccionarlo, probablemente también selección de forma correcta los demás valores para conectarse si todo esta correcto al momento de dar click en conectar se debera conectar sin errores.
+ Para poder hacer está prueba la placa debe estar conectada a la computadora y a la corriente, luego para conectarse a la impresora desde la computadora solo hay que abrir el programa y este va a detectar el puerto, y solo hay que seleccionarlo, probablemente también selección de forma correcta los demás valores para conectarse si todo está correcto al momento de dar click en conectar se debera conectar sin errores.
  
 
  Al ya estar conectado enviaremos el siguiente texto a la computadora **M303 E0 S205 C7**, lo que este comando de g code significa es lo siguiente
@@ -65,7 +65,7 @@ date: "29 Oct 2022"
 ```
 
 
- Los valores de al final son los que debemos poner en la configuracion de el Marlin, en el archivo Config.h Aproximadamente en la linea 656 es donde empiezan, en mi caso por defecto los valores son los siguientes:
+ Los valores de al final son los que debemos poner en la configuración de el Marlin, en el archivo Config.h Aproximadamente en la linea 656 es donde empiezan, en mi caso por defecto los valores son los siguientes:
  
 ```make
 // Creality Ender-3

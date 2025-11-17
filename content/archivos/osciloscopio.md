@@ -4,7 +4,7 @@ date: "15 Sep 2023"
 ---
 
 
- Este es un proyecto que vi en internet, un arduino siendo usado como un osciloscopio, usando una pantalla oled de 64x128, [en este enlace esta el blog](http://radiopench.blog96.fc2.com/blog-entry-893.html) y el video del que me guie fue el siguiente:
+ Este es un proyecto que vi en internet, un arduino siendo usado como un osciloscopio, usando una pantalla oled de 64x128, [en este enlace está el blog](http://radiopench.blog96.fc2.com/blog-entry-893.html) y el video del que me guie fue el siguiente:
  
   
 
@@ -14,7 +14,7 @@ date: "15 Sep 2023"
 
   
 
- Pero a mi no me funcino ese diagrama tal cual, le tuve que hacer una serie de modificaciones, primero desconecte la entrada marcada como **SIG-IN** de la tierra, asi como no utilice ningún capacitor aunque el diagrama tenga 3, y finalmente descarte el uso del led, por lo que finalmente el diagrama quedo de la siguiente forma para mi
+ Pero a mi no me funcino ese diagrama tal cual, le tuve que hacer una serie de modificaciones, primero desconecte la entrada marcada como **SIG-IN** de la tierra, asi como no utilice ningún capacitor aunque el diagrama tenga 3, y finalmente descarte el uso del led, por lo que finalmente el diagrama quedó de la siguiente forma para mi
    
 
 

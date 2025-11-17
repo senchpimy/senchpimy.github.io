@@ -3,7 +3,7 @@ title: "Páginas Estáticas"
 date: "03 Feb 2023"
 ---
 
- Una forma de mostrar páginas estáticas es usando **nginx**, para lograr esto hay que tener una página estatica la cual mostrar, por ejemplo yo hice [esta página](https://github.com/senchpimy/simple), como se puede ver, esta página solo tiene el index y una página, además de otros archivos que irían en esta página.
+ Una forma de mostrar páginas estáticas es usando **nginx**, para lograr esto hay que tener una página estatica la cual mostrar, por ejemplo yo hice [está página](https://github.com/senchpimy/simple), como se puede ver, está página solo tiene el index y una página, además de otros archivos que irían en está página.
    
 
   
@@ -13,7 +13,7 @@ date: "03 Feb 2023"
 
   
 
- Despues simplemente hay que poner el siguiente archivo en la carpeta **/etc/nginx/sites-available** bajo cualquier nombre que uno desee
+ Después simplemente hay que poner el siguiente archivo en la carpeta **/etc/nginx/sites-available** bajo cualquier nombre que uno desee
 
 ```toml
  server {

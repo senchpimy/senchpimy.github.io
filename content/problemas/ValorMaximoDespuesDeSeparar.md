@@ -1,9 +1,9 @@
 +++
-title = 'Valor Maximo Despues De Separar'
+title = 'Valor Maximo Después De Separar'
 date = 2023-12-22T07:13:23-06:00
 +++
 
-## Valor Maximo Despues De Separar
+## Valor Maximo Después De Separar
 
 Este problema consiste en que dado un string de unos y ceros encontremos el valor maximo que se puede obtener después de separa el string en 2 y sumar la cantidad de 0's de un lado con la cantidad de 1's de el otro.
 

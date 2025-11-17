@@ -8,8 +8,8 @@ date: "17 Jun 2024"
 Este problema consisten en dado una lista de palabras regresar una lista de listas de palabras que sean anagramas entre si
 
 ### Solucion
-Este problema se soluciona primero iterando por cada palabra de el array y ordenandola, luego esta se añade en un hashmap donde la llave es la palabra ordenada y el valor es un array que contiene esta palabra, array que se expandira si 
-al ordenar otra palabra de la lista original esta coincide con la llave.
+Este problema se soluciona primero iterando por cada palabra de el array y ordenandola, luego está se añade en un hashmap donde la llave es la palabra ordenada y el valor es un array que contiene está palabra, array que se expandira si 
+al ordenar otra palabra de la lista original está coincide con la llave.
 
 Finalmente se itera por el hashmap y cada valor de el hashmap se agrega a una nueva lista que se regresa.
 
@@ -63,7 +63,7 @@ def group_anagrams(strs)
 end
 ```
 
-Esta solucion esta en el top 5% en velocidad y 50% en la memoria, lo que mie hizo revisar las mejores soluciones en memoria y me encontré con la siguiente:
+Esta solucion está en el top 5% en velocidad y 50% en la memoria, lo que mie hizo revisar las mejores soluciones en memoria y me encontré con la siguiente:
 
 ```rb
 # @param {String[]} strs

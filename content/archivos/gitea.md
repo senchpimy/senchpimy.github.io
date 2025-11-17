@@ -5,7 +5,7 @@ date: "21 Jan 2023"
 
 
 
- Gitea es un programa OpenSource para poder hostear una instancia de un servidor de git, y aprovechando que ya tengo un dominio con una computadora quise hostear mis propios proyectos usando este programa, este programa es de fácil instalación, pero si le quisieras modificar alguna plantilla hay que tener cuidado en que carpeta y usuario lo instala, primero hay que descargar el binario y luego hacerlo ejecutable.
+ Gitea es un programa OpenSource para poder hostear una instancia de un servidor de git, y aprovechando que ya tengo un dominio con una computadora quise hostear mis propios proyectos usando este programa, este programa es de fácil instalación, pero si le quisieras modificar alguna plantilla hay que tener cuidado en que carpeta y usuario lo instales, primero hay que descargar el binario y luego hacerlo ejecutable.
 ```sh
 
  wget -O gitea https://dl.gitea.io/gitea/1.18.1/gitea-1.18.1-linux-amd64
@@ -32,7 +32,7 @@ date: "21 Jan 2023"
  mkdir -p /var/lib/gitea/{custom,data,log}
 ``` 
  
- Despues hay que mover el ejecutable de gitea a la carpete de los binarios.
+ Después hay que mover el ejecutable de gitea a la carpeta de los binarios.
 
  
 ``` sh
@@ -40,7 +40,7 @@ date: "21 Jan 2023"
 ``` 
  
 
- Luego tenemos que hacer que el usuario que creamos posea estas carpetas, además de darle sus permisos especiales. Despues de esto los siguientes comando son para darle permiso al instalador web.
+ Luego tenemos que hacer que el usuario que creamos posea estas carpetas, además de darle sus permisos especiales. Después de esto los siguientes comando son para darle permiso al instalador web.
  
 ``` sh
  chown -R git:git /var/lib/gitea/
@@ -75,14 +75,14 @@ date: "21 Jan 2023"
  WantedBy=multi-user.target
 ``` 
  
- Hay que tener atencion si es que el usuario que se creo para que ejecutara gitea sea el mismo que esta especificado en el servicio de systemd. En este caso estoy haciendo que al momento que gitea se ejecute tome como el archivo de configuracion aquel que esta en **/var/lib/gitea/custom/conf/app.ini**, que en este caso tendriamos que sacar el archivo de configuración desde su github, pues son caso 3,000 lineas de posibles configuraciones y explicaciones sobre su funcionamiento, se have con el siguiente comando.
+ Hay que tener atención si es que el usuario que se creo para que ejecutara gitea sea el mismo que está especificado en el servicio de systemd. En este caso estoy haciendo que al momento que gitea se ejecute tome como el archivo de configuración aquel que está en **/var/lib/gitea/custom/conf/app.ini**, que en este caso tendríamos que sacar el archivo de configuración desde su github, pues son caso 3,000 lineas de posibles configuraciones y explicaciones sobre su funcionamiento, se hace con el siguiente comando.
  
 ```sh
  curl https://raw.githubusercontent.com/go-gitea/gitea/main/custom/conf/app.example.ini >> app.ini
  chmod 640 app.ini
 ``` 
  
- Y depende en que carpeta estemos hay que mover este archivo a la ubicacion especificada; En este archivo hay cambiar el puerto en el que se ejeucta, el dominio (si es que tenemos uno), en mi caso después de la instalación web quedo de la siguiente manera:
+ Y depende en que carpeta estemos hay que mover este archivo a la ubicación especificada; En este archivo hay cambiar el puerto en el que se ejecuta, el dominio (si es que tenemos uno), en mi caso después de la instalación web quedó de la siguiente manera:
  
 ```toml
  APP_NAME = Senchpimy Git Server
@@ -99,29 +99,29 @@ date: "21 Jan 2023"
 ``` 
  
  
- Yo borre algunos campos pues estos tenian información delicada pero esos son los que hay que cambiar, y lo que configure en mi caso, fue para mi dominio que ya tenía.
+ Yo borré algunos campos pues estos tenían información delicada pero esos son los que hay que cambiar, y lo que configuré en mi caso, fue para mi dominio que ya tenía.
    
 
- Y si todo esta bien configurado solo hay que ejecutar los siguientes comandos.
+ Y si todo está bien configurado solo hay que ejecutar los siguientes comandos.
  
 ```sh
  systemctl enable gitea.service
  systemctl start gitea.service
  
 ``` 
- Y ahora si nos dirigimos en este caso seria a senchpimy.xyz:3000, deberiamos ver la página de instalación web, en el tipo de database escogi sqlite, pues solo estare yo usando ese ervidor y no hay necesidad de una databse más robusta, en este apartado nos dara opción de modificar las cosas más importantes para que funcione, después de que ya esta configurado, el servidor ya es usable, en este caso solo desde el puerto **3000** y para cambiar esto hay que hacerlo desde **nginx (más información [aquí](./subdominios.html))**.
+ Y ahora si nos dirigimos en este caso sería a senchpimy.xyz:3000, deberíamos ver la página de instalación web, en el tipo de database escogí sqlite, pues solo estaré yo usando ese servidor y no hay necesidad de una database más robusta, en este apartado nos dará opción de modificar las cosas más importantes para que funcione, después de que ya está configurado, el servidor ya es usable, en este caso solo desde el puerto **3000** y para cambiar esto hay que hacerlo desde **nginx (más información [aquí](./subdominios.html))**.
    
 
- Finalmente me gustaria cambiar la página principal que se muestra cuando no hay una cuenta registrada, para lograr esto hay que crear una carpeta llamada **templates** dentro de la carpeta **custom** que creamos en la parte de arriba, y después hay que crear la template de la que va a remplazar a la original, en este caso seria **home** y por lo tanto hay que guardarlo como **home.tmpl**, Despues hay que copiar el [ejemplo](https://github.com/go-gitea/gitea/blob/main/templates/home.tmpl) que esta en el repositorio de gitea, y se supone que es la misma que trae por defecto, pero al momento de cambiarla los siguientes bloques me daban error y no permitian que el servicio completo empezara a ejecutarse
+ Finalmente me gustaría cambiar la página principal que se muestra cuando no hay una cuenta registrada, para lograr esto hay que crear una carpeta llamada **templates** dentro de la carpeta **custom** que creamos en la parte de arriba, y después hay que crear la template de la que va a reemplazar a la original, en este caso sería **home** y por lo tanto hay que guardarlo como **home.tmpl**, Después hay que copiar el [ejemplo](https://github.com/go-gitea/gitea/blob/main/templates/home.tmpl) que está en el repositorio de gitea, y se supone que es la misma que trae por defecto, pero al momento de cambiarla los siguientes bloques me daban error y no permitian que el servicio completo empezara a ejecutarse
  
 ```go
  {{.locale.Tr "startpage.platform\_desc" | Str2html}}
 ``` 
  
- Asi que solo borre todas las lineas que tuvieran ese contenido, de todos modos era parte de lo que me gustaria haber quitado, y finalmente es un archivo normal de html y este ya se puede modificar como uno quiera. Y para aplicar los cambios hay que **restart** el servicio de gitea.
+ Asi que solo borré todas las lineas que tuvieran ese contenido, de todos modos era parte de lo que me gustaría haber quitado, y finalmente es un archivo normal de html y este ya se puede modificar como uno quiera. Y para aplicar los cambios hay que **restart** el servicio de gitea.
    
 
- Finalmente me quedo asi:
+ Finalmente me quedó asi:
  
 ![](/pro_img/gitea.png)
 

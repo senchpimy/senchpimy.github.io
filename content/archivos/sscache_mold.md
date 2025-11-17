@@ -30,7 +30,7 @@ export RUSTC\_WRAPPER=/path/to/sccache
 **Mold** es un linkeador que funciona igualmente para lenguajes compilados, cuando un programa es compilado cada archivo es convertido en un archivo **.o**, y finalmente un linker convierte todos estos archivo en un ejecutable.
    
 
- En Su página tiene instrucciones de uso pero en para que funcione en todos las compilaciones con rust hay que agregar la siguiente linea en el archivo de configuracion de cargo que se encuentra en **~/.cargo/config.toml**
+ En Su página tiene instrucciones de uso pero en para que funcione en todos las compilaciones con rust hay que agregar la siguiente linea en el archivo de configuración de cargo que se encuentra en **~/.cargo/config.toml**
 
 ```toml
  [target.x86\_64-unknown-linux-gnu]

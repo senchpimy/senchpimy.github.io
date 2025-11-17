@@ -155,6 +155,6 @@ void match_input() {
 }
 ```
 
-Me hubiera gustado hacer que se mantuviera la igualdad en los valores que linux genera, pero estos también incluyen datos como cuanto se movio en la dirección indicada, y siento que para mi proyecto eso esta fuera de lo que intenta ser
+Me hubiera gustado hacer que se mantuviera la igualdad en los valores que linux genera, pero estos también incluyen datos como cuanto se movio en la dirección indicada, y siento que para mi proyecto eso está fuera de lo que intenta ser
 
 

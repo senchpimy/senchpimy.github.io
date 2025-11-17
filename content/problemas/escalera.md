@@ -35,5 +35,5 @@ ecuacion para resolver este problema es la siguiente:
 
 f(n) = f(n-1) + f(n-2)
 
-Entonces iteramos desde 1 (pues la primera iteracion ya se resolvio) hasta n, luego obtenemos el resultado de la iteracion i que seria
-el resultado si n = i, y lo repetimos hasta que i = n; En donde ya tendriamos el resultado final
+Entonces iteramos desde 1 (pues la primera iteracion ya se resolvio) hasta n, luego obtenemos el resultado de la iteracion i que sería
+el resultado si n = i, y lo repetimos hasta que i = n; En donde ya tendríamos el resultado final

@@ -26,7 +26,7 @@ date: "30 Jun 2023"
 ```
  
 
- Pero esta solucion tardaba mucho entonces con **sed** también se puede con
+ Pero está solucion tardaba mucho entonces con **sed** también se puede con
  
 
 ```sh

@@ -21,7 +21,7 @@ web del paquete tmb nos dice la solucion, y es descargar el archivo desde otro e
 
 ![Error de descarga del paquete pk2cmd](/pk2cmd_error.png)
 
-Aplicando esta correcion, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor seria hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
+Aplicando está correcion, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiandolos, pero como se hace un hash de el archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
 ```bash
 # Maintainer: BxS <bxsbxs at gmail dot com>
 
@@ -71,13 +71,13 @@ sudo udevadm trigger
 ```
 
 
-Despues para saber si se instalo y detecta el programador, conectamos el PICkit 2 a la computadora y ejecutamos:
+Después para saber si se instalo y detecta el programador, conectamos el PICkit 2 a la computadora y ejecutamos:
 
 ```bash
 pk2cmd -P
 ```
 
-Si todo esta bien, deberia salir algo como esto:
+Si todo está bien, deberia salir algo como esto:
 
 
 ```bash
@@ -90,7 +90,7 @@ Operation Succeeded
 
 ## Compilando el programa
 Ahora que tenemos todo listo, vamos a crear un programa simple para el PIC16F887. Para este ejemplo, vamos a hacer que un LED parpadee.
-Este seria el programa:
+Este sería el programa:
 
 ```c
 #include <xc.h>
@@ -125,7 +125,7 @@ void main(void) {
 }
 ```
 
-Y para compilarlo usamos `xc8`, que se instala con el paquete **microchip-mplabxc8-bin**
+Y para compilarlo usamos `xc8`, que se instales con el paquete **microchip-mplabxc8-bin**
 
 ```bash
 paru -S microchip-mplabxc8-bin

@@ -41,7 +41,7 @@ date: "04 Aug 2023"
    
   
 
- En esta parte, en la de matrix, Podemos ver solo dos cosas que nos interesan:  
+ En está parte, en la de matrix, Podemos ver solo dos cosas que nos interesan:  
 
   
 
@@ -92,7 +92,7 @@ date: "04 Aug 2023"
   
  
  Al darle click en el boton de **Visualize and make template** dos cosas pasan, primero se generará una imagen en donde con colores diferentes se mostrara com quedara dividida la imagen, este rectangulo siempre es del mismo tamaño pero se respetan las proporciones cuando se tiene un rectangulo como 
- imagen por ejemplo, y la segunda cosa es que se generará la template, que es lo que necesitamos colocar en el prompt para poder generar en lugares especificos, por ejemplo si queremos generar una imagen con un dinosaurio de un lado y un auto del otro, con la configuracion de **1,1** en **horizontal**
+ imagen por ejemplo, y la segunda cosa es que se generará la template, que es lo que necesitamos colocar en el prompt para poder generar en lugares especificos, por ejemplo si queremos generar una imagen con un dinosaurio de un lado y un auto del otro, con la configuración de **1,1** en **horizontal**
  tendremos el sigueinte template:
  
  ADDBASE 
@@ -108,7 +108,7 @@ date: "04 Aug 2023"
 ![](/pro_img/regional_propmpter6.png)
 ![](/pro_img/regional_propmpter7.png)
 
- Hay que tener cuidado de darle el suficiente tamaño a la imagen para ppoder generar lo que queremos, pues si es muy pequeña podemos no tener lo que especificamos, como por ejemplo esta imagen, que fue hecha con las mismas configuraciones de la anterior pero solo con tamaño menor:
+ Hay que tener cuidado de darle el suficiente tamaño a la imagen para ppoder generar lo que queremos, pues si es muy pequeña podemos no tener lo que especificamos, como por ejemplo está imagen, que fue hecha con las mismas configuraciones de la anterior pero solo con tamaño menor:
    
 
 ![](/pro_img/regional_propmpter8.png)

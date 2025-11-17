@@ -6,7 +6,7 @@ date : "2024-03-31"
 ## Introducción
 
 Quise usar un reloj inteligente, pero quería que también mostrara mis pendientes y un calendario y encontré varios como el Amazon Echo Show
-pero no se veía como quería, seria muy aburrido solo comprarlo y no funcionaría como querría
+pero no se veía como quería, sería muy aburrido solo comprarlo y no funcionaría como querría
 
 ## Pantalla
 Compré una pantalla touch de aliexpress y un raspberry pi zero 2w
@@ -46,9 +46,9 @@ en la versión 0.11 en debian.
 
 Pero esto fue inutil ya que este Tinywl no tenía soporte para la pantalla touch, es decir no detectaba el touch.
 
-Entonces tuve que cambiar a usar Xorg y use una versión modificada de dwm para que solo muestre este unico programa y compilarlo para esta
+Entonces tuve que cambiar a usar Xorg y use una versión modificada de dwm para que solo muestre este unico programa y compilarlo para está
 arquitectura
 
 ## Final
 
-Ahora es muy simple, pero esta abierto a que se le pueda añadir más funcionalidad
+Ahora es muy simple, pero está abierto a que se le pueda añadir más funcionalidad

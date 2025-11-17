@@ -6,7 +6,7 @@ date: "05 Jul 2024"
 ## Generar Imagenes
 
 El problema de generar imagenes puede ser reducido a un problema de prediccion. Primero se tiene que encontrar una manera de introducir los datos al modelo, pues si solo se introducen imagenes con una etiqueta el modelo generará un promedio de todas las
-imagenes con la misma etiqueta, es decir una imagen la cual cada pixel de esta imagen es el promedio de los demás pixeles que se encuentran en esa misma posscicion en las otras imagenes.
+imagenes con la misma etiqueta, es decir una imagen la cual cada pixel de está imagen es el promedio de los demás pixeles que se encuentran en esa misma posscicion en las otras imagenes.
 
 ## Auto Regresion
 

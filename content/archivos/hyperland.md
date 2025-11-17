@@ -7,7 +7,7 @@ para poder tener un sistema completo se necesita muchos otros programas diferent
 
 ## Hyperland
 
-Para la configuracion de este use la configuracion ya existente de [Hyde](https://github.com/prasanthrangan/hyprdots) ya que esta contiene scripts
+Para la configuración de este use la configuración ya existente de [Hyde](https://github.com/prasanthrangan/hyprdots) ya que está contiene scripts
 que configuran y declaran ciertas variables en el sistema para tener la menor cantidad de problemas de compatibilidad con otros programas, lo que
 modifique en este caso fue el teclado y algunas configuraciones de la teclas:
 
@@ -24,7 +24,7 @@ input {
     force_no_accel = 1
 }
 ```
-Diferencias entre el que esta por defecto y el mio
+Diferencias entre el que está por defecto y el mio
 
 ```
 12,14c12,14
@@ -101,7 +101,7 @@ Diferencias entre el que esta por defecto y el mio
 
 ## Waybar
 
-Al ser muy minimalista hay que instalar una barra superior y en este utilizo waybar pero luego me gustaria cambiarla a **eww**, esta es la configuracion
+Al ser muy minimalista hay que instalar una barra superior y en este utilizo waybar pero luego me gustaría cambiarla a **eww**, está es la configuración
 
 config
 ```
@@ -255,13 +255,13 @@ window#waybar.empty {
 ## Swww
 
 Tambien se necesita un fondo de pantalla y el programa más simple para cumplir cone sta tarea es swww el cual
-no requiere de configuracion más que cuando se utiliza el comando y eso depende de la imagen, este inicia automáticamente
+no requiere de configuración más que cuando se utiliza el comando y eso depende de la imagen, este inicia automáticamente
 cuando inicia Hyperland
 
 ## Rofi
 
 Rofi es un programa muy simple que funciona tanto en xorg como en wayland solo hay que tener la versión correcta instalada,
-para este use la configuracion por defecto que viene en hyde
+para este use la configuración por defecto que viene en hyde
 
 ## Dunst
 

@@ -3,7 +3,7 @@ title: "Rust en Arduino"
 date: "07 Jan 2023"
 ---
 
- Rust es un lenguaje de bajo nivel que me gustaria aprender, aquí hay un ejemplo de el equivalente al programa blink, para el **arduino uno** usando Rust.
+ Rust es un lenguaje de bajo nivel que me gustaría aprender, aquí hay un ejemplo de el equivalente al programa blink, para el **arduino uno** usando Rust.
 
 
  Primero hay que instalar los programas necesarios para linkear y compilar para el arduino, en arch son las siguientes:
@@ -107,7 +107,7 @@ opt-level = "s"
  }
 ```
  
- Luego hay que crear la carpeta ".cargo" y en esta el archivo "config.toml", el cual contendra lo siguiente:
+ Luego hay que crear la carpeta ".cargo" y en está el archivo "config.toml", el cual contendra lo siguiente:
  
 ```toml
  [build]
@@ -116,7 +116,7 @@ opt-level = "s"
  [unstable]
  build-std = ["core"]
  
- Y para la configuracion esto seria todo, luego el código para probar si funciona es el siguente:
+ Y para la configuración esto sería todo, luego el código para probar si funciona es el siguente:
  
  #![no_std]
  #![no_main]
@@ -148,7 +148,7 @@ opt-level = "s"
  }
 ```
  
- Y al ejecutar **cargo build** deberiamos tener una compilación exxitosa que dos dara como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace más optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
+ Y al ejecutar **cargo build** deberíamos tener una compilación exxitosa que dos dará como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace más optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
  
 ```sh
  #! /usr/bin/zsh
@@ -159,5 +159,5 @@ opt-level = "s"
  
  Y entonces todo deberia funcionar correctamente y el led incluido en el arduino conectado en el pin 13 deberia parpadear.
 
- Esto es possible gracias a la librería [avr-hal](https://github.com/Rahix/avr-hal), en su github esta ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
+ Esto es possible gracias a la librería [avr-hal](https://github.com/Rahix/avr-hal), en su github está ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
 

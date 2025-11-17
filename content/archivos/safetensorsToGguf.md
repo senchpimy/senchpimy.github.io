@@ -19,4 +19,4 @@ tensores de pytorch
 
 ## Safetensors A GGUF
 
-Una forma de convertir un repositorio que contenga modelos *safetensors* a un solo archivo *GGUF* es mediante esta [página](https://huggingface.co/spaces/ggml-org/gguf-my-repo)
+Una forma de convertir un repositorio que contenga modelos *safetensors* a un solo archivo *GGUF* es mediante está [página](https://huggingface.co/spaces/ggml-org/gguf-my-repo)

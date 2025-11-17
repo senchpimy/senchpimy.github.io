@@ -126,7 +126,7 @@ while True:
 
 ```
 
- Para finalizar le quise poner a la pantalla el logo de ***Copland Os*** pues este script se ejecuta al prenderse y se veria como si la computadora fuera de esa marca, para eso cree una imagen en png de 128x64 para ajustarse a el tamaño de la pantalla oled, asi fue como quedo 
+ Para finalizar le quise poner a la pantalla el logo de ***Copland Os*** pues este script se ejecuta al prenderse y se veria como si la computadora fuera de esa marca, para eso cree una imagen en png de 128x64 para ajustarse a el tamaño de la pantalla oled, asi fue como quedó 
 
 
 ![](/wallpapers/copland.png)
