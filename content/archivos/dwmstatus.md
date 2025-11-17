@@ -42,8 +42,8 @@ date: "09 Nov 2022"
  
 **^b#XXXXXX^**
  
- Y el siguiente codigo pondra el fondo de el color **XXXXXX**.
- por lo que el siguiente codigo
+ Y el siguiente código pondra el fondo de el color **XXXXXX**.
+ por lo que el siguiente código
 ```sh
  xsetroot -name "^c#55cdfc^^r3,3,14,14^^f20^"
 ``` 

@@ -62,7 +62,7 @@ class Solution {
 ```
 
 Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, asi que si algun elemento supera este minimo este se debe de insertar en su poscicion correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
-pero este codigo no funciono, solo logro pasar la mitad de los casos.
+pero este código no funciono, solo logro pasar la mitad de los casos.
 
 Pero me encontre esta solucion que me parecio interesante.
  
@@ -93,7 +93,7 @@ class Solution {
  
 ```
 
- Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilacion dentro del codigo, al buscarlo me encontre que "pragma" le permite al compilador cambiar las caracteristicas de la compilacion por archivo.
+ Primero yo no sabia que con GCC se podia modificar las caracteristicas de la compilacion dentro del código, al buscarlo me encontre que "pragma" le permite al compilador cambiar las caracteristicas de la compilacion por archivo.
 
  Luego esta linea nucna la habia visto antes:
  
@@ -101,7 +101,7 @@ class Solution {
  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 ```
  
- Lo que hace esta parte es primero es evitar la sincronizacion entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del codigo.
+ Lo que hace esta parte es primero es evitar la sincronizacion entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del código.
  
 ```cpp
  cin.tie(NULL); cout.tie(NULL);

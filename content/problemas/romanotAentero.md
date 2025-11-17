@@ -40,7 +40,7 @@ func romanToInt(s string) int {
 Este problema se resuelve primero mapeando cada posible caracter a su respectivo valor, luego se itera por todo el array y solo se busca la posible condicion de que el numero este restando y para cubrir esta condicion
 hay que preguntar si el siguiente caracter es mayor.
 
-Mi primer intento fue el siguiente codigo:
+Mi primer intento fue el siguiente código:
 
 ```go
 func romanToInt(s string) int {
@@ -69,7 +69,7 @@ func romanToInt(s string) int {
 }
 ```
 
-Y es exactamente el mismo codigo, pero esta solucion salio como muy lenta, entonces vi la siguiente solucion, la cual se supone era 87% más rapida:
+Y es exactamente el mismo código, pero esta solucion salio como muy lenta, entonces vi la siguiente solucion, la cual se supone era 87% más rapida:
 
 ```go
 func romanToInt(s string) int {
@@ -102,4 +102,4 @@ func romanToInt(s string) int {
 }
 ```
 
-Y note que la unica diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte de el codigo, al cambiar esto en mi primera version tambien logre tener una respuesta más rapida que el 87%
+Y note que la unica diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte de el código, al cambiar esto en mi primera version tambien logre tener una respuesta más rapida que el 87%

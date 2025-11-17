@@ -127,7 +127,7 @@ compinit
 zstyle ':completion:\*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[.\_-]=\* r:|=\*' 'l:|=\* r:|=\*'
 eval "$(dircolors)"
 zstyle ':completion:\*' list-colors ${(s.:.)LS\_COLORS}
-# FInalmente utilize syntax-highlighting para los comandos, para lograr esto tuve que instalar **zsh-syntax-highlighting** con pacman y luego activarlo con el siguiente codigo
+# FInalmente utilize syntax-highlighting para los comandos, para lograr esto tuve que instalar **zsh-syntax-highlighting** con pacman y luego activarlo con el siguiente código
  
  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
  ```

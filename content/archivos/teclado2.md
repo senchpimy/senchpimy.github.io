@@ -601,7 +601,7 @@ if __name__ == '__main__':
  
  OLED_ENABLE = yes
  
- Finalmente el codigo que utilice fue una version modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veia y como funcionaban las pantallas, ademas que este es **tematico**
+ Finalmente el código que utilice fue una version modificada del firmware para el teclado **lily58** del keymap de **druotoni**, este lo adapte para que funcionara con mi teclado, esto lo hice pues me gusto mucho como se veia y como funcionaban las pantallas, ademas que este es **tematico**
  de **Serial Experiments Lain** por lo que todavia me gusto más.
  
 ![](/pro_img/teclado2_7.gif)
@@ -611,7 +611,7 @@ if __name__ == '__main__':
   
   
 
- El codigo fuente del keymap original [se encuentra aqui](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, despues en el archivo **keymap.c**
+ El código fuente del keymap original [se encuentra aqui](https://github.com/qmk/qmk_firmware/tree/master/keyboards/lily58/keymaps/druotoni), las modificaciones que realice fueron primero copiar esta carpeta de druotoni a la carpeta de keymaps del teclado **5x6_68**, despues en el archivo **keymap.c**
  hay que agregar estas lineas:
 ```c
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

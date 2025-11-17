@@ -179,7 +179,7 @@ class hand():
  ```
  Que segun el dedo que se quiere mover, este enviara el comando necesario al arduino.
 
- y finalmente con el esto el codigo de python quedaria como:
+ y finalmente con el esto el código de python quedaria como:
 
 ```py
  import cv2

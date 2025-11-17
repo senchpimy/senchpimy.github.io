@@ -3,13 +3,13 @@ title: "C en Rust"
 date: "05 Dec 2023"
 ---
 
-Este es un pequeño resumen de como usar codigo de C existente en proyectos de Rust.
+Este es un pequeño resumen de como usar código de C existente en proyectos de Rust.
 
 ## build.rs
 
-Este es un pequeño programa que se encargara de compilar el codigo de C para despues añadirlo a el codigo de Rust.
+Este es un pequeño programa que se encargara de compilar el código de C para despues añadirlo a el código de Rust.
 
-En este caso especificamos el codigo y la compilacion
+En este caso especificamos el código y la compilacion
 
 **build.rs**
 ```rs

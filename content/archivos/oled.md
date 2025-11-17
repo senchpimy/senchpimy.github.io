@@ -39,7 +39,7 @@ echo #############python-pil installed#############
 ```
 
 
- Tambien modifique el codigo del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi codigo se apaga a los dos minutos, para cambier este tiempo solo hay que modificar la variable **Tiempo**
+ Tambien modifique el código del video original pues no me gustaba que la pantalla se quedara prendida todo el tiempo, por lo que en mi código se apaga a los dos minutos, para cambier este tiempo solo hay que modificar la variable **Tiempo**
 
 
 ```py
@@ -134,7 +134,7 @@ while True:
 
 
  Para mi caso opte por ponerle el texto de ***Copland Os*** en los primeros 16 pixeles pues en el modelo de la pantalla que ocupe los primeros 16 pixeles son de color amarillo, para esto solo tuve que convertir la imagen en formato ppm.
- Entonces para el codigo final solo le tuve que agregar la parte en negritas para que usara la imagen.
+ Entonces para el código final solo le tuve que agregar la parte en negritas para que usara la imagen.
 
 
 ```py

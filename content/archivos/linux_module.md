@@ -6,7 +6,7 @@ date: "2024-01-16"
 Estoy haciendo un servidor grafico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidi usar las lecturas analogicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intencion es hacer lo mismo, pero con un joystick
 
 ## Comunicacion Serial
-Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analogicas directamente, entonces para estos casos escribi un programa en un arduino, el plan es crear una comunicacion serial entre los dos para comunicar las lecturas analogicas de del joystick, este es el codigo que 
+Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analogicas directamente, entonces para estos casos escribi un programa en un arduino, el plan es crear una comunicacion serial entre los dos para comunicar las lecturas analogicas de del joystick, este es el código que 
 desarrolle:
 
 ```ino
@@ -39,7 +39,7 @@ void loop() {
 }
 ```
 
-Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma serial en la configuración y el codigo para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribi en c:
+Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma serial en la configuración y el código para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribi en c:
 
 ```c
 #include <fcntl.h>

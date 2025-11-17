@@ -84,7 +84,7 @@ nmap &ltspace&gtb &ltcmd&gtTelescope buffers&ltCR>
 
 
 
-[Coc.nvim](https://github.com/neoclide/coc.nvim) Es un plugin que funciona para atuocompletar codigo en diferentes lenguajes de programacion, se requiere mucha configuracion pero, existe una configuracion por defecto que esta disponible en la pagina de github del el programa, esa misma configuracion es la que uso y la que me funciona bien
+[Coc.nvim](https://github.com/neoclide/coc.nvim) Es un plugin que funciona para atuocompletar código en diferentes lenguajes de programacion, se requiere mucha configuracion pero, existe una configuracion por defecto que esta disponible en la pagina de github del el programa, esa misma configuracion es la que uso y la que me funciona bien
  
 
 ```vim
@@ -312,7 +312,7 @@ END
 
 
 
-[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia version y meti los cambio en el codigo fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuracion se hace al igual que **gitsigns** y **lualine**
+[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia version y meti los cambio en el código fuente de el plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuracion se hace al igual que **gitsigns** y **lualine**
 
 
 ```lua
@@ -392,7 +392,7 @@ Mi configuracion para tener un snippet de la descripcion de estos plugins es lo 
  \ 'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
  \ },
  \ 'snippets': {
- \ 'descplug':"&lth1>\n\t${child}|\n</h1>\n&ltdiv class=\"text\">\n&lta href=\"https://github.com/\"></a>\n</div>\n&ltdiv class=\"codigo\">\n</div>"
+ \ 'descplug':"&lth1>\n\t${child}|\n</h1>\n&ltdiv class=\"text\">\n&lta href=\"https://github.com/\"></a>\n</div>\n&ltdiv class=\"código\">\n</div>"
  \ },
  \ },
  \}
@@ -582,7 +582,7 @@ require('illuminate').configure()
 
 
 
-[Jaq,nvim](https://github.com//is0n/jaq-nvim) Como su nombre lo indica es un plugin para poder ejecutar codigo dentro de vim/neovim, este plugin necesita una configuracion pues necesita saber que comando de shell ejecutar con cierto tipo de archivos, la configuracion que esta en su pagina de github funciona muy bien, y para ejecutarlo solo necesitamos ejecutar como comando de vim **Jaq** y esto lo empezara a ejecutar
+[Jaq,nvim](https://github.com//is0n/jaq-nvim) Como su nombre lo indica es un plugin para poder ejecutar código dentro de vim/neovim, este plugin necesita una configuracion pues necesita saber que comando de shell ejecutar con cierto tipo de archivos, la configuracion que esta en su pagina de github funciona muy bien, y para ejecutarlo solo necesitamos ejecutar como comando de vim **Jaq** y esto lo empezara a ejecutar
 quoso
 
 
@@ -733,7 +733,7 @@ require'nvim-treesitter.configs'.setup {
 
 
 
- En la version +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo [Winbar](https://github.com/senchpimy/winbar.nvim) hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con [Nvim-Navic](https://github.com/SmiteshP/nvim-navic) hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos codigo es un objeto, funcion, etc.
+ En la version +0.8 de Neovim agregaron la posibilidad de poder agregar winbar a neovim, esto es un oequeño texto en la parte superior derecha de la pantalla que muestra la ubicacion del archivo [Winbar](https://github.com/senchpimy/winbar.nvim) hace que podamos agreagar mayor funcionalidad y personalizacion a este elemento, este plugin combinado con [Nvim-Navic](https://github.com/SmiteshP/nvim-navic) hace que junto con lsp de neovim podamos ver si el elemento en el que escribimos código es un objeto, funcion, etc.
 
 
 ```lua
@@ -779,7 +779,7 @@ require('lspconfig')['tsserver'].setup{
 
 
 
-[Trouble.nvim](https://github.com/folke/trouble.nvim) es un plugin que agrega una revision de codigo en modo Normal, marca los posibles errores, las advertencias y hasta faltas de ortografia
+[Trouble.nvim](https://github.com/folke/trouble.nvim) es un plugin que agrega una revision de código en modo Normal, marca los posibles errores, las advertencias y hasta faltas de ortografia
 
 
 ```lua

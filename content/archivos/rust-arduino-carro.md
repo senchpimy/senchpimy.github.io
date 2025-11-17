@@ -17,7 +17,7 @@ date: "04 Feb 2023"
 * **MOTOR2B:** Pin D7
 
 
- Para probar las conecciones y que el concepto funcionaba use el siguiente codigo:
+ Para probar las conecciones y que el concepto funcionaba use el siguiente código:
  
 ```ino
 

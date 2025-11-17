@@ -3,9 +3,9 @@ title: "Go desde Lua"
 date: "27 oct 2024"
 ---
 
-## Llamando codigo de Go desde Lua
+## Llamando código de Go desde Lua
 
-Primero hay que tener un codigo/funciones de go como las siguiente:
+Primero hay que tener un código/funciones de go como las siguiente:
 
 ```go
 func add(x int, y int) int{
@@ -13,7 +13,7 @@ func add(x int, y int) int{
 }
 ```
 
-luego hay que importar la libreria necesaria para convertirlo a codigo de C y tambien indicar que dicha funcion va a ser exportada
+luego hay que importar la libreria necesaria para convertirlo a código de C y tambien indicar que dicha funcion va a ser exportada
 
 ```go
 import "C"

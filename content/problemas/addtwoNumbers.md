@@ -107,4 +107,4 @@ def add_two_numbers(l1, l2)
 end
 ```
 
-Este programa toma otra alternativa, suma los numeros como los va leyendo y si la suma de los numeros es superior o igual a 10 guarda el residuo y lo añade al siguiente, este codigo no crea una nueva lista, pues guarda los nuevos valores en un nuevo array
+Este programa toma otra alternativa, suma los numeros como los va leyendo y si la suma de los numeros es superior o igual a 10 guarda el residuo y lo añade al siguiente, este código no crea una nueva lista, pues guarda los nuevos valores en un nuevo array

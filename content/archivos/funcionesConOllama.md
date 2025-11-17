@@ -94,7 +94,7 @@ print(response)
 
 ## EXTRA: Creando Objetos
 
-Se supone que tambien se pueden generar objetos dado un prompt, por ejemplo con el codigo siguiente:
+Se supone que tambien se pueden generar objetos dado un prompt, por ejemplo con el código siguiente:
 
 ```py
 from langchain_core.prompts import PromptTemplate

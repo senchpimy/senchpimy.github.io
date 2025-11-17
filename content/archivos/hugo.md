@@ -17,4 +17,4 @@ Yo decidi reescribir mi pagina en markdown con ayuda de unos programas que hice 
 
  Las paginas que van a ser generadas se tienen que escribir como archivos markdown, esto estandariza como se veran los archivos, asi como los hace portables y viables a cambiar de formato con algun interprete si es que el html en algun momento es despreciado.
 
- Algo extra que gane por este cambio es que el codigo es añadido con resaltado de sintaxis de forma automatica, solo debo crear el bloque de codigo y especificar el lenguaje.
+ Algo extra que gane por este cambio es que el código es añadido con resaltado de sintaxis de forma automatica, solo debo crear el bloque de código y especificar el lenguaje.

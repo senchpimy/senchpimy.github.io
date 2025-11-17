@@ -21,7 +21,7 @@ class Solution(object):
  
 ```
 
- La logica de este codigo consiste en solo una linea que regresa una lista de strings, la parte **("Fizz"\*(i%3==1)+"Buzz"\*(i%5==1)or str(i))** esta entre parentesis y esta adelante del for pues esto hace que se agregue el valor entre parentesis la cantidad de veces que llama el for, el cual va desde 1 hasta n+1 pues la funcion **range** toma el primer argumento hasta el segundo menos uno, por eso se necesita agregar uno.
+ La logica de este código consiste en solo una linea que regresa una lista de strings, la parte **("Fizz"\*(i%3==1)+"Buzz"\*(i%5==1)or str(i))** esta entre parentesis y esta adelante del for pues esto hace que se agregue el valor entre parentesis la cantidad de veces que llama el for, el cual va desde 1 hasta n+1 pues la funcion **range** toma el primer argumento hasta el segundo menos uno, por eso se necesita agregar uno.
 
  El valor que se evalua es el siguiente:
 
