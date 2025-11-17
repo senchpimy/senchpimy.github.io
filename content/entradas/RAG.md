@@ -22,8 +22,8 @@ este vector es guardado en una base de vectores
 Dado un prompt por el usuario, este prompt es analizado y marcado como un vector, después se buscan en la base de datos creada
 los vectores más cercanos a el prompt y finalmente está información que coincide es extraida. 
 
-Esta información se puede obtener de diferentes formas, una de ellas es una busqueda lexica, es decir contar cuantas palabras coinciden entre
-lo que se está buscando y la información que se tiene. También existe la busqueda semantica que es buscar por palabras/temas clave
+Esta información se puede obtener de diferentes formas, una de ellas es una búsqueda lexica, es decir contar cuantas palabras coinciden entre
+lo que se está buscando y la información que se tiene. También existe la búsqueda semantica que es buscar por palabras/temas clave
 
 Por lo que un modelo **BERT** que es un transformer que solo es un encoder, es capaz de codificar y encontrar similaridades semanticas entre 
 los documentos/información y lo que se busca. Por lo que midiendo las distancias vectoriales podemos encontrar los documentos más relevantes
@@ -54,7 +54,7 @@ Una tecnica para mejorar la genracion de resultados relevantes es no solo tomar 
 *K* elementos que sean relevantes, luego estos resultados son pasados por un LLM para clasificar que resultados son los más relevantes que podrian
 contestar la pregunta, y este modelo también puede ser modelado para ser especifico en un dominio.
 
-También se puede aplciar tecnicas como dados *K* vectores relevantes eliminar resultados que no esten relacionados, este tecnica se llama **autocut**,
+También se puede aplciar tecnicas como dados *K* vectores relevantes eliminar resultados que no estén relacionados, este tecnica se llama **autocut**,
 O también se puede hacer que se evalue que tan relevante es la información que se obtuvo de tal manera que si está no pasa cierto limite,
 forza al modelo a generar una respuesta en la que dice que no posee información relevante en lugar de alucinar algún resultado.
 

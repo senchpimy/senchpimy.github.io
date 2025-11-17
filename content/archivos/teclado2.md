@@ -7,8 +7,8 @@ bonotes y no se pueden mover tan fácil, etc.
 
 Entonces mejor decidí hacer una nueva versión de el teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresión 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
 de el modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estándar de crear estos teclados y es muy fácil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
-que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las caracteristicas por la cual lo escoji es por que por defecto tiene la opción de generar los modelos con un espacio para una pantalla oled de 128x32 con 
-varios metodos para colocar está en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opción de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
+que no solo parece que incluye mejoras en la generacion de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las características por la cual lo escoji es por que por defecto tiene la opción de generar los modelos con un espacio para una pantalla oled de 128x32 con 
+varios métodos para colocar está en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opción de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
 puede usar.
 
 ### Materiales Necesarios
@@ -46,7 +46,7 @@ Para construir está versión del teclado, necesitarás los siguientes component
 ![](/pro_img/teclado2_2.png)
 
  Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripción de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generará un 
- archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenía, mantuve la corvatura por defecto pues pense que sería la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
+ archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenía, mantuve la corvatura por defecto pues pensé que sería la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
  y finalmete seleccioné el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedó asi:
  
 ```py

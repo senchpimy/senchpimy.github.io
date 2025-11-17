@@ -3,7 +3,7 @@ title: "rust-arduino-carro"
 date: "04 Feb 2023"
 ---
 
- Después de hacer el arduino blink, pense en hacer algo más complicado usando rust y arduino, plo que pense en hacer en un robot con un sensor ultrasonico de distancia que pueda detectar cualquier objeto y que se mueva si es que la distancia hacía el objeto es inferior a una variable. Use un arduino uno, un sensor ultrasonico HC-SR04, una placa personal usando el chip l298n-d que funciona como puente H, dos motores y dos pilas de 9v
+ Después de hacer el arduino blink, pensé en hacer algo más complicado usando rust y arduino, plo que pensé en hacer en un robot con un sensor ultrasonico de distancia que pueda detectar cualquier objeto y que se mueva si es que la distancia hacía el objeto es inferior a una variable. Use un arduino uno, un sensor ultrasonico HC-SR04, una placa personal usando el chip l298n-d que funciona como puente H, dos motores y dos pilas de 9v
    
 
   

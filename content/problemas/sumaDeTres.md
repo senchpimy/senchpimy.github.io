@@ -20,17 +20,17 @@ def three_sum(nums)
         next if i>0 && nums[i-1] == nums[i]
         to_search = -nums[i]
         left=i+1
-        rigth = len
-            while left < rigth
-                current = nums[left]+nums[rigth]
+        right = len
+            while left < right
+                current = nums[left]+nums[right]
                 if current == to_search
-                    result << [nums[i], nums[left], nums[rigth]]
+                    result << [nums[i], nums[left], nums[right]]
                     left+=1
-                    while nums[left]==nums[left-1] and left<rigth
+                    while nums[left]==nums[left-1] and left<right
                         left+=1
                     end
                 elsif current > to_search
-                    rigth-=1
+                    right-=1
                 else
                     left+=1
                 end

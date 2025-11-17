@@ -40,8 +40,8 @@ Como la raspberry usa otra arquitectura (armv7) tuve que usar un contenedor de d
 Ya que tenemos el programa terminado y la pantalla lista necesitamos saber como podemos combinar los dos.
 
 Mi primera opción fue usar TinyWl que es un administrador de ventanas de Wayland que es muy simple y por lo tanto usa mínimos recursos
-tuve que compilarlo desde la raspberry pi pues linkeaba las librerias de mi computadora (arch) y al momento de ejecutarlo (debian) no
-encontraba las librerias, después tuve que compilarlo desde un commit del 2020 pues **wlroots** la librería que usa tinywl se encuentra
+tuve que compilarlo desde la raspberry pi pues linkeaba las librerías de mi computadora (arch) y al momento de ejecutarlo (debian) no
+encontraba las librerías, después tuve que compilarlo desde un commit del 2020 pues **wlroots** la librería que usa tinywl se encuentra
 en la versión 0.11 en debian.
 
 Pero esto fue inutil ya que este Tinywl no tenía soporte para la pantalla touch, es decir no detectaba el touch.

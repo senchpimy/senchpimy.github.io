@@ -3,11 +3,11 @@ title: "Linux Module"
 date: "2024-01-16"
 ---
 
-Estoy haciendo un servidor gráfico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidí usar las lecturas analogicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intencion es hacer lo mismo, pero con un joystick
+Estoy haciendo un servidor gráfico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidí usar las lecturas analógicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intención es hacer lo mismo, pero con un joystick
 
 ## Comunicacion Serial
-Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analogicas directamente, entonces para estos casos escribi un programa en un arduino, el plan es crear una comunicación serial entre los dos para comunicar las lecturas analogicas de del joystick, este es el código que 
-desarrolle:
+Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analógicas directamente, entonces para estos casos escribí un programa en un arduino, el plan es crear una comunicación serial entre los dos para comunicar las lecturas analógicas de del joystick, este es el código que 
+desarrollé:
 
 ```ino
 const int pin_x = A0;
@@ -39,7 +39,7 @@ void loop() {
 }
 ```
 
-Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma serial en la configuración y el código para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribi en c:
+Y en el caso de la Raspberry pi hay que primero activar la entrada de datos de forma serial en la configuración y el código para leer desde la Raspberry se puede hacer de muchas formas pero como tengo que ahorrar recursos, yo lo escribí en c:
 
 ```c
 #include <fcntl.h>
@@ -122,12 +122,12 @@ void match_input() {
   char up[] = {"u"};
   char down[] = {"d"};
   char left[] = {"l"};
-  char rigth[] = {"r"};
+  char right[] = {"r"};
   char v = buffer_f[0];
   if (v == 'X') {
     value = atoi(((char *)buffer_f) + 1);
-    if (value > 580) { // rigth
-      printf("%s", rigth);
+    if (value > 580) { // right
+      printf("%s", right);
     } else if (value < 400) { // left
       printf("%s", left);
     }
@@ -144,10 +144,10 @@ void match_input() {
   }
   if (v == 'b') {
     switch (buffer_f[1]) {
-    case 'p': // Presed
+    case 'p': // Pressed
       printf("%s", pressed);
       break;
-    case 'r': // relesed
+    case 'r': // released
       printf("%s", released);
       break;
     }
@@ -155,6 +155,6 @@ void match_input() {
 }
 ```
 
-Me hubiera gustado hacer que se mantuviera la igualdad en los valores que linux genera, pero estos también incluyen datos como cuanto se movio en la dirección indicada, y siento que para mi proyecto eso está fuera de lo que intenta ser
+Me hubiera gustado hacer que se mantuviera la igualdad en los valores que linux genera, pero estos también incluyen datos como cuanto se movió en la dirección indicada, y siento que para mi proyecto eso está fuera de lo que intenta ser
 
 

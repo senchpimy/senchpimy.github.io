@@ -8,7 +8,7 @@ katex: true
 
 Es un algoritmo no determinista (con una misma entrada puede tener salidas diferentes) usado para aproximar expresiones matematicas complejas.
 
-Este metodo puede ser aplicado a cualquier problema estocastico (depende de procesos aleatorios) o determinista (sistema en el que el azar no está involucrado en el desarrollo de los futuros estados del sistema). A diferencia de los metodos numericos que se basan en
+Este metodo puede ser aplicado a cualquier problema estocastico (depende de procesos aleatorios) o determinista (sistema en el que el azar no está involucrado en el desarrollo de los futuros estados del sistema). A diferencia de los métodos numericos que se basan en
 evaluaciones en N puntos en un espacio de M dimenciones para producir una solucion aproximada, el metodo de montecarlo tiene un error absoluto que decrece como:
 $$ \frac{1}{\sqrt{N}}$$
 

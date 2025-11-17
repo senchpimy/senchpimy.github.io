@@ -123,7 +123,7 @@ Como podemos ver, en zig se incluyen ciertas cosas que son buenas que no forman 
 como valores y forzar a leerlos, demás de los nombres de los tipos que cuando se compila para otras arquitecturas el tamaño de las variables es más
 explicito
 
-Y el archivo de construccion (build.zig) para linkear las librerias de C quedaría como:
+Y el archivo de construccion (build.zig) para linkear las librerías de C quedaría como:
 
 ```zig
 const std = @import("std");

@@ -7,7 +7,7 @@ date: "19 Jun 2023"
 
 
 
- Este problema consiste en regresar el encontrar la diferencia maxima entre un mínimo y un maximo después del nminimo.
+ Este problema consiste en regresar el encontrar la diferencia maxima entre un mínimo y un máximo después del nminimo.
 
  Yo primero lo intente por fureza bruta, intentando cada posibilidad hasta obtener el mayor haciendo de mi solucion O(N^2), haciendolo bastante lento
  

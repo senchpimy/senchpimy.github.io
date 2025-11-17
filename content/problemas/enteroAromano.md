@@ -45,7 +45,7 @@ def int_to_roman(num)
     return m[mm]+c[cc]+d[dd]+u[uu]
 end
 ```
-Esta versión está en el top 70% de velocidad y 60% en memoria. Aunque está solucion es correcta la solucion que se debia dar es más o menos la siguiente:
+Esta versión está en el top 70% de velocidad y 60% en memoria. Aunque está solucion es correcta la solucion que se debía dar es más o menos la siguiente:
 
 
 ```rb

@@ -3,7 +3,7 @@ title: "Teclado"
 date: "23 Jun 2023"
 ---
 
- Diseñe y programe un teclado, además que lo imprimi. El teclado del el cual me base fue el lily58, pues ya que este se me hizo interesante y habia archivos
+ Diseñe y programe un teclado, además que lo imprimí. El teclado del el cual me base fue el lily58, pues ya que este se me hizo interesante y habia archivos
  disponibles para poder imprimirlo.
  
 ![](/pro_img/iris_keyboard.webp)
@@ -11,7 +11,7 @@ date: "23 Jun 2023"
 
  Para poder hacerlo necesité comprar unos botones mecanicos, pues estos son los que dan la flexibilidad de poder usarlos en cualquier posición y de cualquier manera,
  también necesité unos arduino pro-micro, estos en especificos pues su microprocesador a diferencia de otros arduino a excepcion del **Leonardo** ya tiene incluida
- la capacidad de ser leido como un periferico por las computadoras solo con el uso de unas librerias, pero el **Leonardo** es demasiado grande y costoso, pues se 
+ la capacidad de ser leido como un periferico por las computadoras solo con el uso de unas librerías, pero el **Leonardo** es demasiado grande y costoso, pues se 
  van a necesitar dos de estos elementos, uno para cada mitad del teclado
 
  Y finalmente use unas pantallas Oled que se pueden comunicar con arduino por el protocolo i2c, usar estas fue un error, pues aunque ya hay diseños con otras pantallas,

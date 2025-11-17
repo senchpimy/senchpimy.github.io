@@ -84,7 +84,7 @@ date: "29 Oct 2022"
 ```
  
 
- Y como los valores que tengo para el Kp es 33.82, para Ki es 5.16 y para Kd es 55.41 pues son los que cambiare dejando el anterior en lo siguiente:
+ Y como los valores que tengo para el Kp es 33.82, para Ki es 5.16 y para Kd es 55.41 pues son los que cambiaré dejando el anterior en lo siguiente:
  
 
 ```make
@@ -109,7 +109,7 @@ date: "29 Oct 2022"
 
  Cuando cambie de hotend este traía un termistor aparte y como era diferente tenía una resistencia diferente que necesita
  ser especificada en el firmware de Marlin, lo que hice fue que en la descripción de el hotend que compré, este tenía una
- descripción de el termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la busqueda "Marlin" y encontré que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valor es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
+ descripción de el termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la búsqueda "Marlin" y encontré que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valor es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
  
 ## Extrusor
 

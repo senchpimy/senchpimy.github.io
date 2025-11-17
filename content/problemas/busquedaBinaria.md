@@ -7,7 +7,7 @@ date: "17 Jun 2023"
 
 
 
- Este problema consiste en implementar la busqueda binaria
+ Este problema consiste en implementar la búsqueda binaria
  
 ### Solucion
 

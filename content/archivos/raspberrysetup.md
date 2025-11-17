@@ -7,10 +7,10 @@ date: "31 Jul 2022"
 
  La configuración y funcionamiento de el script de la pantalla ya fue explicado en [este enlace](oled.html).
 
- Para el boton intente utilizar [este script](https://github.com/Howchoo/pi-power-button) debido a que tiene la funcionalidad de apagar y prender la raspberry pi desde el mismo boton, este no fue implementado debido a que interferia con la comunicación I2C de la pantalla por lo que escribi mi porpio programa, con antirebote y con un delay para que la Raspberry no se apague con movientos o con presiones accidentales, este es el código (Python) 
+ Para el boton intente utilizar [este script](https://github.com/Howchoo/pi-power-button) debido a que tiene la funcionalidad de apagar y prender la raspberry pi desde el mismo boton, este no fue implementado debido a que interferia con la comunicación I2C de la pantalla por lo que escribí mi porpio programa, con antirebote y con un delay para que la Raspberry no se apague con movimientos o con presiones accidentales, este es el código (Python) 
 
 ```py
- #Aqui no están incluidas las librerias
+ #Aquí no están incluidas las librerías
  pin=27
  i=0
  GPIO.setup(pin,GPIO.IN,pull\_up\_down=GPIO.PUD\_UP)

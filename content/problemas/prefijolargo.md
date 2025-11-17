@@ -6,7 +6,7 @@ date: 2024-06-08
 ## Prefijo
 
 Este problema consisten en dado un array de strings regresar el prefijo (los primeros caracteres) como string más largo que todos los strings de
-el array tengan en comun
+el array tengan en común
 
 ### Solucion
 
@@ -28,4 +28,4 @@ def longest_common_prefix(strs)
 end
 ```
 Este programa toma el primer de el array, luego por cada elemento restante de el array va a comparar sus caracteres iniciales, y cuando detecta
-que son diferentes entonces significa que se encontro el largo maximo de el prefijo y se regresa el prefijo
+que son diferentes entonces significa que se encontro el largo máximo de el prefijo y se regresa el prefijo

@@ -1,9 +1,9 @@
 ---
-title: "Evaluar Notacion Polaca Inversa"
+title: "Evaluar Notación Polaca Inversa"
 date: "14 Jul 2024"
 ---
 
-## Evaluar Notacion Polaca Inversa
+## Evaluar Notación Polaca Inversa
 
 Este problema consisten en dada una lista de numeros y símbolos evaluar está lista como si fuiera una notación polaca
 

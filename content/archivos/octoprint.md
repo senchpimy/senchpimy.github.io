@@ -3,7 +3,7 @@ title: "Octoprint"
 date: "2024-01-16"
 ---
 
-Octoprint  es un programa que crea un servidor en el podemos manejar y monitorear impresoras 3d, actualmente lo estoy ejecutando en una raspberry pi, pensaba ejecutarlo en un dispositivo android, pero necesito rootearlo para poder tener permiso a la unica salida de datos, lo único que no 
+Octoprint  es un programa que crea un servidor en el podemos manejar y monitorear impresoras 3d, actualmente lo estoy ejecutando en una raspberry pi, pensaba ejecutarlo en un dispositivo android, pero necesito rootearlo para poder tener permiso a la única salida de datos, lo único que no 
 se como hacer es de alguna forma poder ejecutar comandos definidos, esto pues acomode un servomotor al apagador de la impresora para poder también poder prenderla y apagarla a la distancia, el apagador está en la fuente de poder y el código que ejecuto es el siguiente
 
 ```py

@@ -75,7 +75,7 @@ Y en mi caso me ocurrio el siguiente error:
 [root@milkv-duo]~# ./binary 
 -sh: binary: not found
 ```
-Este error ocurre por que no encuentra las librerias dinamicas. Podemos ver cuales son las librerias que este binario requiere con el siguiente comando 
+Este error ocurre por que no encuentra las librerías dinamicas. Podemos ver cuales son las librerías que este binario requiere con el siguiente comando 
 
 ```sh
 readelf -l binary 

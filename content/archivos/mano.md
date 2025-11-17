@@ -4,7 +4,7 @@ date: "28 Jul 2023"
 ---
 
 
- Construi una mano que hasta cierto nivel sigue los movientos de otra mano en base a una camara, para esto escribi el siguiente programa:
+ Construí una mano que hasta cierto nivel sigue los movimientos de otra mano en base a una cámara, para esto escribí el siguiente programa:
 ```py
 import cv2
 import os
@@ -45,10 +45,10 @@ while webcam.isOpened():
  ring = distancia(hand.landmark[mp_hand.HandLandmark.RING_FINGER_MCP],hand.landmark[mp_hand.HandLandmark.RING_FINGER_TIP])
  pinky = distancia(hand.landmark[mp_hand.HandLandmark.PINKY_MCP],hand.landmark[mp_hand.HandLandmark.PINKY_TIP])
  print(regla_de_tres(mitad,medio))
- print(regla_de_tres(mitad,indice\*1.12)) # Relacion 0.9:1 con el medio
- print(regla_de_tres(mitad,ring\*1.26)) # Relacion 0.8:1 con el medio
- print(regla_de_tres(mitad,pinky\*1.58)) # Relacion 0.6:1 con el medio
- #print(regla_de_tres(mitad,pulgar\*1.25)) # Relacion 0.8:1 con el medio
+ print(regla_de_tres(mitad,indice\*1.12)) # Relación 0.9:1 con el medio
+ print(regla_de_tres(mitad,ring\*1.26)) # Relación 0.8:1 con el medio
+ print(regla_de_tres(mitad,pinky\*1.58)) # Relación 0.6:1 con el medio
+ #print(regla_de_tres(mitad,pulgar\*1.25)) # Relación 0.8:1 con el medio
  mp_drawing_utils.draw_landmarks(img,hand, mp_hand.HAND_CONNECTIONS)
 
  cv2.imshow("image",img)
@@ -57,7 +57,7 @@ webcam.release()
 cv2.destroyAllWindows()
 ```
  
- Este programa usa **mediapipe** para poder obtener las imágenes de una camara y **opencv** para detectar ciertos puntos de la mano
+ Este programa usa **mediapipe** para poder obtener las imágenes de una cámara y **opencv** para detectar ciertos puntos de la mano
  
 ![](/pro_img/manos_ejemplos.png)
 ![](/pro_img/puntos_mano.png)
@@ -75,10 +75,10 @@ cv2.destroyAllWindows()
 
   
 
- Como se puede ver, no hay mucho control en el modelo más que hacía delante y hacía atras, por lo que el programa solo toma en cuenta la distancia desde la punta del dedo hasta la base de este, luego toma como referencia la distancia de la base del dedo medio hasta la muñeca para saber que tanto
- se movio cada dedo, esto para tener una aproximacion y siempre se mueva lo mismo sin importar que tan lejos este la mano de la calamara y el tamaño de la mano.
+ Como se puede ver, no hay mucho control en el modelo más que hacía delante y hacía atrás, por lo que el programa solo toma en cuenta la distancia desde la punta del dedo hasta la base de este, luego toma como referencia la distancia de la base del dedo medio hasta la muñeca para saber que tanto
+ se movió cada dedo, esto para tener una aproximación y siempre se mueva lo mismo sin importar que tan lejos este la mano de la calamara y el tamaño de la mano.
 
- Con estos datos saca una regla de tres para poder mapear el punto maximo a 180 y el mínimo a 0 que son que tanto se puede mover un servomotor.
+ Con estos datos saca una regla de tres para poder mapear el punto máximo a 180 y el mínimo a 0 que son que tanto se puede mover un servomotor.
    
 
   
@@ -144,7 +144,7 @@ void loop() {
 }
  ```
  
- Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se uraria python y la librería **Pyserial**, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto
+ Ahora que ya tenemos las dos partes funcionando debemos unirlas, para esto se usaría python y la librería **Pyserial**, y para hacerlo más modular con para hacerlos con objetos para tener la posibilidad de tener diferentes manos cree este objeto
  
  ```py
 import serial
@@ -177,7 +177,7 @@ class hand():
  self.ard.close()
  
  ```
- Que segun el dedo que se quiere mover, este enviara el comando necesario al arduino.
+ Que segun el dedo que se quiere mover, este enviará el comando necesario al arduino.
 
  y finalmente con el esto el código de python quedaría como:
 
@@ -228,10 +228,10 @@ while webcam.isOpened():
  mano.thumb(regla_de_tres(mitad,pulgar\*1.25))
  mano.middle(regla_de_tres(mitad,medio))
  #print(regla_de_tres(mitad,medio))
- #print(regla_de_tres(mitad,indice\*1.12)) # Relacion 0.9:1 con el medio
- #print(regla_de_tres(mitad,ring\*1.26)) # Relacion 0.8:1 con el medio
- #print(regla_de_tres(mitad,pinky\*1.58)) # Relacion 0.6:1 con el medio
- #print(regla_de_tres(mitad,pulgar\*1.25)) # Relacion 0.8:1 con el medio
+ #print(regla_de_tres(mitad,indice\*1.12)) # Relación 0.9:1 con el medio
+ #print(regla_de_tres(mitad,ring\*1.26)) # Relación 0.8:1 con el medio
+ #print(regla_de_tres(mitad,pinky\*1.58)) # Relación 0.6:1 con el medio
+ #print(regla_de_tres(mitad,pulgar\*1.25)) # Relación 0.8:1 con el medio
  mp_drawing_utils.draw_landmarks(img,hand, mp_hand.HAND_CONNECTIONS)
 
  cv2.imshow("image",img)

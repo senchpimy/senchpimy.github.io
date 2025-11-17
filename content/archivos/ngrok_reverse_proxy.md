@@ -10,9 +10,9 @@ Cuando desarrollamos una aplicación o un servicio en nuestra máquina local, a 
 Podríamos estar mostrando un prototipo a un cliente.
 El método tradicional implicaría configurar un servidor público, gestionar un dominio y configurar la red, lo cual puede ser complejo y lento.
 
-Una solución mucho más sencilla y rápida es usar una herramienta de túneling como ngrok.
+Una solución mucho más sencilla y rápida es usar una herramienta de túnel como ngrok.
 Esta utilidad crea un túnel seguro desde un servidor público de ngrok directamente a un puerto específico de nuestra computadora.
-En esencia, nos proporciona una URL pública que redirige todo el tráfico hacía nuestra aplicación local, sin necesidad de modificar nuestro router o firewall.
+En esencia, nos proporciona una URL pública que redirige todo el tráfico hacia nuestra aplicación local, sin necesidad de modificar nuestro router o firewall.
 
 Para empezar a usar ngrok, primero debemos instalarlo en nuestro sistema. La página oficial proporciona el siguiente comando para sistemas basados en Debian/Ubuntu:
 

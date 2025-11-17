@@ -15,6 +15,6 @@ Yo decidí reescribir mi página en markdown con ayuda de unos programas que hic
  Y en la carpeta **content** es donde se guarda cada post y carpeta del sitio web.
 
 
- Las páginas que van a ser generadas se tienen que escribir como archivos markdown, esto estandariza como se verán los archivos, asi como los hace portables y viables a cambiar de formato con algún interprete si es que el html en algún momento es despreciado.
+ Las páginas que van a ser generadas se tienen que escribir como archivos markdown, esto estandariza como se verán los archivos, asi como los hace portables y viables a cambiar de formato con algún intérprete si es que el html en algún momento es despreciado.
 
  Algo extra que gane por este cambio es que el código es añadido con resaltado de sintaxis de forma automática, solo debo crear el bloque de código y especificar el lenguaje.

@@ -67,7 +67,7 @@ pub extern "C" fn create_string(val: Option<&str>) -> *const c_char {
 }
 ```
 
-Si se tienen funciones que requieren estructuras especificas estas se tienen que declarar tanto en C como en Rust
+Si se tienen funciones que requieren estructuras específicas estas se tienen que declarar tanto en C como en Rust
 
 *Rust*
 ```rs

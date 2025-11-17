@@ -93,7 +93,7 @@ class Solution {
  
 ```
 
- Primero yo no sabia que con GCC se podía modificar las caracteristicas de la compilación dentro del código, al buscarlo me encontré que "pragma" le permite al compilador cambiar las caracteristicas de la compilación por archivo.
+ Primero yo no sabia que con GCC se podía modificar las características de la compilación dentro del código, al buscarlo me encontré que "pragma" le permite al compilador cambiar las características de la compilación por archivo.
 
  Luego está linea nucna la habia visto antes:
  
@@ -101,7 +101,7 @@ class Solution {
  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 ```
  
- Lo que hace está parte es primero es evitar la sincronizacion entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del código.
+ Lo que hace está parte es primero es evitar la sincronización entre stdin,stdout y stderr de C y las de cin, cout y cerr de C++, lo que se supone que puede mejorar la velocidad del código.
  
 ```cpp
  cin.tie(NULL); cout.tie(NULL);

@@ -2,7 +2,7 @@
 title: "Configuración de Neovim"
 date: "10 Aug 2022"
 ---
-En está entrada explicare todos los plugins que tengo en neovim y que función cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
+En está entrada explicaré todos los plugins que tengo en neovim y que función cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
  
 ## Indentline
 
@@ -34,7 +34,7 @@ nmap &ltspace&gtr &ltcmd&gtRnvimrToggle&ltCR>
 ```
  
 
- Esa unica linea de configuración hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver más opciones de su uso, se sale de la aplicación con "q", si se ejecuta en la aplicación de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuración era la siguiente
+ Esa única linea de configuración hace que con "Espacio+r" se abra el programa, en la documentacion se pueden ver más opciones de su uso, se sale de la aplicación con "q", si se ejecuta en la aplicación de ranger el comando ":q" se cerrara ranger pero seguira existiendo un gran cuadrado en donde estaba la ventana de el programa para eso también cree el siguiente comando que con "Espacio + q" se cerrara el programa y el espacio donde estaba, ahora ya no la ocupo pues todo se cierra solo con "q" pero la configuración era la siguiente
  
 
 ```vim
@@ -273,7 +273,7 @@ END
 
 
 
-[Suda.vim](https://github.com/lambdalisue/suda.vim) es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, est eplugin tiene 2 configuraciones, una es para que automáticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
+[Suda.vim](https://github.com/lambdalisue/suda.vim) es un plugin que nos permite editar archivos como super usuario son necesidad de salir de neovim y de tener que rehacer los cambios, este eplugin tiene 2 configuraciones, una es para que automáticamente se detecte los archivos que necesten sudo para ser vistos o editados y al momento de guardarlo pida la contraseña, y la segunda es un texto personalizado que se muestra al momento de solicitar la contraseña, yo no tengo ninguna de estas opciones activadas
  
 ## Vim-Lastplace
 
@@ -334,7 +334,7 @@ END
 
 
 
-[Vim-hexokinase](https://github.com/RRethy/vim-hexokinase) vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que está escribiendo, en mi caso está configurado para colorear las letras de el color que representan, la unica configuración que tengo es para poder lograr este efecto
+[Vim-hexokinase](https://github.com/RRethy/vim-hexokinase) vim hexokinase es un plugin que cuando detecta que el documento contiene un color escrito, ya sea en rgb, hex, o por nombre (red, purple, green, blue, etc) muestra en pantalla el color que que está escribiendo, en mi caso está configurado para colorear las letras de el color que representan, la única configuración que tengo es para poder lograr este efecto
  
 
 ```vim
@@ -435,7 +435,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen está función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo deje de usar, las configuraciones requeridas son las siguientes
+[Vim-choosewin](https://github.com/t9md/vim-choosewin) es un plugin para moverse facilmente entre las ventanas y tabs de vim, vim y neovim ya tienen está función incluida, pero apenas estoy aprendiento vim y este plugin me ayuda a hacerlo de una forma más visual, tal ves en el futuro lo dejé de usar, las configuraciones requeridas son las siguientes
 
 
 ```vim
@@ -463,7 +463,7 @@ let g:targets\_aiAI = ['<Space>a', '<Space>i', '<Space>A', '<Space>I']
 
 
 
-[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es más legible que la linea por defecto, además de que agrega otras funciones a la que está por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuración de vimscript, est eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
+[Bufferline.nvim](https://github.com/akinsho/bufferline.nvim) es un plugin que modifica la linea de vim/neovim de tabs/buffers, este plugin lo ocupo por que es más legible que la linea por defecto, además de que agrega otras funciones a la que está por defecto, lo malo es que para lograr esto el intercambio de tab al que estoy acotumbrado **gt** es despreciado por unos comandos, pero esto se puede cambiar en la configuración de vimscript, este eplugin tiene también muchas modificaciones esteticas, pero a mi me gusto el que trae por defecto al igual que otros plugins para que este se active necesita ser activado por lua
 
 
 ```vim
@@ -472,7 +472,7 @@ require("bufferline").setup{}
 END
 ```
 
-Para poder moverme entre tabs use la siguiente configuración, en modo normal Tab me mueve una tab hacía delante y Shift+Tab una tab hacía atras
+Para poder moverme entre tabs use la siguiente configuración, en modo normal Tab me mueve una tab hacía delante y Shift+Tab una tab hacía atrás
 
 ```vim
 noremap &ltsilent>&ltTAB> :BufferLineCycleNext&ltCR>
@@ -499,11 +499,11 @@ EOF
 
 [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim) es un plugin muy útil y me gusto mucho su explicacion en la página de github
 
-> Una vez que invocas a la hydra a traves de la tecla prefijada (el cuerpo + cualquier cabeza), todas las cabezas pueden ser llamadas en sucession solo con una pequeña extensión.
+> Una vez que invocas a la hydra a través de la tecla prefijada (el cuerpo + cualquier cabeza), todas las cabezas pueden ser llamadas en sucession solo con una pequeña extensión.
 > La hydra es vencida una vez que hercules o cualquier otra tecla que no sea una cabeza de la Hydra intervenga
 
 
-Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en comun, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un aventana etc, pero si queremos repetir un comando tendríamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de está interfaz
+Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en común, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un ventana etc, pero si queremos repetir un comando tendríamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de está interfaz
  Mi configuración para la manipulacion de ventanas es la siguiente:
 
 

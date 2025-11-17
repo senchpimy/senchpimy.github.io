@@ -18,7 +18,7 @@ title: "Combinar Dos Tablas"
 ```
  
 
- Escojemos los campos de **firstName, lastName, city, state** de la tabla **Person** con **LEFT JOIN** decimos que devuelva todos los registros de la tabla **Address** que no esten en **Person**,
+ Escojemos los campos de **firstName, lastName, city, state** de la tabla **Person** con **LEFT JOIN** decimos que devuelva todos los registros de la tabla **Address** que no estén en **Person**,
  con **USING** significa que usara la columna **personId** para unir las dos tablas
  
 

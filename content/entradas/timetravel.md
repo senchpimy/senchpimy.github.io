@@ -73,7 +73,7 @@ date: "26 Oct 2022"
 
  Los artefactos nacidos de el Universo Primarios son relacionados con Iconografia religiosa, como si su prescencia en la tierra desafiara cualquier explicacion logica.
 
- La intervencion divina es considerada la unica conclusion logica para la aparicion de el artefacto.
+ La intervencion divina es considerada la única conclusion logica para la aparicion de el artefacto.
 
 ## Capitulo Seis: El Receptor Viviente
 
@@ -115,7 +115,7 @@ date: "26 Oct 2022"
 
 
 
- El Muerto Manipulado es más poderoso que el Receptor viviente. Si una persona muere en la dimension tangente, ellos son capaces de contactar con el Receptor Viviente a traves de una construccion en la Cuarta Dimension.
+ El Muerto Manipulado es más poderoso que el Receptor viviente. Si una persona muere en la dimension tangente, ellos son capaces de contactar con el Receptor Viviente a través de una construccion en la Cuarta Dimension.
 
  La construccion en cuarta dimension está hecha de agua.
 
@@ -133,7 +133,7 @@ date: "26 Oct 2022"
 
  Muchos de ellos no recuerdan.
 
- Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la unica evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda de el mundo perdido.
+ Ellos que no recuerdan el viaje generalmente son superados por un remordimiento profundo por sus penosas acciones enterrradas dentro de sus sueños, la única evidencia fisica enterrada junto con el Artefacto mismo, todo eso queda de el mundo perdido.
 
  Mitos antiguos nos hablan de el guerrero Maya asesinado por una flecha que callo de un monte, cuando no habia algún ejercito, ningún enemigo fue encontrado.
 

@@ -8,7 +8,7 @@ date: "05 Dec 2023"
  
 ### Solucion
 
-El problema consiste en una busqueda binaria en el rango desde 0 hasta el numero dado
+El problema consiste en una búsqueda binaria en el rango desde 0 hasta el numero dado
 
 ```go
 func mySqrt(x int) int {

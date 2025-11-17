@@ -9,7 +9,7 @@ Este problema consisten en combinar dos arrays que están ordenados
 
 ### Solucion
 
-Primero intente esto pues pense que podría funcionar:
+Primero intente esto pues pensé que podría funcionar:
 
 ```rb
 # @param {Integer[]} nums1

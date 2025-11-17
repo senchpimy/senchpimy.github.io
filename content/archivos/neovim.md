@@ -4,10 +4,10 @@ date: "31 Jul 2022"
 ---
 
 
-Neovim es un programa de edicion de texto basado en vim, este se diferencia de vim en que Neovim tiene integracion con el lenguaje de programación lua, lo que lo hace más extensible en el momento de usar plugins
+Neovim es un programa de edición de texto basado en vim, este se diferencia de vim en que Neovim tiene integración con el lenguaje de programación lua, lo que lo hace más extensible en el momento de usar plugins
  
 
- Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad de el programa y aquí explicare los que uso actualmente, que hacen y como los configuré
+ Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad de el programa y aquí explicaré los que uso actualmente, que hacen y como los configuré
  
 ## init.vim
 
@@ -199,7 +199,7 @@ nnoremap  p :CocListResume
 
 ``` 
 
- La primera linea **source $HOME/.config/nvim/vim-plug/plugins.vim**  llama a el primer plugin de todos **vim-plug** este plugin nos ayudara a descargar, actualizar, y manejar los demás plugins, en este caso el plugin está llamando a otro archivo llamado **plugins.vim** para que funcione con la configuración que tengo este archivo debe estar dentro de una carpeta llamada **vim-plug**, pero solo hace con hacer referencia a este archivo en esa función es suficiente, he visto algunos init.vim que contienen lo que contendria plugins.vim, esto se hace poniendo lo siguiente en lugar de source en el archivo de init.vim
+ La primera linea **source $HOME/.config/nvim/vim-plug/plugins.vim**  llama a el primer plugin de todos **vim-plug** este plugin nos ayudara a descargar, actualizar, y manejar los demás plugins, en este caso el plugin está llamando a otro archivo llamado **plugins.vim** para que funcione con la configuración que tengo este archivo debe estar dentro de una carpeta llamada **vim-plug**, pero solo hace con hacer referencia a este archivo en esa función es suficiente, he visto algunos init.vim que contienen lo que contendría plugins.vim, esto se hace poniendo lo siguiente en lugar de source en el archivo de init.vim
  
 
 ```vim
@@ -212,7 +212,7 @@ nnoremap  p :CocListResume
  call plug#end()
 ``` 
 
- Para poder instalar otros plugins necesitamos primero instalar vim-plug existen varias formas de instalarlo, pero encuentro que solo agregando las siguientes líneas al archivo init.vim es la mejor pues estas líneas se aseguran de instalarlo correctamente y de verificar si está instalado y si no lo instales, lo que significa que con solo el archivo de vim.init se puede usar la misma confuguracion de vim con los mismos plugins.
+ Para poder instalar otros plugins necesitamos primero instalar vim-plug existen varias formas de instalarlo, pero encuentro que solo agregando las siguientes líneas al archivo init.vim es la mejor pues estas líneas se aseguran de instalarlo correctamente y de verificar si está instalado y si no lo instales, lo que significa que con solo el archivo de vim.init se puede usar la misma configuración de vim con los mismos plugins.
  
 
  
@@ -236,13 +236,13 @@ endif
 ``` 
  
 
- Para más metodos de instalación y dudas sobre vim-plug hay que visitar su [github](https://github.com/junegunn/vim-plug)
+ Para más métodos de instalación y dudas sobre vim-plug hay que visitar su [github](https://github.com/junegunn/vim-plug)
 
 ## Plugins
 
 
 
- Para verificar que el plugin vim-plug se installo correctamente hay que ejecutar el comando de vim
+ Para verificar que el plugin vim-plug se instaló correctamente hay que ejecutar el comando de vim
  
 
 ```vim
@@ -250,10 +250,10 @@ endif
  
 ```
 
- Si no encuentra el comando no fue instalado correctamente, cuando si se logro instalar habrira un buffer donde mostrara que todo está en orden
+ Si no encuentra el comando no fue instalado correctamente, cuando si se logro instalar abrirá un buffer donde mostrara que todo está en orden
  
 
- Los plugins son lo extentienden las funciones de vim/nvim, para instalarlas hay que poner lo siguiente dentro de [está sección](#plug) en lugar de los***#***
+ Los plugins son lo extienden las funciones de vim/nvim, para instalarlas hay que poner lo siguiente dentro de [está sección](#plug) en lugar de los***#***
 
 
 ```vim
@@ -265,10 +265,10 @@ endif
 
  
 ```vim
-" Notacion corta; Indica a https://github.com/junegunn/vim-easy-align
+" Notación corta; Indica a https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Toda URL git es valida 
+" Toda URL git es válida 
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
  
 ```
@@ -330,7 +330,7 @@ call plug#end()
  Este comando se encargará de hacer todo el trabajo, y a menos de que salga un error no hay que hacer nada más 
  
 
- Vim-plug es un programa de administracion de plugins si, pero este trpgrama es para vim, yo uso Neovim que incorpora algunos cambios y para poder usar mejor y aprovechar estas diferencias que tiene Neovim me entero que existe otro plugin llamado **Packer**, eso no significa que vim-plug no sirva con Neovim, justo ahora estoy escribiendo este documento con neovim+vim-plug pero packer es mejor para mis necesidades y apenas lo descubri, después cambiare vim-plug por packer
+ Vim-plug es un programa de administración de plugins si, pero este programa es para vim, yo uso Neovim que incorpora algunos cambios y para poder usar mejor y aprovechar estas diferencias que tiene Neovim me entero que existe otro plugin llamado **Packer**, eso no significa que vim-plug no sirva con Neovim, justo ahora estoy escribiendo este documento con neovim+vim-plug pero packer es mejor para mis necesidades y apenas lo descubrí, después cambiaré vim-plug por packer
  
 
 

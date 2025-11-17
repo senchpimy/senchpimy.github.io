@@ -8,7 +8,7 @@ title: "Preparar un Servidor"
 
 ### Actualizar el sistema
 
- Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto está puede que no tenga los ultimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
+ Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto está puede que no tenga los últimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
   
 
 ### Ejecutar servicios

@@ -23,7 +23,7 @@ Implemente también un mmodelador de gráficas que gráfica las líneas solo con
 Y los datos que se grafican son los precios de criptomonedas, en este caso escogí *dogecoin*, *monero* y *etherum*.
 
 Para obtener los datos de estos precios primero intente usar la API de *CoinMarketCap* pero el paquete gratuito de la API no me permitia acceder a datos historicos y como en este modelo quise tener los datos de el precio de cada criptomoneda en el periodo de un mes, pues 
-era inutil, luego use una página que se llama **rate.sx** la cual da los datos de estas criptomonedas y puedo acceder a los ultimos 3o dias por separado, pero tengo que obetner la fecha actual y luego generar las llamadas especificas para obtner las fechas anteriores, entonces
+era inutil, luego use una página que se llama **rate.sx** la cual da los datos de estas criptomonedas y puedo acceder a los últimos 3o dias por separado, pero tengo que obetner la fecha actual y luego generar las llamadas específicas para obtner las fechas anteriores, entonces
 tuve que primero obtener la fecha actual, lo intente mediante la página **http://worldclockapi.com/** pero está página está en constante reparacion y muchas veces durante las pruebas está página estaba fuera de servicio. por lo que no podía seguir haciendo más pruebas si
 está página no funcionaba, por lo que termine usando la página **http://www.whattimeisit.com/**, la cual tenía que usar un poco más de memoria pues estaba parseando html en lugar de json que daba la otra página, pero finalmente está logro ser más estable.
 

@@ -5,7 +5,7 @@ date: "21 Jun 2024"
 
 ## Search Index
 
-Este problema consisten en implementar busqueda binaria
+Este problema consisten en implementar búsqueda binaria
 
 ### Solucion
 
