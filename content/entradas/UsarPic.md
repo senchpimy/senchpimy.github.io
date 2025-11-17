@@ -1,5 +1,5 @@
 ---
-title: "Programando un Pic16F887 desde Arch Linux en 2025"
+title: "Programando un PIC16F887 desde Arch Linux en 2025"
 date: "15 Sep 2025"
 ---
 
@@ -16,12 +16,12 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 ## Instalación de herramientas necesarias
 Primero, necesitamos instalar las herramientas necesarias para detectar el PIC y para cargar el programa en él. Para esto usaremos el paquete del AUR pk2cmd, pues estamos usando un PICkit 2.
-Existe un problema conocido con el paquete `pk2cmd` en el AUR, lo que pasa que es que el enlace de descarga ya es obsoleto, y esto es conocido desde 2023, pues en el sitio
+Existe un problema conocido con el paquete `pk2cmd` en el AUR, lo que pasa es que el enlace de descarga ya es obsoleto, y esto es conocido desde 2023, pues en el sitio
 web del paquete también nos dice la solución, y es descargar el archivo desde otro enlace. 
 
 ![Error de descarga del paquete pk2cmd](/pk2cmd_error.png)
 
-Aplicando esta corrección, al final el PKGBUILD quedaría asi, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiándolos, pero como se hace un hash del archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
+Aplicando esta corrección, al final el PKGBUILD quedaría así, y para instalarlo hay que obtener todos los archivos que vienen en el enlace [de aquí](https://aur.archlinux.org/packages/pk2cmd-plus) (puede ser copiándolos, pero como se hace un hash del archivo, lo mejor sería hacer un wget) y ponerlos en una carpeta, y luego ejecutar `makepkg -si` en esa carpeta.:
 ```bash
 # Maintainer: BxS <bxsbxs at gmail dot com>
 

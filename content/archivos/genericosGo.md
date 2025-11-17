@@ -68,7 +68,7 @@ func SumIntsOrFloats[K comparable, V int64 | float64](m map[K]V) V {
 
 En este caso se define que *K* debe tener la interfaz comparable y que  *V* sea o int o float, Y en los argumentos de la función se define de que tipo debe ser cada parametro
 
-Al final el código quedaría asi:
+Al final el código quedaría así:
 
 ```go
     SumIntsOrFloats[string, int64](ints),

@@ -40,14 +40,14 @@ Para construir esta versión del teclado, necesitarás los siguientes componente
 ### El modelo
 
  Lo único malo que le encontré a este modelo es que los enlaces para los modelos de los posibles **montadores del controlador** están caidos, por lo que hay que buscar un poco, pero los puede encontrar en la **Wayback machine** [aquí](https://web.archive.org/web/20220607031910/https://dactyl.siskam.link/loligagger-external-holder-promicro-v2.stl) gracias a 
- [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun asi tuve que modificarlo pues los controladores no eran el pro-micro aunque si están usando el mismo microprocesador
+ [este post](https://www.reddit.com/r/ErgoMechKeyboards/comments/w77372/loligagger_elitec_holder_gone/), aun así tuve que modificarlo pues los controladores no eran el pro-micro aunque si están usando el mismo microprocesador
  
 ![](/pro_img/teclado2_1.png)
 ![](/pro_img/teclado2_2.png)
 
  Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripción de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generará un 
  archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenía, mantuve la corvatura por defecto pues pensé que sería la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
- y finalmete seleccioné el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedó asi:
+ y finalmete seleccioné el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedó así:
  
 ```py
 import sys
@@ -698,7 +698,7 @@ SRC += ./burst.c \
 # Conecciones
 
 
- Cuando estaba buscando instrucciones de como armar este teclado no encontré ninguna que hablara sobre las conecciones, asi que las tuve que redescubrir, finalmente estas fueron las conecciones:
+ Cuando estaba buscando instrucciones de como armar este teclado no encontré ninguna que hablara sobre las conecciones, así que las tuve que redescubrir, finalmente estas fueron las conecciones:
  
 ![](/pro_img/teclado2_10.png)
 

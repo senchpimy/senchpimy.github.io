@@ -17,7 +17,7 @@ operaciones, pues se ordenan los nodos de acuerdo a su antecesor de tal manera q
 
 La justificacion para este acercamiento surge del analisis de como la estructura de una red neuronal afecta el comportamiento de esta y aunque una red neuronal totalmente conectada puede aproximar cualquier función, la topologia afecta en la rapidez y prescicion de esta
 
-Luego las operaciones son las normales, siguiendo el orden definido a cada nodo de entrada se le asigna un valor según el valor de entrada, se le suma un sesgo y luego se le es aplicado una función de activacion, luego a cada valor de cada nodo es multiplicado por el peso de su 
+Luego las operaciones son las normales, siguiendo el orden definido a cada nodo de entrada se le asígna un valor según el valor de entrada, se le suma un sesgo y luego se le es aplicado una función de activacion, luego a cada valor de cada nodo es multiplicado por el peso de su 
 connecion con el siguiente nodo correspondiente y este valor es sumado a el valor de entrada del siguiente nodo
 
 ## Entrenamiento
@@ -25,7 +25,7 @@ connecion con el siguiente nodo correspondiente y este valor es sumado a el valo
 El objetivo de este entrenarmiento es dad una poblacion de N elementos crear una poblaciónn de N+1 candidatos que funcionen mejor que la poblacion anterior, consiste en tres etapas:
 
 ### Evaluación
-A cada agente/candidato hace la tarea que le hes asignada y se le asigna una evaluacion según una función de *fitness* la cual evalua al agente en dicha tarea
+A cada agente/candidato hace la tarea que le hes asígnada y se le asígna una evaluacion según una función de *fitness* la cual evalua al agente en dicha tarea
 
 ### Selección
 

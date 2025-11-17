@@ -7,7 +7,7 @@ date: "31 Jul 2022"
 
  La configuración y funcionamiento del script de la pantalla ya fue explicado en [este enlace](oled.html).
 
- Para el boton intente utilizar [este script](https://github.com/Howchoo/pi-power-button) debido a que tiene la funcionalidad de apagar y prender la raspberry pi desdel mismo boton, este no fue implementado debido a que interferia con la comunicación I2C de la pantalla por lo que escribí mi porpio programa, con antirebote y con un delay para que la Raspberry no se apague con movimientos o con presiones accidentales, este es el código (Python) 
+ Para el boton intente utilizar [este script](https://github.com/Howchoo/pi-power-button) debido a que tiene la funcionalidad de apagar y prender la raspberry pi desde el mismo boton, este no fue implementado debido a que interferia con la comunicación I2C de la pantalla por lo que escribí mi porpio programa, con antirebote y con un delay para que la Raspberry no se apague con movimientos o con presiones accidentales, este es el código (Python) 
 
 ```py
  #Aquí no están incluidas las librerías
@@ -50,7 +50,7 @@ Este es un código simple que solo toma el pin 27 GPIO (BCM MODE) de la raspberr
 Este script toma la temperatura de la cpu desde un comando ya incorporado y la utiliza para activar, dasctivar o variar la velocidad de un ventilador, subiendo las revoluciones si tiene una tempreatura elevada o bajandolas o apagandose si esta a una temperatura aceptable 
 
 
-Para poder ejecutar todo al mismo tiempo sin tener que hacer muchos malabares el programa principal (con el programa de la pantalla incluido), es un script que ejecuta estos 3 diferentes programas como procesos hijos, el del boton y el del ventilador nunca terminan de ejecutarse pero el de la pantalla si, esto fue una de las raxones por lo cual lo hice de esta forma, el rpograma final quedaría asi: 
+Para poder ejecutar todo al mismo tiempo sin tener que hacer muchos malabares el programa principal (con el programa de la pantalla incluido), es un script que ejecuta estos 3 diferentes programas como procesos hijos, el del boton y el del ventilador nunca terminan de ejecutarse pero el de la pantalla si, esto fue una de las raxones por lo cual lo hice de esta forma, el rpograma final quedaría así: 
 
 
 ```py

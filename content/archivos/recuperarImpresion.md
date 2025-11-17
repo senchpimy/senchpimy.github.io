@@ -3,7 +3,7 @@ title: "recuperarImpresion"
 date: "02 Aug 2023"
 ---
 
- Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no quería volver a imprimir todo otra vez, asi que tuve que buscar como poder recuperar una impresión.
+ Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no quería volver a imprimir todo otra vez, así que tuve que buscar como poder recuperar una impresión.
  Este metodo funciona editando el Gcode de la pieza, puede haber otros métodos como imprimir por separado la pieza faltante
    
 
@@ -28,7 +28,7 @@ date: "02 Aug 2023"
   
 
  Ya con la altura en la que se quedó la capa esta hay que localizarla en en archivo Gcode del cual empezo a imprimirse, y retomar desde ahí, algunos generadores de Gcode ya incluyen por defecto comentarios sobre cual cuapa es la que se esta imprimiendo, pero otros como **cura** no lo tienen
- por defecto asi que en este hay que encontrar la capa por la altura y esto se hace buscando el string que este furmulado de la siguiente forma:
+ por defecto así que en este hay que encontrar la capa por la altura y esto se hace buscando el string que este furmulado de la siguiente forma:
    
 
   

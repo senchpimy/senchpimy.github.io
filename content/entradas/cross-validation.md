@@ -10,7 +10,7 @@ uno quiere estimar que tan preciso es el modelo en las predicciónes.
 
 En problema de predicción se tiene una serie de datos en la cual el modelo se entrenarra (datos de entrenarmiento) y otros datos desconocidos para el modelo, contra
 los cuales es el modelo probado, la meta de la cross validacion es probar la habilidad del modelo de predecir más nuevos datos usando valores que no se usaron para
-entrenarrlo, asi se pueden encotrar problemas como *overfitting* o *sesgo de selección*
+entrenarrlo, así se pueden encotrar problemas como *overfitting* o *sesgo de selección*
 
 ## Tipos
 

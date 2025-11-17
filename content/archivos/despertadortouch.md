@@ -23,12 +23,12 @@ mi despertador.
 ## Creado el Programa
 
 Hay varias opciones para crear una interfaz gráfica de la forma en la que quería, pero quise probar con JS pero sin tener un navegador abierto por 
-las limitaciones de la raspberry asi que utilice **tauri** que me deja crear programas usando JS para el frontend y rust para el backend.
+las limitaciones de la raspberry así que utilice **tauri** que me deja crear programas usando JS para el frontend y rust para el backend.
 
 
 ![](/archivos/pantallaDespertador2.png)
 
-El programa te deja interactuar y modificar de donde se va a obtener la información desde la misma interfaz asi como alguas interacciones que 
+El programa te deja interactuar y modificar de donde se va a obtener la información desde la misma interfaz así como alguas interacciones que 
 aprovechan el touch de la pantalla
 
 ## Compilando

@@ -16,7 +16,7 @@ date: "06 Oct 2022"
  En esta configuración me enfoque en que awesomewm tuviera una buena adaptación con pywal, para esto cree una [plantilla para pywall](https://github.com/senchpimy/pywal), si no encuentra esta configuración, el programa usara la configuración por defecto que es la siguiente:
  
 
- Y cuando si encuentra una configuración awesomewm se puede ver asi:
+ Y cuando si encuentra una configuración awesomewm se puede ver así:
  
 
 ![](https://raw.githubusercontent.com/senchpimy/awesomewmconfig/main/desktop.png)

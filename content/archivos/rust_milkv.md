@@ -142,4 +142,4 @@ Entonces solo linkeamos las dos ubicaciones
 ln -sf /lib/ld-musl-riscv64v0p7_xthead.so.1 /lib/ld-musl-riscv64.so.1
 ```
 
-Y asi ya se pueden ejecutar programas de rust en el milkv
+Y así ya se pueden ejecutar programas de rust en el milkv

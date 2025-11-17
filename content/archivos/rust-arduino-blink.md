@@ -148,7 +148,7 @@ opt-level = "s"
  }
 ```
  
- Y al ejecutar **cargo build** deberíamos tener una compilación exxitosa que dos dará como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace más optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz del proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
+ Y al ejecutar **cargo build** deberíamos tener una compilación exxitosa que dos dará como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser así Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace más optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz del proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
  
 ```sh
  #! /usr/bin/zsh
@@ -159,5 +159,5 @@ opt-level = "s"
  
  Y entonces todo debería funcionar correctamente y el led incluido en el arduino conectado en el pin 13 debería parpadear.
 
- Esto es possible gracias a la librería [avr-hal](https://github.com/Rahix/avr-hal), en su github esta ese ejemplo de uso asi como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
+ Esto es possible gracias a la librería [avr-hal](https://github.com/Rahix/avr-hal), en su github esta ese ejemplo de uso así como algo de documentacion y varios ejemplos de diferentes proyectos usando rust en diferentes microcontroladores y placas arduino
 

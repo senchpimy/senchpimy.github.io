@@ -13,12 +13,12 @@ date: "30 Jan 2023"
  config.load\_autoconfig(False)
  ```
  
- En donde "c", es un valor de configuración propio de Qutebrowser, asi que no hay que definirlo y las demás configuraciones permiten que al abrir el programa este abra por defecto en startpage y también cuando se abre una nueva tab.
+ En donde "c", es un valor de configuración propio de Qutebrowser, así que no hay que definirlo y las demás configuraciones permiten que al abrir el programa este abra por defecto en startpage y también cuando se abre una nueva tab.
    
   
   
 
- En Firefox es un poco más difícil de usar archivos locales, pues por cuestiones de seguridad esto se implemento, para poder tener la startpage con cada nueva tab abierta para poder lograr esto hay que instalar una extensión llamada **New Tab Override**, y en esta hay que ir a la configuración de la extensión y seleccionar archivo local, esta extensión solo puede usar un archivo por lo que hay que tener los estilos y el html en un mismo archivo, por cuestiones de seguridad parece que extensiones no pueden ejecutar código, asi que en este caso lo mejor sería usar una url y un puerto.
+ En Firefox es un poco más difícil de usar archivos locales, pues por cuestiones de seguridad esto se implemento, para poder tener la startpage con cada nueva tab abierta para poder lograr esto hay que instalar una extensión llamada **New Tab Override**, y en esta hay que ir a la configuración de la extensión y seleccionar archivo local, esta extensión solo puede usar un archivo por lo que hay que tener los estilos y el html en un mismo archivo, por cuestiones de seguridad parece que extensiones no pueden ejecutar código, así que en este caso lo mejor sería usar una url y un puerto.
  
 
 

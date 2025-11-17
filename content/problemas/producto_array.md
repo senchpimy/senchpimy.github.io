@@ -7,7 +7,7 @@ date: "16 Jun 2023"
  Este problema consisten hacer un vector el cual cada elemento debe ser el resultado de la 
  multiplicacion de todos los elementos de un vector excepto el del indice el cual va a ocupar
 
- Primero se me ocurrio hacer la multiplicacion de todos los elementos por cada iteración y saltar cuando ocurra el indice, después asignar el elemento
+ Primero se me ocurrio hacer la multiplicacion de todos los elementos por cada iteración y saltar cuando ocurra el indice, después asígnar el elemento
  al indice indicado, pero esto es bastante lento pues tendria una complejidad de tiempo cuadrada y se repiten muchisimas operaciones
 
  Esta solución hace dos vectores que tienen el resltado de todas las multiplicaciones de cada elemento, en la primera es con cada elemento a la derecha 

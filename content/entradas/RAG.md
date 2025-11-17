@@ -12,7 +12,7 @@ de un modelo ya existente sin la necesidad de volver a entrenar o de fintunear.
 ## Funcionamiento
 Este metodo se puede dividir en tres partes:
 ### Index
-En esta parte la información que le es dada al modelo es dividida en n partes, cada parte después es procesada y le es asignado un vector,
+En esta parte la información que le es dada al modelo es dividida en n partes, cada parte después es procesada y le es asígnado un vector,
 el proceso de crear el vector puede variar dependiendo la implementación, es guardado en una forma de vector para que pueda ser buscado 
 de forma fácil después.
 este vector es guardado en una base de vectores
@@ -22,7 +22,7 @@ este vector es guardado en una base de vectores
 Dado un prompt por el usuario, este prompt es analizado y marcado como un vector, después se buscan en la base de datos creada
 los vectores más cercanos a el prompt y finalmente esta información que coincide es extraida. 
 
-Esta información se puede obtener de diferentes formas, una dellas es una búsqueda léxica, es decir contar cuantas palabras coinciden entre
+Esta información se puede obtener de diferentes formas, una de ellas es una búsqueda léxica, es decir contar cuantas palabras coinciden entre
 lo que se esta buscando y la información que se tiene. También existe la búsqueda semántica que es buscar por palabras/temas clave
 
 Por lo que un modelo **BERT** que es un transformer que solo es un encoder, es capaz de codificar y encontrar similaridades semánticas entre 

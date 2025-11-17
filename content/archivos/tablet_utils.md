@@ -12,7 +12,7 @@ usando esta pluma.
 
 ## Leyendo la entrada
 
-Primero se necesita leer los datos que se reciben desdel kernel, por algún motivo fue algo confuso al principio, pues al parecer sin 
+Primero se necesita leer los datos que se reciben desde el kernel, por algún motivo fue algo confuso al principio, pues al parecer sin 
 ningún motivo aparente la entrada de la pluma puede estar en cualquiera de estas dos ubicaciones, no se por que pero cambia cada vez que se reinicia
 la computadora.
 

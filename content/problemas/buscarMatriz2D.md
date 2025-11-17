@@ -34,4 +34,4 @@ def search_matrix(matrix, target)
 end
 ```
 
-Este programa considera la matriz como un solo array y para acceder a los indices adecuados este divide los valores por n pues asi tendríamos la columna y fila siendo el residuo y el resultado respectivamente
+Este programa considera la matriz como un solo array y para acceder a los indices adecuados este divide los valores por n pues así tendríamos la columna y fila siendo el residuo y el resultado respectivamente

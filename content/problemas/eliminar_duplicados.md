@@ -30,7 +30,7 @@ public:
 ```
 
  Este programa itera por todo el vector y como este esta ordenado es cuando el numero anterior al numero de la iteración actual son diferentes que se puede decir que es otro elemento del array, por lo que se aumenta el valor, al mismo tiempo como tenemos el indice de que elementos unicos lo podemos intercambiar
- para asi poder reducir su tamaño a solo elementos unicos
+ para así poder reducir su tamaño a solo elementos unicos
  
 
 

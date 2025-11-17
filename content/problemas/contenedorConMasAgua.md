@@ -33,5 +33,5 @@ def max_area(height)
 end
 ```
 
-Este programa se resuelve iterando por todo el array, obtenemos el volumen con la fórmula de la distancia entre los dos puntos y la menor altura entre dos los multiplicamos y asi obtenemos el volumen y lo guardamos solo si es
+Este programa se resuelve iterando por todo el array, obtenemos el volumen con la fórmula de la distancia entre los dos puntos y la menor altura entre dos los multiplicamos y así obtenemos el volumen y lo guardamos solo si es
 mayor que el anterior, y avanzamos los apuntadores hacía cualquiera que fuese el siguiente intento que existe una probabilidad de darnos un resultado mayor

@@ -3,7 +3,7 @@ title: "Configuración de Marlin Para la Ender3"
 date: "29 Oct 2022"
 ---
 
- Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifiqué mi impresora desdel hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
+ Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifiqué mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
  
 ## _Statusscreen.h
 

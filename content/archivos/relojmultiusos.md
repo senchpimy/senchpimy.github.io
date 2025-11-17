@@ -11,12 +11,12 @@ el esp32. Ademas este usa los botones que el desperator ya traía para dar la ho
 
 Ademas le añadi una pantalla de e-ink, esto por que el despertador también traía una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban del mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
 
-Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algún motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña función 
+Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algún motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, así que tuve que implementar una pequeña función 
 que se ejecuta cada que se quiera dibujar una linea, para cambiar las coordenadas para que estas tengan la rotacion correspondiente. El cambio especifico lo saque del código fuente que se supone que lo haria desde la biblioteca.
 
-Pero esto significa que funciones como la escritura no funcionaba, asi que tuve que crear una fuente, pasarla a bitmap depues pasarla a código de C y finalmente implementar la lectura y la forma en la que cada píxel es dibujado, en este caso tuve un problema, pues
+Pero esto significa que funciones como la escritura no funcionaba, así que tuve que crear una fuente, pasarla a bitmap depues pasarla a código de C y finalmente implementar la lectura y la forma en la que cada píxel es dibujado, en este caso tuve un problema, pues
 dibuje dos fuentes de diferentes tamaños, la grande funciono sin problemas, pero a pesar de ser el mismo código de C y estar en el mismo formato la fuente pequeña no se dibujaba de forma correcta, por lo que el formato en el que la fuente pequeña se guardo fue de 1 byte 
-por píxel a diferencia de 1 bit por píxel que fue la grande, pues asi era solamente como la fuente pequeña se pudo dibujar correctamente.
+por píxel a diferencia de 1 bit por píxel que fue la grande, pues así era solamente como la fuente pequeña se pudo dibujar correctamente.
 
 Implemente también un mmodelador de gráficas que gráfica las líneas solo con un array de numeros.
 

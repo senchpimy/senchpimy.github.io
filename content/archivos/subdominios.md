@@ -7,11 +7,11 @@ date: "09 Jan 2023"
  Para esto necesitamos un servicio que se ejecute en algún puerto que este libre, [aquí](https://github.com/senchpimy/simple_firmas) hice una simple programa en go que se ejeuta en el puerto **3001**, por lo que si se ejecutara de forma local con escribir en el navegador **localhost:3001** podriamos ver esta página, este programa es bastante simple, genera una página web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma página web al comienzo.
 
  Ahora como podemos hacer que en nuestro dominio **example.com** el cual ya esta ocupado pueda mostrar algo diferente en **ejemplo.example.com**, esto se logra con **nginx**.
- Primero necesitamos actualizar los registros de **DNS** de nuestro dominio, por lo que si ya tenemos el dominio **example.com** apuntando a nuestro servidor, en la misma página que hicimos esto podremos agregar el subdominio **ejemplo**, yo lo compré desde la página de **epik** y no se si asi funcione en otras pero en esta solo es agregar el nombre del subdominio y apuntar el servidor, que en este segúndo paso no hay que hacer nada diferente a como es el dominio normal, es decir apuntamos el subdomino al mismo servidor sin especificar el puerto, pues es en realidad **nginx** el que se encargará de redirigir las peticiones al puerto especificado. Al final nuestro dominio con subdominio quedaría asi:
+ Primero necesitamos actualizar los registros de **DNS** de nuestro dominio, por lo que si ya tenemos el dominio **example.com** apuntando a nuestro servidor, en la misma página que hicimos esto podremos agregar el subdominio **ejemplo**, yo lo compré desde la página de **epik** y no se si así funcione en otras pero en esta solo es agregar el nombre del subdominio y apuntar el servidor, que en este segúndo paso no hay que hacer nada diferente a como es el dominio normal, es decir apuntamos el subdomino al mismo servidor sin especificar el puerto, pues es en realidad **nginx** el que se encargará de redirigir las peticiones al puerto especificado. Al final nuestro dominio con subdominio quedaría así:
  
 ![](/pro_img/subdominios.png)
 
- En la foto podemos ver el dominio principal apuntando a un servidor y el subdomnio apunta a el mismo servidor / dirección IP, asi que en la parte de los registros de DNS ya es todo.
+ En la foto podemos ver el dominio principal apuntando a un servidor y el subdomnio apunta a el mismo servidor / dirección IP, así que en la parte de los registros de DNS ya es todo.
  Así que ahora con nuestro servicio ejecutando en el puerto 3001 y un subdominio apuntando a el servidor, ya podemos configurar **nginx**.
    
 

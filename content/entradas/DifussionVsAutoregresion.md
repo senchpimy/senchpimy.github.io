@@ -14,13 +14,13 @@ El algoritmo de Autorregresión en la generación de imágenes consiste en dada 
 
 Esta solución tiene varias desventajas:
 
--   si al momento de predecir el píxel siempre se selecciona el óptimo según el modelo, siempre se terminará generando la misma imagen, para corregir esto se puedelegir un valor de la distribución de probabilidad que
+-   si al momento de predecir el píxel siempre se selecciona el óptimo según el modelo, siempre se terminará generando la misma imagen, para corregir esto se puede elegir un valor de la distribución de probabilidad que
 generó el modelo.
 
 -   Si se intentan generar muchos píxeles por cada ejecución el modelo generará un promedio de todas las posibilidades que esos píxeles puedan ser, por lo que existe un límite en qué tan grande cada generación puede ser. Para solucionar esto se aplica Autorregresión Generalizada,
 que consiste en lugar de generar un solo píxel se generan nxn mallas de píxeles, Pero la n no puede ser demasiado grande, pues al ser un modelo de predicción, entre mayor sea la cantidad de información que se tenga que generar en una sola regresión hay una mayor cantidad de
-probabilidades que pueden ser congruentes con la información anterior por lo que el modelo toma el promedio de todas las posibles probabilidades, creando un mal resultado. Pero este problema solo surge si los píxeles que se están generando están relacionados unos de los otros.
-Una forma de contrarrestar esto es si generamos n píxeles que no sean dependientes unos de los otros, es decir que no sean espacialmente cercanos.
+probabilidades que pueden ser congruentes con la información anterior por lo que el modelo toma el promedio de todas las posibles probabilidades, creando un mal resultado. Pero este problema solo surge si los píxeles que se están generando están relacionados unos de otros.
+Una forma de contrarrestar esto es si generamos n píxeles que no sean dependientes unos de otros, es decir que no sean espacialmente cercanos.
 
 ## Diffusion
 

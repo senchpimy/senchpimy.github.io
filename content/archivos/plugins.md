@@ -2,7 +2,7 @@
 title: "Configuración de Neovim"
 date: "10 Aug 2022"
 ---
-En esta entrada explicaré todos los plugins que tengo en neovim y que función cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
+En esta entrada explicaré todos los plugins que tengo en neovim y que función cumplen, así sobre como están configurados en mi init.vim y por que esos y no otros
  
 ## Indentline
 
@@ -267,7 +267,7 @@ END
 
 
 
-[Vim-sorround](https://github.com/tpope/vim-surround) es un plugin que por medio de comando cambia, elimina o añadelementos a una palabra, palabras o linea especificada, este no requiere de configuración 
+[Vim-sorround](https://github.com/tpope/vim-surround) es un plugin que por medio de comando cambia, elimina o añade elementos a una palabra, palabras o linea especificada, este no requiere de configuración 
  
 ## suda.vim
 
@@ -312,7 +312,7 @@ END
 
 
 
-[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia versión y meti los cambio en el código fuente del plugin, ahora que ya lo se editar desdel init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuración se hace al igual que **gitsigns** y **lualine**
+[Dashboard.nvim](https://github.com/glepnir/dashboard-nvim) es un plugin que modifica el buffer de inicio de neovim, con este plugin se puede modificar mucho el buffer de inicio, yo no sabia como modificarlo y por eso cree mi propia versión y meti los cambio en el código fuente del plugin, ahora que ya lo se editar desde el init.vim voy a cambiarlo por el del repositorio original, ya viene "activado" por defecto, la configuración se hace al igual que **gitsigns** y **lualine**
 
 
 ```lua
@@ -360,7 +360,7 @@ require'hop'.setup()
 [lf.nvim](https://github.com/lmburns/lf.nvim) lf es un plugin que hace lo mismo que el de Rnvimr, la diferencia es que Rnvimr es para el programa ranger, este programa es un administrador de archivos desde la terminal, lf es exactamente lo mismo.
 
  Entonce por que cambiar?
- Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segúndos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun asi es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
+ Ranger esta escrito en python y lf en go, lo que hace a lf muchisimo más rápido al momento de cargar, lf es casi instantaneo mientras que ranger tiene aproximada 3 segúndos de carga, este tiempo disminuye si no ha pasado mucho tiempo desde que se abrio pero aun así es más lento que lf, además que con este plugin puedo ver imágenes que se encuentran en las carpetas, para que esto funcione debemos primero hacer que lf pueda hacer esto, yo segui el tutorial que viene en la wiki de lf, y por defecto para usar lf con imágenes necestamos ejecutar **lfrun** como dice la wiki de lf, después en la configuración del plugin debemos cambiar el comando por defecto a **lfrun**, esto sse hace la siguiente manera
  Este programa tiene una configuración similar a **gitsigns y lualine**
 
 
@@ -417,7 +417,7 @@ Mi configuración para tener un snippet de la descripción de estos plugins es l
 
 
 
-[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segúnda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, asi mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro del espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
+[Vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) es un plugin para documentos markdown, lo que hace es que el procesos de hacer y formatear tablas en markdown mucho más sencillo, solo con activar el modo con el comando **:TableModeEnable** el plugin cada vez que se detecte un "|" va a hacer un formato de los elementos, para crear la linea de separación de después de la primera tabla de forma automática(Es decir si la primera linea es "| name | address | phone |" la segúnda tiene que ser la separación de las tablas es decir "|------+---------+-------|") solo se inserta "||" en la linea siguiente y el plugin va a darle formato al resto, así mimos cuando en una nueva linea se inserte un elemento con tantos caracteres que no quepan dentro del espacio delimitado por las columnas ("|~~~~~~|") el plugin se encargará de arreglar todo el formato. Las configuraciones son sobre que caracteres se ocupan para las esquinas de las tablas, los caracteres de enmedio de las líneas de separación de filas, etc.
 
 ## vim-matchup
 
@@ -450,7 +450,7 @@ La primera linea hace que cuando se apriete "-" el plugin se active y la segúnd
 
 
 
-[Targets.vim](https://github.com/wellle/targets.vim) es un plugin que expande la cantidad de objetos de vim, asi como los objetos pueden ser palabras, caracteres, parrafos. Pero este plugin agrega a esta lista de objetos todos lo que se encuentre dentro de los siguientes caracteres **(),[],{},"",'',`` , . ; : + - = ~ \_ \* ## | \ & $**  permitiendonos borrar (da$Caracter), eliminar e insertar (cin$caracter)
+[Targets.vim](https://github.com/wellle/targets.vim) es un plugin que expande la cantidad de objetos de vim, así como los objetos pueden ser palabras, caracteres, parrafos. Pero este plugin agrega a esta lista de objetos todos lo que se encuentre dentro de los siguientes caracteres **(),[],{},"",'',`` , . ; : + - = ~ \_ \* ## | \ & $**  permitiendonos borrar (da$Caracter), eliminar e insertar (cin$caracter)
  Este plugin necesita de configuración ya que por defecto las teclas necesarias para hacerlos funcionar son **"aiAI"** que son las teclas de insetar y agregar en vim y neovim, por lo que la configuración que agregue para evitar esto es la siguiente
  TEST NO TERMINADO
 
@@ -503,7 +503,7 @@ EOF
 > La hydra es vencida una vez que hercules o cualquier otra tecla que no sea una cabeza de la Hydra intervenga
 
 
-Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en común, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un ventana etc, pero si queremos repetir un comando tendríamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asignamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de esta interfaz
+Esto quiere decir que este pluginnos sirve para configurar varios comandos que tengan algo en común, un ejemplo es el comando para manipular ventanas, todos estos comandos requieren de  + **X** donde **X** puede ser cambiar de ventana, hacer una division, ajustar el tamaño de un ventana etc, pero si queremos repetir un comando tendríamos que repetir  + **X** que son muchas teclas, lo que este plugin hace es que cada vez que introduzcamos  *(El Cuerpo de la hydra)* nos saldrá una pequeña ventana con todas la opciones de comandos que hayamos configurado que empiezen con  *(Cabezas)*, en donde podremos hacer todos los comandos que hayamos configurado con las teclas que asígnamos, y en el momento en el que presionemos una tecla que no este configurada vamos a salir de esta interfaz
  Mi configuración para la manipulacion de ventanas es la siguiente:
 
 
@@ -560,7 +560,7 @@ nmap &ltleader&gt- &ltCmd&gtlua require("harpoon.mark").rm\_file()&ltCR> &ltbar>
 
 
 
-[Dracula](https://github.com/dracula/vim) es un tema de vim, es decir cambia los colores del fondo, el resaltado de letras, etc. con este plugin remplaze a pywal, pues pywal al hacer una paleta de colores le misma imagen muchas veces los colores eran muy parecidos y asia que al editar texto por mucho tiempo perdiera de vista las declaraciones de variables, funciones, etc. Dracula es un tema que tiene mucho contraste entre colores y por eso me permite usar vim por más tiempo sin que pierda el hilo
+[Dracula](https://github.com/dracula/vim) es un tema de vim, es decir cambia los colores del fondo, el resaltado de letras, etc. con este plugin remplaze a pywal, pues pywal al hacer una paleta de colores le misma imagen muchas veces los colores eran muy parecidos y asía que al editar texto por mucho tiempo perdiera de vista las declaraciones de variables, funciones, etc. Dracula es un tema que tiene mucho contraste entre colores y por eso me permite usar vim por más tiempo sin que pierda el hilo
 
 
 ```vim

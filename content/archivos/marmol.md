@@ -6,7 +6,7 @@ date: "30 Jun 2023"
  Este es un programa inspirado en otro programa llamado obsidian, este primero es un intérprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizarán después con las reglas de markdown correspondientes.
  
 
- Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos más que por extensiones y solo por medio de **git**, entonces escribí este programa para corregir esto, ahora le faltan algunas cosas que me gustaría agregar asi,
+ Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos más que por extensiones y solo por medio de **git**, entonces escribí este programa para corregir esto, ahora le faltan algunas cosas que me gustaría agregar así,
  pero también tiene otras características que obsidian no tiene.
    
 
@@ -20,7 +20,7 @@ date: "30 Jun 2023"
 ![](/pro_img/marmol1.png)
 
 
- Pero debo de mejorar lo de crear un nuevo vault pues se necesita que se ingrese el path completo para poder crear un directorio ahí, también tiene la opción de crear una nota diaria, hay plugins en obsidian que permiten crear una nota semanal y mensual, asi que tal vez agregue eso,
+ Pero debo de mejorar lo de crear un nuevo vault pues se necesita que se ingrese el path completo para poder crear un directorio ahí, también tiene la opción de crear una nota diaria, hay plugins en obsidian que permiten crear una nota semanal y mensual, así que tal vez agregue eso,
  al igual que obsidian también tiene un modo de edición y de vista
  
 

@@ -8,7 +8,7 @@ title: "Preparar un Servidor"
 
 ### Actualizar el sistema
 
- Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto esta puede que no tenga los últimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, asi que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
+ Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto esta puede que no tenga los últimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, así que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
   
 
 ### Ejecutar servicios
@@ -21,7 +21,7 @@ title: "Preparar un Servidor"
 ### Contraseña De Root
 
 
- Lo primero que se nos da cuando rentamos un servidor (o la minima información que debemos tener para poder controlar el servidor), es la ip y la contraseña del administrador, asi que lo que demos de hacer es acceder a ese servidor usando ssh que viene instalado por defecto en la mayoria de las distribuciónes que se usan para servidores (OpenSuse, Debian, Ubuntu, CentOS, Fedora), asi que nos conectaremos usando con
+ Lo primero que se nos da cuando rentamos un servidor (o la minima información que debemos tener para poder controlar el servidor), es la ip y la contraseña del administrador, así que lo que demos de hacer es acceder a ese servidor usando ssh que viene instalado por defecto en la mayoria de las distribuciónes que se usan para servidores (OpenSuse, Debian, Ubuntu, CentOS, Fedora), así que nos conectaremos usando con
  
 ```sh
  ssh root@<IP>

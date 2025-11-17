@@ -44,7 +44,7 @@ end
 ```
 
 Esta solución usa dos apuntadores, busca por la izquierda un pilar hasta encontrar un pilar más grande o igual por la derecha, cuando lo encuentra
-este toma el volumen que existe entre los dos y le resta el volumen, pero no contaba en cuenta algunos casos, asi que la modifiqué para 
+este toma el volumen que existe entre los dos y le resta el volumen, pero no contaba en cuenta algunos casos, así que la modifiqué para 
 algunos casos que no tome en cuenta:
 
 ```rb
@@ -84,7 +84,7 @@ def trap(h)
 end
 ```
 
-Pero aun asi esta muy parchado y esta mal, la correcta solución que supera al 99% de las soluciónes es la siguiente:
+Pero aun así esta muy parchado y esta mal, la correcta solución que supera al 99% de las soluciónes es la siguiente:
 
 ```rb
 def min(a, b)
