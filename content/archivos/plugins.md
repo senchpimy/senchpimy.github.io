@@ -1,5 +1,5 @@
 ---
-title: "Configuracion de Neovim"
+title: "Configuración de Neovim"
 date: "10 Aug 2022"
 ---
 En esta entrada explicare todos los plugins que tengo en neovim y que funcion cumplen, asi sobre como están configurados en mi init.vim y por que esos y no otros
@@ -292,7 +292,7 @@ END
 
 
 
-[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar mas informacion que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rapida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
+[Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) es un plugin que modifica la linea de estado de neovim logrando mostar mas información que la linea por defecto de nvim, y mucho pas personalizable, yo uso la configuracion por default pero existem muchos temas que luego probare, esta es en promedio mas rapida que lightline y airline, dos plugins hechos para cumplir el mismo proposito al igual que otros plugins este necesita ser llamado desde lua por lo que si ya tienes el plugin **gitsigns** solo hay que agragar la siguiente linea una lina arriba o abajo de la linea central de la configuracion de gitsigns
  
 
 ```vim
@@ -345,7 +345,7 @@ let g:Hexokinase\_highlighters = ['backgroundfull']
 
 
 
-[Hop.nvim](https://github.com/phaazon/hop.nvim) es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar esta letra el programa nos llevara al inicio de la letra que seleccionamos
+[Hop.nvim](https://github.com/phaazon/hop.nvim) es un plugin que nos deja saltar a donde sea en nuestro documento con solo unos pocos tecleos, al usar el comando :HopWord por ejemplo el programa va a resaltar la inicial de todas las palabras con una letra diferente, al presionar esta letra el programa nos llevará al inicio de la letra que seleccionamos
  Este programa tiene una configuracion similar a **gitsigns y lualine**
 
 
@@ -377,7 +377,7 @@ require'hop'.setup()
 
 
 
-[Emmet-vim](https://github.com/mattn/emmet-vim) es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin tambien tiene un autocompletado de html basado en la seleccion y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
+[Emmet-vim](https://github.com/mattn/emmet-vim) es un plugin diseñado para documentos html y css, este plugin camcia palabras claves definidas por el usuario con snippets creados por el mismo usuario, este plugin tambien tiene un autocompletado de html basado en la selección y tags, este plugin es muy util y me ahorra mucho tiempo aunque no haga paginas web.
 Mi configuracion para tener un snippet de la descripcion de estos plugins es lo siguiente 
 
 
@@ -571,7 +571,7 @@ colorscheme dracula
 
 
 
-[Vim-illuminate](https://github.com/RRethy/vim-illuminate) es un plugin que marca con un gran contraste palabras que involucren un inicio y un final, muchas veces puedo tener un archivo de html en el cual no puedo saber donde es el final de un div, al poner el cursor ya sea en modo nomal o en modo de insertar este plugin marcara el comienzo y el final de esa sección, este plugin obtiene esta informacion ya sea por medio lsp, regex o tressitter, por lo que funciona practicamente en cualquier tipo de archivo
+[Vim-illuminate](https://github.com/RRethy/vim-illuminate) es un plugin que marca con un gran contraste palabras que involucren un inicio y un final, muchas veces puedo tener un archivo de html en el cual no puedo saber donde es el final de un div, al poner el cursor ya sea en modo nomal o en modo de insertar este plugin marcara el comienzo y el final de esa sección, este plugin obtiene esta información ya sea por medio lsp, regex o tressitter, por lo que funciona practicamente en cualquier tipo de archivo
 
 
 ```lua

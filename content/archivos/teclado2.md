@@ -47,7 +47,7 @@ Para construir esta versión del teclado, necesitarás los siguientes componente
 
  Para generar los teclados hay que editar el archivo ubicado en *dactyl-keyboard/src/generate_configuration.py*, cada valor tiene una pequeña descripcion de lo que este modifica, y al finalizar de cambiar todos los valorees que se quieran, se ejecuta ese mismo archivo, pues este generara un 
  archivo json que luego se usara para crear los modelos ahora si,en las modficiaciones que le hice cambie el tamaño de la pantalla para que se ajustace a la que tenia, mantuve la corvatura por defecto pues pense que seria la mejor ahora que ya los tengo de forma fisica tal vez la hubiera incrementado un poco,
- y finalmete seleccione el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedo asi:
+ y finalmete seleccioné el modelo del teclado el cual tiene 6 botones para el pulgar, entonces mi archivo quedo asi:
  
 ```py
 import sys

@@ -14,14 +14,14 @@ title: "Preparar un Servidor"
 ### Ejecutar servicios
 
 
- Cuando ejecutamos un programa este tiene la capacidad de modificar y hacer lo mismo que este en la capacidad segun los permisos de el usuario que lo ejecuto, por lo que si tenemos un programa ejecutado por root, este mismo podria hacer lo mismo que root, que es practicamente hacer todo, por esto es necesario que cualquier servicio que sea ejecutado y que valla a estar al servicio de cualquier persona en el internet **no** sea ejecutado por root, lo ideal seria que un usuario con menor privilegios sea el que ejecute estos servicios, algunos programas por defecto no se ejecutan si detectan que son ejecutados por root.
+ Cuando ejecutamos un programa este tiene la capacidad de modificar y hacer lo mismo que este en la capacidad segun los permisos de el usuario que lo ejecuto, por lo que si tenemos un programa ejecutado por root, este mismo podría hacer lo mismo que root, que es practicamente hacer todo, por esto es necesario que cualquier servicio que sea ejecutado y que valla a estar al servicio de cualquier persona en el internet **no** sea ejecutado por root, lo ideal seria que un usuario con menor privilegios sea el que ejecute estos servicios, algunos programas por defecto no se ejecutan si detectan que son ejecutados por root.
 
   
 
 ### Contraseña De Root
 
 
- Lo primero que se nos da cuando rentamos un servidor (o la minima informacion que debemos tener para poder controlar el servidor), es la ip y la contraseña de el administrador, asi que lo que demos de hacer es acceder a ese servidor usando ssh que viene instalado por defecto en la mayoria de las distribuciones que se usan para servidores (OpenSuse, Debian, Ubuntu, CentOS, Fedora), asi que nos conectaremos usando con
+ Lo primero que se nos da cuando rentamos un servidor (o la minima información que debemos tener para poder controlar el servidor), es la ip y la contraseña de el administrador, asi que lo que demos de hacer es acceder a ese servidor usando ssh que viene instalado por defecto en la mayoria de las distribuciones que se usan para servidores (OpenSuse, Debian, Ubuntu, CentOS, Fedora), asi que nos conectaremos usando con
  
 ```sh
  ssh root@<IP>
@@ -33,7 +33,7 @@ title: "Preparar un Servidor"
 ### Conectarse al Servidor
 
 
- Siempre se va a necesitar una coneccion al servidor, pero ssh nos pedira introducir la contraseña, lo que podria mostrar en que puerto esta esuchando el servidor ssh, lo cual si este no esta actualizado podria ser una falla de seguridad, por lo que para evitar esto lo ideal seria bloquear el acceso a ssh con contraseña, es decir que se requiera una llave ssh para poder aacceder al servidor, de esta forma se la validacion se hara automaticamente, y podria evitar la posibilidad de un ataque de fuerza bruta
+ Siempre se va a necesitar una coneccion al servidor, pero ssh nos pedira introducir la contraseña, lo que podría mostrar en que puerto esta esuchando el servidor ssh, lo cual si este no esta actualizado podría ser una falla de seguridad, por lo que para evitar esto lo ideal seria bloquear el acceso a ssh con contraseña, es decir que se requiera una llave ssh para poder aacceder al servidor, de esta forma se la validacion se hara automaticamente, y podría evitar la posibilidad de un ataque de fuerza bruta
  
 ```sh
  ssh-keygen

@@ -13,7 +13,7 @@ date: "30 Jan 2023"
  config.load\_autoconfig(False)
  ```
  
- En donde "c", es un valor de configuración propio de Qutebrowser, asi que no hay que definirlo y las demas configuraciones permiten que al abrir el programa este abra por defecto en startpage y tambien cuando se abre una nueva tab.
+ En donde "c", es un valor de configuración propio de Qutebrowser, asi que no hay que definirlo y las demás configuraciones permiten que al abrir el programa este abra por defecto en startpage y tambien cuando se abre una nueva tab.
    
   
   

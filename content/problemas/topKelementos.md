@@ -109,7 +109,7 @@ class Solution {
  
  Y estas dos instrucciones hacen que cada vez que una es escrita, la otra es limpiada y esta parte hace que este comportamiento ya no suceda.
 
- Luego usa un **unordered_map** en lugar de un **map**, no se bien el por que de esta descicion, luego guarda la informacion de cuantas veces se repite un valor de la misma forma en que yo la hice. 
+ Luego usa un **unordered_map** en lugar de un **map**, no se bien el por que de esta descicion, luego guarda la información de cuantas veces se repite un valor de la misma forma en que yo la hice. 
 
  Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino tambien se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porcion, por lo que es muy tardado.
 

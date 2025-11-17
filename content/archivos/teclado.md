@@ -20,7 +20,7 @@ date: "23 Jun 2023"
 
 ![](/pro_img/teclado_con_pantalla.jpg)
 
- Primero el modelo fue una modificacion de [este archivo:](https://www.thingiverse.com/thing:4380457)
+ Primero el modelo fue una modificación de [este archivo:](https://www.thingiverse.com/thing:4380457)
 
 ![](/pro_img/lily58Modelo.jpg)
 
@@ -42,6 +42,6 @@ date: "23 Jun 2023"
 
  Y finalmente en la programacion del arduino use una librería que rescate de uno de los ejemplos, parece ser que el creador la uso para su propio diseño, el cual incorppraba
  animaciones y efectos muy interesantes, yo la use para mostrar una barra mostrando el porcentaje del brillo y del volumen el cual habia enviado el teclado, en ese momento
- no sabia si era posible recibir esta informacion desde la computadora, asi que solo tomaba en cuanta la del teclado.
+ no sabia si era posible recibir esta información desde la computadora, asi que solo tomaba en cuanta la del teclado.
  
 

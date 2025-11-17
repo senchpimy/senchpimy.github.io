@@ -148,7 +148,7 @@ opt-level = "s"
  }
 ```
  
- Y al ejecutar **cargo build** deberiamos tener una compilación exxitosa que dos dara como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace mas optimizaciones al código, y el resultado de este estara en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
+ Y al ejecutar **cargo build** deberiamos tener una compilación exxitosa que dos dara como resultado un archivo **.elf** en la carpeta **target/avr-atmega328p/debug/**, de ser asi Entonces ejecutamos **cargo build --release**, que tardara un poco más en compilar pero el compilador hace mas optimizaciones al código, y el resultado de este estará en la carpeta **target/avr-atmega328p/relase/**, este archivo lo copiamos a la raiz de el proyecto y ejecutamos el siguiente scrpit de bash con el arduino conctado.
  
 ```sh
  #! /usr/bin/zsh

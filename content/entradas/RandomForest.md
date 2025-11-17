@@ -16,7 +16,7 @@ los nodos representan las caracteristicas de un conjunto de datos y las ramas re
 Random Forest es un algoritmo de aprendizaje supervisado, creado por Leo Breiman y Adele Cutler, su funcionamiento principal consiste en
 ombinar la salida de varias desciciones para alcanzar un solo resultado. Es un metodo de ensamble que se usa para clasificacion y regresion.
 Consiste en la creacion de multiples arboles de decision durante el entrenamiento. A diferencia de los arboles de decision, Random Forest
-al utilizar la aleatoriedad en la seleccion de las caracteristicas, evita el sobreajuste y aumenta la precision del modelo. Y a diferencia de
+al utilizar la aleatoriedad en la selección de las caracteristicas, evita el sobreajuste y aumenta la precision del modelo. Y a diferencia de
 los arboles de decision, Random Forest no utiliza todos los datos para entrenar cada arbol, sino que utiliza una muestra aleatoria de los datos lo que
 hace que el modelo sea mas robusto y generalice mejor.
 

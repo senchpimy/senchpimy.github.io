@@ -17,7 +17,7 @@ date: "18 Jan 2023"
 ![](/pro_img/pantallafrente1.png)
 ![](/pro_img/pantallafrente2.png)
 
- Luego le tuve que crear un soprte que mantenga la pantalla en su lugar asi como la placa con los botnoes que controla la pantalla. Estas son dos partes pues necesitaba que los botones se sujetaran un poco más adelante, lo que si fuese una sola pieza causaria que la demas pieza seria mucho más dificil de poder imprimir. Ademas esta parte iba a estar atornillada a la placa más grande que adapta las entradas de video a el conector de la pantalla por lo que tuvo que ser puesta en una poscicion especifica, y como la placa con los botones iba a estar al lado esta necesitaba de un lugar por el cual los cables llegaran a pasar para poder conectarse a la placa más grande
+ Luego le tuve que crear un soprte que mantenga la pantalla en su lugar asi como la placa con los botnoes que controla la pantalla. Estas son dos partes pues necesitaba que los botones se sujetaran un poco más adelante, lo que si fuese una sola pieza causaria que la demás pieza seria mucho más dificil de poder imprimir. Ademas esta parte iba a estar atornillada a la placa más grande que adapta las entradas de video a el conector de la pantalla por lo que tuvo que ser puesta en una poscicion especifica, y como la placa con los botones iba a estar al lado esta necesitaba de un lugar por el cual los cables llegaran a pasar para poder conectarse a la placa más grande
  
 ![](/pro_img/pantallaenmedio1.png)
 ![](/pro_img/pantallaenmedio2.png)

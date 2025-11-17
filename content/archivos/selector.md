@@ -6,7 +6,7 @@ date: "16 Jan 2023"
  
 ![](/pro_img/archivos.gif)
 
- Este programa no tiene nombre pero al ponerlo en tu **PATH** tan solo basta para pasarle los formatos como argumentos, en realidad este programa solo renderiza aquellos archivos que contengan en su terminacion el string que fue pasado como argumento por lo que si introduces **jpg** en lugar de **.jpg** puede que aparezacan archivos que no tengan esa extension pero si ese string, pero si pasas como argumento **images, videos o documents** hay una seleccion de formatos preedefinidos, pero no creo que esto sea valido para todos los casos
+ Este programa no tiene nombre pero al ponerlo en tu **PATH** tan solo basta para pasarle los formatos como argumentos, en realidad este programa solo renderiza aquellos archivos que contengan en su terminacion el string que fue pasado como argumento por lo que si introduces **jpg** en lugar de **.jpg** puede que aparezacan archivos que no tengan esa extension pero si ese string, pero si pasas como argumento **images, videos o documents** hay una selección de formatos preedefinidos, pero no creo que esto sea valido para todos los casos
  
 
 

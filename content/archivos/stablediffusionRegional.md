@@ -37,7 +37,7 @@ date: "04 Aug 2023"
 
   
  
- Con esto ya estara listo para usarse, pero la forma en la que generamos cosas especificas por secciones es la siguiente. 
+ Con esto ya estará listo para usarse, pero la forma en la que generamos cosas especificas por secciones es la siguiente. 
    
   
 

@@ -28,7 +28,7 @@ las limitaciones de la raspberry asi que utilice **tauri** que me deja crear pro
 
 ![](/archivos/pantallaDespertador2.png)
 
-El programa te deja interactuar y modificar de donde se va a obtener la informacion desde la misma interfaz asi como alguas interacciones que 
+El programa te deja interactuar y modificar de donde se va a obtener la información desde la misma interfaz asi como alguas interacciones que 
 aprovechan el touch de la pantalla
 
 ## Compilando

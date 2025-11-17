@@ -90,7 +90,7 @@ extern GoInt Add(GoInt p0, GoInt p1);
 ]]);
 ```
 
-Y se podria ejecutar lo siguiente sin ningun problema:
+Y se podría ejecutar lo siguiente sin ningun problema:
 ```lua
 awesome.Add(1,+1) --2
 ```

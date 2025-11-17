@@ -7,9 +7,9 @@ En este proyecto use un despertador antiguo que no servia y lo "repare" y ademas
 
 
 Primero use un **esp32** como microcontrolador para el proyecto, pues este ya tiene coneccion a wifi y bluetooth, use un display de 7 segmentos para matener el formato de la hora, especificamente use el TM1637, y el programa de la hora se ejecuta en el sgundo core de
-el esp32. Ademas este usa los botones que el desperator ya traia para dar la hora.
+el esp32. Ademas este usa los botones que el desperator ya traía para dar la hora.
 
-Ademas le añadi una pantalla de e-ink, esto por que el despertador tambien traia una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
+Ademas le añadi una pantalla de e-ink, esto por que el despertador tambien traía una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban de el mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
 
 Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algun motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, asi que tuve que implementar una pequeña funcion 
 que se ejecuta cada que se quiera dibujar una linea, para cambiar las coordenadas para que estas tengan la rotacion correspondiente. El cambio especifico lo saque de el código fuente que se supone que lo haria desde la biblioteca.

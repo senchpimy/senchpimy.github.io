@@ -1,9 +1,9 @@
 ---
-title: "Configuracion de Marlin Para la Ender3"
+title: "Configuración de Marlin Para la Ender3"
 date: "29 Oct 2022"
 ---
 
- Con los 4 archivos de configuracion tenemos muchas de modificacion posibilidades para la ender 3, en mi caso hice las siguientes, pues modifique mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
+ Con los 4 archivos de configuracion tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifique mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
  
 ## _Statusscreen.h
 
@@ -15,28 +15,28 @@ date: "29 Oct 2022"
 ![](./copland.jpg)
 
 
- Para hacerlo solo subi la imagen <https://marlinfw.org/tools/u8glib/converter.html> Asegurandome que la imagen cumpliera con las dimensiones y seleccione que la queria para status, copie la salida y la pegue en \_Statusscreen.h
+ Para hacerlo solo subí la imagen <https://marlinfw.org/tools/u8glib/converter.html> Asegurándome que la imagen cumpliera con las dimensiones y seleccioné que la queria para status, copie la salida y la pegue en \_Statusscreen.h
  
 ## PID
 
 
 
- Al cambiarle el hotend necesitamos cambiarle el PID que es una formula que controla como el hotend se calienta, evitando que este varie mucho en el tiempo poara poder hacer esto el firmware neceita de tres valores, estos valores se obtiene al hacer una serie de pruebas al calentarse y enfriarse, para poder hacer estas pruebas necesitamos de un programa que pueda enviar Gcode a la placa de la impresora, el programa que utilice se llama **pronterface**
+ Al cambiarle el hotend necesitamos cambiarle el PID que es una formula que controla como el hotend se calienta, evitando que este varie mucho en el tiempo para poder hacer esto el firmware necesita de tres valores, estos valores se obtiene al hacer una serie de pruebas al calentarse y enfriarse, para poder hacer estas pruebas necesitamos de un programa que pueda enviar Gcode a la placa de la impresora, el programa que utilice se llama **pronterface**
 
 
- Para poder hacer esta prueba la placa debe estar conectada a la computadora y a la corriente, luego para conectarse a la impresora desde la computadora solo hay que abrir el programa y este va a detectar el puerto, y solo hay que seleccionarlo, probablemente tambien seleccion de forma correcta los demas valores para conectarse si todo esta correcto al momento de dar click en conectar se debera conectar sin errores.
+ Para poder hacer esta prueba la placa debe estar conectada a la computadora y a la corriente, luego para conectarse a la impresora desde la computadora solo hay que abrir el programa y este va a detectar el puerto, y solo hay que seleccionarlo, probablemente tambien selección de forma correcta los demás valores para conectarse si todo esta correcto al momento de dar click en conectar se debera conectar sin errores.
  
 
  Al ya estar conectado enviaremos el siguiente texto a la computadora **M303 E0 S205 C7**, lo que este comando de g code significa es lo siguiente
-* **M303:** Este comando indica que haremos al prueba de calibracion de los valores de PID
+* **M303:** Este comando indica que haremos al prueba de calibración de los valores de PID
 * **E0:** Esto significa que llevaremos la prueba en el extrusor 0 pues como solo tiene uno mi impresora es el unico que hay que calibrar
-* **S205:** Significa que el hotend se calentara hast los 205 grados para hacer la prueba
-* **C7:** Significa que la prueba se llevara a cabo 7 veces, esto es para tener unos valores mas exactos, tambien se pueden hacer menos pero podria llevar a inexatitudes o se podrian hacer mas pero llevaria mas tiempo y puede que las optimizaciones no valgan la pena
+* **S205:** Significa que el hotend se calentará hasta los 205 grados para hacer la prueba
+* **C7:** Significa que la prueba se llevará a cabo 7 veces, esto es para tener unos valores mas exactos, tambien se pueden hacer menos pero podría llevar a inexactitudes o se podrian hacer mas pero llevaria mas tiempo y puede que las optimizaciones no valgan la pena
 
 
 
 
- Al finalizar la prueba el programa en mi caso dio la siguiente informacion:
+ Al finalizar la prueba el programa en mi caso dio la siguiente información:
  
 ```C
 >>> M303 E0 S215 C7
@@ -107,7 +107,7 @@ date: "29 Oct 2022"
 
 
 
- Cuando cambie de hotend este traia un termistor aparte y como era diferente tenia una resistencia diferente que necesita
+ Cuando cambie de hotend este traía un termistor aparte y como era diferente tenia una resistencia diferente que necesita
  ser especificada en el firmware de Marlin, lo que hice fue que en la descripcion de el hotend que compre, este tenia una
  descripcion de el termistor que este decia ***"Incluye 100K NTC B 3950 termistor."*** y solo busque ese modelo y agregue a la busqueda "Marlin" y encotre que para ese modelo el valor que se tiene que colocar es de **11**, cuando este valo es incorrecto el termistor se puede calentar mucho o poco y cambiar mucho la calidad de las impresiones. Este valor se cambia en la linea 535 en Configuration.h
  

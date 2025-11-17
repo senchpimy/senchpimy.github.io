@@ -13,16 +13,16 @@ Estos son una alternativa a modelos sequenciales tales como HiPPO, Discretizatio
 
 ## Redes Neuronales Recurrentes
 
-Una red convolucional aplica una red neuronal a una serie de vectores al mismo tiempo, en comparacion a una tradicional en donde se analiza toda la informacion como un solo vector, este cambio en arquitectura logra que la informacion que se transmite entre capas
-pueda tener un cierto "contexto" con la informacion a su alrededor, que funciono muy bien para el analisis de imagenes y aplicando este mismo conecpto al texto, puede añadir conexto a las palabras segun las otras palabras que esten a su alrededor.
+Una red convolucional aplica una red neuronal a una serie de vectores al mismo tiempo, en comparacion a una tradicional en donde se analiza toda la información como un solo vector, este cambio en arquitectura logra que la información que se transmite entre capas
+pueda tener un cierto "contexto" con la información a su alrededor, que funciono muy bien para el analisis de imagenes y aplicando este mismo conecpto al texto, puede añadir conexto a las palabras segun las otras palabras que esten a su alrededor.
 
-Una arquietectura transofrmer hace que se combinen la informacion de varios vectores sin importar su proximidad, la desventaja es que la complejidad computacional de este algortimo es de n^2
+Una arquietectura transofrmer hace que se combinen la información de varios vectores sin importar su proximidad, la desventaja es que la complejidad computacional de este algortimo es de n^2
 
-Una red recurrente le aplica una red neuronal a un vector y a la salida previa a esa red neuronal, este cambio hace que cada salida tenga informacion sobre todas las salidas anteriores a esta.
+Una red recurrente le aplica una red neuronal a un vector y a la salida previa a esa red neuronal, este cambio hace que cada salida tenga información sobre todas las salidas anteriores a esta.
 
 La desventaja de este acercamiento es que este proceso no se puede paralelizar pues cada salida depende de la anterior.
 
-Por que en la practica un transformer es mas rapido que una red recurrente, ademas que en una red convolucional aunque en teoria se puede tener informacion sobre cualquier vector anterior, en la practica son solo unos pocos los que son "recordados"
+Por que en la practica un transformer es mas rapido que una red recurrente, ademas que en una red convolucional aunque en teoria se puede tener información sobre cualquier vector anterior, en la practica son solo unos pocos los que son "recordados"
 
 ## Red Neuronal Recurrente Lineal
 

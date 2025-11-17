@@ -18,7 +18,7 @@ class Solution:
                 return True
         return False
 ```
-Pero me di cuenta que se podria ser más rapido si se suman en lugar de hacer las comparaciones:
+Pero me di cuenta que se podría ser más rapido si se suman en lugar de hacer las comparaciones:
 
 ```py
 class Solution:

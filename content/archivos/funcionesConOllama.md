@@ -141,7 +141,7 @@ Sin embargo ninguno de los mejores modelos fue capaz de completar la tarea con e
 
 >{'codellama:13b-code': 0, 'mistral': 0, 'phi3': 0, 'wizardlm2': 1, 'llama3':0}
 
-Un comportamiento extraño que note fue que *wizardlm2* siempre que terminaba el programa y lo volvia a ejecutar su primer intento era correcto sin importar cuantas veces lo ejecutara pero los demas resultaban en error, pero a pesar de que realizaba
+Un comportamiento extraño que note fue que *wizardlm2* siempre que terminaba el programa y lo volvia a ejecutar su primer intento era correcto sin importar cuantas veces lo ejecutara pero los demás resultaban en error, pero a pesar de que realizaba
 la tarea con exito sus resultados eran erroneos pues obtenia esta salida
 
 >name='Claudia' height=5.0 hair_color='brunette'

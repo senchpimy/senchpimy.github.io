@@ -120,7 +120,7 @@ pub fn main() !void {
 
 ```
 Como podemos ver, en zig se incluyen ciertas cosas que son buenas que no forman parte de c, como la funcionalidad de **defer**, manejar los errores
-como valores y forzar a leerlos, demas de los nombres de los tipos que cuando se compila para otras arquitecturas el tamaño de las variables es más
+como valores y forzar a leerlos, demás de los nombres de los tipos que cuando se compila para otras arquitecturas el tamaño de las variables es más
 explicito
 
 Y el archivo de construccion (build.zig) para linkear las librerias de C quedaria como:

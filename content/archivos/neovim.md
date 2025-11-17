@@ -1,5 +1,5 @@
 ---
-title: "Configuracion de Neovim"
+title: "Configuración de Neovim"
 date: "31 Jul 2022"
 ---
 
@@ -199,7 +199,7 @@ nnoremap  p :CocListResume
 
 ``` 
 
- La primera linea **source $HOME/.config/nvim/vim-plug/plugins.vim**  llama a el primer plugin de todos **vim-plug** este plugin nos ayudara a descargar, actualizar, y manejar los demas plugins, en este caso el plugin esta llamando a otro archivo llamado **plugins.vim** para que funcione con la configuracion que tengo este archivo debe estar dentro de una carpeta llamada **vim-plug**, pero solo hace con hacer referencia a este archivo en esa funcion es suficiente, he visto algunos init.vim que contienen lo que contendria plugins.vim, esto se hace poniendo lo siguiente en lugar de source en el archivo de init.vim
+ La primera linea **source $HOME/.config/nvim/vim-plug/plugins.vim**  llama a el primer plugin de todos **vim-plug** este plugin nos ayudara a descargar, actualizar, y manejar los demás plugins, en este caso el plugin esta llamando a otro archivo llamado **plugins.vim** para que funcione con la configuracion que tengo este archivo debe estar dentro de una carpeta llamada **vim-plug**, pero solo hace con hacer referencia a este archivo en esa funcion es suficiente, he visto algunos init.vim que contienen lo que contendria plugins.vim, esto se hace poniendo lo siguiente en lugar de source en el archivo de init.vim
  
 
 ```vim

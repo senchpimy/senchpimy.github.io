@@ -1,14 +1,14 @@
 ---
-title: "Configuracion de zsh"
+title: "Configuración de zsh"
 date: "15 Jan 2023"
 ---
 
- Zsh tambien conovida como Z shell es un interprete de comandos para sistemas Unix, es la shell que viene por defecto en todas las mac.Es similar a la shell bash, pero en mi opinion tiene varias caracteristicas por defecto que la hacen mas moderna. Para aumentar sus capabilidades un administrador de plugins muy facil de instalar, que ya incluye varios plugins, modificaciones y alias asi como un prompt personalizado, este administrador de plugins se llama **Oh-My-Zsh**, lo malo de este es que yo siento que puede hacer la shell muy lenta al cargar por primera vez, asi que lo desinstale y solo agregue lo que necitaba y prompt personalizado, lo demas lo deseche y siento que ahor atengo mas control pues ahora se bien que hace cada cosa y el prompt tiene caracteristicas que no pense que podia tener asi como le quite otras que no me gustaba que tuviera.
+ Zsh tambien conovida como Z shell es un interprete de comandos para sistemas Unix, es la shell que viene por defecto en todas las mac.Es similar a la shell bash, pero en mi opinion tiene varias caracteristicas por defecto que la hacen mas moderna. Para aumentar sus capabilidades un administrador de plugins muy facil de instalar, que ya incluye varios plugins, modificaciones y alias asi como un prompt personalizado, este administrador de plugins se llama **Oh-My-Zsh**, lo malo de este es que yo siento que puede hacer la shell muy lenta al cargar por primera vez, asi que lo desinstale y solo agregue lo que necitaba y prompt personalizado, lo demás lo deseche y siento que ahor atengo mas control pues ahora se bien que hace cada cosa y el prompt tiene caracteristicas que no pense que podia tener asi como le quite otras que no me gustaba que tuviera.
    
   
   
 
-* **Cuztomizar el prompt:** El prompt es el texto que aparece antes de el cursor en el terminal, y en este aparece informacion como el directorio, el estado de el proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Asi como modificar los colores y simbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización esta en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
+* **Cuztomizar el prompt:** El prompt es el texto que aparece antes de el cursor en el terminal, y en este aparece información como el directorio, el estado de el proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Asi como modificar los colores y simbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización esta en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
 
 ```toml
 
@@ -117,7 +117,7 @@ bindkey -s '^o' 'lfcd\n'
 #&&&&&&&&&&&&&&&&& Edit Line &&&&&&&&&&&&&&&&&&&&&&&&&&
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-* **Sugestiones:** Cuando quiero escribir un comando con un archivo si presiono **tab** zsh va a tratar de autocompletar lo que estaba tratando de escribir con una sugerencia, el motor es bastante inteligente y puede automaticamente seleccionar archivos del tipo especifico del cual el comando requiere, pero para mejorar esto le puse dos configuraciones, la cual le permite buscar en los archivo que comiencen con un "." y que no distinga entre mayusculas y minusculas, asi mismo que coloree las tipos de los archivos y que muestre el bloque blanco cuando se esta en el modo de seleccion.
+* **Sugestiones:** Cuando quiero escribir un comando con un archivo si presiono **tab** zsh va a tratar de autocompletar lo que estaba tratando de escribir con una sugerencia, el motor es bastante inteligente y puede automaticamente seleccionar archivos del tipo especifico del cual el comando requiere, pero para mejorar esto le puse dos configuraciones, la cual le permite buscar en los archivo que comiencen con un "." y que no distinga entre mayusculas y minusculas, asi mismo que coloree las tipos de los archivos y que muestre el bloque blanco cuando se esta en el modo de selección.
  
 autoload -U compinit
 zstyle ':completion:\*' menu select

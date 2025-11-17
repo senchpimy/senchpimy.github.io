@@ -8,7 +8,7 @@ date: "17 Jan 2023"
 
  Solo hay que configurar un archivo .json, el cual contiene los archivos los cuales pueden ser requeridos, pero considero que lo deberia cambiar, ya que para conseguir un archivo es necesario saber la ubicacion de el archivo en la maquina que lo hostea, lo cual puede causar problemas.
 
- La seguridad de la contraseña tambien piensa que puede ser cambiada ya que esta informacion es enviada como un .json simple, lo cual si el usuario final no se encarga de configurar el servidor como http, o configurar la contraseña por defecto encriptada, esta podria ser interceptada
+ La seguridad de la contraseña tambien piensa que puede ser cambiada ya que esta información es enviada como un .json simple, lo cual si el usuario final no se encarga de configurar el servidor como http, o configurar la contraseña por defecto encriptada, esta podría ser interceptada
 
 
 
