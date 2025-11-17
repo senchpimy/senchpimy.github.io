@@ -68,7 +68,7 @@ $${\textstyle ((\lambda x.M)\ N)\rightarrow (M[x:=N])}$$
 Por lo que si tenemos una abstraccion:
 $$(\lambda x,M) N$$
 
-Se lee como *dado la función que toma un parametro y se transforma en M, aplicar dicha transformacion a N* que se puede expresar en cualquiera de la siguientes formas
+Se lee como *dado la función que toma un parametro y se transforma en M, aplicar dicha transformación a N* que se puede expresar en cualquiera de la siguientes formas
 $${\textstyle ((\lambda x.M)\ N)\rightarrow (M[x:=N]) = (M[N/x])}$$
 
 ## Booleanos Y condicionales

@@ -5,11 +5,11 @@ date: "04 Jul 2024"
 
 ## RSA
 
-RSA es un algoritmo de encriptacion que consiste en la factorizacion de dos numeros primos, actualmentes estos numeros son de el orden de los 10^300.
+RSA es un algoritmo de encriptación que consiste en la factorizacion de dos numeros primos, actualmente estos numeros son de el orden de los 10^300.
 
 ## Rompiendo RSA
 
-Siendo valores publicos e y n, y siendo un valor privado d, n = p*q. El proceso para romper RSA consiste en encontrar algunos de los dos valor p o q.
+Siendo valores públicos e y n, y siendo un valor privado d, n = p*q. El proceso para romper RSA consiste en encontrar algunos de los dos valores p o q.
 
 Para RSA se requiere también calcular la función de euler de n que se define como (p-1)*(q-1)
 

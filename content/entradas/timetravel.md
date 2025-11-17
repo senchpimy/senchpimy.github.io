@@ -57,7 +57,7 @@ date: "26 Oct 2022"
 
  El agua es el elemento barrera para la construccion de Portales de Tiempo usados como puentes entre Universos como el Vortice Tangente
 
- El Metal es el elemento de transcicion para la construccion de el Artefactos de Transporte.
+ El Metal es el elemento de transición para la construccion de el Artefactos de Transporte.
 
 ## Capitulo Cuatro: El artefacto y El Vivo
 

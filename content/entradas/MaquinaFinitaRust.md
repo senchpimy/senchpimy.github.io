@@ -1,14 +1,14 @@
 ---
-title: "Maquina De Estados Determinista Finita"
+title: "Máquina de Estados Determinista Finita"
 date: "10 Sep 2024"
 ---
 
-Una Mquina de estados finita consiste en un sistema el cual posee una serie de estados determinados y finitos, los cuales según la entrada que
-entre al sistema, este tomara una desciocion y cambiara de estado. EL cambio de estado se llama transcicion de estado.
+Una Máquina de estados finita consiste en un sistema el cual posee una serie de estados determinados y finitos, los cuales según la entrada que
+entre al sistema, este tomara una decisión y cambiara de estado. EL cambio de estado se llama transición de estado.
 
 ## Ejemplo
 
-Para este ejemplo maquina tendra 3 estados, cerrado, abierto y bloqueado,
+Para este ejemplo máquina tendrá 3 estados, cerrado, abierto y bloqueado,
 
 ```mermaid
 stateDiagram-v2
@@ -19,7 +19,7 @@ stateDiagram-v2
     cerrado --> abierto: Contraseña Correcta
     cerrado --> bloqueado: 3 Contraseñas Incorrectas
 ```
-En rust podriamos represnetar cada Estado como un Enum
+En rust podriamos representar cada Estado como un Enum
 
 ```rs
 enum State{
@@ -39,7 +39,7 @@ struct Maquina{
 }
 ```
 
-Y las fucniones asociadas con esta estructura serían:
+Y las funciones asociadas con esta estructura serían:
 
 ```rs
 impl Maquina{
@@ -54,11 +54,11 @@ impl Maquina{
         match self.estado{
             State::Cerrado=>{
                 if pin == self.pin && self.intentos<3{
-                    self.estado=abierto;
+                    self.estado=State::Abierto;
                 }else{
                     self.intentos+=1;
                     if self.intentos>=3{
-                        self.state=State::Bloqueado;
+                        self.estado=State::Bloqueado;
                     }
                 }
             },
