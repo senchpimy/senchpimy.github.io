@@ -4,16 +4,23 @@
 {{ partial "nav.html" . }}
 
 {{ .Content }}
+{{ $allFiles := readDir "/static/wallpapers/" }}
+{{ $imageFiles := slice }}
+{{ range $allFiles }}
+  {{ if not (findRE "\\.avif$" .Name) }}
+    {{ $imageFiles = $imageFiles | append . }}
+  {{ end }}
+{{ end }}
+
 {{ $index := 0}}
-{{ $array:= readDir "/static/wallpapers/" }}
 
 <div class="todo">
   <div class="documentos">
     {{ range.Data.Pages }}
-      {{ $info := index $array $index }}
+      {{ $info := index $imageFiles $index }}
       <div class="post-snippet">
           <a class="enlace" href="{{ .RelPermalink }}">
-            <img src="/wallpapers/{{ $info.Name }}" alt="">
+            <img src="/wallpapers/{{ $info.Name | replaceRE "(.*)\\.(jpg|jpeg|png|gif)$" "$1.avif" }}" alt="">
         </a>
         <div class="desc">
           {{ .Title }}
