@@ -1,0 +1,72 @@
+.codigo{
+  height: fit-content;
+  background-color: rgb(74, 80, 80);
+  color: blanchedalmond;
+  white-space: pre-wrap;
+  font-size: 11px;
+  padding: 10px;
+  border-radius: 25px;
+  margin: 40px;
+}
+.video{
+  margin: 20px;
+  margin-left: 30%;
+  margin-right: auto;
+}
+#imagenes {
+   display: flex;
+   justify-content: center;
+
+}
+
+#imagenes > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+
+
+}
+
+.Despreciado:after{
+	content:"Este plugin ya no lo ocupo";
+	font-size:0.5em;
+	color: rgb(240,0,100);
+}
+
+.Test:after{
+	content:"Este plugin todavia lo estoy probando";
+	font-size:0.5em;
+				color: rgb(90,100,200);
+	}
+
+.desc_pend{
+  position:relative;
+  bottom: 28px;
+  color: aqua;
+  background-color:  rgb(240,0,100);
+  width: 20vw;
+  height: fit-content;
+  text-align: center;
+}
+
+.desc_pend:after{
+	content:"""(work in progress)""";
+}
+
+
+
+
+ .todo{
+margin:2vw;
+ } 
+
+.desc{
+  position:relative;
+  bottom: 28px;
+  color: aqua;
+  background-color: black;
+  width: 20vw;
+  height: fit-content;
+  text-align: center;
+}
