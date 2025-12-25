@@ -55,6 +55,13 @@ main.content {
   padding: var(--spacing-lg);
 }
 
+main.content img, main.content p img {
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 .contenidos {
   display: flex;
   flex-wrap: wrap;
