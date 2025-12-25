@@ -55,11 +55,44 @@ main.content {
   padding: var(--spacing-lg);
 }
 
-main.content img, main.content p img {
+/* Fix for large images overflowing */
+main.content img, .content img {
   max-width: 100% !important;
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+figure.post-image {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+figure.post-image img {
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+figure.post-image figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Code blocks overflow fix */
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+code {
+  font-family: var(--font-family-mono);
 }
 
 .contenidos {
