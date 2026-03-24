@@ -1,6 +1,17 @@
 {{ $res := .Page.Resources.GetMatch (.Get 0) }}
 {{ if $res }}
-<iframe src="{{ $res.RelPermalink }}" width="100%" height="600px" frameborder="0" style="border: none;"></iframe>
+  {{ $url := "" }}
+  
+  {{/* Si Hugo oculta el HTML, lo obligamos a publicarlo y generar su URL real */}}
+  {{ if eq $res.ResourceType "page" }}
+    {{ $path := path.Join .Page.RelPermalink $res.Name }}
+    {{ $forced := $res.Content | resources.FromString $path }}
+    {{ $url = $forced.RelPermalink }}
+  {{ else }}
+    {{ $url = $res.RelPermalink }}
+  {{ end }}
+
+  <iframe src="{{ $url }}" width="100%" height="600px" frameborder="0" style="border: none;"></iframe>
 {{ else }}
-<p style="color:red">Recurso no encontrado: {{ .Get 0 }}</p>
+  <p style="color:red">Recurso no encontrado: {{ .Get 0 }}</p>
 {{ end }}
