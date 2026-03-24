@@ -1,9 +1,22 @@
 {{ partial "header.html" . }}
 
-<h1>{{ .Title }}</h1>
-{{ partial "nav.html" . }}
+<div class="single-container">
+  <article class="main-article">
+    <h1>{{ .Title }}</h1>
+    {{ partial "nav.html" . }}
 
-{{ .Content }}
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-toc">
+      <h3>Contenido</h3>
+      {{ .TableOfContents }}
+    </div>
+  </aside>
+</div>
 
 {{ partial "footer.html" . }}
 

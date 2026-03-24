@@ -209,6 +209,7 @@ table th, table td {
   text-align: left;
 }
 
+/* Bold first row only if it's a header */
 table thead th {
   background-color: var(--color-accent);
   color: var(--color-ink);
@@ -219,11 +220,169 @@ table thead th {
 
 /* Zebra striping */
 table tbody tr:nth-child(even) {
-  background-color: #FAFAFA; /* Very light gray for subtle alternation */
+  background-color: var(--color-accent); /* Use the soft cream for notable zebra effect */
 }
 
-/* Bold first row (fallback if no thead) */
-table tr:first-child th,
-table tr:first-child td {
+/* Footnotes and Citations */
+.footnotes {
+  font-size: 0.85rem;
+  color: #555;
+  border-top: var(--border-width) solid var(--color-ink);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  background-color: #fcfcfc;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.footnotes hr {
+  display: none; /* Hide default HR if handled by border */
+}
+
+.footnotes ol {
+  padding-left: 2rem; /* Increase padding for the numbers */
+}
+
+.footnotes li {
+  display: list-item; /* Restore the default number */
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.footnotes p {
+  display: inline; /* Keep text next to the number */
+}
+
+/* Style the reference number in the footnote list */
+.footnotes li::marker {
+  color: #0066cc;
   font-weight: 700;
+}
+
+/* Back-link style */
+.footnote-backref {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  margin-left: 6px;
+  color: var(--color-ink);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.footnote-backref:hover {
+  opacity: 1;
+  background-color: var(--color-accent);
+}
+
+/* Inline citation link (the superscript number in text) */
+sup a {
+  text-decoration: none;
+  padding: 0 3px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #0066cc; /* Deep blue for visibility */
+  transition: all 0.2s ease;
+}
+
+sup a::before { content: '['; }
+sup a::after { content: ']'; }
+
+sup a:hover {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+/* Layout for TOC Sidebar */
+.single-container {
+  display: grid;
+  /* 3 columns: left spacer (flexible), centered content (900px), right sidebar (fixed) */
+  grid-template-columns: 1fr min(var(--container-width), 95vw) 1fr;
+  gap: 0 2rem;
+  width: 100%;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.main-article {
+  grid-column: 2;
+  min-width: 0;
+  width: 100%;
+}
+
+.sidebar {
+  grid-column: 3;
+  width: 220px;
+  /* This prevents the sidebar from pushing the center column */
+  justify-self: start;
+}
+
+.sidebar-toc {
+  position: sticky;
+  top: 4rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 0.75rem; /* Even smaller */
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}
+
+.sidebar-toc h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 0.3rem;
+  color: #888;
+}
+
+.sidebar-toc nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar-toc nav ul ul {
+  padding-left: 0.8rem;
+  margin-top: 0.2rem;
+  border-left: 1px solid rgba(0,0,0,0.05);
+}
+
+.sidebar-toc nav li {
+  margin-bottom: 0.4rem;
+}
+
+.sidebar-toc nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #999;
+  display: block;
+  transition: color 0.2s;
+  line-height: 1.3;
+}
+
+.sidebar-toc nav a:hover {
+  color: var(--color-ink);
+  background: transparent;
+  text-decoration: none;
+  border-left: 2px solid var(--color-ink);
+  padding-left: 4px;
+  margin-left: -6px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1350px) {
+  /* Hide sidebar if it starts to collide with content */
+  .sidebar {
+    display: none;
+  }
+  .single-container {
+    grid-template-columns: 1fr min(var(--container-width), 95vw) 1fr;
+  }
 }

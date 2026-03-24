@@ -1,0 +1,6 @@
+{{ $res := .Page.Resources.GetMatch (.Get 0) }}
+{{ if $res }}
+<iframe src="{{ $res.RelPermalink }}" width="100%" height="600px" frameborder="0" style="border: none;"></iframe>
+{{ else }}
+<p style="color:red">Recurso no encontrado: {{ .Get 0 }}</p>
+{{ end }}
