@@ -968,6 +968,6 @@ plt.tight_layout()
 
 A continuación se presenta la visualización 3D interactiva de los datos (Plotly).
 
-{{< iframe "grafica_3d.data" >}}
+{{< iframe "grafica_3d.html" >}}
 
 
