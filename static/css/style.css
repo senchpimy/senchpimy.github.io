@@ -50,7 +50,7 @@ a:hover, a:focus {
 }
 
 main.content {
-  max-width: var(--container-width);
+  max-width: 1400px;
   margin: 0 auto;
   padding: var(--spacing-lg);
 }
@@ -298,8 +298,8 @@ sup a:hover {
 /* Layout for TOC Sidebar */
 .single-container {
   display: grid;
-  /* 3 columns: left spacer (flexible), centered content (900px), right sidebar (fixed) */
-  grid-template-columns: 1fr min(var(--container-width), 95vw) 1fr;
+  /* Proporción para mover aún más a la derecha: 3fr a la izquierda, 1fr a la derecha */
+  grid-template-columns: 3fr min(var(--container-width), 95vw) 220px 1fr;
   gap: 0 2rem;
   width: 100%;
   margin: 0 auto;
@@ -315,13 +315,13 @@ sup a:hover {
 .sidebar {
   grid-column: 3;
   width: 220px;
-  /* This prevents the sidebar from pushing the center column */
   justify-self: start;
 }
 
 .sidebar-toc {
-  position: sticky;
+  position: fixed;
   top: 4rem;
+  width: 220px;
   padding: 0;
   background: transparent;
   border: none;
@@ -367,7 +367,8 @@ sup a:hover {
   line-height: 1.3;
 }
 
-.sidebar-toc nav a:hover {
+.sidebar-toc nav a:hover,
+.sidebar-toc nav a.active {
   color: var(--color-ink);
   background: transparent;
   text-decoration: none;
