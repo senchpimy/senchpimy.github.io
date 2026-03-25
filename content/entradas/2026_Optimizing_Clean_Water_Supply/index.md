@@ -46,7 +46,7 @@ satelital y datos climáticos. Las tres variables objetivo son:
 ![Distribución de DRP](DRP_hist.png)
 ![Mapa Real de DRP](DRP_real_map.png)
 
-### 1.2 Fuentes de datos
+##  Fuentes de datos
 
 Para este hackaton se nos fue proporcionado tres datasets:
 
@@ -257,7 +257,7 @@ merged_df = merged_df.dropna(subset=targets)
 No tiene sentido entrenar sobre ejemplos donde el valor a predecir es desconocido.
 Pues puede crear predicciones erroneas en el modelo
 
-### 2.1 Imputación de features
+### Imputación de features
 
 El modelo original del benchmark usaba imputación con la **media aritmética**.
 
@@ -300,7 +300,7 @@ El scaler se guarda como `scaler.pkl` para garantizar la misma transformación e
 
 ---
 
-## 3. Ingeniería de Características
+## Ingeniería de Características
 
 La ingeniería de características fue el componente con mayor impacto individual en el rendimiento del modelo.
 Partiendo solo de las 7 features del benchmark (4 bandas Landsat + NDMI + MNDWI + pet),
@@ -405,8 +405,7 @@ significativamente el resultado.
 
 
 
-
-### 3.5 Features polinómicas y de interacción
+Se agregaron las siguientes features polinomicas:
 
 ```python
 # Cuadráticas (captura relaciones no lineales)
@@ -419,15 +418,14 @@ merged_df['nir_green_inter']  = merged_df['nir']  * merged_df['green']
 merged_df['nir_swir16_inter'] = merged_df['nir']  * merged_df['swir16']
 ```
 
-Los modelos de árbol pueden aproximar términos polinómicos a través de splits sucesivos,
-pero agregar explícitamente las features cuadráticas les permite descubrir esas relaciones
+Esto por que los modelos de árbol pueden aproximar términos polinómicos a través de splits sucesivos,
+pero agregar explícitamente las features cuadráticas les permite descubrir esas relaciones [16]
 con menos splits y de forma más eficiente (menor profundidad requerida, menos riesgo de overfitting).
 
 Las **interacciones** capturan efectos sinérgicos: la relación entre `nir` y `green` juntos puede 
 predecir la clorofila mejor que cada banda por separado, porque la clorofila absorbe fuertemente
 en rojo pero no en verde ni en NIR. [^11]
 
-### 3.6 Resumen del espacio de features final
 
 | Categoría | Features | Cantidad |
 |---|---|---|
@@ -446,7 +444,7 @@ en rojo pero no en verde ni en NIR. [^11]
 
 ## Evolución de la Arquitectura del Modelo
 
-### 4.1 Modelo del benchmark
+### El Modelo del benchmark
 
 El benchmark usaba un único `HistGradientBoostingRegressor` (HGBR) por variable objetivo,
 con los parámetros por defecto de scikit-learn. Este es un modelo de gradient boosting 
@@ -578,7 +576,7 @@ Con esto estos fueron los resultados:
 Despues de la iteracion anterior, note que existe un limite en los resultados, 
 específicamente en DRP, asi que descidí aumentar las features del sistema a las siguientes:
 
-#### 2.1.1 Features Espectrales
+#### Features Espectrales
 ```python
 NDWI = (green - nir) / (green + nir + ε)
 Turbidity = green / (swir16 + ε)
@@ -599,7 +597,7 @@ Spectral_Variance = var(nir, green, swir16, swir22)
 - **AWEI:** Índice de agua mejorado para aguas turbias
 - **Brightness & Variance:** Capturan propiedades ópticas generales
 
-#### 2.1.2 Features Temporales
+#### Features Temporales
 ```python
 Month, Year, DayOfYear
 sin_doy = sin(2π · DayOfYear / 365)
@@ -612,14 +610,14 @@ Is_Summer, Is_Winter
 - **Season:** Algunos procesos químicos varían por estación
 - **Month/Year:** Tendencias temporales
 
-#### 2.1.3 Features Geoespaciales
+#### Features Geoespaciales
 ```python
 Cluster = KMeans(n_clusters=10)
 Dist_to_Center = √((lat - lat_mean)² + (lon - lon_mean)²)
 Dist_to_Cluster_Center
 ```
 
-#### 2.1.4 Features de Interacción
+####  Features de Interacción
 ```python
 NDMI_MNDWI_product
 NDWI_squared, NDWI_cubed
@@ -632,7 +630,7 @@ Month_squared, Year_scaled
 - **Polinomios:** Relaciones no lineales
 - **Log transforms:** Manejan distribuciones asimétricas
 
-#### 2.1.5 Por Clusters
+#### Features por Clusters
 ```python
 Cluster_mean_nir, nir_deviation
 Cluster_mean_green, green_deviation
@@ -714,9 +712,6 @@ El análisis de correlaciones reveló que la feature con mayor correlación con 
 mientras que para Conductance era r=0.687 (`Turbidity`).
 Esta diferencia daba a entender que el problema no era del de modelo, sino de la información disponible, 
 
-!TODO
-~Se decidió explorar otro datasets que pudieran aportar features.~
-
 Se muestra que DRP reducia el promedio del R2, asi que se analizo mejor estos datos:
 
 ```txt
@@ -730,7 +725,7 @@ Max:     485.00 μg/L  (outlier extremo, 9.5 x mediana)
 Skewness: 2.84  (muy sesgada a la derecha)
 ```
 
-[Mostrar grafica]
+![Distribución de DRP](DRP_hist.png)
 
 ### El DRP
 
@@ -758,15 +753,93 @@ El análisis de importancias (ExtraTrees sobre conjunto de entrenamiento) revel�
 | 3 | Cluster | 0.12 |
 | 4 | nir | 0.08 |
 | 5 | Month | 0.06 |
-| ... | Otras | ... |
 
-La dominancia de las features espaciales (Latitude, Longitude, Cluster con importancia combinada = 0.56) sobre las espectrales
-sugiere que el modelo está principalmente aprendiendo **dónde** hay alta concentración de DRP en el territorio,
+La dominancia de las features espaciales (Latitude, Longitude, Cluster con importancia combinada = 0.56)
+sobre las espectrales sugiere que el modelo está principalmente aprendiendo en dónde hay alta concentración de DRP en el territorio,
 más que el valor espectral que corresponde a ese nivel de fósforo.
 
-## 8. Conclusiones y Próximos Pasos
+Para intentar corregir esto, se agregaron nuevos datos, ya que el hackaton lo permitia, despues de buscar encontre los siguientes
+datasets en los cuales podria encontrar información que me sea util.
 
-### 8.1 Resumen de avances logrados
+*   **Microsoft Planetary Computer:** Plataforma principal para el acceso a catálogos STAC de datos geoespaciales.
+*   **IO LULC (Esri 10-Class Land Use/Land Cover):** Mapas de uso de suelo con resolución de 10m. Proporciona porcentajes de cultivos, zonas urbanas, bosques y superficies de agua.
+*   **JRC Global Surface Water (GSW):** Datos históricos sobre la presencia de agua superficial, permitiendo conocer la ocurrencia, estacionalidad y recurrencia del agua en cada punto.
+*   **Copernicus DEM (COP-DEM-GLO-30) & NASADEM:** Modelos Digitales de Elevación para calcular la topografía, pendientes y relieve local.
+*   **Terraclimate:** Datos climáticos mensuales (precipitación, temperatura, humedad del suelo, evapotranspiración).
+*   **Landsat (Collection 2 Level-2):** Bandas de reflectancia de superficie (SR) procesadas para corregir efectos atmosféricos.
+
+Esta fue la extraccion de datos, de que plataforma y que datos se extrajeron:
+
+
+
+| Plataforma / Fuente | Tipo de Datos | Variables Específicas |
+| :--- | :--- | :--- |
+| **Planetary Computer (IO LULC)** | Uso y Cobertura de Suelo | Agua, árboles, inundación, cultivos, zonas urbanas, suelo desnudo. |
+| **Planetary Computer (JRC GSW)** | Dinámica de Agua Superficial | Ocurrencia, estacionalidad, recurrencia, estabilidad e intensidad estacional. |
+| **Planetary Computer (DEM)** | Topografía y Elevación | Elevación (media/std), pendiente (media/p95) y relieve. |
+| **Landsat (C2 L2)** | Reflectancia Espectral | nir, green, swir16, swir22, NDMI, MNDWI. |
+| **Terraclimate** | Clima e Hidrología | Evapotranspiración potencial (pet) y clima mensual. |
+
+
+Para acceder a los datos, se utiliza el cliente de STAC con el autenticador oficial:
+```python
+import pystac_client
+import planetary_computer
+
+# Inicialización del catálogo
+catalog = pystac_client.Client.open(
+    "https://planetarycomputer.microsoft.com/api/stac/v1",
+    modifier=planetary_computer.sign_inplace
+)
+```
+
+#### Extracción de Uso de Suelo (LULC)
+```python
+def extract_lulc(lat, lon):
+    # BBox de 1km y búsqueda en catálogo "io-lulc-9-class"
+    items = catalog.search(collections=["io-lulc-9-class"], bbox=bb, datetime="2017-01-01/2020-12-31")
+    # ... recorte y cálculo de porcentajes por clase
+    return {
+        'lulc_water_pct': np.sum(data == 1) / total * 100,
+        'lulc_crops_pct': np.sum(data == 5) / total * 100,
+        'lulc_urban_pct': np.sum(data == 7) / total * 100,
+        # ... otras clases
+    }
+```
+
+#### Extracción de Dinámica del Agua (JRC)
+```python
+def extract_jrc(lat, lon):
+    # Catálogo "jrc-gsw" para obtener estabilidad y recurrencia
+    items = catalog.search(collections=["jrc-gsw"], bbox=bb)
+    # Extracción de activos: occurrence, seasonality, recurrence
+    for asset in ['occurrence', 'seasonality', 'recurrence']:
+        vals = da_clipped.values.flatten()
+        result[f'jrc_{asset}'] = np.mean(vals)
+    return result
+```
+
+#### Extracción de Topografía (DEM)
+```python
+def extract_dem(lat, lon):
+    # Catálogos "cop-dem-glo-30" o "nasadem-hgt"
+    items = catalog.search(collections=["cop-dem-glo-30"], bbox=bb_2km)
+    # Cálculo de pendiente usando filtros de Sobel
+    gx = sobel(dem_fill, axis=1)
+    gy = sobel(dem_fill, axis=0)
+    slope = np.sqrt(gx**2 + gy**2)
+    return {
+        'dem_elevation_mean': np.mean(valid),
+        'dem_slope_mean': np.mean(slope),
+        'dem_relief': np.max(valid) - np.min(valid)
+    }
+```
+
+
+
+### Evaluaciones
+
+Ya con estos cambios me senti seguro de empezar a enviar las evaluaciones
 
 | Métrica | Benchmark inicial | Estado actual |
 |---|---|---|
@@ -775,7 +848,6 @@ más que el valor espectral que corresponde a ese nivel de fósforo.
 | R² Electrical Conductance | ~0.55 | **0.870** |
 | R² DRP | ~0.49 | **0.718** |
 | Número de features | 7 | **30** |
-| Número de modelos | 1 | **5 + Stacking** |
 
 Se logró un incremento de **+29 puntos porcentuales** en R² promedio respecto al benchmark.
 
@@ -783,13 +855,16 @@ Se logró un incremento de **+29 puntos porcentuales** en R² promedio respecto 
 
 Con estos modelos, empece a enviar los resultados en los valores de validacion que proporciona el concurso,
 con esto me encontre que estos modelos tuvieron un ~0.1 en la evaluacion del concurso a pesar de tener
-~0.8 de R2 en la validacion local.
+~0.8 de R2 en la validacion local, con esto en mente empece a iterar otra vez.
 
-## 6. Fase de Robustez y Transformación de Datos
+### Cambio de escalado
 
-Para esto se usaron técnicas para manejar valores atípicos (outliers). En estos cambios se uso `RobustScaler` en lugar de
-`StandardScaler`, el cual escala usando la mediana y el rango intercuartílico (IQR) en lugar de la media y desviación estándar,
-haciéndolo inmune a outliers extremos y el clipping de valores de reflectancia negativos o físicamente imposibles 
+Para esto se usaron técnicas para manejar outliers.
+En estos cambios se uso `RobustScaler` en lugar de
+`StandardScaler`, el cual escala usando la mediana y el rango intercuartílico (IQR)
+en lugar de la media y desviación estándar,
+haciéndolo inmune a outliers extremos y el clipping de valores de reflectancia
+negativos o físicamente imposibles 
 (valores fuera del rango `[0, 1]` para bandas normalizadas).
 
 ```python
@@ -804,11 +879,17 @@ X_train_scaled = scaler.fit_transform(X_train)
 ```
 
 Los datos de calidad del agua suelen tener distribuciones fuertemente sesgadas.
-Predecir el valor crudo hace que el modelo concentre su capacidad en los valores extremos y pierda precisión en el rango más frecuente.
+Predecir el valor crudo hace que el modelo concentre su capacidad en los valores extremos y
+pierda precisión en el rango más frecuente.
 
-### `make_log_target_sub.py`
+### Transformación de datos 
 
-Para este paso se aplicó una transformación logarítmica directamente sobre el **objetivo** (`np.log1p`). El modelo se entrena para predecir `log(1 + y)` en lugar de `y` directamente, y al momento de generar las predicciones finales se aplica la transformación inversa con `np.expm1`. Adicionalmente se combinaron XGBoost, LightGBM y GradientBoosting en un ensamble, y se añadieron características de Planetary Computer (`lulc`, `dem_slope`) junto con la codificación cíclica temporal (`sin_doy`).
+Para este paso se aplicó una transformación logarítmica directamente sobre
+el **objetivo** (`np.log1p`). El modelo se entrena para predecir `log(1 + y)` en lugar de `
+y` directamente, y al momento de generar las predicciones finales se aplica la transformación
+inversa con `np.expm1`. Adicionalmente se combinaron XGBoost, LightGBM y GradientBoosting en
+un ensamble, y se añadieron características de Planetary Computer (`lulc`, `dem_slope`) junto
+con la codificación cíclica temporal (`sin_doy`).
 
 ```python
 # Transformar target
@@ -821,13 +902,13 @@ y_pred = np.expm1(model.predict(X_test))
 
 La transformación logarítmica convierte la distribución sesgada a la derecha en una aproximadamente normal, lo que permite que el modelo optimice el MSE de forma simétrica en lugar de concentrar gradientes en los outliers extremos. Aunque esta transformación estabilizó la varianza, el modelo aún podía mejorar mediante una validación más rigurosa.
 
----
 
-## 7. Fase de Optimización y Validación Cruzada
+### Aplicacion de K-Fold Cross Validation
 
-### `make_kfold_sub.py`
-
-En lugar de una sola partición train/test, se adoptó una estrategia de **K-Fold Cross Validation** con 10 pliegues. El modelo se entrena 10 veces con diferentes subconjuntos de datos y las predicciones sobre el set de prueba se promedian entre todos los pliegues.
+En lugar de una sola partición train/test, se adoptó una estrategia de
+**K-Fold Cross Validation** con 10 pliegues. El modelo se entrena 10 
+veces con diferentes subconjuntos de datos y las predicciones sobre 
+el set de prueba se promedian entre todos los pliegues.
 
 ```python
 from sklearn.model_selection import KFold
@@ -843,110 +924,117 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X_train)):
     test_preds += model.predict(X_test) / kf.n_splits
 ```
 
-El promedio de las 10 predicciones sobre test reduce drásticamente la varianza del estimador final, ya que cada fold expone al modelo a una distribución diferente de los datos, reduciendo el riesgo de que el resultado dependa de una partición particular.
+El promedio de las 10 predicciones sobre test reduce drásticamente la varianza del estimador final,
+ya que cada fold expone al modelo a una distribución diferente de los datos, reduciendo el riesgo 
+de que el resultado dependa de una partición particular.
 
----
+Con la validación cruzada establecida, el siguiente paso fue explorar funciones de
+pérdida alternativas para reducir la sensibilidad a errores extremos. Se adoptó la **Huber Loss**,
+un híbrido entre MSE y MAE: para errores pequeños se comporta como MSE (derivada suave, convergencia rápida)
+y para errores grandes se comporta como MAE (gradiente acotado, penaliza menos los outliers). El parámetro `delta`
+controla la frontera entre ambos regímenes.
 
-### `make_huber_sub.py`
-
-Con la validación cruzada establecida, el siguiente paso fue explorar funciones de pérdida alternativas para reducir la sensibilidad a errores extremos. Se adoptó la **Huber Loss**, un híbrido entre MSE y MAE: para errores pequeños se comporta como MSE (derivada suave, convergencia rápida) y para errores grandes se comporta como MAE (gradiente acotado, penaliza menos los outliers). El parámetro `delta` controla la frontera entre ambos regímenes.
+Con la validación cruzada establecida, el siguiente paso fue explorar funciones de pérdida alternativas para reducir la sensibilidad a los valores atípicos, especialmente para DRP y EC. Se adoptó la **Huber Loss**, un híbrido entre el Error Cuadrático Medio (MSE) y el Error Absoluto Medio (MAE): para errores pequeños se comporta como MSE (convergencia rápida) y para errores grandes como MAE (penaliza menos los outliers).
 
 ```python
-# XGBoost con Huber loss
+# XGBoost con Huber loss (pseudo-huber)
 xgb_model = XGBRegressor(
     objective='reg:pseudohubererror',
     huber_slope=1.0,
+    random_state=42
 )
 
 # LightGBM con Huber loss
 lgb_model = LGBMRegressor(
     objective='huber',
     alpha=0.9,
+    random_state=42
 )
 ```
 
----
+### Post-procesamiento y Restricciones Físicas de Dominio
 
-## 8. Fase de Ensembles Avanzados
+Para mitigar parcialmente los errores extremos en
+el conjunto de prueba se implemente una restriccion de valores.
+Esto por que el dataset tenia valores que no tenian sentido en la vida real,
+se aplicaron reglas basadas en la física y química 
+del agua para limitar las predicciones a rangos plausibles.
 
-### `make_catboost_ensemble.py`
-
-Para aumentar la diversidad del ensamble se incorporaron **CatBoost** y **HistGradientBoosting**, llegando a un total de 5 modelos base: XGBoost, LightGBM, GradientBoosting, CatBoost e HistGradientBoosting. Paralelamente se refinó el espacio de features, seleccionando las **12 más robustas** mediante la importancia promediada sobre los 5 modelos y eliminando las que añadían ruido sin mejorar la generalización.
-
-```python
-models = [
-    ('xgb',  XGBRegressor(**xgb_params)),
-    ('lgbm', LGBMRegressor(**lgbm_params)),
-    ('gbm',  GradientBoostingRegressor(**gbm_params)),
-    ('cat',  CatBoostRegressor(**cat_params, verbose=0)),
-    ('hgb',  HistGradientBoostingRegressor(**hgb_params)),
-]
-
-test_preds = np.mean([m.predict(X_test) for _, m in models], axis=0)
-```
-
-CatBoost aporta diversidad real al ensamble porque su implementación interna del boosting (ordered boosting) difiere algorítmicamente de XGBoost y LightGBM, produciendo errores poco correlacionados con los de los otros modelos, lo cual es justamente lo que hace útil el promedio.
-
----
-
-## 9. Fase Final: Técnicas Post-Entrenamiento
-
-### `make_pseudolabel_sub.py`
-
-Con un ensamble sólido y estable, la única vía de mejora sustancial era incorporar información del propio set de prueba. Se implementó **pseudo-etiquetado** (*semi-supervised learning*): las predicciones más confiables de la mejor sumisión anterior se tratan como si fueran datos reales y se usan para re-entrenar el modelo junto con los datos originales.
+Por ejemplo, es sabido en la hidrología local que la Conductancia 
+Eléctrica (EC) tiene una relación límite con la Alcalinidad Total 
+(TA), y que existen topes máximos biológicos y químicos para el Fósforo 
+Reactivo Disuelto (DRP) en aguas superficiales.
 
 ```python
-# Filtrar predicciones de alta confianza (menor desacuerdo entre modelos)
-pseudo_mask = ensemble_std < confidence_threshold
-X_pseudo = X_test[pseudo_mask]
-y_pseudo = best_submission_preds[pseudo_mask]
-
-# Re-entrenar con datos originales + pseudo-etiquetas
-X_augmented = np.vstack([X_train, X_pseudo])
-y_augmented = np.concatenate([y_train, y_pseudo])
-model.fit(X_augmented, y_augmented)
-```
-
-Adicionalmente se aplicaron restricciones físicas de dominio sobre las predicciones finales para descartar valores hidroquímicamente imposibles, como que la conductividad eléctrica no puede exceder 1.5 veces la alcalinidad total, o que las concentraciones no pueden superar límites físicos observados en la región.
-
-```python
+# Restringir EC basado en la relación física con la Alcalinidad Total
 predictions['EC'] = np.where(
     predictions['EC'] > 1.5 * predictions['TA'],
     1.5 * predictions['TA'],
     predictions['EC']
 )
+
+# Recortar (clip) outliers imposibles basados en percentiles históricos regionales
 predictions['TA']  = predictions['TA'].clip(upper=1200)
 predictions['EC']  = predictions['EC'].clip(upper=5000)
 predictions['DRP'] = predictions['DRP'].clip(upper=600)
 ```
 
+Este simple post-procesamiento evitó que las predicciones 
+erráticas en regiones desconocidas destruyeran la métrica R² general,
+mejorando el puntaje del modelo.
+
 ---
 
-## 10. Análisis de Progresión de Envíos
+## Conclusiones
 
-Para evaluar objetivamente si las iteraciones estaban convergiendo o simplemente oscilando, se desarrolló un programa que carga el historial completo de envíos a la competencia y grafica la evolución del R² público a lo largo del tiempo. Esto permitió identificar visualmente qué fases generaron saltos reales en el score público, cuáles producían mejoras en validación local que no se transferían al set de prueba, y el plateau final donde los envíos comenzaron a oscilar alrededor de un valor máximo sin mejora sostenida, señal de que se había alcanzado el límite de la información disponible en las features espectrales para predecir DRP.
+El desarrollo de esta solución para el hackaton "2026 Optimizing Clean Water Supply" dejó varios aprendizajes clave sobre la intersección del Machine Learning y la teledetección hidrológica:
+
+1. **La Ingeniería de Características supera a la Complejidad del Modelo:** Pasar de 7 features base a más de 50 features (incluyendo índices espectrales avanzados como NDWI y Turbidez, y datos externos de topografía y uso de suelo) generó un salto de precisión mucho mayor que la transición de modelos simples a ensambles complejos (Stacking/Voting).
+2. **El Reto de las Variables "Invisibles":** Modelar el *Total Alkalinity* y el *Electrical Conductance* resultó viable porque estas variables correlacionan fuertemente con sólidos suspendidos y turbidez, los cuales alteran directamente la firma óptica del agua. Sin embargo, el *Dissolved Reactive Phosphorus* (DRP) no tiene una firma óptica directa, lo que obligó al modelo a depender de relaciones geográficas indirectas, limitando su rendimiento máximo.
+3. **El Peligro de las Distribuciones Asimétricas:** El uso estricto de medias aritméticas y el MSE tradicional en modelos de ML demostró ser inadecuado frente a variables con outliers masivos como el DRP. Transiciones a imputaciones por mediana, transformaciones logarítmicas en el target (`log1p`) y métricas de error robustas (Huber Loss) fueron fundamentales para estabilizar el aprendizaje.
+4. **Validación Espacial vs. Aleatoria:** La dramática diferencia entre el puntaje de validación local (~0.80) y el *leaderboard* público (~0.10 inicial) subrayó la importancia de diseñar esquemas de validación que respeten la naturaleza espacial del problema para evitar el *overfitting* de las coordenadas.
+
+## Próximos Pasos
+
+Para continuar mejorando el modelo y cerrar la brecha hacia la generalización perfecta,
+se proponen las siguientes iteraciones:
+
+* **Integración de Datos Sentinel-2:** Landsat ofrece una resolución de 30 metros y una revisita de 8-16 días. Incorporar la constelación Sentinel-2 (Copernicus) proporcionaría resoluciones de hasta 10 metros e intervalos de revisita de 5 días, permitiendo capturar dinámicas hidrológicas mucho más precisas, especialmente en cuerpos de agua pequeños.
+* **Optimización de Hiperparámetros con Optuna:** Reemplazar las selecciones manuales y los *Grid Search* por una optimización Bayesiana automatizada utilizando Optuna, evaluando específicamente la función objetivo sobre los resultados del CV Espacial.
+* **Exploración de Modelos Espacio-Temporales (Deep Learning):** Experimentar con Redes Neuronales de Grafos (GNN) o Redes Convolucionales 3D que puedan procesar de manera nativa la secuencia temporal de las imágenes satelitales como un volumen de datos, capturando la evolución temporal de la calidad del agua en lugar de tratar cada fecha como un evento tabular independiente.
+
+## Análisis de Progresión de Envíos
+
+Para evaluar objetivamente si las iteraciones estaban convergiendo o simplemente oscilando,
+se desarrolló un programa que carga el historial completo de envíos a la competencia y 
+grafica la evolución del R² público a lo largo del tiempo. Esto permitió identificar 
+visualmente qué fases generaron saltos reales en el score público, cuáles producían 
+mejoras en validación local que no se transferían al set de prueba, y el plateau final
+donde los envíos comenzaron a oscilar alrededor de un valor máximo sin mejora sostenida,
+señal de que se había alcanzado el límite de la información disponible en las features espectrales para predecir DRP.
 
 ```python
-fig, ax = plt.subplots(figsize=(14, 5))
+    fig = px.scatter_3d(
+        df, 
+        x='Total Alkalinity',
+        y='Electrical Conductance',
+        z='Dissolved Reactive Phosphorus',
+        color='Score',
+        color_continuous_scale='solar', 
+        opacity=0.6,
+        title='Nube 3D de Variables Químicas + Submission (Verde)'
+    )
+    fig.show()
 
-ax.plot(submissions['timestamp'], submissions['r2_public'],
-        marker='o', linewidth=1.5, color='steelblue', zorder=2)
-
-for phase, color in phase_colors.items():
-    mask = submissions['phase'] == phase
-    ax.scatter(submissions.loc[mask, 'timestamp'],
-               submissions.loc[mask, 'r2_public'],
-               color=color, s=60, label=phase, zorder=3)
-
-ax.axhline(y=0.52, linestyle='--', color='red', alpha=0.6, label='Benchmark (0.52)')
-ax.set_xlabel('Fecha del envío')
-ax.set_ylabel('R² público')
-ax.set_title('Evolución del score por envío')
-ax.legend()
-plt.tight_layout()
 ```
 
+A continuación se presenta la visualización 3D interactiva de los datos (Plotly).
+
+{{< iframe "grafica_3d.html" >}}
+
 ---
+
+## Conclusiones y Próximos Pasos
 
 [^1]: https://en.wikipedia.org/wiki/Near-infrared_spectroscopy
 [^2]: https://www.gisandbeers.com/caracteristicas-las-imagenes-satelite-landsat-9/
@@ -962,12 +1050,8 @@ plt.tight_layout()
 [^13]: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.StackingRegressor.html
 [^14]: https://en.wikipedia.org/wiki/Bootstrap_aggregating
 [^15]: https://www.mdpi.com/2073-4441/13/12/1704
+[^16]: https://www.researchgate.net/publication/225734295_The_Elements_of_Statistical_Learning_Data_Mining_Inference_and_Prediction
 
 
-## Visualización 3D Interactiva
-
-A continuación se presenta la visualización 3D interactiva de los datos (Plotly).
-
-{{< iframe "grafica_3d.html" >}}
 
 
