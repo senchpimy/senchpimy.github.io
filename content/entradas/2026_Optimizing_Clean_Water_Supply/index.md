@@ -236,7 +236,7 @@ RMSE: 35.182
 ----
 ## Preprocesamiento de Datos
 
-Para comenzar a hacer mis modelos se trabajo primero en consolidar el dataset,
+Para comenzar a hacer mis modelos se trabajó primero en tener un buen dataset,
 para esto, los tres archivos CSV se cargan y fusionan mediante un `inner join`
 usando como claves las columnas `Latitude`, `Longitude` y `Sample Date`. 
 Este tipo de unión garantiza que las muestras se unan en los mismos datos
@@ -265,7 +265,7 @@ El modelo original del benchmark usaba imputación con la **media aritmética**.
 val_data = val_data.fillna(val_data.median(numeric_only=True))
 ```
 
-En lugar se eso se decidio escoger la mediana, esto por que
+En lugar de eso se decidio escoger la mediana, esto por que
 la media es muy sensible a los outliers [^4]
 
 ```py
@@ -287,7 +287,7 @@ X_val_scaled = scaler.transform(X_test)  # transform únicamente, sin fit
 ```
 
 El `StandardScaler` transforma cada feature: `X_scaled = (X - μ) / σ`,
-donde μ es la media y σ la desviación estándar del conjunto de entrenamiento. Esto es necesario por que laa latitud varía en ~10 grados, las bandas `nir`/`green`
+donde μ es la media y σ la desviación estándar del conjunto de entrenamiento. Esto es necesario por que la latitud varía en ~10 grados, las bandas `nir`/`green`
 varían entre 0 y 0.5, y los ratios espectrales tienen valores superiores a 200. Los algoritmos con regularización le dan más peso a las variables 
 de mayor escala numérica y en el `StackingRegressor`, el `Ridge` recibe como input las predicciones 
 de 5 modelos base. Si esas predicciones tienen escalas muy diferentes (porque los targets tienen órdenes de magnitud distintos), la Ridge
@@ -324,7 +324,7 @@ aprende que el día 1 (1 de enero) y el día 365 (31 de diciembre)
 están a una "distancia" de 364 días, cuando en realidad están 
 a un solo día de diferencia.
 Los árboles de decisión no tienen este problema por naturaleza,
-pero la codificación cíclica facilita que el modelo encuetre patrones 
+pero la codificación cíclica facilita que el modelo encuentre patrones 
 periódicos más fácilmente. [^5]
 
 Las funciones `sin` y `cos` del día del año crean un espacio bidimensional
@@ -574,7 +574,7 @@ Con esto estos fueron los resultados:
 ### Nuevas Features
 
 Despues de la iteracion anterior, note que existe un limite en los resultados, 
-específicamente en DRP, asi que descidí aumentar las features del sistema a las siguientes:
+específicamente en DRP, asi que decidí aumentar las features del sistema a las siguientes:
 
 #### Features Espectrales
 ```python
@@ -655,7 +655,7 @@ no tenian gran efecto en el modelo final, por lo que se eliminaron
 En este punto se decidio escoger una tecnica de bagging[^14], la cual consisten en entrenar diferentes modelos
 en diferentes subsets de los datos y usarlo para hacer una prediccion.
 
-**B) Bagging de XGBoost y LightGBM:**
+**A) Bagging de XGBoost y LightGBM:**
 ```python
 # Ahora: 10 XGBoost + 10 LightGBM con diferentes seeds
 xgb_models = [
@@ -671,7 +671,7 @@ lgb_models = [
 y_pred = np.mean([model.predict(X) for model in xgb_models + lgb_models], axis=0)
 ```
 
-**C) Expansión masiva del espacio de features:**
+**B) Expansión masiva del espacio de features:**
 - De 30 features → **55 features**
 - Se agregaron features espectrales avanzadas (NDWI, Turbidity, NDTI, WRI, AWEI, Brightness, Spectral_Variance)
 - Features temporales estacionales (Season, Is_Summer, Is_Winter)
@@ -679,7 +679,7 @@ y_pred = np.mean([model.predict(X) for model in xgb_models + lgb_models], axis=0
 - Clustering espacial aumentado de k=10 → **k=100** para capturar micro-regiones
 - Features de distancia a hotspots/coldspots
 
-**D) Hiperparámetros específicos por target:**
+**C) Hiperparámetros específicos por target:**
 Para DRP (el target más difícil), se usaron configuraciones mucho más agresivas:
 ```python
 # DRP: Alta complejidad + regularización fuerte
@@ -729,7 +729,7 @@ Skewness: 2.84  (muy sesgada a la derecha)
 
 ### El DRP
 
-El Dissolved Reactive Phosphorus se mantuvo consistentemente como el objetivo con la menor prescicion, 
+El Dissolved Reactive Phosphorus se mantuvo consistentemente como el objetivo con la menor precisión, 
 el más difícil de predecir, con una R² entre 0.70 y 0.72 en los mejores modelos. El DRP tiene una distribucion en la que 
 la mayoría de los valores están concentrados en el rango 0–50 µg/L, pero existen
 outliers de hasta 500+ µg/L. El R² penaliza fuertemente los errores cuadráticos 
@@ -768,7 +768,7 @@ datasets en los cuales podria encontrar información que me sea util.
 *   **Terraclimate:** Datos climáticos mensuales (precipitación, temperatura, humedad del suelo, evapotranspiración).
 *   **Landsat (Collection 2 Level-2):** Bandas de reflectancia de superficie (SR) procesadas para corregir efectos atmosféricos.
 
-Esta fue la extraccion de datos, de que plataforma y que datos se extrajeron:
+Está fue la extraccion de datos, de que plataforma y que datos se extrajeron:
 
 
 
@@ -928,13 +928,10 @@ El promedio de las 10 predicciones sobre test reduce drásticamente la varianza 
 ya que cada fold expone al modelo a una distribución diferente de los datos, reduciendo el riesgo 
 de que el resultado dependa de una partición particular.
 
-Con la validación cruzada establecida, el siguiente paso fue explorar funciones de
-pérdida alternativas para reducir la sensibilidad a errores extremos. Se adoptó la **Huber Loss**,
-un híbrido entre MSE y MAE: para errores pequeños se comporta como MSE (derivada suave, convergencia rápida)
-y para errores grandes se comporta como MAE (gradiente acotado, penaliza menos los outliers). El parámetro `delta`
+Con la validación cruzada establecida, el siguiente paso fue explorar funciones de pérdida alternativas para reducir
+la sensibilidad a los valores atípicos, especialmente para DRP y EC. Se adoptó la **Huber Loss**, un híbrido entre el
+Error Cuadrático Medio y el Error Absoluto Medio, El parámetro `delta`
 controla la frontera entre ambos regímenes.
-
-Con la validación cruzada establecida, el siguiente paso fue explorar funciones de pérdida alternativas para reducir la sensibilidad a los valores atípicos, especialmente para DRP y EC. Se adoptó la **Huber Loss**, un híbrido entre el Error Cuadrático Medio (MSE) y el Error Absoluto Medio (MAE): para errores pequeños se comporta como MSE (convergencia rápida) y para errores grandes como MAE (penaliza menos los outliers).
 
 ```python
 # XGBoost con Huber loss (pseudo-huber)
@@ -985,23 +982,21 @@ mejorando el puntaje del modelo.
 
 ---
 
-## Conclusiones
+## Conclusion Y proximos Pasos
 
-El desarrollo de esta solución para el hackaton "2026 Optimizing Clean Water Supply" dejó varios aprendizajes clave sobre la intersección del Machine Learning y la teledetección hidrológica:
-
-1. **La Ingeniería de Características supera a la Complejidad del Modelo:** Pasar de 7 features base a más de 50 features (incluyendo índices espectrales avanzados como NDWI y Turbidez, y datos externos de topografía y uso de suelo) generó un salto de precisión mucho mayor que la transición de modelos simples a ensambles complejos (Stacking/Voting).
-2. **El Reto de las Variables "Invisibles":** Modelar el *Total Alkalinity* y el *Electrical Conductance* resultó viable porque estas variables correlacionan fuertemente con sólidos suspendidos y turbidez, los cuales alteran directamente la firma óptica del agua. Sin embargo, el *Dissolved Reactive Phosphorus* (DRP) no tiene una firma óptica directa, lo que obligó al modelo a depender de relaciones geográficas indirectas, limitando su rendimiento máximo.
-3. **El Peligro de las Distribuciones Asimétricas:** El uso estricto de medias aritméticas y el MSE tradicional en modelos de ML demostró ser inadecuado frente a variables con outliers masivos como el DRP. Transiciones a imputaciones por mediana, transformaciones logarítmicas en el target (`log1p`) y métricas de error robustas (Huber Loss) fueron fundamentales para estabilizar el aprendizaje.
-4. **Validación Espacial vs. Aleatoria:** La dramática diferencia entre el puntaje de validación local (~0.80) y el *leaderboard* público (~0.10 inicial) subrayó la importancia de diseñar esquemas de validación que respeten la naturaleza espacial del problema para evitar el *overfitting* de las coordenadas.
-
-## Próximos Pasos
+La gran diferencia entre el puntaje de validación local (~0.80) y el *leaderboard* público (~0.10)
+mostro la importancia de diseñar esquemas de validación que respeten la naturaleza espacial 
+del problema para evitar el overfitting de las coordenadas.
 
 Para continuar mejorando el modelo y cerrar la brecha hacia la generalización perfecta,
 se proponen las siguientes iteraciones:
 
-* **Integración de Datos Sentinel-2:** Landsat ofrece una resolución de 30 metros y una revisita de 8-16 días. Incorporar la constelación Sentinel-2 (Copernicus) proporcionaría resoluciones de hasta 10 metros e intervalos de revisita de 5 días, permitiendo capturar dinámicas hidrológicas mucho más precisas, especialmente en cuerpos de agua pequeños.
-* **Optimización de Hiperparámetros con Optuna:** Reemplazar las selecciones manuales y los *Grid Search* por una optimización Bayesiana automatizada utilizando Optuna, evaluando específicamente la función objetivo sobre los resultados del CV Espacial.
-* **Exploración de Modelos Espacio-Temporales (Deep Learning):** Experimentar con Redes Neuronales de Grafos (GNN) o Redes Convolucionales 3D que puedan procesar de manera nativa la secuencia temporal de las imágenes satelitales como un volumen de datos, capturando la evolución temporal de la calidad del agua en lugar de tratar cada fecha como un evento tabular independiente.
+El reemplazar las selecciones manuales y los *Grid Search* por una optimización
+Bayesiana automatizada utilizando Optuna, evaluando específicamente la función objetivo sobre los resultados del CV Espacial.
+
+Me gustaria experimentar con este dataset y Redes Neuronales de Grafos (GNN) o Redes 
+Convolucionales 3D que puedan procesar de manera nativa la secuencia temporal de las imágenes satelitales como un volumen 
+de datos, capturando la evolución temporal de la calidad del agua en lugar de tratar cada fecha como un evento tabular independiente.
 
 ## Análisis de Progresión de Envíos
 
@@ -1034,7 +1029,7 @@ A continuación se presenta la visualización 3D interactiva de los datos (Plotl
 
 ---
 
-## Conclusiones y Próximos Pasos
+## Referencias
 
 [^1]: https://en.wikipedia.org/wiki/Near-infrared_spectroscopy
 [^2]: https://www.gisandbeers.com/caracteristicas-las-imagenes-satelite-landsat-9/
@@ -1051,7 +1046,3 @@ A continuación se presenta la visualización 3D interactiva de los datos (Plotl
 [^14]: https://en.wikipedia.org/wiki/Bootstrap_aggregating
 [^15]: https://www.mdpi.com/2073-4441/13/12/1704
 [^16]: https://www.researchgate.net/publication/225734295_The_Elements_of_Statistical_Learning_Data_Mining_Inference_and_Prediction
-
-
-
-
