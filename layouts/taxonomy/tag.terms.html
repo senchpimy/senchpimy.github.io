@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+
+<h1>Explorar por Etiquetas</h1>
+{{ partial "nav.html" . }}
+
+<div class="todo">
+  <div class="tech-tags" style="justify-content: center; margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+    {{ range .Data.Terms.ByCount }}
+    <a href="{{ .Page.RelPermalink }}" class="tag">
+      #{{ .Page.LinkTitle }} ({{ .Count }})
+    </a>
+    {{ end }}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}

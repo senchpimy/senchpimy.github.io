@@ -3,10 +3,10 @@
 <div class="single-container">
   <article class="main-article">
     <h1>{{ .Title }}</h1>
-    {{ if .Params.tags }}
+    {{ with .Params.tags }}
     <div class="tech-tags">
-      {{ range (.GetTerms "tags") }}
-      <a href="{{ .RelPermalink }}" class="tag">#{{ .LinkTitle }}</a>
+      {{ range . }}
+      <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">#{{ . }}</a>
       {{ end }}
     </div>
     {{ end }}
