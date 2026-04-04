@@ -1,8 +1,8 @@
 ---
 title: "Genéricos En Go"
 date: "23 Jul 2024"
+tags: ["Go", "Programming", "Generics", "Data Structures"]
 ---
-
 Los genericos se pueden declarar y usar funciones y tipos para que trabajen con cualquier set de tipos.
 
 ## Ejemplo

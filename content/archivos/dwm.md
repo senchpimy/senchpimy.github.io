@@ -1,9 +1,8 @@
 ---
 title: "dwm"
 date: "06 Oct 2022"
+tags: ["Linux", "DWM", "Window Manager", "C"]
 ---
-
-
 [DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante más rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una versión modificada de este, los patches que agregue en este fueron los siguientes:
  
 ## CenteredMaster

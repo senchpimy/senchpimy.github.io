@@ -1,8 +1,8 @@
 ---
 title: "Anagrama"
 date: "08 Jun 2023"
+tags: ["LeetCode", "Stack", "Ruby", "Algorithms"]
 ---
-
 ## Anagrama
 
 Este problema consisten en dado un array en donde cada elemento representa la temperatura en un dia, regresar otro array que contenga cuantos dias faltan para que se tenga una temperatura mayor

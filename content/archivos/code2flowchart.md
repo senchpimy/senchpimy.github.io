@@ -1,8 +1,8 @@
 ---
 title: "Code 2 Flowchart"
 date: "25 Dec 2025"
+tags: ["TypeScript", "Algorithms", "Visualization", "Tools"]
 ---
-
 Este es un programa que pense hacer
 en los primeros semestres cuando me pedian
 hacer un diagrama de flujo de los

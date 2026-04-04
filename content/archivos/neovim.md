@@ -1,9 +1,8 @@
 ---
 title: "Configuración de Neovim"
 date: "31 Jul 2022"
+tags: ["Neovim", "Configuration", "Text Editor", "Lua"]
 ---
-
-
 Neovim es un programa de edición de texto basado en vim, este se diferencia de vim en que Neovim tiene integración con el lenguaje de programación lua, lo que lo hace más extensible en el momento de usar plugins
  
 

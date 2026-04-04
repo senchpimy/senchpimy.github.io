@@ -1,8 +1,8 @@
 ---
 title: "C en Rust"
 date: "05 Dec 2023"
+tags: ["Rust", "C", "Programming", "Interoperability"]
 ---
-
 Este es un pequeño resumen de como usar código de C existente en proyectos de Rust.
 
 ## build.rs

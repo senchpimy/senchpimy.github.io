@@ -1,8 +1,8 @@
 ---
 title: "Numero Valido"
 date: "29 Jun 2023"
+tags: ["LeetCode", "String", "Regex", "Algorithms"]
 ---
-
 ## Numero Valido
 
 

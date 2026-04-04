@@ -1,8 +1,8 @@
 ---
 title: "Add Two NUmbers"
 date: "20 Jun 2024"
+tags: ["LeetCode", "Linked List", "Ruby", "Algorithms"]
 ---
-
 ## Add Two Numbers
 
 Este problema consisten en dadas dos listas ligadas las cuales tienen los digitos de un numero entero en reversa y el problema consiste en sumar estos dos

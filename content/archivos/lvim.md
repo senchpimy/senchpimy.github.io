@@ -1,9 +1,8 @@
 ---
 title: "Lunar Vim"
 date: "29 Jun 2023"
+tags: ["Neovim", "LunarVim", "Text Editor", "Configuration"]
 ---
-
-
  Lunar Nvim es una configuración de Neovim que incluye muchas cosas por default que son bastante útiles y que personalmente yo no puede configurar bien en mi configuración,
  aunque funciona muy bien aun así lo tuve que configurar en algunas cosas y este es el archivo de configuración que agregue
  

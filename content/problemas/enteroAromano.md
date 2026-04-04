@@ -1,8 +1,8 @@
 ---
 title: "Entero A Romano"
 date: "24 Jun 2024"
+tags: ["LeetCode", "Mathematics", "Ruby", "Algorithms"]
 ---
-
 ## Entero A romano
 
 Este problema consisten en dado un numero regresar un string que sea su representacion en numero romano de dicho numero

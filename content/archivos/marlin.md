@@ -1,8 +1,8 @@
 ---
 title: "Marlin"
 date: "28 Oct 2023"
+tags: ["3D Printing", "Marlin", "Firmware", "Hardware"]
 ---
-
  Marlin es el firmware más usado para las impresoras 3D y al hacerle modificaciones físicas a la mia debía por lo tanto hacerle modificaciones a el firmware de la impresora. Aquí esta como lo hice.
  
 

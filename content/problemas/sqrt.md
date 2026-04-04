@@ -1,6 +1,7 @@
 ---
 title: "Sqrt"
 date: "05 Dec 2023"
+tags: ["LeetCode", "Mathematics", "Binary Search", "Go"]
 ---
 ## Sqrt
 

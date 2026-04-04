@@ -1,6 +1,7 @@
 ---
 title: "hyperland"
 date: 2024-06-08
+tags: ["Linux", "Hyprland", "Window Manager", "Wayland"]
 ---
 Hyperland es un compositor de wayland (o sea un administrador de ventanas) y este al ser más simple y minimalista
 para poder tener un sistema completo se necesita muchos otros programas diferentes

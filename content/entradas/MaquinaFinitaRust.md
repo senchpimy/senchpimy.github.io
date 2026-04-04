@@ -1,8 +1,8 @@
 ---
 title: "Máquina de Estados Determinista Finita"
 date: "10 Sep 2024"
+tags: ["Rust", "Computer Science", "Finite State Machine", "State Machines"]
 ---
-
 Una Máquina de estados finita consiste en un sistema el cual posee una serie de estados determinados y finitos, los cuales según la entrada que
 entre al sistema, este tomara una decisión y cambiara de estado. EL cambio de estado se llama transición de estado.
 

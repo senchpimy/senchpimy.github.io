@@ -1,8 +1,8 @@
 ---
 title: "Marmol"
 date: "30 Jun 2023"
+tags: ["Markdown", "Notes", "Productivity", "Software"]
 ---
-
  Este es un programa inspirado en otro programa llamado obsidian, este primero es un intérprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizarán después con las reglas de markdown correspondientes.
  
 

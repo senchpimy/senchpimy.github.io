@@ -1,9 +1,8 @@
 ---
 title: "Marlin para la Ender 3"
 date: "29 Oct 2022"
+tags: ["3D Printing", "Marlin", "Ender 3", "Firmware"]
 ---
-
-
  Para poder usar y modificar el marlin para la ender 3 primero debemos de descargar el marlin desde la página como archivo zip y luego descomprimirlo o clonándolo de github con **git clone https://github.com/MarlinFirmware/Marlin.git**
 
 

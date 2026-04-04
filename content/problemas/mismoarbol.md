@@ -1,8 +1,8 @@
 ---
 title: "Mismo Arbol"
 date: "30 Jun 2024"
+tags: ["LeetCode", "Tree", "Ruby", "Algorithms"]
 ---
-
 ## Arbol
 
 Este problema consisten en regresar un booleano que describe si dos raices de unos arboles describen dps arboles iguales

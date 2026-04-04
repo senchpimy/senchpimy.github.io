@@ -1,8 +1,8 @@
 ---
 title: "Teclado"
 date: "23 Jun 2023"
+tags: ["Hardware", "Keyboard", "3D Printing", "Embedded Systems"]
 ---
-
  Diseñe y programe un teclado, además que lo imprimí. El teclado del el cual me base fue el lily58, pues ya que este se me hizo interesante y habia archivos
  disponibles para poder imprimirlo.
  

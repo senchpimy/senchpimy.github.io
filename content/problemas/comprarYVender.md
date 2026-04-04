@@ -1,8 +1,8 @@
 ---
 title: "Comprar Y Vender"
 date: "19 Jun 2023"
+tags: ["LeetCode", "Array", "Dynamic Programming", "Algorithms"]
 ---
-
 ## Mejor Momento para comprar y vender
 
 

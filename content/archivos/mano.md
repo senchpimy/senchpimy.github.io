@@ -1,9 +1,8 @@
 ---
 title: "Mano Robot"
 date: "28 Jul 2023"
+tags: ["Python", "Computer Vision", "MediaPipe", "Robotics"]
 ---
-
-
  Construí una mano que hasta cierto nivel sigue los movimientos de otra mano en base a una cámara, para esto escribí el siguiente programa:
 ```py
 import cv2

@@ -1,8 +1,8 @@
 ---
 title: "Mamba"
 date: "04 Jul 2024"
+tags: ["Machine Learning", "Neural Networks", "NLP", "Mamba"]
 ---
-
 ## Mamba
 
 Mamba es una nueva arquitectura de redes neuronales que es mejor que los transformers en el modelado de lenguaje, también es más eficiente computacionalmente, pues para procesar una secuencia de n palabras

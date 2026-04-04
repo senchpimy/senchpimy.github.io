@@ -1,6 +1,7 @@
 ---
 title: "Top K Elementos"
 date: "12 Jun 2023"
+tags: ["LeetCode", "Heap", "C++", "Algorithms"]
 ---
 ## Top K Elementos
 

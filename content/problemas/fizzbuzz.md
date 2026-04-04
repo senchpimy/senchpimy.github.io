@@ -1,6 +1,7 @@
 ---
 title: "fizzbuzz"
 date: "07 Jun 2023"
+tags: ["LeetCode", "Algorithms", "Python"]
 ---
 ## FizzBuzz
 

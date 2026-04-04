@@ -1,6 +1,7 @@
 ---
 title: "Configuración de Neovim"
 date: "10 Aug 2022"
+tags: ["Neovim", "Configuration", "Text Editor", "Plugins"]
 ---
 En esta entrada explicaré todos los plugins que tengo en neovim y que función cumplen, así sobre como están configurados en mi init.vim y por que esos y no otros
  

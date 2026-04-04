@@ -1,9 +1,8 @@
 ---
 title: "Ngrok Para Exponer un Puerto Local a Internet"
 date: "03 Feb 2023"
+tags: ["Networking", "Ngrok", "Server", "Security"]
 ---
-
-
 # Introducción: Cómo Exponer un Puerto Local a Internet con ngrok
 
 Cuando desarrollamos una aplicación o un servicio en nuestra máquina local, a veces necesitamos acceder a él desde fuera de nuestra red local.

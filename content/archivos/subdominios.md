@@ -1,8 +1,8 @@
 ---
 title: "Subdominios"
 date: "09 Jan 2023"
+tags: ["Networking", "Nginx", "DNS", "Server"]
 ---
-
  Cuando tienes un servidor pero muchas ideas que hacer con el, tener un solo dominio no basta para todo, para esto sirven los subdominios y la forma de hacerlos es muy sencillo, para esto hay que tener ya un servidor, un dominio y **nginx**.
  Para esto necesitamos un servicio que se ejecute en algún puerto que este libre, [aquí](https://github.com/senchpimy/simple_firmas) hice una simple programa en go que se ejeuta en el puerto **3001**, por lo que si se ejecutara de forma local con escribir en el navegador **localhost:3001** podriamos ver esta página, este programa es bastante simple, genera una página web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma página web al comienzo.
 

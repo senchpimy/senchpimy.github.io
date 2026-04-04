@@ -1,8 +1,8 @@
 ---
 title: "Go desde Lua"
 date: "27 oct 2024"
+tags: ["Go", "Lua", "Programming", "Interoperability"]
 ---
-
 ## Llamando código de Go desde Lua
 
 Primero hay que tener un código/funciones de go como las siguiente:

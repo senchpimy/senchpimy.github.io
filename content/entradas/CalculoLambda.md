@@ -2,8 +2,8 @@
 title: "Calculo Lambda"
 date: "23 Jul 2024"
 katex: true
+tags: ["Mathematics", "Lambda Calculus", "Logic", "Functional Programming"]
 ---
-
 ### Conceptos
 **Formalismo Matematico**: En las matematicas la formalizacion es una teoría que sostiene que las proposiciones de la matematica 
 

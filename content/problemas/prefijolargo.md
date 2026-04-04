@@ -1,8 +1,8 @@
 ---
 title: "Prefijo más largo"
 date: 2024-06-08
+tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
-
 ## Prefijo
 
 Este problema consisten en dado un array de strings regresar el prefijo (los primeros caracteres) como string más largo que todos los strings de

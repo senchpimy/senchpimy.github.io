@@ -1,6 +1,7 @@
 ---
 title: "Stable Diffusion"
 date: "20 Jul 2023"
+tags: ["Machine Learning", "Stable Diffusion", "Generative AI", "Linux"]
 ---
 **Stable Diffusion**, es un modelo de inteligencia artifical que sirve para generar imágenes, lo bueno de este modeloes que es **open source** y se puede ejecutar de forma local, entonces lo quise ejecutar en mi propia maquina, entonces vi que una de las formas más rápida de poder usar este 
  modelo es usando el programa **[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)**, este programa funciona en casi todas las computadoras de forma automática, solo hay que ejecutar el script de instalación y así debería funcionar, pero en mi computadora

@@ -1,8 +1,8 @@
 ---
 title: "Random Forest"
 date: "08 Sep 2024"
+tags: ["Machine Learning", "Algorithms", "Ensemble Methods", "Random Forest"]
 ---
-
 ### Conceptos
 
 **Metodo de Ensamble**: Es un método que combina multiples modelos de aprendizaje para mejorar la generalizacion y la robustez sobre un único modelo.

@@ -1,8 +1,8 @@
 ---
 title: "Contar Agua De LLuvia"
 date: "11 Jul 2024"
+tags: ["LeetCode", "Two Pointers", "Array", "Algorithms"]
 ---
-
 ## Contar Agua de LLuvia
 
 Este problema consisten en dado una lista con numeros los cuales representan la altura de pilares en un contenedor, encontrar el volumen total de agua

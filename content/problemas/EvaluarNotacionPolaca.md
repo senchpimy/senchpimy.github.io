@@ -1,8 +1,8 @@
 ---
 title: "Evaluar Notación Polaca Inversa"
 date: "14 Jul 2024"
+tags: ["LeetCode", "Stack", "Ruby", "Algorithms"]
 ---
-
 ## Evaluar Notación Polaca Inversa
 
 Este problema consisten en dada una lista de numeros y símbolos evaluar esta lista como si fuiera una notación polaca

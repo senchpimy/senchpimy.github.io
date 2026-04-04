@@ -1,6 +1,7 @@
 ---
 title: "Suma De Dos"
 date: "14 Jun 2023"
+tags: ["LeetCode", "Two Pointers", "C++", "Algorithms"]
 ---
 ## Suma de Dos
 

@@ -1,3 +1,6 @@
+---
+tags: ["LeetCode", "String", "Ruby", "Algorithms"]
+---
 +++
 title = 'Valor Maximo Después De Separar'
 date = 2023-12-22T07:13:23-06:00

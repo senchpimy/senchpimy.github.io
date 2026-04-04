@@ -1,8 +1,8 @@
 ---
 title: "Indice de la primera Ocurrencia"
 date: 2024-06-10
+tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
-
 ## Indice de la Primera Ocurrencia
 
 Este problema consisten en dados dos strings regresar el indice de la primera ocurrencia de un string dentro de otro

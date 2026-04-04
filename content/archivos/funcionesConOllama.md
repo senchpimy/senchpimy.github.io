@@ -1,8 +1,8 @@
 ---
 title: "Llamado de funciones con Ollama"
 date: "19 Jul 2024"
+tags: ["Ollama", "Generative AI", "NLP", "Programming"]
 ---
-
 ## Salida Estructurada en Llama.cpp
 
 En un modelo de lenguaje es a veces útil poder estructurar la salida, es decir dado un prompt poder limitar la salida de tal forma que cumpla ciertas normas o formatos tal como json.

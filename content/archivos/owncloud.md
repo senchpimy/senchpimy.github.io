@@ -1,8 +1,8 @@
 ---
 title: "owncloud"
 date: "08 Jun 2023"
+tags: ["Docker", "Owncloud", "Cloud", "Server"]
 ---
-
  Owncloud es un servicio que te permite tener tu propia nube
  Primero instale docker, que es un poco complejo pues el paquete en el repositorio no es el docker completo, es decir lo suqiente no funciona
 

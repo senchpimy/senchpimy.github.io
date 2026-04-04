@@ -1,6 +1,7 @@
 ---
 title: "Teclado V2"
 date: "28 Jul 2023"
+tags: ["Hardware", "Keyboard", "3D Printing", "Embedded Systems"]
 ---
 El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
 bonotes y no se pueden mover tan fácil, etc.

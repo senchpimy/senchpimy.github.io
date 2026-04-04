@@ -2,8 +2,8 @@
 title: "Metodo Montecarlo"
 date: "18 Jul 2024"
 katex: true
+tags: ["Mathematics", "Algorithms", "Statistics", "Monte Carlo"]
 ---
-
 ## Metodo Montecarlo
 
 Es un algoritmo no determinista (con una misma entrada puede tener salidas diferentes) usado para aproximar expresiones matematicas complejas.

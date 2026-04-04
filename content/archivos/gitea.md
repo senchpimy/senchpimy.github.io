@@ -1,10 +1,8 @@
 ---
 title: "Gitea"
 date: "21 Jan 2023"
+tags: ["Git", "Gitea", "Server", "Self-hosting"]
 ---
-
-
-
  Gitea es un programa OpenSource para poder hostear una instancia de un servidor de git, y aprovechando que ya tengo un dominio con una computadora quise hostear mis propios proyectos usando este programa, este programa es de fácil instalación, pero si le quisieras modificar alguna plantilla hay que tener cuidado en que carpeta y usuario lo instales, primero hay que descargar el binario y luego hacerlo ejecutable.
 ```sh
 

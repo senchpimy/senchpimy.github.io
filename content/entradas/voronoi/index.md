@@ -2,8 +2,8 @@
 title: "Creando un diagrama de Voronoi"
 date: "22 Dec 2025"
 katex: true
+tags: ["Algorithms", "Geometry", "TypeScript", "Voronoi"]
 ---
-
 # Inspiracion
 
 Navegando en internet me encontre con esta imagen y la quise replicar

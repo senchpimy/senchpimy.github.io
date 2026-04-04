@@ -1,8 +1,8 @@
 ---
 title: "Decima Linea"
 date: "30 Jun 2023"
+tags: ["LeetCode", "Shell", "Linux", "Tools"]
 ---
-
 ## Decima Linea
 
 

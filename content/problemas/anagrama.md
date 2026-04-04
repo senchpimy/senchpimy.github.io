@@ -1,8 +1,8 @@
 ---
 title: "Anagrama"
 date: "08 Jun 2023"
+tags: ["LeetCode", "String", "C++", "Algorithms"]
 ---
-
 ## Anagrama
 
 Este problema consisten en regresar cierto si un string es un anagrama del otro

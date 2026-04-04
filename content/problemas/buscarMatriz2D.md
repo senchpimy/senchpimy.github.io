@@ -1,8 +1,8 @@
 ---
 title: "Buscar en Matriz 2D"
 date: "04 Jul 2024"
+tags: ["LeetCode", "Matrix", "Binary Search", "Algorithms"]
 ---
-
 ## Buscar en Matriz 2d
 
 Este problema consisten en regresar un booleano dependiendo si un elemento se encuentra en una matriz de m*n en la cuál esta ordenada de forma creciente

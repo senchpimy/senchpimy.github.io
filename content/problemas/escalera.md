@@ -1,8 +1,8 @@
 ---
 title: "Escalera"
 date: "01 Jul 2024"
+tags: ["LeetCode", "Dynamic Programming", "Ruby", "Algorithms"]
 ---
-
 ## Escalera
 
 Este problema consisten en regresar un entero que indique todas las formas posibles en las cuales se puede subir una escalera de n escalones

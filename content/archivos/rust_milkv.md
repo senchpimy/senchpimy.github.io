@@ -1,8 +1,8 @@
 ---
 title: "Rust en RiscV"
 date: "05 Dec 2023"
+tags: ["Rust", "RISC-V", "Milk-V", "Embedded Systems"]
 ---
-
 Este es una guia basada en [esta guia](https://barretts.club/posts/i-got-a-milkv-duo/).
 
 Suponiendo que ya se tiene el *milk V* con linux instalado y acceso a una terminal.

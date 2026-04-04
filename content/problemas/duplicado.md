@@ -1,8 +1,8 @@
 ---
 title: "duplicado"
 date: "08 Jun 2023"
+tags: ["LeetCode", "Array", "Python", "Algorithms"]
 ---
-
 ## Contains Duplicate
 
 

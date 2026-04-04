@@ -1,8 +1,8 @@
 ---
 title: "Minimonitor"
 date: "18 Jan 2023"
+tags: ["Raspberry Pi", "Hardware", "3D Printing", "Monitor"]
 ---
-
  Compré el siguiente monitor para poder usarlo con mi raspberry pi el monitor que compré fue el siguiente
    
 

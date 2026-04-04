@@ -1,6 +1,7 @@
 ---
 title: "AwesomeWM"
 date: "06 Oct 2022"
+tags: ["Linux", "AwesomeWM", "Window Manager", "Lua"]
 ---
  Mi configuración de Awesomewm incluye los complementos de [lain](https://github.com/lcpz/lain), [awmodoro](https://github.com/optama/awmodoro), [Collision](https://github.com/Elv13/collision) y [awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets).
 

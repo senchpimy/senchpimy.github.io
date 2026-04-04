@@ -1,8 +1,8 @@
 ---
 title: "atoi"
 date: "13 Jul 2024"
+tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
-
 ## String a Entero
 
 Este problema consisten en convertir un string en un entero

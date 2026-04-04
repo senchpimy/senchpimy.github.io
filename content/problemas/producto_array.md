@@ -1,6 +1,7 @@
 ---
 title: "Producto De Un Array"
 date: "16 Jun 2023"
+tags: ["LeetCode", "Array", "Algorithms"]
 ---
 ## Producto de lista excepto mismo
 

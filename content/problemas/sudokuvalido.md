@@ -1,8 +1,8 @@
 ---
 title: "Sudoku"
 date: "21 Jun 2024"
+tags: ["LeetCode", "Matrix", "Ruby", "Algorithms"]
 ---
-
 ## Anagrama
 
 Este problema consisten en dado un sudoku regresar si el sudoku es válido, es decir no existe ningún numero repetido en las columnas, filas y cuadrados de 3x3

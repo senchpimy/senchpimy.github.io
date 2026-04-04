@@ -1,8 +1,8 @@
 ---
 title: "Cross Validation"
 date: "2025-03-17"
+tags: ["Machine Learning", "Statistics", "Data Science", "Cross Validation"]
 ---
-
 # Cross Validation
 
 Es una tecnica que sirve para validar como un analisis estadistico generaliza una serie de datos independientes, se usa cuando la meta es la predicción y 

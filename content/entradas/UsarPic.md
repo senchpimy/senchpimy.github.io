@@ -1,8 +1,8 @@
 ---
 title: "Programando un PIC16F887 desde Arch Linux en 2025"
 date: "15 Sep 2025"
+tags: ["Microcontrollers", "Embedded Systems", "PIC16F887", "Linux"]
 ---
-
 ## Introducción
 En este artículo, te guiaré a través del proceso de programación de un microcontrolador PIC16F887 utilizando Arch Linux.
 A pesar de que existen muchas herramientas y métodos para programar microcontroladores, aquí nos enfocaremos en una solución sencilla y efectiva utilizando herramientas de línea de comandos.

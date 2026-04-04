@@ -1,8 +1,8 @@
 ---
 date: "09 Jun 2023"
 title: "Preparar un Servidor"
+tags: ["Linux", "Server", "Security", "Networking"]
 ---
-
  Cuando se tiene un nuevo servidor el cual uno esta rentando, hay algunas configuraciones que se tienen que llevar a cabo en el servidor para poder hacerlo más seguro. Esta guia esta enfocada a servidores Linux
   
 

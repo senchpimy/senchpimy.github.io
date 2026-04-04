@@ -1,3 +1,6 @@
+---
+tags: ["Robotics", "3D Printing", "Hardware", "Humanoid"]
+---
 +++
 title = 'Robotcito'
 date = 2024-01-16

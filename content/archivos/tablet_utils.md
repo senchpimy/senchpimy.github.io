@@ -1,8 +1,8 @@
 ---
 title: "Funcionalidades Extra de Tablet"
 date: "18 Sep 2024"
+tags: ["Linux", "Hardware", "Tablet", "Tools"]
 ---
-
 ## Introducción
 
 Compré una computadora la cual tiene la capacidad de doblarse como tablet y leer la entrada de dispositivos touch y en este caso también de una pluma

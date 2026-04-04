@@ -1,8 +1,8 @@
 ---
 title: "Gripper"
 date: "19 Jun 2024"
+tags: ["ESP32", "Robotics", "Web Development", "Hardware"]
 ---
-
 Este es un proyecto que realicé con piezas que me sobraban.
 
 Es un coche con llantas omnidireccionales que se mueve con un joystick y un brazo mecánico controlado con 5 servos mg90 que se controla desde una página web, esta página web se conecta con comunicación seríal con otro ESP32 el cual se conecta con el esp32 que esta en el coche,

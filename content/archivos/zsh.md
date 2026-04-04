@@ -1,8 +1,8 @@
 ---
 title: "Configuración de zsh"
 date: "15 Jan 2023"
+tags: ["Shell", "Zsh", "Configuration", "Tools"]
 ---
-
  Zsh también conovida como Z shell es un intérprete de comandos para sistemas Unix, es la shell que viene por defecto en todas las mac.Es similar a la shell bash, pero en mi opinion tiene varias características por defecto que la hacen más moderna. Para aumentar sus capabilidades un administrador de plugins muy fácil de instalar, que ya incluye varios plugins, modificaciones y alias así como un prompt personalizado, este administrador de plugins se llama **Oh-My-Zsh**, lo malo de este es que yo siento que puede hacer la shell muy lenta al cargar por primera vez, así que lo desinstale y solo agregue lo que necitaba y prompt personalizado, lo demás lo deseche y siento que ahor atengo más control pues ahora se bien que hace cada cosa y el prompt tiene características que no pensé que podía tener así como le quite otras que no me gustaba que tuviera.
    
   

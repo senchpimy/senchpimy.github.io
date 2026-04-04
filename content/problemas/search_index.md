@@ -1,8 +1,8 @@
 ---
 title: "Search Index"
 date: "21 Jun 2024"
+tags: ["LeetCode", "Binary Search", "Ruby", "Algorithms"]
 ---
-
 ## Search Index
 
 Este problema consisten en implementar búsqueda binaria

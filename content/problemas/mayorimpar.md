@@ -1,3 +1,6 @@
+---
+tags: ["LeetCode", "String", "Rust", "Algorithms"]
+---
 +++
 title = 'Mayor Impar'
 date = 2023-12-15T15:10:29-06:00

@@ -1,8 +1,8 @@
 ---
 title: "Raspberry Pi Setup"
 date: "31 Jul 2022"
+tags: ["Raspberry Pi", "Linux", "Setup", "Hardware"]
 ---
-
  Continuando con mi configuración de mi Raspberry pi decidí además de la pantalla colocarle un ventilador y un boton de apagado encendido.
 
  La configuración y funcionamiento del script de la pantalla ya fue explicado en [este enlace](oled.html).

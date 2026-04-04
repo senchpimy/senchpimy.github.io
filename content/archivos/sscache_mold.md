@@ -1,9 +1,8 @@
 ---
 title: "Sscache y Mold"
 date: "29 Jun 2023"
+tags: ["C++", "Compilers", "Performance", "Tools"]
 ---
-
-
  Estas herramientas ayudan a reducir los tiempos de compilación.
 
  **Sccache** lo instale con cargo, y para usarlo con **gcc** se ocupa antes del comando:

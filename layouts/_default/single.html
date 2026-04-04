@@ -3,6 +3,13 @@
 <div class="single-container">
   <article class="main-article">
     <h1>{{ .Title }}</h1>
+    {{ if .Params.tags }}
+    <div class="tech-tags">
+      {{ range (.GetTerms "tags") }}
+      <a href="{{ .RelPermalink }}" class="tag">#{{ .LinkTitle }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
     {{ partial "nav.html" . }}
 
     <div class="post-content">

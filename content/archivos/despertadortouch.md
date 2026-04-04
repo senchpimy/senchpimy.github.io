@@ -1,8 +1,8 @@
 ---
 title: "Reloj Calendario"
 date : "2024-03-31"
+tags: ["Raspberry Pi", "Hardware", "Touch", "Clock"]
 ---
-
 ## Introducción
 
 Quise usar un reloj inteligente, pero quería que también mostrara mis pendientes y un calendario y encontré varios como el Amazon Echo Show

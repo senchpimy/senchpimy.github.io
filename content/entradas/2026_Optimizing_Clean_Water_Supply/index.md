@@ -2,8 +2,8 @@
 title: "2026 Optimizing Clean Water Supply"
 date: "2026-03-22"
 katex: true
+tags: ["Data Science", "Machine Learning", "Hackathon", "Environmental Science"]
 ---
-
 ## Introducción
 
 El hackaton “2026 Optimizing Clean Water Supply”,

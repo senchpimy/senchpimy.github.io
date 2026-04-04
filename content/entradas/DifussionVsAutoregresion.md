@@ -1,8 +1,8 @@
 ---
 title: "Diffusion VS Autoregresión"
 date: "05 Jul 2024"
+tags: ["Machine Learning", "Generative AI", "Diffusion Models", "Autoregression"]
 ---
-
 ## Generar Imágenes
 
 El problema de generar imágenes puede ser reducido a un problema de predicción. Primero se tiene que encontrar una manera de introducir los datos al modelo, pues si solo se introducen imágenes con una etiqueta el modelo generará un promedio de todas las

@@ -1,8 +1,8 @@
 ---
 title: "Rompiendo RSA"
 date: "04 Jul 2024"
+tags: ["Cryptography", "Security", "RSA", "Mathematics"]
 ---
-
 ## RSA
 
 RSA es un algoritmo de encriptación que consiste en la factorizacion de dos numeros primos, actualmente estos numeros son del orden de los 10^300.

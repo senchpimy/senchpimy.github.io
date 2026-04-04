@@ -19,6 +19,10 @@ title = 'Senchpimy'
     name = 'Problemas'
     pageRef = 'problemas'
     weight = 50
+[[menu.main]]
+    name = 'Tags'
+    pageRef = 'tags'
+    weight = 60
 
 [markup.goldmark.renderer]
 unsafe = true

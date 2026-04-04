@@ -1,9 +1,8 @@
 ---
 title: "Stable Diffusion Regional Prompting"
 date: "04 Aug 2023"
+tags: ["Machine Learning", "Stable Diffusion", "Generative AI", "Regional Prompting"]
 ---
-
-
 **Stable Diffusion Regional Prompt** es una extensión para la interfaz [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui), este extensión nos permite generar imágenes de tal manera que ciertos elementos estén es un espacio espefico de la imagen
  generada, pero este elemento se va a colocar de tal manera que no parece agregado de forma aparte.
    

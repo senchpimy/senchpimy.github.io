@@ -1,8 +1,8 @@
 ---
 title: "Invertir Numero"
 date: "08 Jun 2023"
+tags: ["LeetCode", "Mathematics", "Ruby", "Algorithms"]
 ---
-
 ## Anagrama
 
 Este problema consiste en tomar un numero de 32 bits y luego invertirlo

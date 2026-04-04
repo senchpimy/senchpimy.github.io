@@ -1,6 +1,7 @@
 ---
 title: "palindrome"
 date: "12 Jun 2023"
+tags: ["LeetCode", "String", "C++", "Algorithms"]
 ---
 ## Palindrome
 

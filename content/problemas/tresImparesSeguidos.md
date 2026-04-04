@@ -1,8 +1,8 @@
 ---
 title: "Tres Impares Seguidos"
 #date: "1 Jul 2024"
+tags: ["LeetCode", "Array", "Python", "Algorithms"]
 ---
-
 ## Anagrama
 
 Este problema consisten en regresar cierto si dada una lista se encuentras tres impares seguidos

@@ -1,8 +1,8 @@
 ---
 title: "Safetensors To GGUF"
 date: "19 Jul 2024"
+tags: ["Machine Learning", "GGUF", "Ollama", "Generative AI"]
 ---
-
 ## GGML/GGUF
 Ollama es un proyecto de código abierto que se utiliza para administrar, ejecutar y configurar LLMs. Especificamente se utiliza
 para ejecutar modelos de forma local.

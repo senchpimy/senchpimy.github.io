@@ -1,8 +1,8 @@
 ---
 title: "Ordenar Colores"
 date: "19 Jul 2024"
+tags: ["LeetCode", "Array", "Ruby", "Algorithms"]
 ---
-
 ## Ordenar colores
 
 Este problema consisten en dado un array con los numeros: 0, 1, 2. Ordenar el array sin crear uno nuevo tal que todos los ceros queden al principio, los unos enmedio y los 2 al final

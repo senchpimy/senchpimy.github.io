@@ -1,8 +1,8 @@
 ---
 title: "Busqueda Binaria"
 date: "17 Jun 2023"
+tags: ["LeetCode", "Binary Search", "Algorithms"]
 ---
-
 ## Busqueda Binaria
 
 

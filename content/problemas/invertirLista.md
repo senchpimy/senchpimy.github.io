@@ -1,6 +1,7 @@
 ---
 title: "Invertir Lista"
 date: "14 Jun 2023"
+tags: ["LeetCode", "Linked List", "C++", "Algorithms"]
 ---
 ## Invertir lista ligada
 

@@ -1,8 +1,8 @@
 ---
 title: "sovl"
 date: "26 Oct 2022"
+tags: ["C++", "GUI", "Music", "Tools"]
 ---
-
  Sovl es una aplicación que funciona como frontend para mpc y pamixer, este programa lee un archivo de configuración que esta **"~/.config/sovl/"** y se llama **config.ini**, este archivo debe comfigurarse como un archivo .toml, y debe contener la configuración de la aplicación, esta configuración debe tener la configuración de las ventanas, botones y deslizadores, esta configuración debe incluir el tamaño, posición, función y estilo de cada uno de los elementos, cuando se ejecuta el programa este lee la configuración y se modifica en base a esto, por lo que cada vez que se quieran ver los cambios se necesita terminar y volver a ejecutar la aplicación, un ejemplo de esta configuración es el siguiente:
  
 ```toml

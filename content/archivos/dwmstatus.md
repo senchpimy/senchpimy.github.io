@@ -1,8 +1,8 @@
 ---
 title: "DWM Status"
 date: "09 Nov 2022"
+tags: ["Linux", "DWM", "Shell", "C"]
 ---
-
  Dwm no tiene mucha configuración por defecto por lo mismo de ser muy mínimo, por lo que para poder hacerlo como AwesomeWM hay que hacer muchas maromas para poder tenerlo funcional.
    
 

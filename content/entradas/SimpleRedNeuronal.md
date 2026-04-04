@@ -2,8 +2,8 @@
 title: "Entrenando una Red Neuronal"
 date: "11 Jul 2024"
 katex: true
+tags: ["Machine Learning", "Neural Networks", "NEAT", "Artificial Intelligence"]
 ---
-
 ## Introducción
 
 Esta entrada habla sobre el algoritmo **NEAT** que no solo hace que la red aprenda los pesos si no también su arquitectura

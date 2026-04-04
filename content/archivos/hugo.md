@@ -1,9 +1,8 @@
 ---
 title: "Hugo"
 #date : "1 October 2023"
+tags: ["Hugo", "Web Development", "Static Site", "Markdown"]
 ---
-
-
  Hugo es un programa que permite generar páginas web estáticas en base a plantillas, estas páginas son muy extensibles y es bastante fácil crear un set de plantillas, aunque ya existen varias plantillas que se pueden usar para cualquier tipo de propósito, pues hugo no solo puede generar las páginas y luego guardarlas en el disco, si no también servirlas dinámicamente
 
 Yo decidí reescribir mi página en markdown con ayuda de unos programas que hice para poder tener mayor flexibilidad y velocidad al agregar una nueva característica, así como escribir el estándar para la página una sola vez y que este funcione en globalmente sin tener que actualizarlo archivo por archivo.

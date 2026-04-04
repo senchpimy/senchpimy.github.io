@@ -1,8 +1,8 @@
 ---
 title: "Combinar Array Ordenado"
 date: "03 Jul 2023"
+tags: ["LeetCode", "Array", "Ruby", "Algorithms"]
 ---
-
 ## Conbinar Array Ordenado
 
 Este problema consisten en combinar dos arrays que están ordenados

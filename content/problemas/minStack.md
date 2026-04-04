@@ -1,8 +1,8 @@
 ---
 title: "Min Stack"
 date: "07 Dec 2023"
+tags: ["LeetCode", "Stack", "Ruby", "Data Structures"]
 ---
-
 ## Min Stack
 Este problema consisten en tener un stack el cual siqmpre se le pueda requerir el menor elemento en el stack y este siempre lo puede regresar
 

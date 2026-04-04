@@ -1,8 +1,8 @@
 ---
 title: "Parentesis Valido"
 date: "05 Dec 2023"
+tags: ["LeetCode", "Stack", "Python", "Algorithms"]
 ---
-
 ## Parentesis Valido
 
 Este problema consisten en regresar cierto si un string contiene una serire de parentesis que sean validos

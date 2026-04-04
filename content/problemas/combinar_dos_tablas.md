@@ -1,7 +1,7 @@
 ---
 title: "Combinar Dos Tablas"
+tags: ["LeetCode", "SQL", "Databases"]
 ---
-
 ## Combinar dos tablas
 
 

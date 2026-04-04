@@ -28,6 +28,13 @@
         <time datetime="{{ .Date.Format "2006-01-02" }}">
           {{ .Date.Format "Jan 2, 2006" }}
         </time>
+        {{ if .Params.tags }}
+        <div class="tech-tags">
+          {{ range (.GetTerms "tags") }}
+          <a href="{{ .RelPermalink }}" class="tag">#{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
       </div>
     </div>
   {{ end }}

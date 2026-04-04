@@ -1,8 +1,8 @@
 ---
 title: "Reloj Multiusos"
 date: "21 Oct 2023"
+tags: ["ESP32", "Hardware", "E-ink", "Clock"]
 ---
-
 En este proyecto use un despertador antiguo que no servia y lo "repare" y además añadi más fucnionalidades.
 
 

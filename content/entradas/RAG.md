@@ -1,8 +1,8 @@
 ---
 title: "RAG"
 date: "10 Sep 2024"
+tags: ["Machine Learning", "NLP", "Generative AI", "RAG"]
 ---
-
 ## Retrieval Augmented Generation
 
 RAG consiste en proporcionar a un modelo de lenguaje información de tal manera en que la salida de estos modelos no solo sea la contenida en el

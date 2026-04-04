@@ -1,8 +1,8 @@
 ---
 date: "11 Jun 2023"
 title: "linearecta"
+tags: ["LeetCode", "Mathematics", "Geometry", "Algorithms"]
 ---
-
 ## Check Straight Line
 
 

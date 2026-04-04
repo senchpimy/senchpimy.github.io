@@ -1,8 +1,8 @@
 ---
 title: "Páginas Estáticas"
 date: "03 Feb 2023"
+tags: ["Web Development", "Nginx", "HTML", "Static Site"]
 ---
-
  Una forma de mostrar páginas estáticas es usando **nginx**, para lograr esto hay que tener una página estatica la cual mostrar, por ejemplo yo hice [esta página](https://github.com/senchpimy/simple), como se puede ver, esta página solo tiene el index y una página, además de otros archivos que irían en esta página.
    
 

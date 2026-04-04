@@ -1,8 +1,8 @@
 ---
 title: "timetravel"
 date: "26 Oct 2022"
+tags: ["Philosophy", "Physics", "Time Travel"]
 ---
-
 ## La filosofia del Viaje en el Tiempo
 
 

@@ -1,8 +1,8 @@
 ---
 title: "Zellij"
 date: "25 Dec 2025"
+tags: ["Rust", "Shell", "Terminal Multiplexer", "Tools"]
 ---
-
 Esta entrada iba a ser explicando mi configuración de 
 [tmux](https://github.com/tmux/tmux), pero descubi
 [zellij](https://github.com/zellij-org/zellij), que 

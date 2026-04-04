@@ -1,8 +1,8 @@
 ---
 title: "Anagrama"
 date: "17 Jun 2024"
+tags: ["LeetCode", "Hash Map", "String", "Algorithms"]
 ---
-
 ## Anagrama
 
 Este problema consisten en dado una lista de palabras regresar una lista de listas de palabras que sean anagramas entre si

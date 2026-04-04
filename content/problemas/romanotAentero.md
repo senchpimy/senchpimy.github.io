@@ -1,8 +1,8 @@
 ---
 title: "Romano A Entero"
 date: "30 Nov 2023"
+tags: ["LeetCode", "Mathematics", "Go", "Algorithms"]
 ---
-
 ## Romano A Entero
 
 Este problema consisten en regresar el valor entero de un numero dad su representacion como numero romano

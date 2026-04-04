@@ -1,8 +1,8 @@
 ---
 title: "Forma Backus-Naur"
 date: "08 Sep 2024"
+tags: ["Computer Science", "Linguistics", "Syntax", "Backus-Naur Form"]
 ---
-
 ### Conceptos
 
 **Sintaxis**: La sintaxis son las reglas que definen una combinacion de símbolos que forman parte de expresiones o declaraciones correctamente estructuradas en ese lenguaje

@@ -1,6 +1,7 @@
 ---
 title: "Suma De Tres"
 date: "02 Jul 2024"
+tags: ["LeetCode", "Two Pointers", "Ruby", "Algorithms"]
 ---
 ## Suma de Tres
 

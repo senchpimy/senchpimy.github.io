@@ -1,8 +1,8 @@
 ---
 title: "Rust en Arduino"
 date: "07 Jan 2023"
+tags: ["Rust", "Arduino", "Embedded Systems", "Blink"]
 ---
-
  Rust es un lenguaje de bajo nivel que me gustaría aprender, aquí hay un ejemplo del equivalente al programa blink, para el **arduino uno** usando Rust.
 
 
