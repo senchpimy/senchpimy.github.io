@@ -1,6 +1,6 @@
 ---
 title: "Convertir Lista Ordenada a Arbol Binario"
-date: "30 Jun 2024"
+date: "26 Jun 2026"
 tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
 ## Problema
