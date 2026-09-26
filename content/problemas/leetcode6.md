@@ -1,14 +1,14 @@
 ---
 title: "Zigzag Conversion"
 date: "03 Jul 2026"
-tags: ["LeetCode", "Strings", "Rust", "Algorithms", "Arrays"]
+tags: ["LeetCode", "String", "Rust", "Algorithms", "Array"]
 ---
-## Problema
+## Zigzag Conversion
 
 Este problema consiste en dado un string de caracteres, y un numero de filas, regresar el mismo string
 pero acomodado como en zigzag, es decir:
 
-```txt
+```text
 Input: s = "PAYPALISHIRING", numRows = 4
 Output: "PINALSIGYAHRPI"
 Explanation:
@@ -20,9 +20,9 @@ P     I
 
 Donde primero se coloca la primera fila, luego la segunda en el string, y asi.
 
-### Solucion
+### Solución
 
-```rs
+```rust
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {
         let num_rows = num_rows as usize;
@@ -53,7 +53,7 @@ que se encuentran en el indice encontrado con la indicacion index + (num_rows - 
 esto casi resuelve todo el problema, solo se debe de considerar cuando se encuentra en una 
 fila intermedia, pues estos se encuentran entre dos caracteres verticales. Si el índice del carácter vertical es `j`, entonces el carácter diagonal se encuentra en:
 
-```txt
+```text
 j + (num_rows - 1) * 2 - 2 * fila
 ```
 
@@ -61,7 +61,7 @@ donde `fila` es la fila actual que se está recorriendo.
 
 Por ejemplo, para `numRows = 4`, la segunda fila tiene el patrón:
 
-```txt
+```text
 A   L S   I G
 ```
 

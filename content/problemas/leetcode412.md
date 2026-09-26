@@ -7,10 +7,10 @@ tags: ["LeetCode", "Algorithms", "Python"]
 
  Este problema consisten en imprimir (en el caso de la página de leetcode devolver un array) el cual contenga los numeros de i hasta **n**, pero si un numero es divisible entre tres en lugar de un numero sería el valor **Fizz**, si es entre 5 sería **Buzz** y si es entre ambos sería **FizzBuzz**, 
  
-### Solucion
+### Solución
 
 
-```py
+```python
 
 class Solution(object):
  def fizzBuzz(self, n):

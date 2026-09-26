@@ -1,16 +1,16 @@
 ---
-title: "Anagrama"
+title: "Temperaturas Diarias"
 date: "08 Jun 2023"
 tags: ["LeetCode", "Stack", "Ruby", "Algorithms"]
 ---
-## Anagrama
+## Daily Temperatures
 
 Este problema consisten en dado un array en donde cada elemento representa la temperatura en un dia, regresar otro array que contenga cuantos dias faltan para que se tenga una temperatura mayor
 
-### Solucion
+### Solución
 
 My primera solución O(n^2) fue la siguiente
-```rb
+```ruby
 # @param {Integer[]} temperatures
 # @return {Integer[]}
 def daily_temperatures(temp)
@@ -33,7 +33,7 @@ end
 
 Pero era muy tardada, entonces la solución es la siguiente
 
-```rb
+```ruby
 # @param {Integer[]} temperatures
 # @return {Integer[]}
 def daily_temperatures(temp)

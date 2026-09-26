@@ -1,6 +1,7 @@
 ---
 title: "Combinar Dos Tablas"
-tags: ["LeetCode", "SQL", "Databases"]
+date: "17 Apr 2026"
+tags: ["LeetCode", "SQL", "Databases", "Algorithms"]
 ---
 ## Combinar dos tablas
 
@@ -8,7 +9,7 @@ tags: ["LeetCode", "SQL", "Databases"]
 
  Este programa consiste en juntas dos tablas en base a un cambo en SQL
  
-### Solucion
+### Solución
 
 
 ```sql

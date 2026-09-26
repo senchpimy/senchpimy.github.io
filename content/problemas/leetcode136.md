@@ -1,7 +1,7 @@
 ---
+title: "Single Number"
 date: "03 Jul 2026"
-title: ""
-tags: ["LeetCode", "Mathematics", "Bit operations"]
+tags: ["LeetCode", "Mathematics", "Bit Manipulation", "Algorithms"]
 ---
 
 ## Single Number
@@ -9,9 +9,9 @@ tags: ["LeetCode", "Mathematics", "Bit operations"]
  Este problema consisten en dada una lista que tiene un par de todos los elementos de la lista
 meno suno, encontrar cual es ese numero que no tiene par
  
-### Solucion
+### Solución
 
-```rs
+```rust
 impl Solution {
     pub fn single_number(nums: Vec<i32>) -> i32 {
         let mut res = 0;

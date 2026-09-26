@@ -1,5 +1,5 @@
 ---
-title: "duplicado"
+title: "Duplicado"
 date: "08 Jun 2023"
 tags: ["LeetCode", "Array", "Python", "Algorithms"]
 ---
@@ -8,10 +8,10 @@ tags: ["LeetCode", "Array", "Python", "Algorithms"]
 
  Este problema consisten en regresar cierto si hay dos valores iguales un arreglo
  
-### Solucion
+### Solución
 
 
-```py
+```python
 
 class Solution(object):
  def containsDuplicate(self, nums):

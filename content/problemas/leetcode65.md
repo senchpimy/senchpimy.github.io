@@ -1,9 +1,9 @@
 ---
-title: "Numero Valido"
+title: "Número Válido"
 date: "29 Jun 2023"
 tags: ["LeetCode", "String", "Regex", "Algorithms"]
 ---
-## Numero Valido
+## Número Válido
 
 
 
@@ -17,10 +17,10 @@ tags: ["LeetCode", "String", "Regex", "Algorithms"]
 
 **(123) 456-7890**
 
-### Solucion
+### Solución
 
 
-```sh
+```bash
  grep -e "^[0-9]\{3\}\-[0-9]\{3\}\-[0-9]\{4\}$" -e "^([0-9]\{3\}) [0-9]\{3\}\-[0-9]\{4\}$" file.txt
 ```
  

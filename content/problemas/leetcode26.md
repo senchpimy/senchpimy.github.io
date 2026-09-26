@@ -1,6 +1,6 @@
 ---
 title: "Eliminar Duplicados"
-#date: "6 Jul 2023"
+date: "06 Jul 2023"
 tags: ["LeetCode", "Array", "C++", "Algorithms"]
 ---
 ## Eliminar Duplicados
@@ -9,7 +9,7 @@ tags: ["LeetCode", "Array", "C++", "Algorithms"]
 
  Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuanto elementos unicos este tenía
  
-### Solucion
+### Solución
 
 
 ```cpp

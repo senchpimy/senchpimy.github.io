@@ -7,9 +7,9 @@ tags: ["LeetCode", "Tree", "Ruby", "Algorithms"]
 
 Este problema consisten en regresar un booleano que describe si dos raices de unos arboles describen dps arboles iguales
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 def is_same_tree(p, q)
     izq = [p]
     der = [q]

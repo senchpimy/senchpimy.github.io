@@ -1,18 +1,15 @@
 ---
+title: "Mayor Impar"
+date: "15 Dec 2023"
 tags: ["LeetCode", "String", "Rust", "Algorithms"]
 ---
-+++
-title = 'Mayor Impar'
-date = 2023-12-15T15:10:29-06:00
-+++
-
-## Largest Odd Number In String
+## Largest Odd Number in String
 
 Este problema consiste en encontrar el numero mayor impar en una cadena de texto 
-### Solucion
+### Solución
 
 
-```rs
+```rust
 impl Solution {
     pub fn largest_odd_number(r: String) -> String {
             let mut len = r.len();

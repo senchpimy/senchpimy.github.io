@@ -7,7 +7,7 @@ tags: ["LeetCode", "String", "C++", "Algorithms"]
 
 Este problema consisten en regresar cierto si un string es un anagrama del otro
 
-### Solucion
+### Solución
 
 ```cpp
 #include 

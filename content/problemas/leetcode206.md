@@ -9,7 +9,7 @@ tags: ["LeetCode", "Linked List", "C++", "Algorithms"]
 
  Este problema consisten en invertir una lista ligada
  
-### Solucion
+### Solución
 
 
 ```cpp

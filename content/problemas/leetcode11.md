@@ -1,5 +1,5 @@
 ---
-title: "Contenedor Con más Agua"
+title: "Contenedor con Más Agua"
 date: "23 Jun 2024"
 tags: ["LeetCode", "Two Pointers", "Ruby", "Algorithms"]
 ---
@@ -7,9 +7,9 @@ tags: ["LeetCode", "Two Pointers", "Ruby", "Algorithms"]
 
 Este problema consisten en dado una lista con numeros los cuales representan la altura de pilares en un contenedor, encontrar cuál es el volumen mayor que se encontrara entre dos pilares cualquiera
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 def min (a,b)
   a<b ? a : b
 end

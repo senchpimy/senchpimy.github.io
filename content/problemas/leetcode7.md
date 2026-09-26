@@ -3,14 +3,14 @@ title: "Invertir Numero"
 date: "08 Jun 2023"
 tags: ["LeetCode", "Mathematics", "Ruby", "Algorithms"]
 ---
-## Anagrama
+## Reverse Integer
 
 Este problema consiste en tomar un numero de 32 bits y luego invertirlo
 
-### Solucion
+### Solución
 
 La siguiente fue mi primera solución
-```rb
+```ruby
 # @param {Integer} x
 # @return {Integer}
 def reverse(x)
@@ -49,7 +49,7 @@ Este programa fue más o menos como lo habia pensado, la parte de verificar que 
 Note que también tenía unas divisiones que seguramente ruby recomptaba en cada iteración y las asigne a unas variables antes de emepzar el ciclo para ver si esto lo hacía más rápido y así fue:
 
 
-```rb
+```ruby
 # @param {Integer} x
 # @return {Integer}
 def reverse(x)

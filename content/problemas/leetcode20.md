@@ -1,15 +1,15 @@
 ---
-title: "Parentesis Valido"
+title: "Paréntesis Válido"
 date: "05 Dec 2023"
 tags: ["LeetCode", "Stack", "Python", "Algorithms"]
 ---
-## Parentesis Valido
+## Paréntesis Válido
 
 Este problema consisten en regresar cierto si un string contiene una serire de parentesis que sean validos
 
-### Solucion
+### Solución
 
-```py
+```python
 def isValid(s: str) -> bool:
          fifo = []
 

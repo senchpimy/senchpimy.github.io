@@ -1,10 +1,10 @@
 ---
-tags: ["LeetCode", "Array", "Greedy", "Python", "Algorithms"]
-title : "Assign Cookies"
+title: "Assign Cookies"
 date: "19 Apr 2026"
+tags: ["LeetCode", "Array", "Greedy", "Python", "Algorithms"]
 ---
 
-# Assign Cookies
+## Assign Cookies
 
 Este problema consiste en que, dadas dos listas desordenadas,
 encontrar el número de veces en las que se puede satisfacer
@@ -13,7 +13,7 @@ igual o mayor en la segunda.
 
 ### Solución
 
-```py
+```python
 class Solution(object):
     def findContentChildren(self, g, s):
         """

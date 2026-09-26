@@ -1,18 +1,18 @@
 ---
-title: "Contar Agua De LLuvia"
+title: "Contar Agua de Lluvia"
 date: "11 Jul 2024"
 tags: ["LeetCode", "Two Pointers", "Array", "Algorithms"]
 ---
-## Contar Agua de LLuvia
+## Contar Agua de Lluvia
 
 Este problema consisten en dado una lista con numeros los cuales representan la altura de pilares en un contenedor, encontrar el volumen total de agua
 que se encuentra "atrapada" en el array
 
-### Solucion
+### Solución
 
 Mi primera solución fue la siguiente
 
-```rb
+```ruby
 def min (a,b)
   a<b ? a : b
 end
@@ -47,7 +47,7 @@ Esta solución usa dos apuntadores, busca por la izquierda un pilar hasta encont
 este toma el volumen que existe entre los dos y le resta el volumen, pero no contaba en cuenta algunos casos, así que la modifiqué para 
 algunos casos que no tome en cuenta:
 
-```rb
+```ruby
 def min (a,b)
   a<b ? a : b
 end
@@ -86,7 +86,7 @@ end
 
 Pero aun así esta muy parchado y esta mal, la correcta solución que supera al 99% de las soluciónes es la siguiente:
 
-```rb
+```ruby
 def min(a, b)
   a < b ? a : b
 end

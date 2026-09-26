@@ -1,5 +1,5 @@
 ---
-title: "Add Two NUmbers"
+title: "Add Two Numbers"
 date: "20 Jun 2024"
 tags: ["LeetCode", "Linked List", "Ruby", "Algorithms"]
 ---
@@ -8,9 +8,9 @@ tags: ["LeetCode", "Linked List", "Ruby", "Algorithms"]
 Este problema consisten en dadas dos listas ligadas las cuales tienen los digitos de un numero entero en reversa y el problema consiste en sumar estos dos
 valores y regresar otra lista ligada en reversa con los digitos del resultado
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next
@@ -62,7 +62,7 @@ Luego suma los numeros de forma normal y hace el proceso inverso
 
 Pero encontré estas dos soluciónes
 
-```rb
+```ruby
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next

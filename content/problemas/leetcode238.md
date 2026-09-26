@@ -16,10 +16,10 @@ tags: ["LeetCode", "Array", "Algorithms"]
 
  Y al final se multiplican el elemento de cada indice de la izquierda con la derecha.
  
-### Solucion
+### Solución
 
 
-```py
+```python
  class Solution(object):
      def productExceptSelf(self, nums):
      izq=[1]

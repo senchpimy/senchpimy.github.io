@@ -1,15 +1,15 @@
 ---
 title: "Tres Impares Seguidos"
-#date: "1 Jul 2024"
+date: "01 Jul 2024"
 tags: ["LeetCode", "Array", "Python", "Algorithms"]
 ---
-## Anagrama
+## Three Consecutive Odds
 
 Este problema consisten en regresar cierto si dada una lista se encuentras tres impares seguidos
 
-### Solucion
+### Solución
 
-```py
+```python
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
         l = len(arr)
@@ -20,7 +20,7 @@ class Solution:
 ```
 Pero me di cuenta que se podría ser más rápido si se suman en lugar de hacer las comparaciones:
 
-```py
+```python
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
         l = len(arr)

@@ -1,7 +1,7 @@
 ---
 title: "Arranging Coins"
 date: "04 Jul 2026"
-tags: ["LeetCode", "Math","Rust", "Algorithms"]
+tags: ["LeetCode", "Mathematics","Rust", "Algorithms"]
 katex: true
 ---
 ## Arranging Coins
@@ -9,7 +9,7 @@ katex: true
 Este problema consiste en dado un numero de monedas, encontrar cuantos escalones donde el escalo *i* tiene *i* monedas
 se pueden armar con la cantidad de monedas dadas
 
-### Solucion
+### Solución
 
 ```rust
 impl Solution {

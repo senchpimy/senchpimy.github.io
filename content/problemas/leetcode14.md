@@ -1,6 +1,6 @@
 ---
 title: "Prefijo más largo"
-date: 2024-06-08
+date: "08 Jun 2024"
 tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
 ## Prefijo
@@ -8,9 +8,9 @@ tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 Este problema consisten en dado un array de strings regresar el prefijo (los primeros caracteres) como string más largo que todos los strings de
 el array tengan en común
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {String[]} strs
 # @return {String}
 def longest_common_prefix(strs)

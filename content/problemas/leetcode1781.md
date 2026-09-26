@@ -1,7 +1,7 @@
 ---
 title: "Suma de la Belleza de los Substrings"
 date: "17 Apr 2026"
-tags: ["LeetCode", "String", "Hash Table", "Python"]
+tags: ["LeetCode", "String", "Hash Table", "Python", "Algorithms"]
 katex: true
 ---
 
@@ -11,11 +11,11 @@ Este problema consiste en sumar la *belleza* de todos los substrings;
 la *belleza* es el resultado de la diferencia entre el carácter más frecuente
 y el menos frecuente.
 
-## Solución
+### Solución
 
 Mi primera solución fue la siguiente:
 
-```py
+```python
 from collections import defaultdict
 class Solution:
     def beautySum(self, s: str) -> int:
@@ -55,7 +55,7 @@ $$
 O(n^2)
 $$
 
-```py
+```python
 from collections import defaultdict
 
 class Solution:

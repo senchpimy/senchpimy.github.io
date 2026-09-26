@@ -1,17 +1,17 @@
 ---
-tags: ["LeetCode", "Math", "Python", "Algorithms"]
-title : 'Número Feliz'
-date : "2026-04-20"
+title: "Número Feliz"
+date: "20 Apr 2026"
+tags: ["LeetCode", "Mathematics", "Python", "Algorithms"]
 ---
 
-# Happy Number
+## Happy Number
 
 Encontrar si un número es "feliz", es decir, si
 se suman los cuadrados de los dígitos repetidamente, en
 algún punto nos da 1.
 
 
- ## Solución
+### Solución
 
  ```py
  class Solution(object):

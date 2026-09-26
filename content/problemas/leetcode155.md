@@ -1,12 +1,12 @@
 ---
 title: "Min Stack"
 date: "07 Dec 2023"
-tags: ["LeetCode", "Stack", "C++", "Ruby", "Data Structures"]
+tags: ["LeetCode", "Stack", "C++", "Ruby", "Data Structures", "Algorithms"]
 ---
 ## Min Stack
 Este problema consisten en tener un stack el cual siqmpre se le pueda requerir el menor elemento en el stack y este siempre lo puede regresar
 
-### Solucion C++
+### Solución C++
 Esta fue mi por algún motivo parece que leetcode no puede aceptar resultado que usen mallor y realloc, pues en mi computadora si funciono hasta cierto punto este primer intento
 
 ```cpp
@@ -85,7 +85,7 @@ La verdadera respuesta consiste en tener dos vectores en uno se guardan los elem
 ### Solución Ruby
 Esta solución tiene dos arrays uno para el valor mínimo en ese momento del array y otro para almacenar los valores, estos se actualizan al mismo tiempo
 
-```rb
+```ruby
 class MinStack
     def initialize()
         @min = []

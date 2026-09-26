@@ -3,6 +3,7 @@ title: "Excel Sheet Column Name"
 date: "20 Jun 2024"
 tags: ["LeetCode", "Linked List", "Ruby", "Algorithms"]
 ---
+## Excel Sheet Column Name
 
 Este problema consiste en dado un numero, regresar el equivalente a notacion de *Excel*, es decir
 A->1
@@ -15,7 +16,7 @@ AB->28
 
 Es decir convertir el numero a base 26 usando las letras del abecedario, esta fue mi solucion:
 
-```py
+```python
 class Solution:
     def convertToTitle(self, n: int) -> str:
         fin = ""

@@ -1,13 +1,13 @@
 ---
 title: "Sqrt"
 date: "05 Dec 2023"
-tags: ["LeetCode", "Mathematics", "Binary Search", "Go"]
+tags: ["LeetCode", "Mathematics", "Binary Search", "Go", "Algorithms"]
 ---
 ## Sqrt
 
  Este problema consisten en encontrar el numero entero más cercano a la raiz de un numero dado.
  
-### Solucion
+### Solución
 
 El problema consiste en una búsqueda binaria en el rango desde 0 hasta el numero dado
 

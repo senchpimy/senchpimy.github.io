@@ -7,9 +7,9 @@ tags: ["LeetCode", "Stack", "Ruby", "Algorithms"]
 
 Este problema consisten en dada una lista de numeros y símbolos evaluar esta lista como si fuiera una notación polaca
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {String[]} tokens
 # @return {Integer}
 def eval_rpn(tokens)

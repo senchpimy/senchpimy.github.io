@@ -1,5 +1,5 @@
 ---
-title: "Suma De Dos"
+title: "Suma de Dos"
 date: "14 Jun 2023"
 tags: ["LeetCode", "Two Pointers", "C++", "Algorithms"]
 ---
@@ -7,7 +7,7 @@ tags: ["LeetCode", "Two Pointers", "C++", "Algorithms"]
 
  Este problema consiste en encontrar la ubicación de dos numeros en un vectos ordenado de forma ascendente que sumados den como resultado un valor deseado.
  
-### Solucion
+### Solución
 
 
 ```cpp

@@ -1,5 +1,5 @@
 ---
-title: "Suma De Tres"
+title: "Suma de Tres"
 date: "02 Jul 2024"
 tags: ["LeetCode", "Two Pointers", "Ruby", "Algorithms"]
 ---
@@ -7,9 +7,9 @@ tags: ["LeetCode", "Two Pointers", "Ruby", "Algorithms"]
 
  Este problema consiste en encontrar cada posible combinacion de 3 numeros sin prepetirse tal que la suma de estos 3 numeros sea igual a 0
  
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {Integer[]} nums
 # @return {Integer[][]}
 def three_sum(nums)

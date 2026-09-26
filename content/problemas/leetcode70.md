@@ -8,9 +8,9 @@ tags: ["LeetCode", "Dynamic Programming", "Ruby", "Algorithms"]
 Este problema consisten en regresar un entero que indique todas las formas posibles en las cuales se puede subir una escalera de n escalones
 si en cada paso se puede escoger subir 1 o 2 escalones
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {Integer} n
 # @return {Integer}
 def climb_stairs(n)

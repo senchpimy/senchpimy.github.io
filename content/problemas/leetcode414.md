@@ -7,7 +7,7 @@ tags: ["LeetCode", "Algorithms", "Python"]
 
 Este problema consiste en contrar el tercer numero más grande 
 
-### Solucion
+### Solución
 
 
 ```rust

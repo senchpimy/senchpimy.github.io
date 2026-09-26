@@ -3,14 +3,14 @@ title: "Convertir Lista Ordenada a Arbol Binario"
 date: "26 Jun 2026"
 tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
-## Problema
+## Convert Sorted Array to Binary Search Tree
 
 Este problema consiste dada una lista ordenada, regresar un arbol armado de esa lista, este arbol debe 
 de estar balanceado de altura
 
-### Solucion
+### Solución
 
-```py
+```python
 class Solution(object):
     def sortedArrayToBST(self, nums):
         """

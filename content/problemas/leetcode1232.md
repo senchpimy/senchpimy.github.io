@@ -1,6 +1,6 @@
 ---
+title: "Línea Recta"
 date: "11 Jun 2023"
-title: "linearecta"
 tags: ["LeetCode", "Mathematics", "Geometry", "Algorithms"]
 ---
 ## Check Straight Line
@@ -9,10 +9,10 @@ tags: ["LeetCode", "Mathematics", "Geometry", "Algorithms"]
 
  Este problema consisten en verificar si un arreglo de coordenadas son una linea recta.
  
-### Solucion
+### Solución
 
 
-```py
+```python
  def checkStraightLine(self,coordinates):
  (x0,y0)=coordinates[0]
  (x1,y1)=coordinates[1]

@@ -1,7 +1,7 @@
 ---
 title: "Pascal's Triangle"
 date: "17 Apr 2026"
-tags: ["LeetCode", "Array", "Dynamic Programming", "Python"]
+tags: ["LeetCode", "Array", "Dynamic Programming", "Python", "Algorithms"]
 ---
 
 ## Triángulo de Pascal
@@ -19,7 +19,7 @@ que contenga una pirámide de Pascal, es decir, que siga la siguiente sucesión:
 Esta fue mi solución: tomar la base y empezar a construirla desde su definición,
 es decir, la suma de los dos anteriores y se agrega un 1 al final.
 
-```py
+```python
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         base = [1,1]

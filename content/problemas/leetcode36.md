@@ -3,13 +3,13 @@ title: "Sudoku"
 date: "21 Jun 2024"
 tags: ["LeetCode", "Matrix", "Ruby", "Algorithms"]
 ---
-## Anagrama
+## Valid Sudoku
 
 Este problema consisten en dado un sudoku regresar si el sudoku es válido, es decir no existe ningún numero repetido en las columnas, filas y cuadrados de 3x3
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {Character[][]} board
 # @return {Boolean}
 def is_valid_sudoku(board)
@@ -37,7 +37,7 @@ Este fue mi primer intento, pero ver las soluciónes más rapidas encontré una 
 lugar lo guarda como un solo indice, esta es la versión final:
 
 
-```rb
+```ruby
 # @param {Character[][]} board
 # @return {Boolean}
 def is_valid_sudoku(board)

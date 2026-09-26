@@ -1,15 +1,15 @@
 ---
-title: "Entero A Romano"
+title: "Entero a Romano"
 date: "24 Jun 2024"
 tags: ["LeetCode", "Mathematics", "Ruby", "Algorithms"]
 ---
-## Entero A romano
+## Entero a Romano
 
 Este problema consisten en dado un numero regresar un string que sea su representacion en numero romano de dicho numero
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {Integer} num
 # @return {String}
 def int_to_roman(num)
@@ -30,7 +30,7 @@ Este programa crea un hashmap para los unidades, decenas, centenas y milesimas, 
 Esta versión esta en el top ~50% en cuanto a velocidad y ~70% en cuanto a memoria, luego me di cuenta que no era necesario un hashmap y se podía usar
 una lista cualquiera, pues al final cada numero es equivalente a su posición.
 
-```rb
+```ruby
 # @param {Integer} num
 # @return {String}
 def int_to_roman(num)
@@ -48,7 +48,7 @@ end
 Esta versión esta en el top 70% de velocidad y 60% en memoria. Aunque esta solución es correcta la solución que se debía dar es más o menos la siguiente:
 
 
-```rb
+```ruby
 # @param {Integer} num
 # @return {String}
 def int_to_roman(num)

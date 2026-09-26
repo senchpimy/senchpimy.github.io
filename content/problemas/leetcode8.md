@@ -7,9 +7,9 @@ tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 
 Este problema consisten en convertir un string en un entero
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {String} s
 # @return {Integer}
 def my_atoi(s)

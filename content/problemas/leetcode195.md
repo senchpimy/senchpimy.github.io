@@ -1,18 +1,18 @@
 ---
-title: "Decima Linea"
+title: "Décima Línea"
 date: "30 Jun 2023"
-tags: ["LeetCode", "Shell", "Linux", "Tools"]
+tags: ["LeetCode", "Shell", "Linux", "Tools", "Algorithms"]
 ---
-## Decima Linea
+## Décima Línea
 
 
 
  Este problema consisten en imprimir la demcima linea de un archivo usando comando de shell, mi primera solución fue la siguiente:
  
-### Solucion
+### Solución
 
 
-```sh
+```bash
  head file.txt --line 10 | tail --line 1
 ```
  
@@ -21,7 +21,7 @@ tags: ["LeetCode", "Shell", "Linux", "Tools"]
  se puede usar de la siguiente manera
  
 
-```sh
+```bash
  awk 'NR == 10' file.txt
 ```
  
@@ -29,7 +29,7 @@ tags: ["LeetCode", "Shell", "Linux", "Tools"]
  Pero esta solución tardaba mucho entonces con **sed** también se puede con
  
 
-```sh
+```bash
  sed -n '10p' file.txt
 ```
  

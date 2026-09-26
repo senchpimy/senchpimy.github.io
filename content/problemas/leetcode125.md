@@ -1,5 +1,5 @@
 ---
-title: "palindrome"
+title: "Palindrome"
 date: "12 Jun 2023"
 tags: ["LeetCode", "String", "C++", "Algorithms"]
 ---
@@ -10,7 +10,7 @@ tags: ["LeetCode", "String", "C++", "Algorithms"]
 
  Este problema consisten en verificar si un string es un palindrome
  
-### Solucion
+### Solución
 
 
 ```cpp

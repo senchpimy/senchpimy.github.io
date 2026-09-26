@@ -1,19 +1,16 @@
 ---
+title: "Valor Máximo Después de Separar"
+date: "22 Dec 2023"
 tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
-+++
-title = 'Valor Maximo Después De Separar'
-date = 2023-12-22T07:13:23-06:00
-+++
-
-## Valor Maximo Después De Separar
+## Valor Máximo Después de Separar
 
 Este problema consiste en que dado un string de unos y ceros encontremos el valor máximo que se puede obtener después de separa el string en 2 y sumar la cantidad de 0's de un lado con la cantidad de 1's del otro.
 
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {String} s
 # @return {Integer}
 def max_score(s)

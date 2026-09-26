@@ -1,13 +1,13 @@
 ---
-title: "Romano A Entero"
+title: "Romano a Entero"
 date: "30 Nov 2023"
 tags: ["LeetCode", "Mathematics", "Go", "Algorithms"]
 ---
-## Romano A Entero
+## Romano a Entero
 
 Este problema consisten en regresar el valor entero de un numero dad su representacion como numero romano
 
-### Solucion
+### Solución
 
 ```go
 func romanToInt(s string) int {

@@ -1,10 +1,10 @@
 ---
-tags: ["LeetCode", "Array", "Two Pointers", "Python", "Algorithms"]
-title : "Two Sum II - Input Array Is Sorted"
+title: "Two Sum II - Input Array Is Sorted"
 date: "19 Apr 2026"
+tags: ["LeetCode", "Array", "Two Pointers", "Python", "Algorithms"]
 ---
 
-# Two Sum II - Input Array Is Sorted
+## Two Sum II - Input Array Is Sorted
 
 Este problema consiste en, dada una lista ordenada,
 encontrar dos valores que sumados den el objetivo y regresar 
@@ -12,7 +12,7 @@ los índices.
 
 ### Solución
 
-```py
+```python
 class Solution(object):
     def twoSum(self, numbers, target):
         """

@@ -1,7 +1,7 @@
 ---
 title: "Number of 1 Bits"
 date: "06 Jul 2026"
-tags: ["LeetCode", "Math","Rust", "Algorithms"]
+tags: ["LeetCode", "Mathematics","Rust", "Algorithms"]
 katex: true
 ---
 ## Number of 1 Bits
@@ -9,7 +9,7 @@ katex: true
 Este problema consiste en dado un numero encontrar cuantos '1' existen en la representacion
 binaria del numero
 
-### Solucion
+### Solución
 
 ```rust
 impl Solution {

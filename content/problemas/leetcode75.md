@@ -7,9 +7,9 @@ tags: ["LeetCode", "Array", "Ruby", "Algorithms"]
 
 Este problema consisten en dado un array con los numeros: 0, 1, 2. Ordenar el array sin crear uno nuevo tal que todos los ceros queden al principio, los unos enmedio y los 2 al final
 
-### Solucion
+### Solución
 
-```rb
+```ruby
 # @param {Integer[]} nums
 # @return {Void} Do not return anything, modify nums in-place instead.
 def sort_colors(nums)

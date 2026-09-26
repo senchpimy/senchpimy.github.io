@@ -1,7 +1,7 @@
 ---
 title: "Linked List Cycle"
 date: "14 Apr 2026"
-tags: ["LeetCode", "String", "Hash Table", "Python"]
+tags: ["LeetCode", "Linked List", "Hash Table", "Python", "Algorithms"]
 katex: true
 ---
 
@@ -11,9 +11,9 @@ El problema consiste en dada la cabeza de una lista linkeada encontrar si
 existe un ciclo en la lista, es decir un si existen dos o mas nodos apuntando al mismo
 nodo
 
-## Solución
+### Solución
 
-```py
+```python
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         s = set()

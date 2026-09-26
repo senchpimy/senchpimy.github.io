@@ -9,7 +9,7 @@ Este problema consiste en implementar búsqueda binaria.
 
 ### Solución
 
-```rb
+```ruby
 # @param {Integer[]} nums
 # @param {Integer} target
 # @return {Integer}
@@ -35,7 +35,7 @@ end
 Solo que por algún motivo tenía que verificar que los dos valores no fueran nulos aunque, cuando imprimía los valores, en ningún momento estos eran nulos, y el input nunca era nulo; pero si quitaba esas 3 líneas el programa no funcionaba.
 
 Esta es la solución al problema 35 pero también funciona para el problema 704 aunque no es la óptima:
-```rb
+```ruby
 # @param {Integer[]} nums
 # @param {Integer} target
 # @return {Integer}

@@ -1,16 +1,16 @@
 ---
-title: "Intersection of Two Linked List"
+title: "Intersection of Two Linked Lists"
 date: "02 Jul 2026"
 tags: ["LeetCode", "Linked List", "Python", "Algorithms"]
 ---
-## Interseccion de dos listas ligadas
+## Intersección de dos listas ligadas
 
 Este problema consisten en verificar si dos listas tienen un nodo en comun
  
-### Solucion
+### Solución
 
 
-```py
+```python
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):

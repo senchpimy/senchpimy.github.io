@@ -1,9 +1,9 @@
 ---
-title: "Comprar Y Vender"
+title: "Comprar y Vender"
 date: "19 Jun 2023"
 tags: ["LeetCode", "Array", "Dynamic Programming", "Algorithms"]
 ---
-## Mejor Momento para comprar y vender
+## Mejor Momento para Comprar y Vender
 
 
 
@@ -11,10 +11,10 @@ tags: ["LeetCode", "Array", "Dynamic Programming", "Algorithms"]
 
  Yo primero lo intente por fureza bruta, intentando cada posibilidad hasta obtener el mayor haciendo de mi solución O(N^2), haciendolo bastante lento
  
-### Solucion
+### Solución
 
 
-```py
+```python
 
  def solución(self, nums):
      max=0

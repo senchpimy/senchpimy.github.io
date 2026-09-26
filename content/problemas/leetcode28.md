@@ -1,6 +1,6 @@
 ---
 title: "Índice de la primera Ocurrencia"
-date: 2024-06-10
+date: "10 Jun 2024"
 tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
 ## Índice de la Primera Ocurrencia
@@ -9,7 +9,7 @@ Este problema consiste en, dados dos strings, regresar el índice de la primera 
 
 ### Solución
 
-```rb
+```ruby
 # @param {String} haystack
 # @param {String} needle
 # @return {Integer}
@@ -37,7 +37,7 @@ segundo string, entonces se ha encontrado el segundo string y se regresa el índ
 
 Esta solución funciona pero, en comparación a las demás respuestas enviadas, es muy lenta y ocupa mucha memoria, así que usando la función ya integrada en el lenguaje para hacer esto se obtiene el siguiente código:
 
-```rb
+```ruby
 # @param {String} haystack
 # @param {String} needle
 # @return {Integer}
@@ -48,7 +48,7 @@ end
 Que usa la función `index` para encontrar el índice, y si no se encuentra entonces se regresa -1. Pero aun así no cambió mucho el uso de memoria ni de velocidad, entonces pensé que tal vez no se optimizaba el llamado a la función y esta terminaba llamándose 2 veces, así que solo guardé el resultado
 y lo intenté de nuevo:
 
-```rb
+```ruby
 # @param {String} haystack
 # @param {String} needle
 # @return {Integer}

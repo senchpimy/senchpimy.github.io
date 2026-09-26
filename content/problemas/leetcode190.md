@@ -1,17 +1,17 @@
 ---
+title: "Patrón de Palabras"
+date: "20 Apr 2026"
 tags: ["LeetCode", "Hash Table", "Python", "Algorithms"]
-title : 'Patrón de Palabras'
-date : "2026-04-20"
 ---
 
-# Word Pattern
+## Word Pattern
 
 Dado un string "patrón" y un string "s", encontrar si
 *s* cumple el patrón dado. Ejemplo:
 
  pattern = "abba", s = "dog cat cat dog"
 
- ## Solución
+### Solución
 
  ```py
  class Solution(object):

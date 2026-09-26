@@ -1,16 +1,16 @@
 ---
 title: "Arbol Binario Balanceado"
 date: "02 Jul 2026"
-tags: ["LeetCode", "Tree", "python", "Algorithms"]
+tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
-## Problema
+## Balanced Binary Tree
 
 Este problema consisten en regresar un booleano que describe si un arbol binario esta balanceado, es decir
 si la diferencia entre todas sus hojas no es mayor que 1
 
-### Solucion
+### Solución
 
-```py
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):

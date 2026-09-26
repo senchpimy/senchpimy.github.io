@@ -1,7 +1,7 @@
 ---
 title: "Missing Number"
 date: "04 Jul 2026"
-tags: ["LeetCode", "Math","Rust", "Algorithms"]
+tags: ["LeetCode", "Mathematics","Rust", "Algorithms"]
 katex: true
 ---
 ## Missing Number
@@ -9,7 +9,7 @@ katex: true
 Este problema consiste en dado un array de numeros de longitud n, que contiene elmentos entre el rango (0,n), encontrar que numero
 falta
 
-### Solucion
+### Solución
 
 
 ```rust

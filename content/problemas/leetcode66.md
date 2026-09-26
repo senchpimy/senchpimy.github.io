@@ -6,12 +6,12 @@ tags: ["LeetCode", "Array", "Ruby", "Algorithms"]
 ## Más uno
 El problema consiste que dado una lista que consiste en enteros y se supone que esta lista representa un entero en total, y el problema consiste en sumarle uno a este gran numero
 
-## Solucion
+### Solución
 
 Vamos a iterar la lista de forma inversa y le vamos a sumar 1 a el primer valor que sea diferente a 9 y regresamos la lista, en caso de que sea 9 lo convertimos en 0 y seguimos buscando uno que sea diferente a 9
 
 
-```rb
+```ruby
 # @param {Integer[]} digits
 # @return {Integer[]}
 def plus_one(digits)

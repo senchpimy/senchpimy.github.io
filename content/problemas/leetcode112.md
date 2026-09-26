@@ -1,7 +1,7 @@
 ---
 title: "Path Sum"
 date: "17 Apr 2026"
-tags: ["LeetCode", "Tree", "Python"]
+tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
 ## Path Sum
 
@@ -11,7 +11,7 @@ que sume al valor dado.
 
 Esta fue mi primera solución:
 
-```py
+```python
 class Solution:
     def recur(self, node,state):
         if node is None:
@@ -35,7 +35,7 @@ Es una simple búsqueda en profundidad (DFS), que guarda el resultado
 y activa una variable cuando lo encuentra, pero noté que cuando es verdadero
 se pueden detener todas las demás búsquedas ya que ya encontró el valor, así quedó la segunda iteración:
 
-```py
+```python
 class Solution:
     def recur(self, node,state):
         if self.res:

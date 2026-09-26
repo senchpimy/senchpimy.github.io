@@ -1,8 +1,8 @@
 ---
-date: "24 Nov 2025"
 title: "Longest Palindromic Substring"
-katex: true
+date: "24 Nov 2025"
 tags: ["LeetCode", "String", "Dynamic Programming", "Algorithms"]
+katex: true
 ---
 ## Longest Palindromic Substring
 

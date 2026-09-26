@@ -1,16 +1,16 @@
 ---
 title: "Arbol Simetrico"
 date: "26 Jun 2026"
-tags: ["LeetCode", "Tree", "python", "Algorithms"]
+tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
-## Problema
+## Symmetric Tree
 
 Este problema consisten en regresar un booleano que describe si un arbol es simetrico, es decir, los valores de la derecha
 de un arbol son iguales a los valores de la izquierda del otro
 
-### Solucion
+### Solución
 
-```py
+```python
 class Solution(object):
 
     def isSymmetric(self, root):
@@ -49,7 +49,7 @@ verificaba si los valores eran iguales, y si los nodos eran validos, luego los g
 comprobar si eran simetricos, estre problema funciono, pero era muy lento, una solucion más rapida seria
 la siguiente:
 
-```py
+```python
 class Solution(object):
     def isSymmetric(self, root):
         """

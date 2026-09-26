@@ -7,7 +7,7 @@ tags: ["LeetCode", "Hash Map", "String", "Algorithms"]
 
 Este problema consisten en dado una lista de palabras regresar una lista de listas de palabras que sean anagramas entre si
 
-### Solucion
+### Solución
 Este problema se solucióna primero iterando por cada palabra del array y ordenandola, luego esta se añade en un hashmap donde la llave es la palabra ordenada y el valor es un array que contiene esta palabra, array que se expandira si 
 al ordenar otra palabra de la lista original esta coincide con la llave.
 
@@ -15,7 +15,7 @@ Finalmente se itera por el hashmap y cada valor del hashmap se agrega a una nuev
 
 Mi primera solución fue la siguiente
 
-```rb
+```ruby
 # @param {String[]} strs
 # @return {String[][]}
 def group_anagrams(strs)
@@ -42,7 +42,7 @@ primero note que usaban **<<** como forma de ingresar datos en una lista en luga
 valores directamente, así que lo cambie
 
 Siendo la solución final la siguiente
-```rb
+```ruby
 # @param {String[]} strs
 # @return {String[][]}
 def group_anagrams(strs)
@@ -65,7 +65,7 @@ end
 
 Esta solución esta en el top 5% en velocidad y 50% en la memoria, lo que mie hizo revisar las mejores soluciónes en memoria y me encontré con la siguiente:
 
-```rb
+```ruby
 # @param {String[]} strs
 # @return {String[][]}
 def group_anagrams(strs)

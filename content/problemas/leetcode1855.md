@@ -1,10 +1,10 @@
 ---
-tags: ["LeetCode", "Array", "Two Pointers", "Python", "Algorithms"]
-title : "Maximum Distance Between a Pair of Values"
+title: "Maximum Distance Between a Pair of Values"
 date: "19 Apr 2026"
+tags: ["LeetCode", "Array", "Two Pointers", "Python", "Algorithms"]
 ---
 
-# Maximum Distance Between a Pair of Values
+## Maximum Distance Between a Pair of Values
 
 Este problema consiste en que, dadas dos listas ordenadas, la máxima diferencia entre dos índices,
 cada uno de una lista, en los que el valor al que apunta la primera lista sea menor o igual
@@ -12,7 +12,7 @@ al que apunta la segunda lista. Esta fue mi solución:
 
 ### Solución
 
-```py
+```python
 class Solution(object):
     def maxDistance(self, nums1, nums2):
         """
@@ -34,7 +34,7 @@ Pero la solución era n^2, y se detenía porque sobrepasaba el tiempo; entonces 
 índices para detener las iteraciones en las que, por las reglas, no iba a estar el
 resultado ahí:
 
-```py
+```python
 class Solution(object):
     def maxDistance(self, nums1, nums2):
         """
@@ -59,7 +59,7 @@ class Solution(object):
 Pero también tardaba mucho. Investigando, la solución correcta era un algoritmo
 de dos punteros:
 
-```py
+```python
 class Solution(object):
     def maxDistance(self, nums1, nums2):
         """

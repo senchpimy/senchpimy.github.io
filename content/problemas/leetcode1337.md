@@ -1,7 +1,7 @@
 ---
 title: "The K Weakest Rows in a Matrix"
 date: "06 Jul 2026"
-tags: ["LeetCode", "Math","Rust", "Algorithms"]
+tags: ["LeetCode", "Mathematics","Rust", "Algorithms"]
 katex: true
 ---
 ## The K Weakest Rows in a Matrix
@@ -10,7 +10,7 @@ Este problema consiste en dada una matriz de valores que solo son 1 y 0, regresa
 **k** filas con menos 1. Las filas estan ordenadas de tal forma que los ceros estas siempre solo al final del
 array si es que hay ceros.
 
-### Solucion
+### Solución
 
 ```rust
 impl Solution {

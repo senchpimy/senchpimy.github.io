@@ -3,15 +3,15 @@ title: "Combinar Array Ordenado"
 date: "03 Jul 2023"
 tags: ["LeetCode", "Array", "Ruby", "Algorithms"]
 ---
-## Conbinar Array Ordenado
+## Combinar Array Ordenado
 
 Este problema consisten en combinar dos arrays que están ordenados
 
-### Solucion
+### Solución
 
 Primero intente esto pues pensé que podría funcionar:
 
-```rb
+```ruby
 # @param {Integer[]} nums1
 # @param {Integer} m
 # @param {Integer[]} nums2
@@ -45,7 +45,7 @@ Esta función ingresa correctamente en orden creciente los elementos de nums2 en
 
 La respuesta correcta es la siguiente:
 
-```rb
+```ruby
 # @param {Integer[]} nums1
 # @param {Integer} m
 # @param {Integer[]} nums2

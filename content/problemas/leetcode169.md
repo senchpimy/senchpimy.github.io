@@ -1,16 +1,16 @@
 ---
+title: "Elemento Mayoritario"
+date: "20 Apr 2026"
 tags: ["LeetCode", "Array", "Python", "Algorithms"]
-title : 'Elemento Mayoritario'
-date : "2026-04-20"
 ---
 
-# Elemento Mayoritario
+## Elemento Mayoritario
 
 Dado un array de números de tamaño n, encontrar el elemento que aparece
 más de *n/2* veces.
 
 
- ## Solución
+### Solución
 
  Existen dos soluciones: la primera consiste en que si
  su cantidad aparece más que la mayoría, entonces es imposible que
