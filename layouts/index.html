@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio técnico de Senchpimy: IA, criptografía, hardware y coding challenges">
-  
+
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  
+
   <script type="importmap">
     {
       "imports": {
@@ -34,14 +34,20 @@
   /* 🌌 Fondo 3D */
   #model-container {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
   }
-  #model-container.loaded { opacity: 1; }
+
+  #model-container.loaded {
+    opacity: 1;
+  }
+
   #model-container canvas {
     display: block;
     width: 100% !important;
@@ -59,58 +65,104 @@
 
   /* Navegación centrada */
   .contenidos {
-    display: flex; flex-wrap: wrap; gap: 1rem;
-    padding: 0; margin: 0 0 var(--spacing-lg) 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
     border-bottom: var(--border-width) solid var(--color-ink);
     padding-bottom: var(--spacing-md);
-    justify-content: center; width: 100%;
+    justify-content: center;
+    width: 100%;
   }
+
   .contenidos a {
-    display: inline-block; padding: 0.5rem 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
     border: var(--border-width) solid var(--color-ink);
-    background: var(--color-background); text-decoration: none;
-    font-size: 0.9rem; text-align: center; min-width: max-content;
+    background: var(--color-background);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: max-content;
   }
-  .contenidos a:hover, .contenidos a:focus {
-    background: var(--color-ink); color: var(--color-background);
+
+  .contenidos a:hover,
+  .contenidos a:focus {
+    background: var(--color-ink);
+    color: var(--color-background);
   }
 
   /* Hero ASCII */
-  .hero { text-align: center; padding: var(--spacing-lg) 0; }
+  .hero {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+  }
+
   #home_title {
     font-family: var(--font-family-mono);
     font-size: clamp(0.5rem, 2.5vw, 0.9rem);
-    line-height: 1.2; color: var(--color-ink);
-    margin: 0 auto; padding: 1rem;
+    line-height: 1.2;
+    color: var(--color-ink);
+    margin: 0 auto;
+    padding: 1rem;
     background: var(--color-background);
     border: var(--border-width) solid var(--color-ink);
     box-shadow: 8px 8px 0 var(--color-ink);
-    display: inline-block; border-radius: 4px; overflow-x: auto;
+    display: inline-block;
+    border-radius: 4px;
+    overflow-x: auto;
   }
 
   /* Intro & Tags centrados */
   .intro-section {
     max-width: var(--container-width);
-    margin: var(--spacing-lg) auto; padding: 0 var(--spacing-md);
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
   }
+
   .intro-content {
     background: var(--color-background);
     border: var(--border-width) solid var(--color-ink);
-    padding: var(--spacing-md); box-shadow: 8px 8px 0 var(--color-ink);
-    border-radius: 4px; text-align: center;
-    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    padding: var(--spacing-md);
+    box-shadow: 8px 8px 0 var(--color-ink);
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
-  .intro-content h2 { margin-top: 0; font-size: 1.5rem; }
-  .intro-content p { margin: 0; line-height: 1.7; max-width: 650px; }
+
+  .intro-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+
+  .intro-content p {
+    margin: 0;
+    line-height: 1.7;
+    max-width: 650px;
+  }
+
   .tech-tags {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-    justify-content: center; width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
   }
+
   .tag {
-    background: var(--color-accent); border: 2px solid var(--color-ink);
-    padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: 600;
-    border-radius: 2px; transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--color-accent);
+    border: 2px solid var(--color-ink);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
+
   .tag:hover {
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 var(--color-ink);
@@ -119,59 +171,116 @@
   /* Grid destacado */
   .featured-grid {
     max-width: var(--container-width);
-    margin: var(--spacing-lg) auto; padding: 0 var(--spacing-md);
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
   }
-  .featured-grid h2 { text-align: center; margin-bottom: var(--spacing-md); }
+
+  .featured-grid h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+  }
+
   .grid-cards {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-md);
   }
+
   .card {
-    display: block; background: var(--color-background);
+    display: block;
+    background: var(--color-background);
     border: var(--border-width) solid var(--color-ink);
-    padding: var(--spacing-md); text-decoration: none; color: var(--color-ink);
-    box-shadow: 8px 8px 0 var(--color-ink); transition: transform 0.2s, box-shadow 0.2s;
-    border-radius: 4px; text-align: center;
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: 8px 8px 0 var(--color-ink);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 4px;
+    text-align: center;
   }
-  .card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--color-accent); }
-  .card-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
-  .card h3 { margin: 0 0 0.5rem 0; font-size: 1.2rem; }
-  .card p { margin: 0; font-size: 0.95rem; opacity: 0.9; }
+
+  .card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--color-accent);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
 
   @media (max-width: 768px) {
-    #home_title { font-size: 0.6rem; padding: 0.5rem; }
-    .grid-cards { grid-template-columns: 1fr; }
-    .home-layout { background: rgba(255,255,255,0.94); }
+    #home_title {
+      font-size: 0.6rem;
+      padding: 0.5rem;
+    }
+
+    .grid-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .home-layout {
+      background: rgba(255, 255, 255, 0.94);
+    }
   }
+
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 
 <script type="module">
   import * as THREE from 'three';
-  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+  import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 
   const config = {
-    modelUrl: '{{ .Site.BaseURL }}modelos/mandibula1.glb',
+    modelUrl: '{{ "modelos/mandibula1.glb" | relURL }}',
     containerId: 'model-container',
-    cameraZ: 12,
-    modelScale: 0.14,
-    // 🎛️ Ajusta estos valores según tu preferencia:
-    baseTiltX: -0.25,      // Inclinación inicial hacia adelante (negativo = adelante)
-    mouseSensitivity: 0.4, // Sensibilidad del seguimiento (-1 a 1)
-    lerpSpeed: 0.06        // Suavidad del movimiento (0.01 = muy lento, 0.1 = rápido)
+    cameraZ: 30,
+    modelScale: 0.15
+  };
+
+  // 🎛️ Rotación inicial del modelo al cargarse (en grados)
+  const rotacionInicial = {
+    x: 10,
+    y: -80,
+    z: -45
+  };
+
+  // 🎛️ Parámetros del movimiento con el ratón
+  const rotacion = {
+    mouseSensitivity: 0.4,  // Sensibilidad del seguimiento (-1 a 1)
+    lerpSpeed: 0.06,        // Suavidad del movimiento (0.01 = muy lento, 0.1 = rápido)
+    mouseTiltFactor: 0.5    // Cuánto afecta el eje Y del ratón a la inclinación
   };
 
   let scene, camera, renderer, model;
-  const mouse = { x: 0, y: 0 };
+  const mouse = {x: 0, y: 0};
   const container = document.getElementById(config.containerId);
 
   function init() {
     if (!container) return;
 
     scene = new THREE.Scene();
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     container.appendChild(renderer.domElement);
@@ -184,7 +293,9 @@
     const dirLight = new THREE.DirectionalLight(0xffffff, 1.6);
     dirLight.position.set(3, 5, 4);
     scene.add(dirLight);
-    scene.add(new THREE.DirectionalLight(0x8899cc, 0.4).position.set(-4, -2, 3));
+    const fillLight = new THREE.DirectionalLight(0x8899cc, 0.4);
+    fillLight.position.set(-4, -2, 3);
+    scene.add(fillLight);
 
     const loader = new GLTFLoader();
     loader.load(
@@ -192,8 +303,12 @@
       (gltf) => {
         model = gltf.scene;
         model.scale.setScalar(config.modelScale);
-        model.rotation.x = config.baseTiltX; // Inclinación inicial
-        model.position.set(0, -1.2, 0);      // Ajusta Y si queda muy arriba/abajo
+        model.rotation.set(
+          THREE.MathUtils.degToRad(rotacionInicial.x),
+          THREE.MathUtils.degToRad(rotacionInicial.y),
+          THREE.MathUtils.degToRad(rotacionInicial.z)
+        ); // Rotación inicial (grados)
+        model.position.set(0, 0, 0);      // Ajusta Y si queda muy arriba/abajo
         scene.add(model);
         container.classList.add('loaded');
         animate();
@@ -221,24 +336,24 @@
     if (!model) return;
 
     // Calcular rotación objetivo basada en el ratón
-    const targetX = config.baseTiltX + (mouse.y * config.mouseSensitivity * 0.5);
-    const targetY = mouse.x * config.mouseSensitivity;
+    const targetX = THREE.MathUtils.degToRad(rotacionInicial.x) + (mouse.y * rotacion.mouseSensitivity * rotacion.mouseTiltFactor);
+    const targetY = THREE.MathUtils.degToRad(rotacionInicial.y) + mouse.x * rotacion.mouseSensitivity;
 
     // Interpolación suave (Lerp)
-    model.rotation.x += (targetX - model.rotation.x) * config.lerpSpeed;
-    model.rotation.y += (targetY - model.rotation.y) * config.lerpSpeed;
+    model.rotation.x += (targetX - model.rotation.x) * rotacion.lerpSpeed;
+    model.rotation.y += (targetY - model.rotation.y) * rotacion.lerpSpeed;
 
     renderer.render(scene, camera);
   }
 
-  document.readyState === 'loading' 
-    ? document.addEventListener('DOMContentLoaded', init) 
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', init)
     : init();
 </script>
 
 {{ else }}
-  {{ partial "nav.html" . }}
-  <main class="content">{{ .Content }}</main>
+{{ partial "nav.html" . }}
+<main class="content">{{ .Content }}</main>
 {{ end }}
 
 {{ partial "footer.html" . }}

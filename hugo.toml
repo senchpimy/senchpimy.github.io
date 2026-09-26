@@ -2,6 +2,9 @@ baseURL = 'https://senchpimy.github.io/'
 languageCode = 'en-us'
 title = 'Senchpimy'
 
+[security]
+    allowContent = ['! ^text/org$']
+
 [taxonomies]
     tag = "tags"
     category = "categories"
