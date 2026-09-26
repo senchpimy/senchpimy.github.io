@@ -5,7 +5,7 @@ tags: ["LeetCode", "Algorithms", "Python"]
 ---
 ## Third Maximum Number
 
-Este problema consiste en contrar el tercer numero más grande 
+Este problema consiste en encontrar el tercer número más grande 
 
 ### Solución
 
@@ -47,5 +47,5 @@ impl Solution {
 ```
 
 Este problema consiste en tener tres variables con valores nulos, 
-y se itera en la lista una sola vez, cuando se ecuentra un valor se pregunta si el valor existe 
-y luego se encuentra en que poscicion deberia ir
+y se itera en la lista una sola vez, cuando se encuentra un valor se pregunta si el valor existe 
+y luego se encuentra en que posición debería ir

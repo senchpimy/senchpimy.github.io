@@ -5,7 +5,7 @@ tags: ["LeetCode", "Mathematics", "Ruby", "Algorithms"]
 ---
 ## Entero a Romano
 
-Este problema consisten en dado un numero regresar un string que sea su representacion en numero romano de dicho numero
+Este problema consiste en dado un número regresar un string que sea su representación en número romano de dicho número
 
 ### Solución
 
@@ -24,11 +24,11 @@ def int_to_roman(num)
     return m[mm]+c[cc]+d[dd]+u[uu]
 end
 ```
-Los límites dados son que ningún numero superara los 3999.
+Los límites dados son que ningún número superara los 3999.
 
-Este programa crea un hashmap para los unidades, decenas, centenas y milesimas, luego divide el numero por el indice de su equivalente en el hashmap.
-Esta versión esta en el top ~50% en cuanto a velocidad y ~70% en cuanto a memoria, luego me di cuenta que no era necesario un hashmap y se podía usar
-una lista cualquiera, pues al final cada numero es equivalente a su posición.
+Este programa crea un hashmap para las unidades, decenas, centenas y milésimas, luego divide el número por el índice de su equivalente en el hashmap.
+Esta versión está en el top ~50% en cuanto a velocidad y ~70% en cuanto a memoria, luego me di cuenta que no era necesario un hashmap y se podía usar
+una lista cualquiera, pues al final cada número es equivalente a su posición.
 
 ```ruby
 # @param {Integer} num
@@ -45,7 +45,7 @@ def int_to_roman(num)
     return m[mm]+c[cc]+d[dd]+u[uu]
 end
 ```
-Esta versión esta en el top 70% de velocidad y 60% en memoria. Aunque esta solución es correcta la solución que se debía dar es más o menos la siguiente:
+Esta versión está en el top 70% de velocidad y 60% en memoria. Aunque esta solución es correcta la solución que se debía dar es más o menos la siguiente:
 
 
 ```ruby

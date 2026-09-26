@@ -5,7 +5,7 @@ tags: ["LeetCode", "Stack", "Ruby", "Algorithms"]
 ---
 ## Evaluar Notación Polaca Inversa
 
-Este problema consisten en dada una lista de numeros y símbolos evaluar esta lista como si fuiera una notación polaca
+Este problema consiste en dada una lista de números y símbolos evaluar esta lista como si fuera una notación polaca
 
 ### Solución
 

@@ -5,7 +5,7 @@ tags: ["LeetCode", "Linked List", "Ruby", "Algorithms"]
 ---
 ## Excel Sheet Column Name
 
-Este problema consiste en dado un numero, regresar el equivalente a notacion de *Excel*, es decir
+Este problema consiste en dado un número, regresar el equivalente a notación de *Excel*, es decir
 A->1
 B->2
 C->3
@@ -14,7 +14,7 @@ Z->26
 AA->27
 AB->28
 
-Es decir convertir el numero a base 26 usando las letras del abecedario, esta fue mi solucion:
+Es decir convertir el número a base 26 usando las letras del abecedario, esta fue mi solución:
 
 ```python
 class Solution:

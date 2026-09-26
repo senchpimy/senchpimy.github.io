@@ -5,7 +5,7 @@ tags: ["LeetCode", "String", "C++", "Algorithms"]
 ---
 ## Anagrama
 
-Este problema consisten en regresar cierto si un string es un anagrama del otro
+Este problema consiste en regresar cierto si un string es un anagrama del otro
 
 ### Solución
 
@@ -32,4 +32,4 @@ class Solution {
 
 ```
 
-Este programa los resolvi mapeando todos los elementos de ambos strings y si la cantidad de ambos elementos son iguales entonces se puede decir que estos son anagramas
+Este programa los resolví mapeando todos los elementos de ambos strings y si la cantidad de ambos elementos son iguales entonces se puede decir que estos son anagramas

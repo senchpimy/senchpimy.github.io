@@ -5,7 +5,7 @@ tags: ["LeetCode", "String", "Rust", "Algorithms"]
 ---
 ## Largest Odd Number in String
 
-Este problema consiste en encontrar el numero mayor impar en una cadena de texto 
+Este problema consiste en encontrar el número mayor impar en una cadena de texto 
 ### Solución
 
 
@@ -25,5 +25,5 @@ impl Solution {
 }
 ```
 
-La solución consiste en que si encontramos el primer numero impar del final hacía delante, entonces el mayor numero impar es la combinacion de
+La solución consiste en que si encontramos el primer número impar del final hacia delante, entonces el mayor número impar es la combinación de
 ese junto todos los que están al comienzo

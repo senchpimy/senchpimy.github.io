@@ -1,0 +1,495 @@
+171. Excel Sheet Column Number
+Solved
+Easy
+Topics
+premium lock iconCompanies
+
+Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
+
+For example:
+
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+
+
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int res =0;
+        for (int i =0; i<columnTitle.length();i++){
+            res=res*26;
+            char c = columnTitle[i];
+            int num = (int) c;
+            res = res + (num-64);
+        }
+        return res;
+        
+    }
+};
+
+------------
+
+144. Binary Tree Preorder Traversal
+Solved
+Easy
+Topics
+premium lock iconCompanies
+
+Given the root of a binary tree, return the preorder traversal of its nodes' values.
+
+ 
+
+Example 1:
+
+Input: root = [1,null,2,3]
+
+Output: [1,2,3]
+
+Explanation:
+
+COdigo
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+ void iter(TreeNode *root,vector<int>&vec){
+    if (!root)
+        return;
+
+    vec.push_back(root->val);
+    if (root->left){
+        iter(root->left,vec);
+    }
+
+    if (root->right){
+        iter(root->right,vec);
+    }
+
+ }
+
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        std::vector<int> v;
+        iter(root,v);
+        return v;
+        
+    }
+};
+
+
+----------------
+
+
+119. Pascal's Triangle II
+Solved
+Easy
+Topics
+premium lock iconCompanies
+
+Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle.
+
+In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        if (rowIndex==0){
+            vector<int> v{1};
+            return v;
+        }
+
+        if (rowIndex==1){
+            vector<int> v{1,1};
+            return v;
+        }
+
+        vector<int> prev{1,1};
+        vector<int> curr(rowIndex+1);
+        for (int i{2};i<=rowIndex;i++){
+            curr[0]=1;
+            curr[i]=1;
+            for (int j{1};j<i;j++)
+            {
+                curr[j]=prev[j-1]+prev[j];
+            }
+            prev = curr;
+        }
+        return curr;
+        // lenght i + 1
+        
+    }
+};
+
+
+----------------
+
+
+203. Remove Linked List Elements
+Solved
+Easy
+Topics
+premium lock iconCompanies
+
+Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
+
+
+
+
+ /**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        while (head && head->val == val)
+            head =head->next;
+        ListNode* ans = head;
+        while (ans && ans->next){
+            //ListNode* prev = head;
+            if (ans->next->val == val)
+                ans->next = ans->next->next;
+            else
+                ans = ans->next;
+        }
+        return head;   
+    }
+};
+
+---------------------
+
+
+219. Contains Duplicate II
+Solved
+Easy
+Topics
+premium lock iconCompanies
+
+Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,1], k = 3
+Output: true
+
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+
+Example 3:
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+
+
+
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        map <int, int> m;
+        for (int i{0}; i<nums.size();i++){
+            int ele = nums[i];
+            if (m.contains(ele)){
+                if (abs(m[ele] - i) <=k)
+                    return true;
+            }
+            m[ele]=i;
+        }
+        return false;
+    }
+};
+
+----------------------------
+
+
+
+338. Counting Bits
+Solved
+Easy
+Topics
+premium lock iconCompanies
+Hint
+
+Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n), ans[i] is the number of 1's in the binary representation of i.
+Do not solve it with built-in functions (i.e., like __builtin_popcount in C++).
+
+ 
+
+Example 1:
+
+Input: n = 2
+Output: [0,1,1]
+Explanation:
+0 --> 0
+1 --> 1
+2 --> 10
+
+Example 2:
+
+Input: n = 5
+Output: [0,1,1,2,1,2]
+Explanation:
+0 --> 0
+1 --> 1
+2 --> 10
+3 --> 11
+4 --> 100
+5 --> 101
+
+Mi solucion:
+
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int> v(n+1);
+        for (int i{0}; i<n+1;i++){
+            v[i]=0;
+            int t = i;
+            for (int j{0}; j< 32; j++){
+                v[i]+=t&1;
+                t=t>>1;
+            }
+        }
+        return v;
+        
+    }
+};
+
+
+
+Mejor solucion:
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int> ans(n+1);
+        ans[0]=0;
+        for (int i=1;i<=n;i++){
+            ans[i]=ans[i/2]+i%2;
+        }
+        return ans;
+    }
+};
+
+
+
+
+---------------
+
+
+258. Add Digits
+Solved
+Easy
+Topics
+premium lock iconCompanies
+Hint
+
+Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+
+ 
+
+Example 1:
+
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
+
+Example 2:
+
+Input: num = 0
+Output: 0
+
+
+
+class Solution {
+public:
+    int addDigits(int num) {
+        while (num >= 10) {
+            int sum = 0;
+
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+
+            num = sum;
+        }
+
+        return num;
+    }
+};
+
+mejor
+
+class Solution {
+public:
+    int addDigits(int num) {
+        if (num == 0) {
+            return 0;
+        }
+
+        return 1 + (num - 1) % 9;
+    }
+};
+------------------
+
+
+190. Reverse Bits
+Solved
+Easy
+Topics
+premium lock iconCompanies
+
+Reverse bits of a given 32 bits signed integer.
+
+ 
+
+Example 1:
+
+Input: n = 43261596
+
+Output: 964176192
+
+Explanation:
+Integer	Binary
+43261596	00000010100101000001111010011100
+964176192	00111001011110000010100101000000
+
+
+class Solution {
+public:
+    int reverseBits(int n) {
+        int res{0};
+        for (int i{0}; i<32;i++){
+            int par = n%2;
+            n/=2;
+            res = res << 1;
+            res += par;
+        }
+        return res;
+    }
+};
+
+
+-------------
+
+
+Solucion 121
+
+Pon fecha Jun 19 2023
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        left = 0
+        right = 1
+        max_prof = 0
+        cur_prof = 0
+
+        while right < len(prices) :
+            cur_prof = prices[right] - prices[left]
+            if prices[right] - prices[right-1] > cur_prof:
+                left = right-1
+                continue
+            max_prof = max(cur_prof, max_prof)
+            right+=1
+            
+        return max_prof
+
+
+
+----------------
+
+Solucion 125
+
+Pon fecha Jun 12 2023
+class Solution {
+public:
+    bool isPalindrome(string s) {
+ //   int l = s.length();
+    //if (s=="a." || s==".a")return true;
+   // for (int i = 0; i < s.size(); i++) {
+   //     s[i]=tolower(s[i]);
+   //     if (s[i] < 'A' || s[i] > 'Z' && s[i] < 'a'
+   //         || s[i] > 'z') {
+   //         s.erase(i, 1);
+   //         i--;
+   //     }
+   // }
+   s.erase(std::remove_if(s.begin(), s.end(), 
+    []( auto const& c ) -> bool { return !std::isalnum(c); } ), s.end());
+    cout<<s;
+   // if (l>1&&s.length()==1) return false;
+    int j = s.length()-1;
+    for (int i =0; i<s.length()/2;i++){
+        if (tolower(s[j])!=tolower(s[i])){
+            return false;
+            break;            
+        }
+
+        j--;
+    
+    }
+    return true;
+
+    }
+};
+
+---------
+
+
+Solucion 206
+
+Pon fecha Mar 23 2023
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* cur = head;
+        ListNode* pre = NULL;
+        while (cur) {
+            ListNode* nxt = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = nxt;
+        }
+        return pre;
+    }
+};

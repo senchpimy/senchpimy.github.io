@@ -5,7 +5,7 @@ tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
 ## Prefijo
 
-Este problema consisten en dado un array de strings regresar el prefijo (los primeros caracteres) como string más largo que todos los strings de
+Este problema consiste en dado un array de strings regresar el prefijo (los primeros caracteres) como string más largo que todos los strings de
 el array tengan en común
 
 ### Solución
@@ -28,4 +28,4 @@ def longest_common_prefix(strs)
 end
 ```
 Este programa toma el primer del array, luego por cada elemento restante del array va a comparar sus caracteres iniciales, y cuando detecta
-que son diferentes entonces significa que se encontro el largo máximo del prefijo y se regresa el prefijo
+que son diferentes entonces significa que se encontró el largo máximo del prefijo y se regresa el prefijo

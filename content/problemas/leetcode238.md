@@ -5,16 +5,16 @@ tags: ["LeetCode", "Array", "Algorithms"]
 ---
 ## Producto de lista excepto mismo
 
- Este problema consisten hacer un vector el cual cada elemento debe ser el resultado de la 
- multiplicacion de todos los elementos de un vector excepto el del indice el cual va a ocupar
+ Este problema consiste en hacer un vector el cual cada elemento debe ser el resultado de la 
+ multiplicación de todos los elementos de un vector excepto el del índice el cual va a ocupar
 
- Primero se me ocurrio hacer la multiplicacion de todos los elementos por cada iteración y saltar cuando ocurra el indice, después asígnar el elemento
- al indice indicado, pero esto es bastante lento pues tendria una complejidad de tiempo cuadrada y se repiten muchisimas operaciones
+ Primero se me ocurrió hacer la multiplicación de todos los elementos por cada iteración y saltar cuando ocurra el índice, después asignar el elemento
+ al índice indicado, pero esto es bastante lento pues tendría una complejidad de tiempo cuadrada y se repiten muchísimas operaciones
 
- Esta solución hace dos vectores que tienen el resltado de todas las multiplicaciones de cada elemento, en la primera es con cada elemento a la derecha 
- y la segúnda es cada elemento a la izquierda
+ Esta solución hace dos vectores que tienen el resultado de todas las multiplicaciones de cada elemento, en la primera es con cada elemento a la derecha 
+ y la segunda es cada elemento a la izquierda
 
- Y al final se multiplican el elemento de cada indice de la izquierda con la derecha.
+ Y al final se multiplican el elemento de cada índice de la izquierda con la derecha.
  
 ### Solución
 

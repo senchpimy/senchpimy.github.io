@@ -5,7 +5,7 @@ tags: ["LeetCode", "Two Pointers", "Ruby", "Algorithms"]
 ---
 ## Suma de Tres
 
- Este problema consiste en encontrar cada posible combinacion de 3 numeros sin prepetirse tal que la suma de estos 3 numeros sea igual a 0
+ Este problema consiste en encontrar cada posible combinación de 3 números sin repetirse tal que la suma de estos 3 números sea igual a 0
  
 ### Solución
 
@@ -40,8 +40,8 @@ def three_sum(nums)
     result
 end
 ```
-Este programa primero ordena la lista, luego usa el algoritmo que se usa en sumaDos para buscar dos numeros que sumados den un numero objetivo,
-en este caso el opuesto del numero que se está buscando actualmente.
+Este programa primero ordena la lista, luego usa el algoritmo que se usa en sumaDos para buscar dos números que sumados den un número objetivo,
+en este caso el opuesto del número que se está buscando actualmente.
 
 Pero en este caso como estamos buscando todas las posibilidades diferentes entonces tomar en cuenta que se repitan varios 
-valores entonces para encontrar cada posible dato diferente debemos mover el último indice hasta que el último valor sea diferente
+valores entonces para encontrar cada posible dato diferente debemos mover el último índice hasta que el último valor sea diferente

@@ -5,7 +5,7 @@ tags: ["LeetCode", "String", "Rust", "Algorithms", "Array"]
 ---
 ## Zigzag Conversion
 
-Este problema consiste en dado un string de caracteres, y un numero de filas, regresar el mismo string
+Este problema consiste en dado un string de caracteres, y un número de filas, regresar el mismo string
 pero acomodado como en zigzag, es decir:
 
 ```text
@@ -18,7 +18,7 @@ Y A   H R
 P     I
 ```
 
-Donde primero se coloca la primera fila, luego la segunda en el string, y asi.
+Donde primero se coloca la primera fila, luego la segunda en el string, y así.
 
 ### Solución
 
@@ -47,9 +47,9 @@ impl Solution {
 }
 ```
 
-Este problema se soluciona en dos partes, en la primera y ultima fila
-los caracteres siguen el mismo patron, la primera fila siempre son los caracteres
-que se encuentran en el indice encontrado con la indicacion index + (num_rows - 1 ) * 2,
+Este problema se soluciona en dos partes, en la primera y última fila
+los caracteres siguen el mismo patrón, la primera fila siempre son los caracteres
+que se encuentran en el índice encontrado con la indicación index + (num_rows - 1 ) * 2,
 esto casi resuelve todo el problema, solo se debe de considerar cuando se encuentra en una 
 fila intermedia, pues estos se encuentran entre dos caracteres verticales. Si el índice del carácter vertical es `j`, entonces el carácter diagonal se encuentra en:
 

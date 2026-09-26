@@ -5,7 +5,7 @@ tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
 ## String a Entero
 
-Este problema consisten en convertir un string en un entero
+Este problema consiste en convertir un string en un entero
 
 ### Solución
 

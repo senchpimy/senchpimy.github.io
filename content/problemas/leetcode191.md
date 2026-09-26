@@ -6,8 +6,8 @@ katex: true
 ---
 ## Number of 1 Bits
 
-Este problema consiste en dado un numero encontrar cuantos '1' existen en la representacion
-binaria del numero
+Este problema consiste en dado un número encontrar cuántos '1' existen en la representación
+binaria del número
 
 ### Solución
 
@@ -24,5 +24,5 @@ impl Solution {
 }
 ```
 
-Cuando se divide el numero entre dos, da un 1 si el numero termina con un un 1 en su representacion binaria,
-despues se recorre el numero una vez.
+Cuando se divide el número entre dos, da un 1 si el número termina con un un 1 en su representación binaria,
+después se recorre el número una vez.

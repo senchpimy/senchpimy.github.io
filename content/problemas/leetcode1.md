@@ -5,7 +5,7 @@ tags: ["LeetCode", "Two Pointers", "C++", "Algorithms"]
 ---
 ## Suma de Dos
 
- Este problema consiste en encontrar la ubicación de dos numeros en un vectos ordenado de forma ascendente que sumados den como resultado un valor deseado.
+ Este problema consiste en encontrar la ubicación de dos números en un vector ordenado de forma ascendente que sumados den como resultado un valor deseado.
  
 ### Solución
 
@@ -47,9 +47,9 @@ tags: ["LeetCode", "Two Pointers", "C++", "Algorithms"]
 ```
  
 
- Mi solución fue restarle a el numero objetivo el valor del primer elemento de la lista, así ya sabriamos que numero debemos encontrar, después como la lista esta ordenada buscamos este numero que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer numero, por lo tanto repetimos el proceso con el segúndo numero de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los indices de donde se encuentran estos elementos y regresamos el vector.
+ Mi solución fue restarle al número objetivo el valor del primer elemento de la lista, así ya sabríamos qué número debemos encontrar, después como la lista está ordenada buscamos este número que nos hace falta, si no lo encontramos significa que no es posible la suma con el primer número, por lo tanto repetimos el proceso con el segundo número de la lista hasta que encontremos los dos valores, en tal caso al vector añadimos los índices de donde se encuentran estos elementos y regresamos el vector.
 
- Este método fue el más tardado pues termino al último, pero en memoria supero al 95% de las otras soluciónes, me sorprendio pues pensé que esta era la respuesta correcta así que busque otra soluciónes y me encontré con esta que gana al 99.91% de las otras soluciónes en velocidad y al 75% en memoria.
+ Este método fue el más tardado pues terminó al último, pero en memoria superó al 95% de las otras soluciones, me sorprendió pues pensé que esta era la respuesta correcta así que busqué otras soluciones y me encontré con esta que gana al 99.91% de las otras soluciones en velocidad y al 75% en memoria.
  
 
 ```cpp
@@ -74,7 +74,7 @@ tags: ["LeetCode", "Two Pointers", "C++", "Algorithms"]
 ```
  
 
- Este método usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalua la suma, si es igual al numero objetivo regresamos los indices, y ahora como la lista esta ordenada, si es menor el resultado que obtuvimos podemos aumentar el indice del primer valor pues el menor de los dos y aumentandolo nos dará un numero mayor acercandonos al resultado, caso contrario el numero resultado es mayor añ numero objetivo entonces reducimos el indicie del último valor, lo que apuntara a un numero menor e igualmente acercandonos al resultados.
+ Este método usa dos punteros, uno al principio y otro hasta el final, suma estos valores y evalúa la suma, si es igual al número objetivo regresamos los índices, y ahora como la lista está ordenada, si es menor el resultado que obtuvimos podemos aumentar el índice del primer valor pues el menor de los dos y aumentándolo nos dará un número mayor acercándonos al resultado, caso contrario el número resultado es mayor al número objetivo entonces reducimos el índice del último valor, lo que apuntará a un número menor e igualmente acercándonos al resultado.
  
 
 

@@ -5,7 +5,7 @@ tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
 ## Balanced Binary Tree
 
-Este problema consisten en regresar un booleano que describe si un arbol binario esta balanceado, es decir
+Este problema consiste en regresar un booleano que describe si un árbol binario está balanceado, es decir
 si la diferencia entre todas sus hojas no es mayor que 1
 
 ### Solución
@@ -42,4 +42,4 @@ class Solution(object):
         return self.res
 
 ```
-Esta solucion es DFS, es decir primero busca el nodo más profundo y luego regresa su nivel de profundidad, y la compara con la profundidad de los otros nodos
+Esta solución es DFS, es decir primero busca el nodo más profundo y luego regresa su nivel de profundidad, y la compara con la profundidad de los otros nodos

@@ -6,7 +6,7 @@ katex: true
 ---
 ## Missing Number
 
-Este problema consiste en dado un array de numeros de longitud n, que contiene elmentos entre el rango (0,n), encontrar que numero
+Este problema consiste en dado un array de números de longitud n, que contiene elementos entre el rango (0,n), encontrar qué número
 falta
 
 ### Solución
@@ -26,16 +26,16 @@ impl Solution {
     }
 }
 ```
-Esta solucion suma todos los numeros del arreglo, y conociendo la formula para sumar todos los elementos uno por uno hasta n
+Esta solución suma todos los números del arreglo, y conociendo la fórmula para sumar todos los elementos uno por uno hasta n
 es la siguiente:
 
 $$
 \sum_{i=0}^{N} i = \frac{N(N+1)}{2}
 $$
 
-Entonces podemos restarle la suma obtenida a la suma conseguida y obtendriamos el resultado
+Entonces podemos restarle la suma obtenida a la suma conseguida y obtendríamos el resultado
 
-En este ejemplo encontre que el loop
+En este ejemplo encontré que el loop
 
 ```rust
 let mut sum = 0;
@@ -44,12 +44,12 @@ for i in nums{
 }
 ```
 
-es más rapido que la linea 
+es más rápido que la línea 
 
 ```
 let mut sum = nums.iter().sum::<i32>();
 ```
 
-que pense que seria igual o más rapida, supongo que en leetcode no se ejecuta con la opcion *--release*, considero que 
+que pensé que sería igual o más rápida, supongo que en leetcode no se ejecuta con la opción *--release*, considero que 
 es más lento pues cuando se ejecuta **.iter**, se itera sobre las referencias a los elementos, y se tiene el paso extra
-de derefenciar la variable
+de dereferenciar la variable

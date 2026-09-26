@@ -8,7 +8,7 @@ katex: true
 ## Ciclo de Lista Linkeada
 
 El problema consiste en dada la cabeza de una lista linkeada encontrar si
-existe un ciclo en la lista, es decir un si existen dos o mas nodos apuntando al mismo
+existe un ciclo en la lista, es decir un si existen dos o más nodos apuntando al mismo
 nodo
 
 ### Solución
@@ -25,6 +25,6 @@ class Solution:
         return False       
 
 ```
-Pero esta solucion solo funciona si cada valor de los nodos es diferente uno de los otros, no toma en cuenta los nodos
+Pero esta solución solo funciona si cada valor de los nodos es diferente uno de los otros, no toma en cuenta los nodos
 como objetos
 

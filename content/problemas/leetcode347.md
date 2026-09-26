@@ -7,7 +7,7 @@ tags: ["LeetCode", "Heap", "C++", "Algorithms"]
 
 
 
- Este problema consisten contar cuantas veces aparece un elemento en un vector y regresar una lista con **K** elementos, los cuales sean los de mayor repeticion en el primer vector, este fue mi primer intento:
+ Este problema consiste en contar cuántas veces aparece un elemento en un vector y regresar una lista con **K** elementos, los cuales sean los de mayor repetición en el primer vector, este fue mi primer intento:
  
 ### Primer Intento
 
@@ -62,10 +62,10 @@ class Solution {
  
 ```
 
-Este intento consiste en primero contar cuantas veces un elemento aparace en el vector luego iterar solo una vez sobre este mapa y llenar array estatico, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, así que si algún elemento supera este mínimo este se debe de insertar en su posición correcta, con esto lograba insertar todos loe elementos de una sola pasada, 
-pero este código no funciono, solo logro pasar la mitad de los casos.
+ Este intento consiste en primero contar cuántas veces un elemento aparece en el vector luego iterar solo una vez sobre este mapa y llenar array estático, y tener un registro de la cantidad de veces en el que el menor elemento que se ha insertado tiene, así que si algún elemento supera este mínimo este se debe de insertar en su posición correcta, con esto lograba insertar todos los elementos de una sola pasada, 
+ pero este código no funcionó, solo logró pasar la mitad de los casos.
 
-Pero me encontré esta solución que me parecio interesante.
+ Pero me encontré esta solución que me pareció interesante.
  
 
 ```cpp
@@ -94,9 +94,9 @@ class Solution {
  
 ```
 
- Primero yo no sabia que con GCC se podía modificar las características de la compilación dentro del código, al buscarlo me encontré que "pragma" le permite al compilador cambiar las características de la compilación por archivo.
+ Primero yo no sabía que con GCC se podía modificar las características de la compilación dentro del código, al buscarlo me encontré que "pragma" le permite al compilador cambiar las características de la compilación por archivo.
 
- Luego esta linea nucna la habia visto antes:
+ Luego esta línea nunca la había visto antes:
  
 ```cpp
  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
@@ -110,9 +110,9 @@ class Solution {
  
  Y estas dos instrucciones hacen que cada vez que una es escrita, la otra es limpiada y esta parte hace que este comportamiento ya no suceda.
 
- Luego usa un **unordered_map** en lugar de un **map**, no se bien el por que de esta descicion, luego guarda la información de cuantas veces se repite un valor de la misma forma en que yo la hice. 
+ Luego usa un **unordered_map** en lugar de un **map**, no sé bien el porqué de esta decisión, luego guarda la información de cuántas veces se repite un valor de la misma forma en que yo la hice. 
 
- Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino también se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porcion, por lo que es muy tardado.
+ Luego copia todos los datos a un Vector y ordena el vector, lo cual no solo duplica la memoria necesaria sino también se tarda en ordenar todos los elementos cuando solo se necesitan una pequeña porción, por lo que es muy tardado.
 
  Finalmente crea un vector en el que agrega los primeros **K** elementos.
  

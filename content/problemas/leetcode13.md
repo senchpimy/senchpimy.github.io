@@ -5,7 +5,7 @@ tags: ["LeetCode", "Mathematics", "Go", "Algorithms"]
 ---
 ## Romano a Entero
 
-Este problema consisten en regresar el valor entero de un numero dad su representacion como numero romano
+Este problema consiste en regresar el valor entero de un número dada su representación como número romano
 
 ### Solución
 
@@ -37,8 +37,8 @@ func romanToInt(s string) int {
 }
 ```
 
-Este problema se resuelve primero mapeando cada posible caracter a su respectivo valor, luego se itera por todo el array y solo se busca la posible condicion de que el numero este restando y para cubrir esta condicion
-hay que preguntar si el siguiente caracter es mayor.
+Este problema se resuelve primero mapeando cada posible carácter a su respectivo valor, luego se itera por todo el array y solo se busca la posible condición de que el número esté restando y para cubrir esta condición
+hay que preguntar si el siguiente carácter es mayor.
 
 Mi primer intento fue el siguiente código:
 
@@ -102,4 +102,4 @@ func romanToInt(s string) int {
 }
 ```
 
-Y note que la única diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte del código, al cambiar esto en mi primera versión también logre tener una respuesta más rápida que el 87%
+Y note que la única diferencia era que este no usaba un else, si no un continue para evitar ejecutar la otra parte del código, al cambiar esto en mi primera versión también logré tener una respuesta más rápida que el 87%

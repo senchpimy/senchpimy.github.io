@@ -5,7 +5,7 @@ tags: ["LeetCode", "Mathematics", "Ruby", "Algorithms"]
 ---
 ## Reverse Integer
 
-Este problema consiste en tomar un numero de 32 bits y luego invertirlo
+Este problema consiste en tomar un número de 32 bits y luego invertirlo
 
 ### Solución
 
@@ -40,13 +40,13 @@ def reverse(x)
 end
 ```
 
-Este programa primero toma el valor absoluto del numero y guarda si es positivo o negativo, esto por que en algunos lenguajes el modulo de los numeros negativos funciona de diferentes maneras.
+Este programa primero toma el valor absoluto del número y guarda si es positivo o negativo, esto porque en algunos lenguajes el módulo de los números negativos funciona de diferentes maneras.
 
 Luego guardamos como constante el valor de 2**31 y lo asignamos a unas variables para que no lo tenga que recomputar en cada ciclo, como algunas veces lo hace ruby.
 
-Este programa fue más o menos como lo habia pensado, la parte de verificar que el numero no pase los límites de los 32 bits fue la que tuve que buscar.
+Este programa fue más o menos como lo había pensado, la parte de verificar que el número no pase los límites de los 32 bits fue la que tuve que buscar.
 
-Note que también tenía unas divisiones que seguramente ruby recomptaba en cada iteración y las asigne a unas variables antes de emepzar el ciclo para ver si esto lo hacía más rápido y así fue:
+Note que también tenía unas divisiones que seguramente ruby recomputaba en cada iteración y las asigné a unas variables antes de empezar el ciclo para ver si esto lo hacía más rápido y así fue:
 
 
 ```ruby

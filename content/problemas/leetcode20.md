@@ -5,7 +5,7 @@ tags: ["LeetCode", "Stack", "Python", "Algorithms"]
 ---
 ## Paréntesis Válido
 
-Este problema consisten en regresar cierto si un string contiene una serire de parentesis que sean validos
+Este problema consiste en regresar cierto si un string contiene una serie de paréntesis que sean válidos
 
 ### Solución
 
@@ -29,5 +29,5 @@ def isValid(s: str) -> bool:
 
 ```
 
-Esta función primero añade a una lista los parentesis que abren y conforme la lista avanza el orden en en el que salen debe 
-ser el mismo con el que entran por lo que si esto no es así entonces el parentesis no es válido y si al final la lista esta vacía se regresa *True*
+Esta función primero añade a una lista los paréntesis que abren y conforme la lista avanza el orden en el que salen debe 
+ser el mismo con el que entran por lo que si esto no es así entonces el paréntesis no es válido y si al final la lista está vacía se regresa *True*

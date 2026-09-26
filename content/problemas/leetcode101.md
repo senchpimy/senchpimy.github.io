@@ -5,8 +5,8 @@ tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
 ## Symmetric Tree
 
-Este problema consisten en regresar un booleano que describe si un arbol es simetrico, es decir, los valores de la derecha
-de un arbol son iguales a los valores de la izquierda del otro
+Este problema consiste en regresar un booleano que describe si un árbol es simétrico, es decir, los valores de la derecha
+de un árbol son iguales a los valores de la izquierda del otro
 
 ### Solución
 
@@ -44,9 +44,9 @@ class Solution(object):
             res = False
 
 ```
-Este problema lo resolvi pensando en que es un problema de BFS, entonces por cada nivel del arbol
-verificaba si los valores eran iguales, y si los nodos eran validos, luego los guardaba al reves para
-comprobar si eran simetricos, estre problema funciono, pero era muy lento, una solucion más rapida seria
+Este problema lo resolví pensando en que es un problema de BFS, entonces por cada nivel del árbol
+verificaba si los valores eran iguales, y si los nodos eran válidos, luego los guardaba al revés para
+comprobar si eran simétricos, este problema funcionó, pero era muy lento, una solución más rápida sería
 la siguiente:
 
 ```python
@@ -67,4 +67,4 @@ class Solution(object):
 
 ```
 
-Esta solucion lo ve como un problema DFS, por lo que se ahorra el insertar los nodos en listas, pero hace las mismas verificaciones
+Esta solución lo ve como un problema DFS, por lo que se ahorra el insertar los nodos en listas, pero hace las mismas verificaciones

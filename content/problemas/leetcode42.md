@@ -5,7 +5,7 @@ tags: ["LeetCode", "Two Pointers", "Array", "Algorithms"]
 ---
 ## Contar Agua de Lluvia
 
-Este problema consisten en dado una lista con numeros los cuales representan la altura de pilares en un contenedor, encontrar el volumen total de agua
+Este problema consiste en dado una lista con números los cuales representan la altura de pilares en un contenedor, encontrar el volumen total de agua
 que se encuentra "atrapada" en el array
 
 ### Solución
@@ -45,7 +45,7 @@ end
 
 Esta solución usa dos apuntadores, busca por la izquierda un pilar hasta encontrar un pilar más grande o igual por la derecha, cuando lo encuentra
 este toma el volumen que existe entre los dos y le resta el volumen, pero no contaba en cuenta algunos casos, así que la modifiqué para 
-algunos casos que no tome en cuenta:
+algunos casos que no tomé en cuenta:
 
 ```ruby
 def min (a,b)
@@ -84,7 +84,7 @@ def trap(h)
 end
 ```
 
-Pero aun así esta muy parchado y esta mal, la correcta solución que supera al 99% de las soluciónes es la siguiente:
+Pero aun así está muy parchado y está mal, la correcta solución que supera al 99% de las soluciones es la siguiente:
 
 ```ruby
 def min(a, b)

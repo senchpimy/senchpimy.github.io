@@ -5,11 +5,11 @@ tags: ["LeetCode", "Mathematics", "Binary Search", "Go", "Algorithms"]
 ---
 ## Sqrt
 
- Este problema consisten en encontrar el numero entero más cercano a la raiz de un numero dado.
+ Este problema consiste en encontrar el número entero más cercano a la raíz de un número dado.
  
 ### Solución
 
-El problema consiste en una búsqueda binaria en el rango desde 0 hasta el numero dado
+El problema consiste en una búsqueda binaria en el rango desde 0 hasta el número dado
 
 ```go
 func mySqrt(x int) int {

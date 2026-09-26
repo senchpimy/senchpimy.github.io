@@ -5,7 +5,7 @@ tags: ["LeetCode", "Dynamic Programming", "Ruby", "Algorithms"]
 ---
 ## Escalera
 
-Este problema consisten en regresar un entero que indique todas las formas posibles en las cuales se puede subir una escalera de n escalones
+Este problema consiste en regresar un entero que indique todas las formas posibles en las cuales se puede subir una escalera de n escalones
 si en cada paso se puede escoger subir 1 o 2 escalones
 
 ### Solución
@@ -30,10 +30,10 @@ def climb_stairs(n)
 end
 ```
 
-Este programa toma en consideracion que para n siendo menor o igual a 3, el resultado sera igual que n, luego considera que la 
-ecuacion para resolver este problema es la siguiente:
+Este programa toma en consideración que para n siendo menor o igual a 3, el resultado será igual que n, luego considera que la 
+ecuación para resolver este problema es la siguiente:
 
 f(n) = f(n-1) + f(n-2)
 
-Entonces iteramos desde 1 (pues la primera iteración ya se resolvio) hasta n, luego obtenemos el resultado de la iteración i que sería
+Entonces iteramos desde 1 (pues la primera iteración ya se resolvió) hasta n, luego obtenemos el resultado de la iteración i que sería
 el resultado si n = i, y lo repetimos hasta que i = n; En donde ya tendríamos el resultado final

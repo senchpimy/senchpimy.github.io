@@ -5,11 +5,11 @@ tags: ["LeetCode", "Stack", "Ruby", "Algorithms"]
 ---
 ## Daily Temperatures
 
-Este problema consisten en dado un array en donde cada elemento representa la temperatura en un dia, regresar otro array que contenga cuantos dias faltan para que se tenga una temperatura mayor
+Este problema consiste en dado un array en donde cada elemento representa la temperatura en un día, regresar otro array que contenga cuántos días faltan para que se tenga una temperatura mayor
 
 ### Solución
 
-My primera solución O(n^2) fue la siguiente
+Mi primera solución O(n^2) fue la siguiente
 ```ruby
 # @param {Integer[]} temperatures
 # @return {Integer[]}
@@ -52,5 +52,5 @@ def daily_temperatures(temp)
 end
 ```
 
-Esta solución solo crea nueva memoria para un stack el cual guarda la información del indice el cual todavía no se encuentra un dia con una temperatura mayor, automáticamente
-el array se va a ordenar de forma descendiente y cuando se encuentra un valor que es mayor se hace la resta de los indices y se agrega al array de temperaturas para evitar crear un nuevo array
+Esta solución solo crea nueva memoria para un stack el cual guarda la información del índice el cual todavía no se encuentra un día con una temperatura mayor, automáticamente
+el array se va a ordenar de forma descendente y cuando se encuentra un valor que es mayor se hace la resta de los índices y se agrega al array de temperaturas para evitar crear un nuevo array

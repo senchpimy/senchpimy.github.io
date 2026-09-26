@@ -7,7 +7,7 @@ tags: ["LeetCode", "SQL", "Databases", "Algorithms"]
 
 
 
- Este programa consiste en juntas dos tablas en base a un cambo en SQL
+ Este programa consiste en juntar dos tablas en base a un campo en SQL
  
 ### Solución
 
@@ -19,8 +19,8 @@ tags: ["LeetCode", "SQL", "Databases", "Algorithms"]
 ```
  
 
- Escojemos los campos de **firstName, lastName, city, state** de la tabla **Person** con **LEFT JOIN** decimos que devuelva todos los registros de la tabla **Address** que no estén en **Person**,
- con **USING** significa que usara la columna **personId** para unir las dos tablas
+ Escogemos los campos de **firstName, lastName, city, state** de la tabla **Person** con **LEFT JOIN** decimos que devuelva todos los registros de la tabla **Address** que no estén en **Person**,
+ con **USING** significa que usará la columna **personId** para unir las dos tablas
  
 
 

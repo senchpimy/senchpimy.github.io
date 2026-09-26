@@ -7,7 +7,7 @@ tags: ["LeetCode", "Shell", "Linux", "Tools", "Algorithms"]
 
 
 
- Este problema consisten en imprimir la demcima linea de un archivo usando comando de shell, mi primera solución fue la siguiente:
+ Este problema consiste en imprimir la décima línea de un archivo usando comando de shell, mi primera solución fue la siguiente:
  
 ### Solución
 
@@ -17,7 +17,7 @@ tags: ["LeetCode", "Shell", "Linux", "Tools", "Algorithms"]
 ```
  
 
- Pero fallaba cuando el documento no tenía más de 10 líneas, entonces con **awk** tienen la varibale **NR** que practicamente un contador de líneas,etonces
+ Pero fallaba cuando el documento no tenía más de 10 líneas, entonces con **awk** tienen la variable **NR** que prácticamente un contador de líneas,entonces
  se puede usar de la siguiente manera
  
 
@@ -34,7 +34,7 @@ tags: ["LeetCode", "Shell", "Linux", "Tools", "Algorithms"]
 ```
  
 
- En donde se le indica imprimir el decimo parrafo
+ En donde se le indica imprimir el décimo párrafo
  
 
 

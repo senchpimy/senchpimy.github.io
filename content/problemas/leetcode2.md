@@ -5,8 +5,8 @@ tags: ["LeetCode", "Linked List", "Ruby", "Algorithms"]
 ---
 ## Add Two Numbers
 
-Este problema consisten en dadas dos listas ligadas las cuales tienen los digitos de un numero entero en reversa y el problema consiste en sumar estos dos
-valores y regresar otra lista ligada en reversa con los digitos del resultado
+Este problema consiste en dadas dos listas ligadas las cuales tienen los dígitos de un número entero en reversa y el problema consiste en sumar estos dos
+valores y regresar otra lista ligada en reversa con los dígitos del resultado
 
 ### Solución
 
@@ -55,12 +55,12 @@ end
     return ref
 end
 ```
-Este programa conciste primero en encontrar los dos numeros que debemos sumar, itera la lista en su orden normal y cada vez que encuentra un numero
+Este programa consiste primero en encontrar los dos números que debemos sumar, itera la lista en su orden normal y cada vez que encuentra un número
 este es multiplicado por un multiplicador y sumado al valor total, este multiplicador aumenta en 10 con cada iteración.
 
-Luego suma los numeros de forma normal y hace el proceso inverso
+Luego suma los números de forma normal y hace el proceso inverso
 
-Pero encontré estas dos soluciónes
+Pero encontré estas dos soluciones
 
 ```ruby
 # Definition for singly-linked list.
@@ -107,4 +107,4 @@ def add_two_numbers(l1, l2)
 end
 ```
 
-Este programa toma otra alternativa, suma los numeros como los va leyendo y si la suma de los numeros es superior o igual a 10 guarda el residuo y lo añade al siguiente, este código no crea una nueva lista, pues guarda los nuevos valores en un nuevo array
+Este programa toma otra alternativa, suma los números como los va leyendo y si la suma de los números es superior o igual a 10 guarda el residuo y lo añade al siguiente, este código no crea una nueva lista, pues guarda los nuevos valores en un nuevo array

@@ -5,7 +5,7 @@ tags: ["LeetCode", "Linked List", "Python", "Algorithms"]
 ---
 ## Intersección de dos listas ligadas
 
-Este problema consisten en verificar si dos listas tienen un nodo en comun
+Este problema consiste en verificar si dos listas tienen un nodo en común
  
 ### Solución
 
@@ -31,8 +31,8 @@ class Solution(object):
         return l1
 ```
 
-Esta solucion consiste en tener dos "punteros", uno al principio de cada lista, y se avanza uno por uno, en donde si ambos son de la misma longitud y si ambos no estan conectados, 
-cuando lleguen al final el valor sera None y se regresara None, el resultado correcto, si estan conectados en un punto X, si esta
-union esta a la misma distancia de la cabeza entonces llegaran al mismo tiempo, si uno esta más cerca de la cabeza que el otro, el más corto comenzara en la cabeza del otro, y cuando el otro termine
-y comience en la cabeza del anterior, estaran a la misma distancia del punto pues el primero avanzo la diferencia que existe y si existe una union llegaran a ella al mismo tiempo,
-si no entonces llegaran ambos a null, la condicion se cumple y se regresa el valor correcto
+Esta solución consiste en tener dos "punteros", uno al principio de cada lista, y se avanza uno por uno, en donde si ambos son de la misma longitud y si ambos no están conectados, 
+cuando lleguen al final el valor será None y se regresará None, el resultado correcto, si están conectados en un punto X, si esta
+unión está a la misma distancia de la cabeza entonces llegarán al mismo tiempo, si uno está más cerca de la cabeza que el otro, el más corto comenzará en la cabeza del otro, y cuando el otro termine
+y comience en la cabeza del anterior, estarán a la misma distancia del punto pues el primero avanzó la diferencia que existe y si existe una unión llegarán a ella al mismo tiempo,
+si no entonces llegarán ambos a null, la condición se cumple y se regresa el valor correcto

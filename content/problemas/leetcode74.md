@@ -5,7 +5,7 @@ tags: ["LeetCode", "Matrix", "Binary Search", "Algorithms"]
 ---
 ## Buscar en Matriz 2D
 
-Este problema consisten en regresar un booleano dependiendo si un elemento se encuentra en una matriz de m*n en la cuál esta ordenada de forma creciente
+Este problema consiste en regresar un booleano dependiendo si un elemento se encuentra en una matriz de m*n en la cual está ordenada de forma creciente
 
 ### Solución
 
@@ -34,4 +34,4 @@ def search_matrix(matrix, target)
 end
 ```
 
-Este programa considera la matriz como un solo array y para acceder a los indices adecuados este divide los valores por n pues así tendríamos la columna y fila siendo el residuo y el resultado respectivamente
+Este programa considera la matriz como un solo array y para acceder a los índices adecuados este divide los valores por n pues así tendríamos la columna y fila siendo el residuo y el resultado respectivamente

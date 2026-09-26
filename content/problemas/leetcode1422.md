@@ -5,7 +5,7 @@ tags: ["LeetCode", "String", "Ruby", "Algorithms"]
 ---
 ## Valor Máximo Después de Separar
 
-Este problema consiste en que dado un string de unos y ceros encontremos el valor máximo que se puede obtener después de separa el string en 2 y sumar la cantidad de 0's de un lado con la cantidad de 1's del otro.
+Este problema consiste en que dado un string de unos y ceros encontremos el valor máximo que se puede obtener después de separar el string en 2 y sumar la cantidad de 0's de un lado con la cantidad de 1's del otro.
 
 
 ### Solución
@@ -40,4 +40,4 @@ s.pop()
 end
 ```
 
-La solución consiste en buscar el valor total de los caracteres en un lado y después volver a iterar en el string actualizando las posibles soluciónes y solo tenemos que encontrar el valor máximo
+La solución consiste en buscar el valor total de los caracteres en un lado y después volver a iterar en el string actualizando las posibles soluciones y solo tenemos que encontrar el valor máximo

@@ -7,7 +7,7 @@ tags: ["LeetCode", "Array", "C++", "Algorithms"]
 
 
 
- Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuanto elementos unicos este tenía
+ Este programa consiste en eliminar los elementos duplicados de un vector y regresar cuántos elementos únicos este tenía
  
 ### Solución
 
@@ -30,8 +30,8 @@ public:
  
 ```
 
- Este programa itera por todo el vector y como este esta ordenado es cuando el numero anterior al numero de la iteración actual son diferentes que se puede decir que es otro elemento del array, por lo que se aumenta el valor, al mismo tiempo como tenemos el indice de que elementos unicos lo podemos intercambiar
- para así poder reducir su tamaño a solo elementos unicos
+ Este programa itera por todo el vector y como este está ordenado es cuando el número anterior al número de la iteración actual son diferentes que se puede decir que es otro elemento del array, por lo que se aumenta el valor, al mismo tiempo como tenemos el índice de que elementos únicos lo podemos intercambiar
+ para así poder reducir su tamaño a solo elementos únicos
  
 
 

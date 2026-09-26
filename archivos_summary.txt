@@ -1,0 +1,861 @@
+FILE: content/archivos/servidorarchivos.md
+title: "Servidor Archivos"
+
+
+ Creando otros proyectos me vi en la necesidad de poder crear un servidor al cual con una simple request POST sobre https con el debido json poder recibir cualquier archivo que requiera, para esto cree este programa el cual hace justamente esto
+
+ Solo hay que configurar un archivo .json, el cual contiene los archivos los cuales pueden ser requeridos, pero considero que lo debería cambiar, ya que para conseguir un archivo es necesario saber la ubicación del archivo en la maquina que lo hostea, lo cual puede causar problemas.
+
+ La seguridad de la contraseña también piensa que puede ser cambiada ya que esta información es enviada como un .json simple, lo cual si el usuario final no se encarga de configurar el servidor como http, o configurar la contraseña por defecto encriptada, esta podría ser interceptada
+
+
+
+---
+FILE: content/archivos/rust-arduino-blink.md
+title: "Rust en Arduino"
+
+ Rust es un lenguaje de bajo nivel que me gustaría aprender, aquí hay un ejemplo del equivalente al programa blink, para el **arduino uno** usando Rust.
+
+
+ Primero hay que instalar los programas necesarios para linkear y compilar para el arduino, en arch son las siguientes:
+ 
+ pacman -S arduino-avr-core
+ pacman -S avr-gcc
+ 
+ Luego hay que crear un nuevo proyecto de rust usando cargo.
+---
+FILE: content/archivos/selector.md
+title: "Selector de Archivos"
+ Cuando estaba haciendo mi programa para mandar mensajes me di cuenta que al haber tantos navegadores de archivos no habia un estándar para invocar un selector de archivos y tener el **string** de la ubicación de este archivo que fue seleccionado, con esto en mente cree en rust un selecotr de archivos simple, este solo muestra los contenidos de una carpeta y al hacer click en algún archivo este regresa el string de su ubicación, este programa tiene un buscador y además de que puede ser ejecutado de forma en la que solo aparezacan archivos de determinado tipo
+ 
+![](/pro_img/archivos.gif)
+
+ Este programa no tiene nombre pero al ponerlo en tu **PATH** tan solo basta para pasarle los formatos como argumentos, en realidad este programa solo renderiza aquellos archivos que contengan en su terminacion el string que fue pasado como argumento por lo que si introduces **jpg** en lugar de **.jpg** puede que aparezacan archivos que no tengan esa extensión pero si ese string, pero si pasas como argumento **images, videos o documents** hay una selección de formatos preedefinidos, pero no creo que esto sea válido para todos los casos
+ 
+
+
+---
+FILE: content/archivos/laser.md
+title: "Ender3 con Laser"
+Este proyecto es una modificación a mi impresora una ender 3 para que esta sea capaz de funcionar como una CNC, lo que hice fue imprimir [este adaptador (Version 4 para la ender 3)](https://www.thingiverse.com/thing:3369444) pues es una modificación que me permitirá hacer que a la ender 3 se le puedan montar varias herramientas de forma rápida sin tener la preocupación que lo que se vaya a montar no quede centrado.
+   
+
+ Ahora que ya tengo un adaptador de un motor, tengo un laser al cual me gustaría igualmente montar en la impresora para poder grabar circuitos electrónicos, este modelo de laser tenía unos agujeros en la parte de atrás en la cual se puede atornillar, tome las medidas que tenía y las pase a Freecad, después copie el archivo que me permite insertar lo que quiera en la ranura y los uní, en este caso dejé un poco de separación pues de haberlo hecho todo junto la palanca que asegura el objeto en la ranura empujaría hacía adelante el laser.
+
+![](/pro_img/adaptador_laser.png)
+
+
+
+
+---
+FILE: content/archivos/dirpath.md
+title: "Dirpath"
+
+ Cuando estaba modificando ZSH, me di cuenta que el prompt **starship**, por el que estaba cambiando **oh-my-zsh** no mostraba el path de los archivos como a mi gustaba, es decir **starship** mostraba el path así: ***.../Actual/directorio/subcarpeta***, mientras que el que me gustaba de **oh-my-zsh** lo mostraba de forma más corta, ese mismo ejemplo sería ***~/Ac/di/subcarpeta***, el cual se me hacía más corto y conciso, afortunadamente **starship** nos permite ejecutar cualquier comando y tener la salida en el prompt.
+ 
+![](/pro_img/Dirpath.png)
+
+ Este programa en C hace específicamente eso, lee el directorio actual y le el formato que quería
+ 
+
+
+---
+FILE: content/archivos/OllamaGBNF.md
+title: "Usando BNF en llama.cpp"
+## Ollama
+Actualmente ollama no cuenta con esta capacidad:
+
+https://github.com/ollama/ollama/issues/6237
+
+## GBNF
+
+GBNF es un formato para definir gramáticas formales para limitar la salida de los modelos generativos. Se puede usar para producir json válido o para solo hablar usando emojis.
+---
+FILE: content/archivos/robotcito.md
+
+Este proyecto consiste en un robot humanoide, todos los modelos fueron originales pero me base en otros ya ecistentes, las pinzas fueron adaptadas de un modelo ya existente
+---
+FILE: content/archivos/osciloscopio.md
+title: "Osciloscopio"
+
+
+ Este es un proyecto que vi en internet, un arduino siendo usado como un osciloscopio, usando una pantalla oled de 64x128, [en este enlace esta el blog](http://radiopench.blog96.fc2.com/blog-entry-893.html) y el video del que me guie fue el siguiente:
+ 
+  
+
+ Y si accedemos a el vlog en donde se subio podemos ver el diagrama:
+ 
+![](oscilo_diagrama.png)
+
+---
+FILE: content/archivos/soporte.md
+title: "Ender3 como CNC"
+
+Este proyecto es una modificación a mi impresora una ender 3 para que esta sea capaz de funcionar como una CNC, lo que hice fue imprimir [este adaptador (Version 4 para la ender 3)](https://www.thingiverse.com/thing:3369444) pues es una modificación que me permitirá hacer que a la ender 3 se le puedan montar varias herramientas de forma rápida sin tener la preocupación que lo que se vaya a montar no quede centrado.
+
+ Como la quiero hacer una CNC necesito un adaptador para el motor que tengo que sería el **GS-775M**, encontré un diseño de ese motor en internet y en base a ese puede hacer [este diseño](motor_cnc.stl), se imprime con soportes y yo recomiendo una relleno +20% con +2 paredes, el diseño funciona muy bien y si puede soportar el motor sin tener vibraciones.
+ 
+
+![](/pro_img/adaptador_motor.png)
+![](/pro_img/adaptador_motor_con_motor.png)
+
+Lo malo de este diseño es que no tuve en cuenta la distancia de la broca a la placa, lo estoy ocupando para hacer circuitos impresos, y para esto tuve que incorporar una extensión en cura la cual me permite agregar una separación entre el extrusor y la cama directamente en el **G-code** *\*en mi caso (pues coloco una tabla de madera para proteger la cama de la ender 3 de la broca) de más de 2 cm\**
+---
+FILE: content/archivos/ReinforcementLearning.md
+title: "Reinforcement Learning"
+
+En este ejemplo se va a resolver el pendulo y el aterrizaje lunar
+
+## Continuous Action Spaces
+
+En el aprendizaje por refuerzo un espacion de acciones continuo es
+un conjunto de acciones posibles infinitamente divisibles y no discretas. Es decir
+el agente puedelegir valores reales dentro de un rango continuo en lugar 
+de un numero finito de acciones predefinidas.
+
+---
+FILE: content/archivos/extrusor.md
+title: "Extrusor Ender 3"
+
+Este proyecto es una modificación a mi impresora una ender 3 para que esta sea capaz de funcionar como una CNC, lo que hice fue imprimir [este adaptador (Version 4 para la ender 3)](https://www.thingiverse.com/thing:3369444) pues es una modificación que me permitirá hacer que a la ender 3 se le puedan montar varias herramientas de forma rápida sin tener la preocupación que lo que se vaya a montar no quede centrado.
+
+ Para este proyecto le compré un extrusor **Bondtech BMG** a mi impresora para poder agregarlo como un extrusor directo y así poder imprimir con materiales flexibles, así que lo que hice fue modificar el adaptador para el extrusor para que pudiera soportar y apoyar el Bondtech encima del extrusor.
+ 
+![](/pro_img/adaptador_extrusor1.png)
+![](/pro_img/adaptador_extrusor2.png)
+
+ Pero no tome en cuenta que la fuerza del extrusor era mayor que la resistencia de la impresión así que este modelo lo tuve que imprimir 2 veces antes de darme cuenta de que esta idea no era factible, por lo que mejor compré un tubo más estrecho y atornille el extrusor en donde estaba por defecto. Espero ahora poder imprimir con materiales flexibles
+
+---
+FILE: content/archivos/marmol.md
+title: "Marmol"
+
+ Este es un programa inspirado en otro programa llamado obsidian, este primero es un intérprete de archivos de markdown, en el cual se pueden guardar notas y en estas se renderizarán después con las reglas de markdown correspondientes.
+ 
+
+ Pero no me gusto este programa pues consume mucha memoria RAM y no hay una forma dentro del programa de automatizar los respaldos más que por extensiones y solo por medio de **git**, entonces escribí este programa para corregir esto, ahora le faltan algunas cosas que me gustaría agregar así,
+ pero también tiene otras características que obsidian no tiene.
+   
+
+  
+
+---
+FILE: content/archivos/ngrok_reverse_proxy.md
+title: "Ngrok Para Exponer un Puerto Local a Internet"
+
+
+# Introducción: Cómo Exponer un Puerto Local a Internet con ngrok
+
+Cuando desarrollamos una aplicación o un servicio en nuestra máquina local, a veces necesitamos acceder a él desde fuera de nuestra red local.
+Podríamos estar mostrando un prototipo a un cliente.
+El método tradicional implicaría configurar un servidor público, gestionar un dominio y configurar la red, lo cual puede ser complejo y lento.
+
+Una solución mucho más sencilla y rápida es usar una herramienta de túnel como ngrok.
+Esta utilidad crea un túnel seguro desde un servidor público de ngrok directamente a un puerto específico de nuestra computadora.
+---
+FILE: content/archivos/hugo.md
+title: "Hugo"
+
+
+ Hugo es un programa que permite generar páginas web estáticas en base a plantillas, estas páginas son muy extensibles y es bastante fácil crear un set de plantillas, aunque ya existen varias plantillas que se pueden usar para cualquier tipo de propósito, pues hugo no solo puede generar las páginas y luego guardarlas en el disco, si no también servirlas dinámicamente
+
+Yo decidí reescribir mi página en markdown con ayuda de unos programas que hice para poder tener mayor flexibilidad y velocidad al agregar una nueva característica, así como escribir el estándar para la página una sola vez y que este funcione en globalmente sin tener que actualizarlo archivo por archivo.
+
+ Las páginas primero siguen la plantilla definida en la carpeta **layout**, en la cual según la jerarquía del archivo y su nombre se puede definir una plantilla u otra. Cada archivo tiene metadatos que se definen en el archivo y estas variables se pueden renderizar en la página html según hayamos creado la plantilla.
+
+ Luego en la carpeta **static** es donde se guardan todos los archivos que sean estáticos como imágenes, estilos y scripts.
+
+---
+FILE: content/archivos/configsmarlin.md
+title: "Configuración de Marlin Para la Ender3"
+
+ Con los 4 archivos de configuración tenemos muchas de modificación posibilidades para la ender 3, en mi caso hice las siguientes, pues modifiqué mi impresora desde el hardware agregandole un nuevo hotend (Maxiwatt) y el extrusor BondtechBMG necesita modificaciones al firmware
+ 
+## _Statusscreen.h
+
+
+
+**_statusscreen.h** es un archivo que contiene un bitmap de la pantalla de status que contiene el logo de Marlin, pero como me gusta Serial Experiments Lain se lo voy a cambiar a esta imagen:
+ 
+
+---
+FILE: content/archivos/zsh.md
+title: "Configuración de zsh"
+
+ Zsh también conovida como Z shell es un intérprete de comandos para sistemas Unix, es la shell que viene por defecto en todas las mac.Es similar a la shell bash, pero en mi opinion tiene varias características por defecto que la hacen más moderna. Para aumentar sus capabilidades un administrador de plugins muy fácil de instalar, que ya incluye varios plugins, modificaciones y alias así como un prompt personalizado, este administrador de plugins se llama **Oh-My-Zsh**, lo malo de este es que yo siento que puede hacer la shell muy lenta al cargar por primera vez, así que lo desinstale y solo agregue lo que necitaba y prompt personalizado, lo demás lo deseche y siento que ahor atengo más control pues ahora se bien que hace cada cosa y el prompt tiene características que no pensé que podía tener así como le quite otras que no me gustaba que tuviera.
+   
+  
+  
+
+* **Cuztomizar el prompt:** El prompt es el texto que aparece antes del cursor en el terminal, y en este aparece información como el directorio, el estado del proyecto de git, el tiempo que tardo en ejecutarse un comando, etc. Así como modificar los colores y símbolos que salen, para lograr modiicar el prompt utilice un programa llamado starship, este programa soporta la mayoria de las shells y el proceso de insatlación y personalización esta en su [sitio web](https://starship.rs/); Yo tengo el siguiente archivo de configuración:
+
+```toml
+
+---
+FILE: content/archivos/piernaPerroRobot.md
+---
+FILE: content/archivos/gault.md
+title: "gault"
+
+
+ Gault es una copia de OpenMediaVault, pero esta es más simple y en menos código, escrita solo con Go, y en lo que he probado, esta versión que hice no tiene problema para montar discos externos y usarlos para un servidor samba como me paso cuando use esta aplicación, este programa tiene una menor probabilidad de errores al ser más simple, pero por el momento al diferencia de OpenMediaVault, este programa todavía no tiene soporte para hacer servidores ftp y nfs, pero en algún momento lo agregaré, otro lado negativo de mi programa es que los posibles errores que puedan suceder no son reportados en el GUI y algunos no son muy claros. 
+ En mi programa también se pueden modificar la variables globales de samba. Cuenta igual con un parte en donde muestra el uso de cada disco en el sistema
+ 
+
+
+---
+FILE: content/archivos/ftp.md
+title: "VSFTP"
+
+
+ FTP es un protocolo para transmitir archivos, desde hace tiempo he intentado tener un servidor dentro de mi red local el cual funcione con unos discos que tengo, e intentado usar **OpenMediaVault**, pero tiene algunos bugs y no me gusto, también intente usar **Owncloud**, pero parece que no
+ que la empresa que lo desarrolla no le quiere seguir dando mantenimiento y una instalación debian desde apt no funciona pues la versión de php en debian no es compatible con la que requiere owncloud, y la imagen de docker tiene problemas en la configuración del servidor, entonces mejor decidí usar
+ un simple servidor ftp
+   
+  
+
+ Para instalarlo en debian solo se tiene que ejecutar:
+
+---
+FILE: content/archivos/PBM.md
+title: "PBM"
+
+
+ PBM es un programa escrito en python que es para el control de backups, este programa funciona como git, pero algo diferente, ya que esta no guarda una copia de los archivos que se hayan añadido a git, en su lugar este programa 
+obtiene el hash SHA512 de todos los archivos que se hayan añadido, lo que hace que se ahorre espacio a comparación de git pero no se pueden recuperar archivos, este programa solo mostrara los archivos que se hayan eliminado o que hayan cambiado en comparación a el hash que el programa obtuvo cuando se creo
+ 
+ Uso
+ 
+**init** Inicia la base de datos
+ **recursive** Agrega los archivoa a la base de datos de forma recursiva
+ **update** Actualiza la base de datos, eliminando de la base los 
+---
+FILE: content/archivos/laptop.md
+---
+FILE: content/archivos/servidor.md
+title: "Preparar un Servidor"
+
+ Cuando se tiene un nuevo servidor el cual uno esta rentando, hay algunas configuraciones que se tienen que llevar a cabo en el servidor para poder hacerlo más seguro. Esta guia esta enfocada a servidores Linux
+  
+
+### Actualizar el sistema
+
+ Muchas veces podriamos estar instalando alguna imagen de sistema, que sea antigua y por lo tanto esta puede que no tenga los últimos parches de seguridad de cualquier programa que pudiesemos estar ejecutando, así que lo primero sería actualizar el sistema, como hacer esto varia en cada distribución, por lo que también es bueno actualizar los servidores de forma relgular, en debian existe un programa llamado **unnatended-upgrades**
+  
+
+### Ejecutar servicios
+---
+FILE: content/archivos/3dlenguaje.md
++++
+---
+FILE: content/archivos/owncloud.md
+title: "owncloud"
+
+ Owncloud es un servicio que te permite tener tu propia nube
+ Primero instale docker, que es un poco complejo pues el paquete en el repositorio no es el docker completo, es decir lo suqiente no funciona
+
+ ```sh
+ sudo apt install docker
+ ```
+ 
+ Por lo que tuve que seguir las instrucciones de [aquí](https://docs.docker.com/engine/install/debian/)
+  
+---
+FILE: content/archivos/plugins.md
+title: "Configuración de Neovim"
+En esta entrada explicaré todos los plugins que tengo en neovim y que función cumplen, así sobre como están configurados en mi init.vim y por que esos y no otros
+ 
+## Indentline
+
+
+
+[Vim Indentline](https://github.com/Yggdroot/indentLine) es un plugin simple que solo agrega una barra como "|" cuando se detecta un indentLine, mis configuraciones son las siguientes
+ 
+```vim
+let g:indentLine\_char\_list = ['|', '¦', '┆', '┊']
+---
+FILE: content/archivos/pagina/index.md
+title: "Mi página Web (v1)"
+
+#### original *(31/7/2022)*
+
+Cree esta página para poder llevar un registro de mis proyectos y del como lo hice para futuras referencias o si requiero recrearlos.
+
+En mi primera versión me tome como reto crear una página que no utilize ningún tipo de JavaScript y de usar la minima cantidad de CSS, esto pues me interesaba
+crear una página sencilla, todo esto inspirado por las páginas antiguas y blogs de personas. 
+
+## Luke Smith's Webpage
+
+---
+FILE: content/archivos/startpage.md
+title: "Startpage"
+
+ Una startpage es una página que sale al principio de tu navegador cada que abres un nuevo tab o al abrirlo por primera vez, yo lo hice en dos navegadores, en **Qutebrowser** y en **Firefox**, en en primero es bastante simple pues tan solo basta con modificar el archivo de configuración de este programa, para esto hay que entrar en la carpeta de **~/.config/qutebrowser**, y en esta carpeta hay que modificar (o crear el archivo y agregar lo siguiente) el archivo **config.py**, por comodidad creamos la variable que contenga el archivo html principal, es decir el que se va a cargar (en el caso de Qutebrowser carga cualquier cosa que contenga esta variable, sea un archivo local, o una url, incluso un puerto local), en este caso le llame **StartPage** y esta variable sera ocupada en las dos siguientes propiedades/funciones, por lo que el código necesario para tener una startpage en Qutebrowser sería el siguiente.
+ 
+ ```py
+ StartPage='***Path/port/url***'
+ c.tabs.background = True
+ c.url.default\_page = StartPage
+ config.set('url.start\_pages',StartPage)
+ config.load\_autoconfig(False)
+ ```
+---
+FILE: content/archivos/hyperland.md
+title: "hyperland"
+Hyperland es un compositor de wayland (o sea un administrador de ventanas) y este al ser más simple y minimalista
+para poder tener un sistema completo se necesita muchos otros programas diferentes
+
+## Hyperland
+
+Para la configuración de este use la configuración ya existente de [Hyde](https://github.com/prasanthrangan/hyprdots) ya que esta contiene scripts
+que configuran y declaran ciertas variables en el sistema para tener la menor cantidad de problemas de compatibilidad con otros programas, lo que
+modifiqué en este caso fue el teclado y algunas configuraciones de la teclas:
+
+```
+---
+FILE: content/archivos/zegC.md
+title: "Zeg C"
+
+## ZegC
+
+**ZegC** es un intérprete de *C* escrito en zig,
+no es un compilador es un interprete, pues 
+no genera un ejecutable, solo ejecuta codigo
+
+---
+FILE: content/archivos/rust-arduino-carro.md
+title: "rust-arduino-carro"
+
+ Después de hacer el arduino blink, pensé en hacer algo más complicado usando rust y arduino, plo que pensé en hacer en un robot con un sensor ultrasonico de distancia que pueda detectar cualquier objeto y que se mueva si es que la distancia hacía el objeto es inferior a una variable. Use un arduino uno, un sensor ultrasonico HC-SR04, una placa personal usando el chip l298n-d que funciona como puente H, dos motores y dos pilas de 9v
+   
+
+  
+
+ Las conecciones fueron las siguientes:
+ * **TRIGGER:** Pin D9
+* **ECCHO:** Pin D10
+* **MOTOR1A:**Pin D4
+---
+FILE: content/archivos/zig_con_c.md
+title: "owncloud"
+
+# Zig 
+Zig es un "nuevo" lenguaje de programación que se enfoca en ser lo más compatible con C como sea posible, pero teniendo una sintaxis y ecosistema
+moderno, para probarlo cree este programa que crea una ventana usando la librería "Xlib" que esta totalmente escrita en C.
+
+Este es el código en C:
+
+```c
+#include <X11/Xlib.h>
+#include <stdio.h>
+---
+FILE: content/archivos/despertadortouch.md
+title: "Reloj Calendario"
+
+## Introducción
+
+Quise usar un reloj inteligente, pero quería que también mostrara mis pendientes y un calendario y encontré varios como el Amazon Echo Show
+pero no se veía como quería, sería muy aburrido solo comprarlo y no funcionaría como querría
+
+## Pantalla
+Compré una pantalla touch de aliexpress y un raspberry pi zero 2w
+
+![](/archivos/pantallaDespertador.png)
+---
+FILE: content/archivos/safetensorsToGguf.md
+title: "Safetensors To GGUF"
+
+## GGML/GGUF
+Ollama es un proyecto de código abierto que se utiliza para administrar, ejecutar y configurar LLMs. Especificamente se utiliza
+para ejecutar modelos de forma local.
+
+Ollama puede usar es solo un administrador, como backend utiliza **llama.cpp**, llama.cpp es un backend completo, flexible y portatil del cual leia los modelos con el formato **GGML**, pero conforme los modelos crecian y 
+agregaban nuevas características fue necesario crear un nuevo formato para mantener la conveniencia de tener un modelo en un solo archivo pues se requeria almacenar nueva información sobre el modelo.
+
+El formato GGUF fue introducido como sucesor de GGML en agosto de 2023
+
+---
+FILE: content/archivos/gentoo.md
+title: "Instalando Gentoo"
+
+Primero Identificamos el disco y lo formateamos y dividimos las particiones.
+---
+FILE: content/archivos/sscache_mold.md
+title: "Sscache y Mold"
+
+
+ Estas herramientas ayudan a reducir los tiempos de compilación.
+
+ **Sccache** lo instale con cargo, y para usarlo con **gcc** se ocupa antes del comando:
+   
+
+```sh
+sccache gcc -o foo.o -c foo.c
+```
+---
+FILE: content/archivos/subdominios.md
+title: "Subdominios"
+
+ Cuando tienes un servidor pero muchas ideas que hacer con el, tener un solo dominio no basta para todo, para esto sirven los subdominios y la forma de hacerlos es muy sencillo, para esto hay que tener ya un servidor, un dominio y **nginx**.
+ Para esto necesitamos un servicio que se ejecute en algún puerto que este libre, [aquí](https://github.com/senchpimy/simple_firmas) hice una simple programa en go que se ejeuta en el puerto **3001**, por lo que si se ejecutara de forma local con escribir en el navegador **localhost:3001** podriamos ver esta página, este programa es bastante simple, genera una página web la cual tiene un espacio para poder entrar texto, cualquier texto que entre sera guardado en un archivo y los contenidos de este archivo sera mostrado en la misma página web al comienzo.
+
+ Ahora como podemos hacer que en nuestro dominio **example.com** el cual ya esta ocupado pueda mostrar algo diferente en **ejemplo.example.com**, esto se logra con **nginx**.
+ Primero necesitamos actualizar los registros de **DNS** de nuestro dominio, por lo que si ya tenemos el dominio **example.com** apuntando a nuestro servidor, en la misma página que hicimos esto podremos agregar el subdominio **ejemplo**, yo lo compré desde la página de **epik** y no se si así funcione en otras pero en esta solo es agregar el nombre del subdominio y apuntar el servidor, que en este segúndo paso no hay que hacer nada diferente a como es el dominio normal, es decir apuntamos el subdomino al mismo servidor sin especificar el puerto, pues es en realidad **nginx** el que se encargará de redirigir las peticiones al puerto especificado. Al final nuestro dominio con subdominio quedaría así:
+ 
+![](/pro_img/subdominios.png)
+
+ En la foto podemos ver el dominio principal apuntando a un servidor y el subdomnio apunta a el mismo servidor / dirección IP, así que en la parte de los registros de DNS ya es todo.
+---
+FILE: content/archivos/tablet_utils.md
+title: "Funcionalidades Extra de Tablet"
+
+## Introducción
+
+Compré una computadora la cual tiene la capacidad de doblarse como tablet y leer la entrada de dispositivos touch y en este caso también de una pluma
+pero en mi caso me gusta la experiencia de un administrador de ventanas, y aunque gnome por defecto tengo una buena experiencia con las diferentes
+funcionalidades del hardware me gusta más un sistema ligero, por lo que quise crear un programa con el cual pueda agregar diferentes funcionalidades
+usando esta pluma.
+
+## Leyendo la entrada
+
+---
+FILE: content/archivos/awesome.md
+title: "AwesomeWM"
+ Mi configuración de Awesomewm incluye los complementos de [lain](https://github.com/lcpz/lain), [awmodoro](https://github.com/optama/awmodoro), [Collision](https://github.com/Elv13/collision) y [awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets).
+
+ **LAIN:** Estos archivos agregan widgets y layouts para awesome.
+ **AWMODORO:** Este archivo agrega una pequeña barra en la parte superior que es un temporizador y este avanza según un tiempo especificado.
+ **COLLISION:** Esta librería agrega funciones extras para mover ventanas y en "escritorios".
+ **AWESOME-WM-WIDGETS:** Agrega widgets para la wibar.
+ 
+## Config
+
+
+---
+FILE: content/archivos/linux_module.md
+title: "Linux Module"
+
+Estoy haciendo un servidor gráfico para sistemas embebidos que pueden ejecutar linux, sin embargo para manejar el mouse decidí usar las lecturas analógicas de un joystick, de la misma forma que uno puede leer desde */dev/input/mouse0* mi intención es hacer lo mismo, pero con un joystick
+
+## Comunicacion Serial
+Algunos sistemas como la *Raspberry Pi \* * no pueden leer entradas analógicas directamente, entonces para estos casos escribí un programa en un arduino, el plan es crear una comunicación seríal entre los dos para comunicar las lecturas analógicas de del joystick, este es el código que 
+desarrollé:
+
+```ino
+const int pin_x = A0;
+const int pin_y = A1;
+---
+FILE: content/archivos/rust_milkv.md
+title: "Rust en RiscV"
+
+Este es una guia basada en [esta guia](https://barretts.club/posts/i-got-a-milkv-duo/).
+
+Suponiendo que ya se tiene el *milk V* con linux instalado y acceso a una terminal.
+
+Primero hay que descargar o compilar el toolchain para compilar rust en riscv, yo lo compile para evitar errores de compatibilidad
+
+## Compilacion
+
+Primero hay que descargar la toolchain [desde aquí](https://github.com/kinsamanka/milkv-buildroot), al momento de escribir esto, las instrucciones para compilar están en el reademe del repositorio 
+---
+FILE: content/archivos/PerroRobot.md
+---
+FILE: content/archivos/teclado_bluetooth.md
+---
+FILE: content/archivos/dwm.md
+title: "dwm"
+
+
+[DWM](https://dwm.suckless.org/) es un administrador de ventanas escrito en C, y por esto es bastante más rápido y consume menor RAM que [AwesomeWM](./awesome.html), el que yo utilizo es una versión modificada de este, los patches que agregue en este fueron los siguientes:
+ 
+## CenteredMaster
+
+
+
+[CenteredMaster](https://dwm.suckless.org/patches/centeredmaster/) agrega dos diferentes layouts para DWM
+ 
+---
+FILE: content/archivos/sovl.md
+title: "sovl"
+
+ Sovl es una aplicación que funciona como frontend para mpc y pamixer, este programa lee un archivo de configuración que esta **"~/.config/sovl/"** y se llama **config.ini**, este archivo debe comfigurarse como un archivo .toml, y debe contener la configuración de la aplicación, esta configuración debe tener la configuración de las ventanas, botones y deslizadores, esta configuración debe incluir el tamaño, posición, función y estilo de cada uno de los elementos, cuando se ejecuta el programa este lee la configuración y se modifica en base a esto, por lo que cada vez que se quieran ver los cambios se necesita terminar y volver a ejecutar la aplicación, un ejemplo de esta configuración es el siguiente:
+ 
+```toml
+ [Button]
+ x=0
+ y=80
+ Height=20
+ width=20
+ Image= /home/plof/.config/sovl/play.png
+---
+FILE: content/archivos/relojmultiusos.md
+title: "Reloj Multiusos"
+
+En este proyecto use un despertador antiguo que no servia y lo "repare" y además añadi más fucnionalidades.
+
+
+Primero use un **esp32** como microcontrolador para el proyecto, pues este ya tiene coneccion a wifi y bluetooth, use un display de 7 segmentos para matener el formato de la hora, específicamente use el TM1637, y el programa de la hora se ejecuta en el sgundo core de
+el esp32. Ademas este usa los botones que el desperator ya traía para dar la hora.
+
+Ademas le añadi una pantalla de e-ink, esto por que el despertador también traía una lampara y se la quite y le coloque esta pantalla de 7 colores, pues le quedaban del mismo tamaño. Pero tuve problemas al usar la librería por que algunas cosas no funcionaban.
+
+Por ejemplo en la librería hay unos headers que están mal escrito y hay que editar el código fuente para poder corregirlo, después por algún motivo cambiar la orientacion de la pantalla mediante la liberria no funcionaba, así que tuve que implementar una pequeña función 
+---
+FILE: content/archivos/ender3marlin.md
+title: "Marlin para la Ender 3"
+
+
+ Para poder usar y modificar el marlin para la ender 3 primero debemos de descargar el marlin desde la página como archivo zip y luego descomprimirlo o clonándolo de github con **git clone https://github.com/MarlinFirmware/Marlin.git**
+
+
+ Después de tener los archivos tenemos que abrir la carpeta que dice Marlin y ahí borramos los archivos **Configuration.h** y **Configuration\_adv.h**
+
+
+ Estos archivos los tenemos que reemplazar por los archivos que encontraremos en <https://github.com/MarlinFirmware/Configurations>, en el cual en la parte de [Readme/Branches](https://github.com/MarlinFirmware/Configurations) seleccionaremos en **Browse** de la versión de Marlin que tengamos, en el repositorio nos iremos a **config&gtexamples** en esta sección están todos los ejemplos de Marlin para diferentes impresoras y marcas, como yo tengo una ender 3 me iré a **Creality<Ender3**, aquí hay varias carpetas y cada una es el nombre de una placa para la ender 3 como yo estoy usando la placa CrealityV1, haré click en esa.
+ 
+---
+FILE: content/archivos/endercnc.md
+title: "endercnc"
+
+Este proyecto es una modificación a mi impresora una ender 3 para que esta sea capaz de funcionar como una CNC, lo que hice fue imprimir [este adaptador (Version 4 para la ender 3)](https://www.thingiverse.com/thing:3369444) pues es una modificación que me permitirá hacer que a la ender 3 se le puedan montar varias herramientas de forma rápida sin tener la preocupación que lo que se vaya a montar no quede centrado.
+
+ Como la quiero hacer una CNC necesito un adaptador para el motor que tengo que sería el **GS-775M**, encontré un diseño de ese motor en internet y en base a ese puede hacer [este diseño](motor_cnc.stl), se imprime con soportes y yo recomiendo una relleno +20% con +2 paredes, el diseño funciona muy bien y si puede soportar el motor sin tener vibraciones.
+ 
+
+![](/pro_img/adaptador_motor.png)
+![](/pro_img/adaptador_motor_con_motor.png)
+
+Lo malo de este diseño es que no tuve en cuenta la distancia de la broca a la placa, lo estoy ocupando para hacer circuitos impresos, y para esto tuve que incorporar una extensión en cura la cual me permite agregar una separación entre el extrusor y la cama directamente en el **G-code** *\*en mi caso (pues coloco una tabla de madera para proteger la cama de la ender 3 de la broca) de más de 2 cm\**
+---
+FILE: content/archivos/entornoGrafico.md
+---
+FILE: content/archivos/gripper.md
+title: "Gripper"
+
+Este es un proyecto que realicé con piezas que me sobraban.
+
+Es un coche con llantas omnidireccionales que se mueve con un joystick y un brazo mecánico controlado con 5 servos mg90 que se controla desde una página web, esta página web se conecta con comunicación seríal con otro ESP32 el cual se conecta con el esp32 que esta en el coche,
+se comunican mediante el protocolo esp32Now.
+
+La página web tiene un singleton que muestra el brazo y renderiza su posición actual en la misma página web, actualmente solo funciona en navegadores basados en chromium pues es este el único que tiene una API seríal. La página manda al esp32 un json con cada posición de los
+servos, luego este lo guarda en una estructura que lo puede mandar mediante esp32Now a el esp32 que controla el coche, el que lo recibe en uno de sus cpus, en el otro esta leyendo un joystick que controla unas llantas
+
+---
+FILE: content/archivos/stablediffusion.md
+title: "Stable Diffusion"
+**Stable Diffusion**, es un modelo de inteligencia artifical que sirve para generar imágenes, lo bueno de este modeloes que es **open source** y se puede ejecutar de forma local, entonces lo quise ejecutar en mi propia maquina, entonces vi que una de las formas más rápida de poder usar este 
+ modelo es usando el programa **[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)**, este programa funciona en casi todas las computadoras de forma automática, solo hay que ejecutar el script de instalación y así debería funcionar, pero en mi computadora
+ y por el hardware que tengo tuve que hacer unos pasos extras.
+
+ Al intentar ejecutar el script por primera vez, este no descaragba la versión de **ROCm** necesaria para funcionar, luego de tiempo de investigar me di cuenta que mi tarjeta gráfica todavía no estaba soportada por este software, así que dejé de intentarlo por un tiempo hasta que vi la noticia
+ que la nueva versión ya funcionaba con la tarjeta que tenía, entonces intente seguir los pasos anteriores otra vez, pero seguia teniendo el mismo error, entonces intente unos forks de **stable-diffusion-webui**, y uno logro funcionar pero este usaba el cpu en lugar de la gpu, segui revisando 
+ los reportes de problemas en el github de **stable-diffusion-webui** y vi que el soporte para mi tarjeta ya estaba agregado, pero aun así los cambio que vi no estaban en la versión que descargue, entonces vi que **stable-diffusion-webui** tenía varias **branches** y estaba descargando la 
+ versión estable, cuando los cambio para poder soportar la versión nueva estaban en la rama de desarrollo (*dev*), entonces elimine el repositorio que habia descargado y use este comando para descargar la rama que necesitaba:
+
+```sh
+---
+FILE: content/archivos/recuperarImpresion.md
+title: "recuperarImpresion"
+
+ Cuando estaba imprimiendo algo que ya llevaba varios dias de avanzado y esta tuvo un error al 70% de la pieza, no quería volver a imprimir todo otra vez, así que tuve que buscar como poder recuperar una impresión.
+ Este método funciona editando el Gcode de la pieza, puede haber otros métodos como imprimir por separado la pieza faltante
+   
+
+  
+
+ Lo primero y lo más importante que hay que hacer es no mover la pieza, intentar si es posible tener la cama caliente para evitar que la pieza de despegue de esta, y si esta en una cama con removible, no moverla ni un poco, pues esto puede causar movimientos en la figura final que no solo 
+ se notara el cambio de capa, sino también puede hacer que la pieza tenga un punto de quiebre en esa capa.
+   
+---
+FILE: content/archivos/programaMensajes.md
+---
+FILE: content/archivos/estaticas.md
+title: "Páginas Estáticas"
+
+ Una forma de mostrar páginas estáticas es usando **nginx**, para lograr esto hay que tener una página estatica la cual mostrar, por ejemplo yo hice [esta página](https://github.com/senchpimy/simple), como se puede ver, esta página solo tiene el index y una página, además de otros archivos que irían en esta página.
+   
+
+  
+
+ Hay que guardar estos archivos en una carpeta, en la cual no debe tener nada más que lo que queremos mostrar en la página web, pues de lo contrario cualquier otro archivo extra que este en este directorio sera servido como los otros archivos.
+   
+
+  
+---
+FILE: content/archivos/lvim.md
+title: "Lunar Vim"
+
+
+ Lunar Nvim es una configuración de Neovim que incluye muchas cosas por default que son bastante útiles y que personalmente yo no puede configurar bien en mi configuración,
+ aunque funciona muy bien aun así lo tuve que configurar en algunas cosas y este es el archivo de configuración que agregue
+ 
+```lua
+vim.keymap.set("n", "nh", ":HopWord")
+vim.keymap.set("n", "", ":BufferLineCycleNext")
+vim.keymap.set("n", "", ":BufferLineCyclePrev")
+vim.keymap.set("n", "", ":BufferLinePickClose")
+---
+FILE: content/archivos/raspberrysetup.md
+title: "Raspberry Pi Setup"
+
+ Continuando con mi configuración de mi Raspberry pi decidí además de la pantalla colocarle un ventilador y un boton de apagado encendido.
+
+ La configuración y funcionamiento del script de la pantalla ya fue explicado en [este enlace](oled.html).
+
+ Para el boton intente utilizar [este script](https://github.com/Howchoo/pi-power-button) debido a que tiene la funcionalidad de apagar y prender la raspberry pi desde el mismo boton, este no fue implementado debido a que interferia con la comunicación I2C de la pantalla por lo que escribí mi porpio programa, con antirebote y con un delay para que la Raspberry no se apague con movimientos o con presiones accidentales, este es el código (Python) 
+
+```py
+ #Aquí no están incluidas las librerías
+ pin=27
+---
+FILE: content/archivos/dwmstatus.md
+title: "DWM Status"
+
+ Dwm no tiene mucha configuración por defecto por lo mismo de ser muy mínimo, por lo que para poder hacerlo como AwesomeWM hay que hacer muchas maromas para poder tenerlo funcional.
+   
+
+  
+
+ Por defecto y sin ningún cambio Dwm tiene en la esquina superior derecha un texto en el cual se lee **dwm-xx** donde xx es la versión de dwm, para poder cambiar este texto con el comando **xsetroot -name "XXX"** donde XXX es el texto que va a salir en esta esquina, y con esto podemos hacer que salida de un comando sea el texto de que aparecerá en esa parte por ejemplo **xsetroot -name "$(date)"** pondra en esa esquina la salida del comando date que es la fecha, con esto en cuenta el programa [dwmblocks](https://github.com/torrinfail/dwmblocks) nos da una implementación de poder colocar la salida de cualquier comando en esta parte de la pantalla, si compilamos el programa con **sudo make clean install** y lo ejecutamos como **dwmblocks** podremos ver que en la esquina tendremos la fecha y cuanta memoria esta disponible y cuánta a ha sido utilizada y que estos valores cambian cada cierto tiempo, estos son los ejemplos que vienen en el archivo blocks.def.h, 
+
+```c
+ static const Block blocks[] = {
+---
+FILE: content/archivos/GoDesdeLua.md
+title: "Go desde Lua"
+
+## Llamando código de Go desde Lua
+
+Primero hay que tener un código/funciones de go como las siguiente:
+
+```go
+func add(x int, y int) int{
+    return x+y
+}
+```
+---
+FILE: content/archivos/code2flowchart.md
+title: "Code 2 Flowchart"
+
+Este es un programa que pense hacer
+en los primeros semestres cuando me pedian
+hacer un diagrama de flujo de los
+programas que hacia, este programa
+usa [treesitter](https://tree-sitter.github.io/tree-sitter/)
+para poder obtener la syntaxis de cualquier
+lenguaje. El programa lo hice en TS
+para que pueda ser usado en cualquier lado
+
+---
+FILE: content/archivos/mano.md
+title: "Mano Robot"
+
+
+ Construí una mano que hasta cierto nivel sigue los movimientos de otra mano en base a una cámara, para esto escribí el siguiente programa:
+```py
+import cv2
+import os
+import numpy as np
+import mediapipe as mp
+
+webcam=cv2.VideoCapture(0)
+---
+FILE: content/archivos/gitea.md
+title: "Gitea"
+
+
+
+ Gitea es un programa OpenSource para poder hostear una instancia de un servidor de git, y aprovechando que ya tengo un dominio con una computadora quise hostear mis propios proyectos usando este programa, este programa es de fácil instalación, pero si le quisieras modificar alguna plantilla hay que tener cuidado en que carpeta y usuario lo instales, primero hay que descargar el binario y luego hacerlo ejecutable.
+```sh
+
+ wget -O gitea https://dl.gitea.io/gitea/1.18.1/gitea-1.18.1-linux-amd64
+ chmod +x gitea
+``` 
+
+---
+FILE: content/archivos/zellij.md
+title: "Zellij"
+
+Esta entrada iba a ser explicando mi configuración de 
+[tmux](https://github.com/tmux/tmux), pero descubi
+[zellij](https://github.com/zellij-org/zellij), que 
+al igual q tmux es un [terminal multiplexer](https://en.wikipedia.org/wiki/Terminal_multiplexer) pero 
+a diferencia ya tiene la unica funcion por la que usaria
+tmux por defecto y es la de guardar sesiones, en tmux esto tambien
+se puede hacer pero requiere de un plugin, 
+en zellij los [plugins](https://github.com/zellij-org/awesome-zellij) son creados en webassembly lo que permite
+que sean creados en cualquier lenguaje, pero yo no necesite
+---
+FILE: content/archivos/tecladoBluetooth.md
+---
+FILE: content/archivos/genericosGo.md
+title: "Genéricos En Go"
+
+Los genericos se pueden declarar y usar funciones y tipos para que trabajen con cualquier set de tipos.
+
+## Ejemplo
+
+Un ejemplo del uso de valores no genericos es el siguiente:
+
+```go
+// SumInts adds together the values of m.
+func SumInts(m map[string]int64) int64 {
+---
+FILE: content/archivos/stablediffusionRegional.md
+title: "Stable Diffusion Regional Prompting"
+
+
+**Stable Diffusion Regional Prompt** es una extensión para la interfaz [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui), este extensión nos permite generar imágenes de tal manera que ciertos elementos estén es un espacio espefico de la imagen
+ generada, pero este elemento se va a colocar de tal manera que no parece agregado de forma aparte.
+   
+  
+
+ Es decir podemos dar un prompt especifico para cierta region y con esto se generará lo que especificamos y lo acoplara de forma natural al resto de la imagen.
+   
+  
+---
+FILE: content/archivos/flipper_devboard.md
+---
+FILE: content/archivos/oled.md
+title: "Raspberry Pi Oled"
+ Inspirado en este video decidí comprar una pequeña pantalla como la del video y ponerle a mi raspberry pi una pantalla igualmente, pero experimentando con mi raspberry tuve le que borrar la memoria muchas veces teniendo que repetir todo el proceso del video, para evitar esto escribí el siguiente script de bash que automatiza la instalación de las librerías y configura la Raspberry pi para solamente ejecutar el script de python y tener la pantalla funcionando
+
+
+```sh
+ !/bin/bash
+
+sudo apt-get install -y python3 git python3-pip
+echo #############python3, git and pyhton3-pip installed#############
+sudo pip3 install --upgrade setuptools
+echo #############python setuptools installed#############
+---
+FILE: content/archivos/soporteherramientas.md
+title: "Ender3 como CNC"
+
+ Ya teniendo las herramientas que quería, el laser, un taladro y finalmente su extrusor, así que ahora le hice un soporrte para poder guardar estas herramientas en la parte superior de la impresora, del mismo modo que el soporte del filamento esta montado.
+ 
+![](/pro_img/ender3.jpg)
+
+ Entonces tome el modelo en el que montan las herramientas y lo modifiqué para que tuviera espacio para poder montarse en la parte superior además de espacio para las dos herramientas cuando no se están ocupando.
+ 
+![](/pro_img/soporteherramientas.png)
+
+
+---
+FILE: content/archivos/CenRust.md
+title: "C en Rust"
+
+Este es un pequeño resumen de como usar código de C existente en proyectos de Rust.
+
+## build.rs
+
+Este es un pequeño programa que se encargará de compilar el código de C para después añadirlo a el código de Rust.
+
+En este caso especificamos el código y la compilación
+
+**build.rs**
+---
+FILE: content/archivos/marlin.md
+title: "Marlin"
+
+ Marlin es el firmware más usado para las impresoras 3D y al hacerle modificaciones físicas a la mia debía por lo tanto hacerle modificaciones a el firmware de la impresora. Aquí esta como lo hice.
+ 
+
+ Primero tuve que programar la placa controladora por defecto que traía mi Ender 3 en este caso era la placa Creality V1.1.4, para esto tuve que quemarle el bootloader de arduino a la placa, para esto tuve que hacer click en **Archivos&gtEjemplos&gtArduinoISP&gtArduinoISP** y en **programador** seleccioné **AVRISP mkII** y el puerto correspondiente que me marcaba el Arduino IDE, subí el programa a un Arduino UNO común, luego tuve que agregar la placa se Sanguino de a las información de Arduino para que este la pueda detectar, para esto tuve que hacer click en **Archivo&gtPreferencias** y saldrá un ventana, en esta ventana debemos buscar el campo de texto que dice **Additional Boards Manager URLs** y agregar el siguiente enlace <https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json>, luego le damos en **OK**, luego hacemos click en **Herramientas&gtPlaca&gtAdministrador de Placas** y en el campo de texto de búsqueda buscamos Sanguino y en la única que nos sale (Si nos salen varias es la de **Sanguino by Kristian Sloth Lauszus**) le damos en instalar, esperamos a que se descargue y lo cerramos.
+ 
+
+ Luego sin desconectar el arduino de la computadora conectamos los pines para usar el protocolo MISO-MOSI del arduino con los de la placa de la siguiente manera:
+ 
+
+---
+FILE: content/archivos/teclado.md
+title: "Teclado"
+
+ Diseñe y programe un teclado, además que lo imprimí. El teclado del el cual me base fue el lily58, pues ya que este se me hizo interesante y habia archivos
+ disponibles para poder imprimirlo.
+ 
+![](/pro_img/iris_keyboard.webp)
+![](/pro_img/lily58.webp)
+
+ Para poder hacerlo necesité comprar unos botones mecanicos, pues estos son los que dan la flexibilidad de poder usarlos en cualquier posición y de cualquier manera,
+ también necesité unos arduino pro-micro, estos en especificos pues su microprocesador a diferencia de otros arduino a excepcion del **Leonardo** ya tiene incluida
+ la capacidad de ser leido como un periferico por las computadoras solo con el uso de unas librerías, pero el **Leonardo** es demasiado grande y costoso, pues se 
+---
+FILE: content/archivos/teclado2.md
+title: "Teclado V2"
+El primer teclado que hice, tuvo varios errores, la cabeza de los tornillos quedaban muy afuera de la base y haceian que al momento de escribir el teclado se deslizara, las pantallas que escoji aunque les di un uso, a veces no funcionaban de la forma esperada, las perillas quedaron muy cerca de los
+bonotes y no se pueden mover tan fácil, etc.
+
+Entonces mejor decidí hacer una nueva versión del teclado, y para esto lo primero que cambie fue el modelo 3D, este modelo también consisten en dos teclados separados, pero me intereso la idea de aprovechar la impresión 3D para darles un relieve, primero quise usar [este fork](https://github.com/tshort/dactyl-keyboard)
+del modelo original del teclado **dactyl manuform**, pues este repositorio tiene una forma estándar de crear estos teclados y es muy fácil de hacer modificaciones, pero al ver los **forks** de este **fork** me encontré con [este otro fork](https://github.com/joshreve/dactyl-keyboard)
+que no solo parece que incluye mejoras en la generación de la geometria, pues ha diferencia del primero este usa python para generar los modelos 3D, otra de las características por la cual lo escoji es por que por defecto tiene la opción de generar los modelos con un espacio para una pantalla oled de 128x32 con 
+varios métodos para colocar esta en su lugar, por lo que esto me ahorraria este trabajo de modificar el diseño, y finalmente este tiene la opción de generar los modelos con un espacio abierto para colocar cualquier adaptador que quepa en ese lugar, dando flexibilidad sobre que microcontrollador se 
+puede usar.
+
+### Materiales Necesarios
+---
+FILE: content/archivos/neovim.md
+title: "Configuración de Neovim"
+
+
+Neovim es un programa de edición de texto basado en vim, este se diferencia de vim en que Neovim tiene integración con el lenguaje de programación lua, lo que lo hace más extensible en el momento de usar plugins
+ 
+
+ Los plugins son lo mejor de vim/neovim pues aumentan la funcionalidad del programa y aquí explicaré los que uso actualmente, que hacen y como los configuré
+ 
+## init.vim
+
+
+---
+FILE: content/archivos/minimonitor.md
+title: "Minimonitor"
+
+ Compré el siguiente monitor para poder usarlo con mi raspberry pi el monitor que compré fue el siguiente
+   
+
+  
+
+
+![](/pro_img/pantallaRaspberry.jpg)
+
+ Y como se puede observar, es muy simple el modelo y por eso lo elegí, pensé en hacerle un carcasa pues este modelo no cuenta con una ni con el espacio como para ponerle tornillos así que le diseñé una en 3D y la imprimí.
+---
+FILE: content/archivos/octoprint.md
+title: "Octoprint"
+
+Octoprint  es un programa que crea un servidor en el podemos manejar y monitorear impresoras 3d, actualmente lo estoy ejecutando en una raspberry pi, pensaba ejecutarlo en un dispositivo android, pero necesito rootearlo para poder tener permiso a la única salida de datos, lo único que no 
+se como hacer es de alguna forma poder ejecutar comandos definidos, esto pues acomodé un servomotor al apagador de la impresora para poder también poder prenderla y apagarla a la distancia, el apagador esta en la fuente de poder y el código que ejecuto es el siguiente
+
+```py
+from gpiozero import AngularServo
+from gpiozero import Servo
+from gpiozero.pins.pigpio import PiGPIOFactory
+from time import sleep
+
+---
+FILE: content/archivos/funcionesConOllama.md
+title: "Llamado de funciones con Ollama"
+
+## Salida Estructurada en Llama.cpp
+
+En un modelo de lenguaje es a veces útil poder estructurar la salida, es decir dado un prompt poder limitar la salida de tal forma que cumpla ciertas normas o formatos tal como json.
+
+En llama.cpp existe la opción de crear una **gramática formal** mediante el formato de **GBNF**.
+
+### Gramática Formal
+
+Describe que cadenas de un **alfabeto** de un **Lenguaje formal** son válidas según la sintaxis del lenguaje.
+---
+FILE: content/archivos/profesional.md
+title: "Pagina Profesional"
+
+ Viendo que mi página se queda algo simple, pero aun así me gusta, decidí hacer esta misma página, con los mismos contenidos pero con otros estilos, y para no tener una copia de todos los archivos que tengo aquí, que tendria que sincronizar cada vez que haga una modificación, pensé en usar mi página principal para obtener el html de su contenido pero cambiar sus estilos, para hacer esto hice un simple prorama en go que hace específicamente esto:
+ 
+```go
+
+ package main
+
+ import (
+ "fmt"
+ "io"
+---

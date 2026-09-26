@@ -5,7 +5,7 @@ tags: ["LeetCode", "Tree", "Ruby", "Algorithms"]
 ---
 ## Arbol
 
-Este problema consisten en regresar un booleano que describe si dos raices de unos arboles describen dps arboles iguales
+Este problema consiste en regresar un booleano que describe si dos raíces de unos árboles describen dos árboles iguales
 
 ### Solución
 
@@ -33,10 +33,10 @@ end
 
 ```
 
-Este programa lo resolvi creado dos ques para cada arbol, y añadiendo los nodos hoja de cada nodo a su respectiva lista y regresando false en
+Este programa lo resolví creando dos ques para cada árbol, y añadiendo los nodos hoja de cada nodo a su respectiva lista y regresando false en
 la diferencia de valor del nodo o de la arquitectura.
 
-Primero se guardan en una lista y se van sacando los elementos uno por uno, luego se revisa si existe diferencia entre si, es decir continua
+Primero se guardan en una lista y se van sacando los elementos uno por uno, luego se revisa si existe diferencia entre sí, es decir continúa
 si los dos son nulos o si los dos son no-nulos, si alguno es nulo pero el otro no entonces no son iguales, finalmente compara el valor de cada
 uno.
 

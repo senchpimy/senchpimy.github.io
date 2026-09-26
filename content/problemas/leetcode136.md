@@ -6,8 +6,8 @@ tags: ["LeetCode", "Mathematics", "Bit Manipulation", "Algorithms"]
 
 ## Single Number
 
- Este problema consisten en dada una lista que tiene un par de todos los elementos de la lista
-meno suno, encontrar cual es ese numero que no tiene par
+ Este problema consiste en dada una lista que tiene un par de todos los elementos de la lista
+menos uno, encontrar cuál es ese número que no tiene par
  
 ### Solución
 
@@ -24,5 +24,5 @@ impl Solution {
 }
 ```
 
-La solucion consiste en que si se le aplica la operacion "XOR" a todos los numeros, sin importar el orden, los que si tienen un par terminaran
-cancelando sus valores entre si, dejando unicamente el valor que no tiene par.
+La solución consiste en que si se le aplica la operación "XOR" a todos los números, sin importar el orden, los que sí tienen un par terminarán
+cancelando sus valores entre sí, dejando únicamente el valor que no tiene par.

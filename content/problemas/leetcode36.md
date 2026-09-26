@@ -5,7 +5,7 @@ tags: ["LeetCode", "Matrix", "Ruby", "Algorithms"]
 ---
 ## Valid Sudoku
 
-Este problema consisten en dado un sudoku regresar si el sudoku es válido, es decir no existe ningún numero repetido en las columnas, filas y cuadrados de 3x3
+Este problema consiste en dado un sudoku regresar si el sudoku es válido, es decir no existe ningún número repetido en las columnas, filas y cuadrados de 3x3
 
 ### Solución
 
@@ -31,10 +31,10 @@ def is_valid_sudoku(board)
 end
 ```
 
-Este programa los resolvi teniendo un hashmap para cada fila, columna y cuadro de 3x3, y preguntando si el elemento que se esta procesando actualmente se encuentra dentro de los valores del hashmap que se esta evaluando.
+Este programa los resolví teniendo un hashmap para cada fila, columna y cuadro de 3x3, y preguntando si el elemento que se está procesando actualmente se encuentra dentro de los valores del hashmap que se está evaluando.
 
-Este fue mi primer intento, pero ver las soluciónes más rapidas encontré una fórmula que mejora la memoria y velocidad del que ya tenía con solo una linea, salva memoria al no guardar la llave del hashmap de cuadrados 3x3 como un array con dos elementos y en su
-lugar lo guarda como un solo indice, esta es la versión final:
+Este fue mi primer intento, pero ver las soluciones más rápidas encontré una fórmula que mejora la memoria y velocidad del que ya tenía con solo una línea, salva memoria al no guardar la llave del hashmap de cuadrados 3x3 como un array con dos elementos y en su
+lugar lo guarda como un solo índice, esta es la versión final:
 
 
 ```ruby

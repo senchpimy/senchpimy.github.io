@@ -5,7 +5,7 @@ tags: ["LeetCode", "Array", "Python", "Algorithms"]
 ---
 ## Three Consecutive Odds
 
-Este problema consisten en regresar cierto si dada una lista se encuentras tres impares seguidos
+Este problema consiste en regresar cierto si dada una lista se encuentran tres impares seguidos
 
 ### Solución
 

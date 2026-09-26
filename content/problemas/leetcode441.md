@@ -6,7 +6,7 @@ katex: true
 ---
 ## Arranging Coins
 
-Este problema consiste en dado un numero de monedas, encontrar cuantos escalones donde el escalo *i* tiene *i* monedas
+Este problema consiste en dado un número de monedas, encontrar cuántos escalones donde el escalo *i* tiene *i* monedas
 se pueden armar con la cantidad de monedas dadas
 
 ### Solución
@@ -28,7 +28,7 @@ impl Solution {
 }
 ```
 
-Esta solucion es correcta, pero dura mucho tiempo y sobrepasa el limite de leetcode, otra solucion es la siguiente:
+Esta solución es correcta, pero dura mucho tiempo y sobrepasa el límite de leetcode, otra solución es la siguiente:
 
 ```rust
 impl Solution {
@@ -52,9 +52,9 @@ impl Solution {
 }
 ```
 
-Esta solucion se aprovecha de que el limite de el valor mayor posible que podria ser una solucion es igual a n,
-luego podemos hacer una busqueda binaria, evaluando si es posible armar una solucion con una cantidad de numeros,
-si lo es aumentamos el valor y si no lo reducimos, resolviendolo en log(n) tiempo. Pero existe una solucion
+Esta solución se aprovecha de que el límite de el valor mayor posible que podría ser una solución es igual a n,
+luego podemos hacer una búsqueda binaria, evaluando si es posible armar una solución con una cantidad de números,
+si lo es aumentamos el valor y si no lo reducimos, resolviéndolo en log(n) tiempo. Pero existe una solución
 O(1), y es la siguiente
 
 ```rust
@@ -71,7 +71,7 @@ $$
 \frac{k(k+1)}{2} = n
 $$
 
-Donde *n* es el numero de monedas dadas
+Donde *n* es el número de monedas dadas
 
 $$
 k^2 + k - 2n = 0

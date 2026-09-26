@@ -4,10 +4,10 @@ date: "07 Dec 2023"
 tags: ["LeetCode", "Stack", "C++", "Ruby", "Data Structures", "Algorithms"]
 ---
 ## Min Stack
-Este problema consisten en tener un stack el cual siqmpre se le pueda requerir el menor elemento en el stack y este siempre lo puede regresar
+Este problema consiste en tener un stack el cual siempre se le pueda requerir el menor elemento en el stack y este siempre lo puede regresar
 
 ### Solución C++
-Esta fue mi por algún motivo parece que leetcode no puede aceptar resultado que usen mallor y realloc, pues en mi computadora si funciono hasta cierto punto este primer intento
+Esta fue mi por algún motivo parece que leetcode no puede aceptar resultados que usen malloc y realloc, pues en mi computadora sí funcionó hasta cierto punto este primer intento
 
 ```cpp
 #include <iostream>

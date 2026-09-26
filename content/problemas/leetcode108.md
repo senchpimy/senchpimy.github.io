@@ -5,7 +5,7 @@ tags: ["LeetCode", "Tree", "Python", "Algorithms"]
 ---
 ## Convert Sorted Array to Binary Search Tree
 
-Este problema consiste dada una lista ordenada, regresar un arbol armado de esa lista, este arbol debe 
+Este problema consiste dada una lista ordenada, regresar un árbol armado de esa lista, este árbol debe 
 de estar balanceado de altura
 
 ### Solución
@@ -30,7 +30,7 @@ class Solution(object):
         return ordenar(0,r)
         
 ```
-Este problema se resuelve dividendo el array en listas más pequeñas hasta encontrar la solucion,
-en donde la mitad del array se vuelve un nodo y cada rama del arbol recurre el mismo proceso
-en donde si esta a la mitad s evuelve un nodo automaticamente y dado ese punto, los que estan a la
+Este problema se resuelve dividiendo el array en listas más pequeñas hasta encontrar la solución,
+en donde la mitad del array se vuelve un nodo y cada rama del árbol recorre el mismo proceso
+en donde si está a la mitad se vuelve un nodo automáticamente y dado ese punto, los que están a la
 izquierda se vuelven la izquierda del nodo y los de la derecha se vuelven la derecha del nodo
