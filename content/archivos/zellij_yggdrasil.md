@@ -12,19 +12,29 @@ Hacerlo en una red local es muy fácil, pero quiero acceder desde cualquier lado
 
 ### El servidor
 
-Pensé en rentar un servidor aparte, pero uno con el hardware que ya poseo saldría muy caro para el uso que le doy, y además ya tengo ese hardware. Entonces, como en el hackatón de 2024, consideré dos opciones: un proxy inverso hacia mi PC o un túnel de Cloudflare. El problema del túnel es que, sin cuenta, la URL cambia en cada ejecución; para mantenerla fija tendría que usar una cuenta y un dominio.
+Pensé en rentar un servidor aparte, pero uno con el hardware que ya poseo saldría muy caro para el uso que le doy, y además ya tengo ese hardware.
+Entonces, como en el hackatón de 2024, consideré dos opciones: un proxy inverso hacia mi PC o un túnel de Cloudflare —algo parecido a lo que ya
+había contado en mi [entrada de Ngrok](/archivos/ngrok_reverse_proxy/)—. El problema del túnel es que, sin cuenta, la URL cambia en cada ejecución;
+para mantenerla fija tendría que usar una cuenta y un dominio.
 
 Entonces recordé que existe Yggdrasil.
 
 ### Yggdrasil
 
-**[Yggdrasil](https://yggdrasil-network.github.io/)** es una red **mesh** (en malla) descentralizada que funciona como un **overlay** sobre internet. Cada nodo se conecta con otros cercanos y entre todos se arma un árbol de rutas, así que no hay un servidor central y no hace falta abrir puertos en el router ni tener una IP pública: mientras tengas al menos un vecino, ya estás dentro de la red.
+**[Yggdrasil](https://yggdrasil-network.github.io/)** es una red en malla descentralizada que funciona como un
+**overlay** sobre internet. Donde cada nodo se conecta con otros y entre todos se arma un árbol de rutas,
+así que no hay un servidor central y no hace falta abrir puertos en el router ni tener una IP pública.
 
-Tiene cifrado **end-to-end**: los nodos intermedios solo enrutan el tráfico pero no pueden leerlo. Además verifica la identidad de cada nodo con su llave, así que nadie puede hacerse pasar por ti.
+Al tener un cifrado end-to-end, los nodos intermedios solo enrutan el tráfico sin ver el contenido de los paquetes y además verifica 
+la identidad de cada nodo con su llave, así que nadie puede hacerse pasar por ti.
 
-Todo dentro de Yggdrasil es **IPv6**. A cada nodo se le asigna una dirección única dentro del rango **200::/7**, derivada de su llave pública. Por eso es siempre la misma, sin importar dónde estés ni cuál sea tu IP, y por eso me servía para exponer servicios sin depender de un dominio ni de un túnel con cuenta.
+Todo dentro de Yggdrasil es **IPv6**. A cada nodo se le asigna una dirección única dentro del rango **200::/7**,
+derivada de su llave pública. Por eso es siempre la misma, sin importar dónde estés ni cuál sea tu IP, y por eso 
+me servía para exponer servicios sin depender de un dominio ni de un túnel con cuenta y que la IP se mantuviera constante.
 
-Yggdrasil crea la interfaz **tun0** y le asigna esa IPv6. Se calcula a partir del `PrivateKey` de `/etc/yggdrasil.conf`, por lo que es **estable** entre reinicios y solo cambia si se regenera la llave. Para verla:
+Yggdrasil crea la interfaz **tun0** y le asigna esa IPv6. Se calcula a partir del `PrivateKey` de `/etc/yggdrasil.conf`, por lo tanto es la misma reinicios y solo cambia si se regenera la llave. 
+
+Para ver la IP:
 
 ```sh
 ip -brief addr show tun0
@@ -32,9 +42,7 @@ ip -brief addr show tun0
 
 ![Salida de ip -brief addr show tun0](/pro_img/yggdrasil_ip_tun0.png)
 
-*La interfaz `tun0` con la IPv6 estable que Yggdrasil deriva de la llave del nodo.*
-
-La topología final es esta:
+La topología seria la siguiente:
 
 ```tikz
 \begin{tikzpicture}[box/.style={draw, rounded corners, minimum width=2.8cm, minimum height=1.1cm, align=center, font=\small}]
@@ -53,7 +61,9 @@ La topología final es esta:
 
 ### El certificado
 
-El servidor web de Zellij exige TLS si no escucha en `127.0.0.1`, así que generé un certificado autofirmado con **SAN** para la IP de Yggdrasil (y también para `127.0.0.1` y `localhost`) usando una configuración de openssl:
+El servidor web de Zellij exige TLS si no escucha en `127.0.0.1`,
+así que generé un certificado autofirmado con **SAN** para la IP de
+Yggdrasil (y también para `127.0.0.1` y `localhost`) usando una configuración de openssl:
 
 ```sh
 mkdir -p ~/Documentos/yggdrasil/zellij/certs
@@ -77,11 +87,14 @@ openssl req -x509 -newkey rsa:4096 -nodes -days 3650 \
   -config openssl-san.cnf
 ```
 
-Al ser autofirmado, el navegador mostrará una advertencia la primera vez que entres. Puedes aceptarla manualmente o importar `cert.pem` como certificado de confianza en tu laptop.
+Al ser autofirmado, el navegador mostrará una advertencia la primera vez que se conecta, pero 
+puedes aceptarla manualmente o importar `cert.pem` como certificado de confianza en tu laptop.
 
 ### Zellij
 
-Zellij es un multiplexor de terminal como tmux, pero con otras características. Desde su versión **0.44** tiene un servidor web con el que puedes conectarte a tus sesiones desde el navegador. Expuse este servicio por **Yggdrasil** y así conseguí una terminal a mi PC desde el navegador, sin importar dónde esté. Hablo más del multiplexor en su [entrada de Zellij](/archivos/zellij/).
+Zellij es un multiplexor de terminal como tmux, pero con otras características. Desde su versión **0.44**
+tiene un servidor web con el que puedes conectarte a tus sesiones desde el navegador. Expuse este servicio
+por **Yggdrasil** y así conseguí una terminal a mi PC desde el navegador, sin importar dónde esté. Hablo más del multiplexor en su [entrada de Zellij](/archivos/zellij/).
 
 Con la IP y el certificado, solo hay que arrancar el servidor apuntando a esa IP. Si lo corres sin `--daemonize` se queda en primer plano, que es justo lo que necesita **systemd**:
 
@@ -138,120 +151,9 @@ c.IdentityProvider.token = ""
 
 Como la configuración no está en `~/.jupyter`, hay que indicarle a Jupyter dónde buscarla con `JUPYTER_CONFIG_DIR`. Eso se hace en el script de arranque, que se explica en la siguiente sección.
 
-### Servicios de systemd
-
-Como los servidores no deben depender de que yo abra una terminal, los hice servicios de **usuario** de systemd. Cada uno usa un pequeño script que espera a que Yggdrasil levante `tun0` con su IP y después arranca el servidor.
-
-```tikz
-\begin{tikzpicture}[box/.style={draw, rounded corners, minimum width=5.2cm, minimum height=0.9cm, align=center, font=\small}]
-  \node[box] (a) at (0,0) {\texttt{network-online.target}};
-  \node[box] (b) at (0,-1.7) {\texttt{yggdrasil} crea \texttt{tun0}};
-  \node[box] (c) at (0,-3.4) {El script espera la IP\\(hasta 60 s)};
-  \node[box] (d) at (0,-5.1) {\texttt{exec} del servidor\\(Zellij / Jupyter)};
-
-  \draw[->] (a) -- (b);
-  \draw[->] (b) -- (c);
-  \draw[->] (c) -- (d);
-  \draw[->, dashed] (d.east) -- ++(1.2,0) |- node[right, pos=0.25, font=\scriptsize] {\texttt{Restart=always}} (c.east);
-\end{tikzpicture}
-```
-
-**Zellij:**
-
-```sh
-cat > ~/Documentos/yggdrasil/zellij/web-server.sh <<'EOF'
-#!/usr/bin/env bash
-set -euo pipefail
-IP_BIN=/usr/sbin/ip
-ZELLIJ_BIN=/usr/sbin/zellij
-
-YGG_IP=""
-for _ in $(seq 1 60); do
-  YGG_IP="$($IP_BIN -brief addr show tun0 2>/dev/null | awk '{print $3}' | cut -d/ -f1)"
-  [ -n "$YGG_IP" ] && break
-  sleep 1
-done
-
-[ -n "$YGG_IP" ] || { echo "sin IP de Yggdrasil" >&2; exit 1; }
-
-exec "$ZELLIJ_BIN" web --start --ip "$YGG_IP" --port 8082 \
-  --cert "$HOME/Documentos/yggdrasil/zellij/certs/cert.pem" \
-  --key "$HOME/Documentos/yggdrasil/zellij/certs/key.pem"
-EOF
-
-chmod +x ~/Documentos/yggdrasil/zellij/web-server.sh
-```
-
-La unidad va en `~/.config/systemd/user/zellij-web.service`:
-
-```ini
-[Unit]
-Description=Zellij web server over Yggdrasil
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=simple
-ExecStart=%h/Documentos/yggdrasil/zellij/web-server.sh
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=default.target
-```
-
-**Jupyter:** es lo mismo, solo cambian el script y la descripción. El script es `~/Documentos/yggdrasil/jupyter/run-jupyter.sh`:
-
-```sh
-#!/usr/bin/env bash
-set -euo pipefail
-IP_BIN=/usr/sbin/ip
-JUPYTER_LAB="$HOME/Documentos/yggdrasil/jupyter/venv/bin/jupyter-lab"
-export JUPYTER_CONFIG_DIR="$HOME/Documentos/yggdrasil/jupyter"
-
-YGG_IP=""
-for _ in $(seq 1 60); do
-  YGG_IP="$($IP_BIN -brief addr show tun0 2>/dev/null | awk '{print $3}' | cut -d/ -f1)"
-  [ -n "$YGG_IP" ] && break
-  sleep 1
-done
-
-[ -n "$YGG_IP" ] || { echo "sin IP de Yggdrasil" >&2; exit 1; }
-
-exec "$JUPYTER_LAB" --ServerApp.ip="$YGG_IP" --no-browser
-```
-
-Y la unidad va en `~/.config/systemd/user/jupyter.service`:
-
-```ini
-[Unit]
-Description=JupyterLab server over Yggdrasil
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=simple
-ExecStart=%h/Documentos/yggdrasil/jupyter/run-jupyter.sh
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=default.target
-```
-
-Se habilitan y arrancan, y con **linger** corren incluso sin tener sesión iniciada:
-
-```sh
-systemctl --user daemon-reload
-systemctl --user enable --now zellij-web.service jupyter.service
-sudo loginctl enable-linger plof
-```
-
-Como los dos servicios y sus certificados quedaron regados, los junté en una sola carpeta, `~/Documentos/yggdrasil`, con la configuración de Yggdrasil y los scripts, y los `.service` apuntan ahí. De paso dejé un `restore.sh` que reinstala todo (configuración de Yggdrasil, certificados, configuración de Zellij y Jupyter, y las unidades) por si hay que montarlo en otra máquina.
-
 ### El firewall (ufw)
 
-Aquí fue donde me atoré. Primero, aunque `ufw.conf` decía `ENABLED=yes`, **ufw estaba inactivo**, así que lo activé. Pero al activarlo quedó en `deny (incoming)` y **dejó de verse la página desde otra máquina**.
+El firewall ya lo había visto en [Preparar un Servidor](/archivos/servidor/), pero aquí fue donde me atoré. Primero, aunque `ufw.conf` decía `ENABLED=yes`, **ufw estaba inactivo**, así que lo activé. Pero al activarlo quedó en `deny (incoming)` y **dejó de verse la página desde otra máquina**.
 
 La primera regla es permitir la interfaz de Yggdrasil:
 
@@ -343,3 +245,13 @@ Zellij web: https://[200:956c:8ab5:399d:126f:5a0:f718:4d39]:8082       (pide tok
 - Ambos dispositivos necesitan tener Yggdrasil instalado y funcionando.
 - La latencia depende de los peers que te toquen en la malla.
 - Si la PC se apaga o se suspende, no hay acceso. Habría que desactivar la suspensión o configurar Wake-on-LAN.
+
+### Ver también
+
+Estas entradas cubren por separado las piezas que fui juntando aquí:
+
+- [Preparar un Servidor](/archivos/servidor/): configuración y seguridad básica de un servidor Linux (incluido el firewall con ufw).
+- [Ngrok para exponer un puerto local](/archivos/ngrok_reverse_proxy/): el túnel que menciono al inicio.
+- [Subdominios](/archivos/subdominios/): Nginx y DNS para varios servicios.
+- [Gitea](/archivos/gitea/): self-hosting de Git.
+- [Páginas Estáticas](/archivos/estaticas/): servir sitios estáticos con Nginx.
