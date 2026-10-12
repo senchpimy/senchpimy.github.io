@@ -456,3 +456,86 @@ sup a:hover {
   justify-content: flex-start;
   margin-top: 0.5rem;
 }
+
+/* Lightbox: zoom suave de imagenes al hacer click */
+.post-content img {
+  cursor: zoom-in;
+}
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.34s ease, background-color 0.34s ease,
+    visibility 0s linear 0.34s;
+}
+
+.lightbox-overlay.open {
+  background-color: rgba(0, 0, 0, 0.88);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.34s ease, background-color 0.34s ease, visibility 0s;
+}
+
+.lightbox-image {
+  position: fixed;
+  display: block;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  transform-origin: center center;
+  will-change: transform;
+  cursor: zoom-out;
+  border-radius: 4px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
+  transition: transform 0.34s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+body.lightbox-lock {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-overlay,
+  .lightbox-image {
+    transition-duration: 0.001ms;
+  }
+}
+
+/* TikZ diagrams - mas grandes y centrados */
+.tikz-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+/* tikzjax genera esta estructura:
+     .tikz-figure > div > .page > svg
+   donde .page tiene height:0pt inline y el svg viene position:absolute,
+   lo que hace colapsar todo a altura 0. Lo reajustamos. */
+.tikz-figure > div,
+.tikz-figure > div > .page {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Sacamos el svg del posicionamiento absoluto para que su alto
+   se derive del viewBox y ocupe el ancho disponible. */
+.tikz-figure svg {
+  position: static !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  margin: 0 auto;
+}

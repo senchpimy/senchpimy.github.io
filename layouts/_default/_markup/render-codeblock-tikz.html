@@ -1,0 +1,6 @@
+<div class="tikz-figure">
+<script type="text/tikz">
+{{ .Inner | safeHTML }}
+</script>
+</div>
+{{ .Page.Store.Set "hasTikz" true }}
