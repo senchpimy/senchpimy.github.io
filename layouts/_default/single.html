@@ -3,6 +3,11 @@
 <div class="single-container">
   <article class="main-article">
     <h1>{{ .Title }}</h1>
+    {{ if not .Date.IsZero }}
+    <p class="post-date">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    </p>
+    {{ end }}
     {{ with .Params.tags }}
     <div class="tech-tags">
       {{ range . }}
